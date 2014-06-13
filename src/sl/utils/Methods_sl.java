@@ -42,7 +42,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import sl.items.PS;
 import sl.items.ShoppingItem;
 import sl.main.MainActv;
-import sl.main.R;
+import sl3.main.R;
 import sl.tasks.Task_PostData;
 import sl.utils.Tags.SortTags;
 

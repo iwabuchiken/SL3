@@ -8,7 +8,7 @@ import org.apache.commons.lang.StringUtils;
 
 import sl.items.ShoppingItem;
 import sl.main.MainActv;
-import sl.main.R;
+import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.tasks.Task_GetYomi;
 import sl.tasks.Task_PostData;

@@ -23,7 +23,7 @@ import sl.utils.Methods;
 import sl.utils.Methods_dlg;
 import sl.utils.Methods_sl;
 import sl.utils.Tags;
-
+import sl3.main.R;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;

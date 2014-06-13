@@ -5,7 +5,7 @@ import java.util.List;
 
 import sl.items.ShoppingItem;
 import sl.listeners.dialog.DialogOnItemClickListener;
-import sl.main.R;
+import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.CONS;
 import sl.utils.DBUtils;

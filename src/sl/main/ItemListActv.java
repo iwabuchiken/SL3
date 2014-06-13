@@ -8,7 +8,7 @@ import sl.adapters.ItemListAdapter;
 import sl.items.ShoppingItem;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
-import sl.main.R;
+import sl3.main.R;
 import sl.utils.CONS;
 import sl.utils.DBUtils;
 import sl.utils.Methods;

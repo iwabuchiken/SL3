@@ -5,8 +5,8 @@ import java.util.List;
 import sl.items.PS;
 import sl.items.ShoppingItem;
 import sl.main.ItemListActv;
-import sl.main.R;
-import sl.main.R.id;
+import sl3.main.R;
+import sl3.main.R.id;
 import sl.utils.Methods;
 
 import android.content.Context;

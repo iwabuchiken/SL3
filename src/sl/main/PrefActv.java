@@ -1,5 +1,6 @@
 package sl.main;
 
+import sl3.main.R;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.preference.EditTextPreference;

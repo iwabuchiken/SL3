@@ -12,7 +12,7 @@ import sl.listeners.dialog.DialogButtonOnClickListener;
 import sl.listeners.dialog.DialogButtonOnTouchListener;
 import sl.listeners.dialog.DialogOnItemClickListener;
 import sl.listeners.list.ListOnItemClickListener;
-import sl.main.R;
+import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.CONS.DialogButtonTags;
 import sl.utils.Tags;

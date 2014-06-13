@@ -6,7 +6,7 @@ import java.util.List;
 import sl.adapters.ItemListAdapter;
 import sl.items.ShoppingItem;
 import sl.main.ItemListActv;
-import sl.main.R;
+import sl3.main.R;
 import sl.tasks.TaskAudioTrack;
 import sl.tasks.Task_PostData;
 import sl.utils.CONS;

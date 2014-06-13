@@ -2,9 +2,9 @@ package sl.main;
 
 import sl.items.ShoppingItem;
 import sl.listeners.ButtonOnClickListener;
-import sl.main.R;
-import sl.main.R.id;
-import sl.main.R.layout;
+import sl3.main.R;
+import sl3.main.R.id;
+import sl3.main.R.layout;
 import sl.tasks.Task_PostData;
 import sl.utils.CONS;
 import sl.utils.DBUtils;

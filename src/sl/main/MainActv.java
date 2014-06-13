@@ -14,7 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import sl.items.ShoppingItem;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
-import sl.main.R;
+import sl3.main.R;
 import sl.tasks.TaskAudioTrack;
 import sl.utils.CONS;
 import sl.utils.DBUtils;

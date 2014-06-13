@@ -39,7 +39,7 @@ import sl.listeners.dialog.DialogButtonOnClickListener;
 import sl.listeners.dialog.DialogButtonOnTouchListener;
 import sl.listeners.dialog.DialogOnItemClickListener;
 import sl.main.ItemListActv;
-import sl.main.R;
+import sl3.main.R;
 import sl.main.MainActv;
 import sl.main.RegisterItemActv;
 import android.app.Activity;

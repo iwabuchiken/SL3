@@ -1,6 +1,6 @@
 package sl.listeners;
 
-import sl.main.R;
+import sl3.main.R;
 import sl.utils.Methods;
 import sl.utils.Tags;
 import android.app.Activity;
