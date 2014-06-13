@@ -1,0 +1,64 @@
+02-13 18:20:02.197: W/KeyCharacterMap(5154): Can't open keycharmap file
+02-13 18:20:02.197: W/KeyCharacterMap(5154): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-13 18:20:02.197: W/KeyCharacterMap(5154): Can't open keycharmap file
+02-13 18:20:02.197: W/KeyCharacterMap(5154): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-13 18:20:02.207: W/KeyCharacterMap(5154): Can't open keycharmap file
+02-13 18:20:02.207: W/KeyCharacterMap(5154): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-13 18:20:02.807: D/dalvikvm(5154): GC_EXTERNAL_ALLOC freed 67K, 48% free 2681K/5123K, external 2438K/2773K, paused 28ms
+02-13 18:20:06.207: D/Methods_sl.java[802:getYomi](5154): statusCode: 200
+02-13 18:20:06.220: W/System.err(5154): org.json.JSONException: Value <?xml of type java.lang.String cannot be converted to JSONObject
+02-13 18:20:06.220: W/System.err(5154): 	at org.json.JSON.typeMismatch(JSON.java:107)
+02-13 18:20:06.220: W/System.err(5154): 	at org.json.JSONObject.<init>(JSONObject.java:158)
+02-13 18:20:06.220: W/System.err(5154): 	at org.json.JSONObject.<init>(JSONObject.java:171)
+02-13 18:20:06.220: W/System.err(5154): 	at sl.utils.Methods_sl.getYomi(Methods_sl.java:817)
+02-13 18:20:06.220: W/System.err(5154): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:33)
+02-13 18:20:06.220: W/System.err(5154): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:1)
+02-13 18:20:06.220: W/System.err(5154): 	at android.os.AsyncTask$2.call(AsyncTask.java:185)
+02-13 18:20:06.220: W/System.err(5154): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+02-13 18:20:06.220: W/System.err(5154): 	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+02-13 18:20:06.220: W/System.err(5154): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+02-13 18:20:06.220: W/System.err(5154): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+02-13 18:20:06.227: W/System.err(5154): 	at java.lang.Thread.run(Thread.java:1019)
+02-13 18:20:06.227: W/dalvikvm(5154): threadid=9: thread exiting with uncaught exception (group=0x4001a560)
+02-13 18:20:06.227: E/AndroidRuntime(5154): FATAL EXCEPTION: AsyncTask #1
+02-13 18:20:06.227: E/AndroidRuntime(5154): java.lang.RuntimeException: An error occured while executing doInBackground()
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at android.os.AsyncTask$3.done(AsyncTask.java:200)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.FutureTask$Sync.innerSetException(FutureTask.java:274)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.FutureTask.setException(FutureTask.java:125)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:308)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.lang.Thread.run(Thread.java:1019)
+02-13 18:20:06.227: E/AndroidRuntime(5154): Caused by: java.lang.NullPointerException
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at sl.utils.Methods_sl.getYomi(Methods_sl.java:858)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:33)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:1)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at android.os.AsyncTask$2.call(AsyncTask.java:185)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+02-13 18:20:06.227: E/AndroidRuntime(5154): 	... 4 more
+02-13 18:20:06.847: E/WindowManager(5154): Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f8430 that was originally added here
+02-13 18:20:06.847: E/WindowManager(5154): android.view.WindowLeaked: Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f8430 that was originally added here
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.view.ViewRoot.<init>(ViewRoot.java:263)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:148)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.view.Window$LocalWindowManager.addView(Window.java:424)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.app.Dialog.show(Dialog.java:241)
+02-13 18:20:06.847: E/WindowManager(5154): 	at sl.utils.Methods_dlg.dlg_db_activity(Methods_dlg.java:84)
+02-13 18:20:06.847: E/WindowManager(5154): 	at sl.main.MainActv.onOptionsItemSelected(MainActv.java:427)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.app.Activity.onMenuItemSelected(Activity.java:2264)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.policy.impl.PhoneWindow.onMenuItemSelected(PhoneWindow.java:813)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:143)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:855)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.view.menu.IconMenuView.invokeItem(IconMenuView.java:553)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.view.menu.IconMenuItemView.performClick(IconMenuItemView.java:122)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.view.View$PerformClick.run(View.java:9089)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.os.Handler.handleCallback(Handler.java:587)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.os.Looper.loop(Looper.java:130)
+02-13 18:20:06.847: E/WindowManager(5154): 	at android.app.ActivityThread.main(ActivityThread.java:3806)
+02-13 18:20:06.847: E/WindowManager(5154): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-13 18:20:06.847: E/WindowManager(5154): 	at java.lang.reflect.Method.invoke(Method.java:507)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+02-13 18:20:06.847: E/WindowManager(5154): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+02-13 18:20:06.847: E/WindowManager(5154): 	at dalvik.system.NativeStart.main(Native Method)

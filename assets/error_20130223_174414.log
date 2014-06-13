@@ -1,0 +1,64 @@
+02-23 17:34:27.159: D/ButtonOnTouchListener.java[34](3393): tag_name => sl_main_bt_item_list
+02-23 17:34:27.159: D/ButtonOnTouchListener.java[42](3393): ACTION_DOWN
+02-23 17:34:27.208: D/ButtonOnTouchListener.java[34](3393): tag_name => sl_main_bt_item_list
+02-23 17:34:27.238: D/ButtonOnTouchListener.java[34](3393): tag_name => sl_main_bt_item_list
+02-23 17:34:27.238: D/ButtonOnTouchListener.java[69](3393): ACTION_UP
+02-23 17:34:27.278: D/DBManager.java[65](3393): DBManager => Instance
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Can't open keycharmap file
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Can't open keycharmap file
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Can't open keycharmap file
+02-23 17:34:29.388: W/KeyCharacterMap(3393): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-23 17:34:30.108: D/dalvikvm(3393): GC_EXTERNAL_ALLOC freed 171K, 48% free 2804K/5319K, external 2769K/2773K, paused 55ms
+02-23 17:34:30.118: D/DBManager.java[65](3393): DBManager => Instance
+02-23 17:34:35.008: D/DBManager.java[65](3393): DBManager => Instance
+02-23 17:34:35.028: D/Methods.java[1191](3393): c.getCount() => 6
+02-23 17:34:35.038: D/Methods.java[1215](3393): c.getString(0) => 2
+02-23 17:34:35.038: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:35.038: D/Methods.java[1215](3393): c.getString(0) => 3
+02-23 17:34:35.038: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:35.048: D/Methods.java[1215](3393): c.getString(0) => 4
+02-23 17:34:35.048: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:35.058: D/Methods.java[1215](3393): c.getString(0) => 5
+02-23 17:34:35.058: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:35.058: D/Methods.java[1215](3393): c.getString(0) => 6
+02-23 17:34:35.058: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:35.058: D/Methods.java[1215](3393): c.getString(0) => 10
+02-23 17:34:35.068: D/Methods.java[1219](3393): c.getString(1) => キャン・ドゥ
+02-23 17:34:36.258: D/ItemList.java[258](3393): si.getName() => クラッカー/id=3
+02-23 17:34:36.258: D/ItemList.java[287](3393): Position added => 3(size=1
+02-23 17:34:36.918: D/ItemList.java[258](3393): si.getName() => ガム/id=5
+02-23 17:34:36.918: D/ItemList.java[287](3393): Position added => 2(size=2
+02-23 17:34:37.598: D/ButtonOnTouchListener.java[34](3393): tag_name => itemlist_bt_choose
+02-23 17:34:37.598: D/ButtonOnTouchListener.java[42](3393): ACTION_DOWN
+02-23 17:34:37.668: D/ButtonOnTouchListener.java[34](3393): tag_name => itemlist_bt_choose
+02-23 17:34:37.708: D/ButtonOnTouchListener.java[34](3393): tag_name => itemlist_bt_choose
+02-23 17:34:37.728: D/ButtonOnTouchListener.java[34](3393): tag_name => itemlist_bt_choose
+02-23 17:34:37.728: D/ButtonOnTouchListener.java[69](3393): ACTION_UP
+02-23 17:34:37.748: D/ButtonOnClickListener.java[129:onClick](3393): ItemListActv.toBuys => Not null
+02-23 17:34:37.758: D/ButtonOnClickListener.java[162:onClick](3393): chosen_items_list.size()=2
+02-23 17:34:37.758: D/AndroidRuntime(3393): Shutting down VM
+02-23 17:34:37.758: W/dalvikvm(3393): threadid=1: thread exiting with uncaught exception (group=0x4001a560)
+02-23 17:34:37.758: E/AndroidRuntime(3393): FATAL EXCEPTION: main
+02-23 17:34:37.758: E/AndroidRuntime(3393): java.lang.NullPointerException
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at sl.utils.Methods_sl$1.compare(Methods_sl.java:1675)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at sl.utils.Methods_sl$1.compare(Methods_sl.java:1)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:320)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.util.TimSort.sort(TimSort.java:185)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.util.TimSort.sort(TimSort.java:169)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.util.Arrays.sort(Arrays.java:2090)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.util.Collections.sort(Collections.java:1965)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at sl.utils.Methods_sl.sortItemList(Methods_sl.java:1666)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at sl.listeners.ButtonOnClickListener.onClick(ButtonOnClickListener.java:167)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.view.View.performClick(View.java:2485)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.view.View$PerformClick.run(View.java:9089)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.os.Handler.handleCallback(Handler.java:587)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.os.Looper.loop(Looper.java:130)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at android.app.ActivityThread.main(ActivityThread.java:3806)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at java.lang.reflect.Method.invoke(Method.java:507)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+02-23 17:34:37.758: E/AndroidRuntime(3393): 	at dalvik.system.NativeStart.main(Native Method)

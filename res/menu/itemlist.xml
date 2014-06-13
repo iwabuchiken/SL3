@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menu_listitem_filter"
+		android:icon="@drawable/menu_listitem_filter_30x30_v3"
+		android:title="@string/menu_listitem_filter">
+        
+    </item>
+    
+    <item
+        android:id="@+id/menu_listitem_tabToBuy_clear_selections"
+		android:icon="@drawable/sl_basket_empty_35x35"
+		android:title="@string/menu_listitem_tabToBuy_clear_selections">
+        
+    </item>
+
+    <item
+        android:id="@+id/menu_listitem_tabToBuy_admin_db"
+		android:icon="@drawable/sl_db_item_35x35"
+		android:title="@string/menu_listitem_tabToBuy_admin_db">
+        
+    </item>
+    
+    <item
+        android:id="@+id/menu_listitem_tabToBuy_sort_list"
+		android:icon="@android:drawable/ic_menu_sort_alphabetically"
+		android:title="@string/menu_main_sort_list">
+        
+    </item>
+    
+</menu>

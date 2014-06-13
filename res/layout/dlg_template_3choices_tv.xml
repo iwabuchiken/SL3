@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        
+        android:gravity="center"
+        
+        >
+		
+		<!-- Table name -->
+        <TextView
+            android:id="@+id/dlg_template_3choices_tv_tv_table_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             
+            android:textColor="@color/yello"
+            android:textSize="25sp"
+            
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/dlg_template_3choices_tv_btn_ok"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:text="@string/generic_ok"
+            android:textColor="@color/blue1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/dlg_template_3choices_tv_btn_cancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:text="@string/generic_cancel"
+            android:textColor="@color/red"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/dlg_template_3choices_tv_btn_choice"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+
+            android:text="@string/generic_label_choice"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,415 @@
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:05.691: W/KeyCharacterMap(10663): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-23 13:46:06.231: D/dalvikvm(10663): GC_EXTERNAL_ALLOC freed 74K, 48% free 2684K/5123K, external 2438K/2773K, paused 46ms
+02-23 13:46:07.261: D/Task_GetYomi.java[112:doInBackground_B18_v_6_0](10663): Time=20130223_134607
+02-23 13:46:07.271: D/Task_GetYomi.java[179](10663): tableName=shopping_item
+02-23 13:46:07.281: D/Task_GetYomi.java[213](10663): c.getCount()=77
+02-23 13:46:07.281: D/Task_GetYomi.java[249:doInBackground_B18_v_6_0__1_getWordList](10663): numOfSamples=10
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=コロコロ/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=ミンティア/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=クラッカー/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=のど飴/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=ガム/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=かりんとう/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=スパゲッティ/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=ペンネ/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=カレールー/yomi=null
+02-23 13:46:07.281: D/Task_GetYomi.java[265](10663): name=柿ピー/yomi=null
+02-23 13:46:07.291: D/Task_GetYomi.java[323:doInBackground_B18_v_6_0__1_getWordList](10663): wordList.size()=10
+02-23 13:46:07.291: D/Task_GetYomi.java[124:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:46:07.291: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コロコロ
+02-23 13:46:07.291: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:46:35.101: W/KeyCharacterMap(10663): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-23 13:46:39.631: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.ConnectTimeoutException: Connect to /203.189.109.154:80 timed out
+02-23 13:46:39.631: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:46:39.631: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:46:39.641: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミンティア
+02-23 13:46:39.641: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:40.473: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:40.473: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:40.473: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:40.473: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@4054ae88
+02-23 13:46:40.473: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:40.473: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:40.473: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ミンティア"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:40.473: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:40.483: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ミンティア
+02-23 13:46:40.483: D/YahooFurigana.java[878:getFurigana](10663): furi=ミンティア
+02-23 13:46:40.483: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ミンティア
+02-23 13:46:40.483: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クラッカー
+02-23 13:46:40.483: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:41.011: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:41.011: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:41.011: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:41.021: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@4058c390
+02-23 13:46:41.021: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:41.021: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:41.021: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"クラッカー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:41.021: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:41.021: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=クラッカー
+02-23 13:46:41.031: D/YahooFurigana.java[878:getFurigana](10663): furi=クラッカー
+02-23 13:46:41.031: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=クラッカー
+02-23 13:46:41.031: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=のど飴
+02-23 13:46:41.031: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:50.461: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:50.461: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:50.471: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:50.471: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@405c6828
+02-23 13:46:50.561: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:50.561: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:50.561: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"のど","Surface":"のど","Roman":"nodo"},{"Furigana":"あめ","Surface":"飴","Roman":"ame"}]},"Furigana":"のどあめ","Surface":"のど飴","Roman":"nodoame"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:50.561: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=4
+02-23 13:46:50.561: D/YahooFurigana.java[1130:getFuriganaFromJSONObjectWord](10663): Furigana=のどあめ
+02-23 13:46:50.561: D/YahooFurigana.java[878:getFurigana](10663): furi=のどあめ
+02-23 13:46:50.561: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=のどあめ
+02-23 13:46:50.561: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ガム
+02-23 13:46:50.561: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:54.081: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:54.081: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:54.081: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:54.091: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40601340
+02-23 13:46:54.091: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:54.091: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:54.101: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ガム"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:54.101: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:54.101: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ガム
+02-23 13:46:54.101: D/YahooFurigana.java[878:getFurigana](10663): furi=ガム
+02-23 13:46:54.101: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ガム
+02-23 13:46:54.101: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=かりんとう
+02-23 13:46:54.101: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:54.631: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:54.631: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:54.631: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:54.641: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@4063b338
+02-23 13:46:54.641: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:54.641: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:54.651: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"かりんとう"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:54.651: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:54.661: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=かりんとう
+02-23 13:46:54.661: D/YahooFurigana.java[878:getFurigana](10663): furi=かりんとう
+02-23 13:46:54.661: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=かりんとう
+02-23 13:46:54.671: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=スパゲッティ
+02-23 13:46:54.671: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:55.171: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:55.171: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:55.171: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:55.171: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@406756b8
+02-23 13:46:55.181: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:55.181: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:55.181: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"スパゲッティ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:55.181: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:55.191: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=スパゲッティ
+02-23 13:46:55.191: D/YahooFurigana.java[878:getFurigana](10663): furi=スパゲッティ
+02-23 13:46:55.191: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=スパゲッティ
+02-23 13:46:55.191: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ペンネ
+02-23 13:46:55.191: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:55.681: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:55.681: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:55.691: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:55.691: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@406af490
+02-23 13:46:55.691: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:55.721: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:55.731: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ペンネ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:55.751: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:55.771: D/dalvikvm(10663): GC_CONCURRENT freed 1295K, 53% free 3284K/6919K, external 2791K/3477K, paused 7ms+7ms
+02-23 13:46:55.771: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ペンネ
+02-23 13:46:55.781: D/YahooFurigana.java[878:getFurigana](10663): furi=ペンネ
+02-23 13:46:55.781: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ペンネ
+02-23 13:46:55.781: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=カレールー
+02-23 13:46:55.781: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:56.351: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:56.351: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:56.351: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:56.351: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40520208
+02-23 13:46:56.361: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:56.361: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:56.361: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"カレールー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:56.361: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:46:56.361: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=カレールー
+02-23 13:46:56.361: D/YahooFurigana.java[878:getFurigana](10663): furi=カレールー
+02-23 13:46:56.361: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=カレールー
+02-23 13:46:56.371: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=柿ピー
+02-23 13:46:56.371: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:46:56.961: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:46:56.971: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:46:56.971: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:46:56.971: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40509068
+02-23 13:46:56.981: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:46:56.981: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:46:56.981: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"かき","Surface":"柿","Roman":"kaki"},{"Furigana":"ぴー","Surface":"ピー","Roman":"pi-"}]},"Furigana":"かきぴー","Surface":"柿ピー","Roman":"kakipi-"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:46:56.991: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=4
+02-23 13:46:56.991: D/YahooFurigana.java[1130:getFuriganaFromJSONObjectWord](10663): Furigana=かきぴー
+02-23 13:46:56.991: D/YahooFurigana.java[878:getFurigana](10663): furi=かきぴー
+02-23 13:46:56.991: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=かきぴー
+02-23 13:46:56.991: D/Task_GetYomi.java[376:doInBackground_B18_v_6_0__2_getFurigana](10663): Get furigana => Done
+02-23 13:46:56.991: D/Task_GetYomi.java[136:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=コロコロ/combo=null
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=ミンティア/combo=ミンティア
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=クラッカー/combo=クラッカー
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=のど飴/combo=のどあめ
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=ガム/combo=ガム
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=かりんとう/combo=かりんとう
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=スパゲッティ/combo=スパゲッティ
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=ペンネ/combo=ペンネ
+02-23 13:46:56.991: D/Task_GetYomi.java[150](10663): name=カレールー/combo=カレールー
+02-23 13:46:57.001: D/Task_GetYomi.java[150](10663): name=柿ピー/combo=かきぴー
+02-23 13:47:21.853: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:47:21.853: W/KeyCharacterMap(10663): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:47:21.853: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:47:21.853: W/KeyCharacterMap(10663): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:47:21.853: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:47:21.861: W/KeyCharacterMap(10663): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-23 13:47:27.111: D/Task_GetYomi.java[112:doInBackground_B18_v_6_0](10663): Time=20130223_134727
+02-23 13:47:27.121: D/Task_GetYomi.java[179](10663): tableName=shopping_item
+02-23 13:47:27.131: D/Task_GetYomi.java[213](10663): c.getCount()=77
+02-23 13:47:27.131: D/Task_GetYomi.java[249:doInBackground_B18_v_6_0__1_getWordList](10663): numOfSamples=10
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=コロコロ/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=ミンティア/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=クラッカー/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=のど飴/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=ガム/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=かりんとう/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=スパゲッティ/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=ペンネ/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=カレールー/yomi=null
+02-23 13:47:27.131: D/Task_GetYomi.java[265](10663): name=柿ピー/yomi=null
+02-23 13:47:27.141: D/Task_GetYomi.java[323:doInBackground_B18_v_6_0__1_getWordList](10663): wordList.size()=10
+02-23 13:47:27.141: D/Task_GetYomi.java[124:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:47:27.141: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コロコロ
+02-23 13:47:27.141: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:47:48.141: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.ConnectTimeoutException: Connect to /203.189.109.154:80 timed out
+02-23 13:47:48.141: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:47:48.141: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:47:48.141: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミンティア
+02-23 13:47:48.151: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.151: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.ConnectTimeoutException: Connect to /203.189.109.154:80 timed out
+02-23 13:48:09.151: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.151: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.151: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クラッカー
+02-23 13:48:09.161: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.171: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.181: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.191: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.191: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=のど飴
+02-23 13:48:09.191: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.201: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.201: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.201: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.201: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ガム
+02-23 13:48:09.201: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.211: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.211: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.211: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.211: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=かりんとう
+02-23 13:48:09.211: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.211: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.211: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.211: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.211: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=スパゲッティ
+02-23 13:48:09.211: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.291: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.311: D/dalvikvm(10663): GC_CONCURRENT freed 1403K, 58% free 2940K/6919K, external 2823K/3477K, paused 5ms+6ms
+02-23 13:48:09.311: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.321: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.321: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ペンネ
+02-23 13:48:09.321: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.321: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.331: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.331: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.341: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=カレールー
+02-23 13:48:09.341: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.341: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.351: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.351: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.351: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=柿ピー
+02-23 13:48:09.351: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:48:09.361: E/YahooFurigana.java[264:getJsonObjectFromKeyWord](10663): org.apache.http.conn.HttpHostConnectException: Connection to http://benfranklin.chips.jp refused
+02-23 13:48:09.361: D/YahooFurigana.java[752:getFurigana](10663): joRoot => Null
+02-23 13:48:09.361: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=null
+02-23 13:48:09.371: D/Task_GetYomi.java[376:doInBackground_B18_v_6_0__2_getFurigana](10663): Get furigana => Done
+02-23 13:48:09.371: D/Task_GetYomi.java[136:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=コロコロ/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=ミンティア/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=クラッカー/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=のど飴/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=ガム/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=かりんとう/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=スパゲッティ/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=ペンネ/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=カレールー/combo=null
+02-23 13:48:09.371: D/Task_GetYomi.java[150](10663): name=柿ピー/combo=null
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Can't open keycharmap file
+02-23 13:50:14.081: W/KeyCharacterMap(10663): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-23 13:50:16.891: D/Task_GetYomi.java[112:doInBackground_B18_v_6_0](10663): Time=20130223_135016
+02-23 13:50:16.901: D/Task_GetYomi.java[179](10663): tableName=shopping_item
+02-23 13:50:16.911: D/Task_GetYomi.java[213](10663): c.getCount()=77
+02-23 13:50:16.911: D/Task_GetYomi.java[249:doInBackground_B18_v_6_0__1_getWordList](10663): numOfSamples=10
+02-23 13:50:16.911: D/Task_GetYomi.java[265](10663): name=コロコロ/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=ミンティア/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=クラッカー/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=のど飴/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=ガム/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=かりんとう/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=スパゲッティ/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=ペンネ/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=カレールー/yomi=null
+02-23 13:50:16.921: D/Task_GetYomi.java[265](10663): name=柿ピー/yomi=null
+02-23 13:50:16.931: D/Task_GetYomi.java[323:doInBackground_B18_v_6_0__1_getWordList](10663): wordList.size()=10
+02-23 13:50:16.931: D/Task_GetYomi.java[124:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:50:16.931: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コロコロ
+02-23 13:50:16.931: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:18.971: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:18.971: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:18.971: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:18.971: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40613700
+02-23 13:50:18.981: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:18.981: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:18.981: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"コロコロ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:18.981: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:18.981: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=コロコロ
+02-23 13:50:18.981: D/YahooFurigana.java[878:getFurigana](10663): furi=コロコロ
+02-23 13:50:18.981: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=コロコロ
+02-23 13:50:18.991: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミンティア
+02-23 13:50:18.991: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:19.461: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:19.471: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:19.471: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:19.471: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@4065b180
+02-23 13:50:19.471: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:19.471: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:19.471: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ミンティア"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:19.481: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:19.481: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ミンティア
+02-23 13:50:19.481: D/YahooFurigana.java[878:getFurigana](10663): furi=ミンティア
+02-23 13:50:19.481: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ミンティア
+02-23 13:50:19.481: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クラッカー
+02-23 13:50:19.481: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:20.081: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:20.111: D/dalvikvm(10663): GC_CONCURRENT freed 897K, 57% free 2993K/6919K, external 2824K/3477K, paused 3ms+3ms
+02-23 13:50:20.111: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:20.121: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:20.121: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@406940f0
+02-23 13:50:20.121: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:20.121: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:20.121: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"クラッカー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:20.121: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:20.121: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=クラッカー
+02-23 13:50:20.131: D/YahooFurigana.java[878:getFurigana](10663): furi=クラッカー
+02-23 13:50:20.131: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=クラッカー
+02-23 13:50:20.131: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=のど飴
+02-23 13:50:20.131: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:20.601: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:20.601: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:20.601: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:20.601: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@404d2240
+02-23 13:50:20.611: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:20.611: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:20.611: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"のど","Surface":"のど","Roman":"nodo"},{"Furigana":"あめ","Surface":"飴","Roman":"ame"}]},"Furigana":"のどあめ","Surface":"のど飴","Roman":"nodoame"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:20.611: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=4
+02-23 13:50:20.621: D/YahooFurigana.java[1130:getFuriganaFromJSONObjectWord](10663): Furigana=のどあめ
+02-23 13:50:20.621: D/YahooFurigana.java[878:getFurigana](10663): furi=のどあめ
+02-23 13:50:20.621: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=のどあめ
+02-23 13:50:20.621: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ガム
+02-23 13:50:20.631: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:21.161: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:21.161: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:21.161: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:21.161: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40513b40
+02-23 13:50:21.171: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:21.171: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:21.171: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ガム"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:21.171: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:21.171: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ガム
+02-23 13:50:21.181: D/YahooFurigana.java[878:getFurigana](10663): furi=ガム
+02-23 13:50:21.181: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ガム
+02-23 13:50:21.181: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=かりんとう
+02-23 13:50:21.181: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:22.045: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:22.045: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:22.051: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:22.051: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40597a50
+02-23 13:50:22.051: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:22.051: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:22.051: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"かりんとう"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:22.061: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:22.061: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=かりんとう
+02-23 13:50:22.061: D/YahooFurigana.java[878:getFurigana](10663): furi=かりんとう
+02-23 13:50:22.061: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=かりんとう
+02-23 13:50:22.061: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=スパゲッティ
+02-23 13:50:22.061: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:22.561: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:22.561: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:22.561: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:22.581: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40555740
+02-23 13:50:22.601: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:22.621: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:22.621: D/dalvikvm(10663): GC_CONCURRENT freed 852K, 55% free 3140K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-23 13:50:22.621: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"スパゲッティ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:22.621: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:22.621: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=スパゲッティ
+02-23 13:50:22.621: D/YahooFurigana.java[878:getFurigana](10663): furi=スパゲッティ
+02-23 13:50:22.621: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=スパゲッティ
+02-23 13:50:22.631: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ペンネ
+02-23 13:50:22.631: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:23.261: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:23.261: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:23.261: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:23.261: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@405ac1b0
+02-23 13:50:23.261: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:23.271: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:23.271: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"ペンネ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:23.271: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:23.271: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=ペンネ
+02-23 13:50:23.271: D/YahooFurigana.java[878:getFurigana](10663): furi=ペンネ
+02-23 13:50:23.271: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=ペンネ
+02-23 13:50:23.271: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=カレールー
+02-23 13:50:23.281: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:23.841: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:23.841: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:23.841: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:23.841: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40529b40
+02-23 13:50:23.841: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:23.841: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:23.841: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"Surface":"カレールー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:23.851: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=1
+02-23 13:50:23.851: D/YahooFurigana.java[1180:getFuriganaFromJSONObjectWord](10663): No 'Furigana' key; 'Surface'=カレールー
+02-23 13:50:23.851: D/YahooFurigana.java[878:getFurigana](10663): furi=カレールー
+02-23 13:50:23.851: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=カレールー
+02-23 13:50:23.851: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](10663): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=柿ピー
+02-23 13:50:23.851: D/YahooFurigana.java[235:getJsonObjectFromKeyWord](10663): Executing HttpClient...
+02-23 13:50:24.435: D/YahooFurigana.java[244:getJsonObjectFromKeyWord](10663): Response obtained!
+02-23 13:50:24.441: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](10663): hr => Not null
+02-23 13:50:24.441: D/YahooFurigana.java[304:getJsonObjectFromKeyWord](10663): status=200
+02-23 13:50:24.441: D/YahooFurigana.java[316:getJsonObjectFromKeyWord](10663): entity.toString()=org.apache.http.conn.BasicManagedEntity@40644ff8
+02-23 13:50:24.441: D/YahooFurigana.java[777:getFurigana](10663): JSONObject => Created (Tag=Result)
+02-23 13:50:24.441: D/YahooFurigana.java[813:getFurigana](10663): JSONObject => Created (Tag=WordList)
+02-23 13:50:24.451: E/YahooFurigana.java[863:getFurigana](10663): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"かき","Surface":"柿","Roman":"kaki"},{"Furigana":"ぴー","Surface":"ピー","Roman":"pi-"}]},"Furigana":"かきぴー","Surface":"柿ピー","Roman":"kakipi-"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-23 13:50:24.451: D/YahooFurigana.java[1101:getFuriganaFromJSONObjectWord](10663): keyList.size()=4
+02-23 13:50:24.451: D/YahooFurigana.java[1130:getFuriganaFromJSONObjectWord](10663): Furigana=かきぴー
+02-23 13:50:24.451: D/YahooFurigana.java[878:getFurigana](10663): furi=かきぴー
+02-23 13:50:24.451: D/Task_GetYomi.java[365:doInBackground_B18_v_6_0__2_getFurigana](10663): furi=かきぴー
+02-23 13:50:24.451: D/Task_GetYomi.java[376:doInBackground_B18_v_6_0__2_getFurigana](10663): Get furigana => Done
+02-23 13:50:24.451: D/Task_GetYomi.java[136:doInBackground_B18_v_6_0](10663): wordList.size()=10
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=コロコロ/combo=コロコロ
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=ミンティア/combo=ミンティア
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=クラッカー/combo=クラッカー
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=のど飴/combo=のどあめ
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=ガム/combo=ガム
+02-23 13:50:24.451: D/Task_GetYomi.java[150](10663): name=かりんとう/combo=かりんとう
+02-23 13:50:24.461: D/Task_GetYomi.java[150](10663): name=スパゲッティ/combo=スパゲッティ
+02-23 13:50:24.461: D/Task_GetYomi.java[150](10663): name=ペンネ/combo=ペンネ
+02-23 13:50:24.461: D/Task_GetYomi.java[150](10663): name=カレールー/combo=カレールー
+02-23 13:50:24.461: D/Task_GetYomi.java[150](10663): name=柿ピー/combo=かきぴー

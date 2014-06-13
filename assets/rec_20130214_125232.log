@@ -1,0 +1,28 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<ResultSet xmlns="urn:yahoo:jp:jlp:FuriganaService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd">
+<Result>
+<WordList>
+<Word>
+<Surface>ô‘ó</Surface>
+<Furigana>‚¹‚ñ‚½‚­</Furigana>
+<Roman>sentaku</Roman>
+</Word>
+<Word>
+<Surface>–Ô</Surface>
+<Furigana>‚à‚¤</Furigana>
+<Roman>mou</Roman>
+</Word>
+<Word>
+<Surface>i</Surface>
+</Word>
+<Word>
+<Surface>’†</Surface>
+<Furigana>‚È‚©</Furigana>
+<Roman>naka</Roman>
+</Word>
+<Word>
+<Surface>j</Surface>
+</Word>
+</WordList>
+</Result>
+</ResultSet>

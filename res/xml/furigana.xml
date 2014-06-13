@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet xmlns="urn:yahoo:jp:jlp:FuriganaService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd">
+  <Result>
+    <WordList>
+      <Word>
+        <Surface>洗濯</Surface>
+        <Furigana>せんたく</Furigana>
+        <Roman>sentaku</Roman>
+      </Word>
+      <Word>
+        <Surface>網</Surface>
+        <Furigana>もう</Furigana>
+        <Roman>mou</Roman>
+      </Word>
+      <Word>
+        <Surface>（</Surface>
+      </Word>
+      <Word>
+        <Surface>中</Surface>
+        <Furigana>なか</Furigana>
+        <Roman>naka</Roman>
+      </Word>
+      <Word>
+        <Surface>）</Surface>
+      </Word>
+    </WordList>
+  </Result>
+</ResultSet>

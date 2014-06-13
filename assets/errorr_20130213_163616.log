@@ -1,0 +1,73 @@
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Can't open keycharmap file
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Can't open keycharmap file
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Can't open keycharmap file
+02-13 16:34:53.658: W/KeyCharacterMap(4224): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-13 16:34:54.387: D/dalvikvm(4224): GC_EXTERNAL_ALLOC freed 68K, 48% free 2681K/5123K, external 2438K/2773K, paused 37ms
+02-13 16:34:59.487: D/Methods_sl.java[804:getYomi](4224): statusCode: 200
+02-13 16:34:59.507: I/dalvikvm(4224): Could not find method org.apache.xerces.impl.Version.getVersion, referenced from method nu.xom.Builder.<clinit>
+02-13 16:34:59.507: W/dalvikvm(4224): VFY: unable to resolve static method 7474: Lorg/apache/xerces/impl/Version;.getVersion ()Ljava/lang/String;
+02-13 16:34:59.507: D/dalvikvm(4224): VFY: replacing opcode 0x71 at 0x000f
+02-13 16:34:59.507: D/dalvikvm(4224): VFY: dead code 0x0012-0049 in Lnu/xom/Builder;.<clinit> ()V
+02-13 16:34:59.517: W/dalvikvm(4224): Unable to resolve superclass of Lnu/xom/XML1_0Parser; (952)
+02-13 16:34:59.517: W/dalvikvm(4224): Link of class 'Lnu/xom/XML1_0Parser;' failed
+02-13 16:34:59.517: E/dalvikvm(4224): Could not find class 'nu.xom.XML1_0Parser', referenced from method nu.xom.Builder.findParser
+02-13 16:34:59.517: W/dalvikvm(4224): VFY: unable to resolve new-instance 436 (Lnu/xom/XML1_0Parser;) in Lnu/xom/Builder;
+02-13 16:34:59.517: D/dalvikvm(4224): VFY: replacing opcode 0x22 at 0x0000
+02-13 16:34:59.517: D/dalvikvm(4224): VFY: dead code 0x0002-0007 in Lnu/xom/Builder;.findParser (Z)Lorg/xml/sax/XMLReader;
+02-13 16:34:59.527: W/dalvikvm(4224): Unable to resolve superclass of Lnu/xom/JDK15XML1_0Parser; (45)
+02-13 16:34:59.527: W/dalvikvm(4224): Link of class 'Lnu/xom/JDK15XML1_0Parser;' failed
+02-13 16:34:59.537: W/dalvikvm(4224): threadid=9: thread exiting with uncaught exception (group=0x4001a560)
+02-13 16:34:59.547: E/AndroidRuntime(4224): FATAL EXCEPTION: AsyncTask #1
+02-13 16:34:59.547: E/AndroidRuntime(4224): java.lang.RuntimeException: An error occured while executing doInBackground()
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at android.os.AsyncTask$3.done(AsyncTask.java:200)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.FutureTask$Sync.innerSetException(FutureTask.java:274)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.FutureTask.setException(FutureTask.java:125)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:308)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.lang.Thread.run(Thread.java:1019)
+02-13 16:34:59.547: E/AndroidRuntime(4224): Caused by: net.sf.json.JSONException: nu.xom.XMLException: Could not find a suitable SAX2 parser
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at net.sf.json.xml.XMLSerializer.read(XMLSerializer.java:331)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at sl.utils.Methods_sl.getYomi(Methods_sl.java:822)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:33)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:1)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at android.os.AsyncTask$2.call(AsyncTask.java:185)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	... 4 more
+02-13 16:34:59.547: E/AndroidRuntime(4224): Caused by: nu.xom.XMLException: Could not find a suitable SAX2 parser
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at nu.xom.Builder.findParser(Unknown Source)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at nu.xom.Builder.<init>(Unknown Source)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at nu.xom.Builder.<init>(Unknown Source)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at net.sf.json.xml.XMLSerializer.read(XMLSerializer.java:309)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	... 9 more
+02-13 16:34:59.547: E/AndroidRuntime(4224): Caused by: org.xml.sax.SAXException: Can't create default XMLReader; is system property org.xml.sax.driver set?
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	at org.xml.sax.helpers.XMLReaderFactory.createXMLReader(XMLReaderFactory.java:155)
+02-13 16:34:59.547: E/AndroidRuntime(4224): 	... 13 more
+02-13 16:35:00.107: E/WindowManager(4224): Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f8848 that was originally added here
+02-13 16:35:00.107: E/WindowManager(4224): android.view.WindowLeaked: Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f8848 that was originally added here
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.view.ViewRoot.<init>(ViewRoot.java:263)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:148)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.view.Window$LocalWindowManager.addView(Window.java:424)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.app.Dialog.show(Dialog.java:241)
+02-13 16:35:00.107: E/WindowManager(4224): 	at sl.utils.Methods_dlg.dlg_db_activity(Methods_dlg.java:84)
+02-13 16:35:00.107: E/WindowManager(4224): 	at sl.main.MainActv.onOptionsItemSelected(MainActv.java:427)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.app.Activity.onMenuItemSelected(Activity.java:2264)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.policy.impl.PhoneWindow.onMenuItemSelected(PhoneWindow.java:813)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:143)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:855)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.view.menu.IconMenuView.invokeItem(IconMenuView.java:553)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.view.menu.IconMenuItemView.performClick(IconMenuItemView.java:122)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.view.View$PerformClick.run(View.java:9089)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.os.Handler.handleCallback(Handler.java:587)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.os.Looper.loop(Looper.java:130)
+02-13 16:35:00.107: E/WindowManager(4224): 	at android.app.ActivityThread.main(ActivityThread.java:3806)
+02-13 16:35:00.107: E/WindowManager(4224): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-13 16:35:00.107: E/WindowManager(4224): 	at java.lang.reflect.Method.invoke(Method.java:507)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+02-13 16:35:00.107: E/WindowManager(4224): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+02-13 16:35:00.107: E/WindowManager(4224): 	at dalvik.system.NativeStart.main(Native Method)

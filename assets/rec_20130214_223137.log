@@ -1,0 +1,15 @@
+02-14 22:28:13.386: W/KeyCharacterMap(3613): Can't open keycharmap file
+02-14 22:28:13.386: W/KeyCharacterMap(3613): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-14 22:28:13.394: W/KeyCharacterMap(3613): Can't open keycharmap file
+02-14 22:28:13.394: W/KeyCharacterMap(3613): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-14 22:28:13.394: W/KeyCharacterMap(3613): Can't open keycharmap file
+02-14 22:28:13.394: W/KeyCharacterMap(3613): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-14 22:28:13.994: D/dalvikvm(3613): GC_EXTERNAL_ALLOC freed 68K, 48% free 2682K/5123K, external 2438K/2773K, paused 32ms
+02-14 22:28:41.734: D/Task_GetYomi.java[89:doInBackground_B18_v_2_0_d](3613): listWord.getLength()=6
+02-14 22:28:41.734: D/Task_GetYomi.java[100:doInBackground_B18_v_2_0_d](3613): nNode => Element node
+02-14 22:28:41.734: D/Task_GetYomi.java[116:doInBackground_B18_v_2_0_d](3613): nNode.getNodeName()=Word
+02-14 22:28:41.734: D/Task_GetYomi.java[125:doInBackground_B18_v_2_0_d](3613): nListWordChilds=3
+02-14 22:28:41.734: D/Task_GetYomi.java[134:doInBackground_B18_v_2_0_d](3613): Child 1=#text
+02-14 22:28:41.744: D/Task_GetYomi.java[134:doInBackground_B18_v_2_0_d](3613): Child 2=Surface
+02-14 22:28:41.744: D/Task_GetYomi.java[134:doInBackground_B18_v_2_0_d](3613): Child 3=#text
+02-14 22:28:41.744: D/Task_GetYomi.java[144:doInBackground_B18_v_2_0_d](3613): item(1)=?

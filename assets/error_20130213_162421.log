@@ -1,0 +1,2 @@
+[2013-02-13 16:22:48 - Dex Loader] Unable to execute dex: Multiple dex files define Lorg/apache/commons/collections/FastHashMap;
+[2013-02-13 16:22:48 - shoppinglist.main.ShoppingListActivity] Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define Lorg/apache/commons/collections/FastHashMap;

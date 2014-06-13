@@ -1,0 +1,1477 @@
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Can't open keycharmap file
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Can't open keycharmap file
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Can't open keycharmap file
+02-22 12:45:56.405: W/KeyCharacterMap(19259): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-22 12:45:57.365: D/dalvikvm(19259): GC_EXTERNAL_ALLOC freed 66K, 48% free 2683K/5123K, external 2438K/2773K, paused 52ms
+02-22 12:45:58.385: D/Task_GetYomi.java[108:doInBackground_B18_v_5_2](19259): Time=20130222_124558
+02-22 12:45:58.395: D/Task_GetYomi.java[122](19259): tableName=shopping_item
+02-22 12:45:58.405: D/Task_GetYomi.java[156](19259): c.getCount()=77
+02-22 12:45:58.415: D/Task_GetYomi.java[226:doInBackground_B18_v_5_2](19259): furiganaList.size()=77
+02-22 12:45:58.415: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コロコロ
+02-22 12:46:00.845: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:00.845: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:00.845: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4052d478
+02-22 12:46:00.855: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:00.855: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:00.855: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"コロコロ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:00.855: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:00.865: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=コロコロ
+02-22 12:46:00.865: D/YahooFurigana.java[864:getFurigana](19259): furi=コロコロ
+02-22 12:46:00.865: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=コロコロ
+02-22 12:46:00.865: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミンティア
+02-22 12:46:01.405: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:01.405: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:01.405: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40562208
+02-22 12:46:01.405: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:01.405: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:01.405: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"ミンティア"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:01.405: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:01.415: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=ミンティア
+02-22 12:46:01.415: D/YahooFurigana.java[864:getFurigana](19259): furi=ミンティア
+02-22 12:46:01.425: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ミンティア
+02-22 12:46:01.425: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クラッカー
+02-22 12:46:01.955: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:01.955: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:01.955: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40595b68
+02-22 12:46:01.955: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:01.955: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:01.965: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"クラッカー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:01.965: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:01.965: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=クラッカー
+02-22 12:46:01.965: D/YahooFurigana.java[864:getFurigana](19259): furi=クラッカー
+02-22 12:46:01.965: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=クラッカー
+02-22 12:46:01.965: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=のど飴
+02-22 12:46:02.495: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:02.495: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:02.495: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405c91a8
+02-22 12:46:02.505: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:02.505: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:02.505: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"のど","Surface":"のど","Roman":"nodo"},{"Furigana":"あめ","Surface":"飴","Roman":"ame"}]},"Furigana":"のどあめ","Surface":"のど飴","Roman":"nodoame"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:02.505: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:02.515: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=のどあめ
+02-22 12:46:02.515: D/YahooFurigana.java[864:getFurigana](19259): furi=のどあめ
+02-22 12:46:02.515: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=のどあめ
+02-22 12:46:02.515: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ガム
+02-22 12:46:03.035: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:03.035: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:03.045: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405fd560
+02-22 12:46:03.045: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:03.045: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:03.045: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"ガム"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:03.055: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:03.055: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=ガム
+02-22 12:46:03.055: D/YahooFurigana.java[864:getFurigana](19259): furi=ガム
+02-22 12:46:03.055: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ガム
+02-22 12:46:03.055: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=かりんとう
+02-22 12:46:03.605: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:03.605: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:03.605: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40630df8
+02-22 12:46:03.605: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:03.605: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:03.605: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"かりんとう"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:03.615: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:03.615: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=かりんとう
+02-22 12:46:03.615: D/YahooFurigana.java[864:getFurigana](19259): furi=かりんとう
+02-22 12:46:03.615: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=かりんとう
+02-22 12:46:03.615: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=スパゲッティ
+02-22 12:46:04.148: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:04.148: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:04.148: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40664a18
+02-22 12:46:04.155: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:04.155: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:04.155: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"スパゲッティ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:04.155: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:04.155: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=スパゲッティ
+02-22 12:46:04.155: D/YahooFurigana.java[864:getFurigana](19259): furi=スパゲッティ
+02-22 12:46:04.165: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=スパゲッティ
+02-22 12:46:04.165: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ペンネ
+02-22 12:46:04.675: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:04.675: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:04.675: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40698090
+02-22 12:46:04.675: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:04.675: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:04.675: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"ペンネ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:04.675: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:04.675: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=ペンネ
+02-22 12:46:04.685: D/YahooFurigana.java[864:getFurigana](19259): furi=ペンネ
+02-22 12:46:04.685: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ペンネ
+02-22 12:46:04.685: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=カレールー
+02-22 12:46:05.315: D/dalvikvm(19259): GC_CONCURRENT freed 1168K, 51% free 3424K/6919K, external 2791K/3477K, paused 2ms+6ms
+02-22 12:46:05.725: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:05.725: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:05.725: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@404d44f0
+02-22 12:46:05.725: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:05.725: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:05.735: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"カレールー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:05.735: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:05.735: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=カレールー
+02-22 12:46:05.735: D/YahooFurigana.java[864:getFurigana](19259): furi=カレールー
+02-22 12:46:05.735: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=カレールー
+02-22 12:46:05.735: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=柿ピー
+02-22 12:46:06.297: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:06.297: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:06.297: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4050cfb0
+02-22 12:46:06.305: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:06.305: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:06.305: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"かき","Surface":"柿","Roman":"kaki"},{"Furigana":"ぴー","Surface":"ピー","Roman":"pi-"}]},"Furigana":"かきぴー","Surface":"柿ピー","Roman":"kakipi-"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:06.305: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:06.305: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=かきぴー
+02-22 12:46:06.315: D/YahooFurigana.java[864:getFurigana](19259): furi=かきぴー
+02-22 12:46:06.315: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=かきぴー
+02-22 12:46:06.315: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=豆板醤
+02-22 12:46:06.847: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:06.847: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:06.847: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4057d1b8
+02-22 12:46:06.855: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:06.855: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:06.855: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"とうばんじゃん","Surface":"豆板醤","Roman":"toubanzyan"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:06.855: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:06.855: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=とうばんじゃん
+02-22 12:46:06.855: D/YahooFurigana.java[864:getFurigana](19259): furi=とうばんじゃん
+02-22 12:46:06.855: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=とうばんじゃん
+02-22 12:46:06.865: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=テンメンジャン
+02-22 12:46:07.485: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:07.485: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:07.485: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405d2650
+02-22 12:46:07.485: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:07.485: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:07.495: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"テンメンジャン"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:07.495: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:07.495: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=テンメンジャン
+02-22 12:46:07.495: D/YahooFurigana.java[864:getFurigana](19259): furi=テンメンジャン
+02-22 12:46:07.495: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=テンメンジャン
+02-22 12:46:07.495: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=タバスコ
+02-22 12:46:08.015: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:08.025: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:08.025: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40637e68
+02-22 12:46:08.025: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:08.025: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:08.025: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"タバスコ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:08.025: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:08.025: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=タバスコ
+02-22 12:46:08.025: D/YahooFurigana.java[864:getFurigana](19259): furi=タバスコ
+02-22 12:46:08.035: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=タバスコ
+02-22 12:46:08.035: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=マヨネーズ
+02-22 12:46:08.547: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:08.547: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:08.547: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4057b2c0
+02-22 12:46:08.555: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:08.555: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:08.555: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"マヨネーズ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:08.555: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:08.575: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=マヨネーズ
+02-22 12:46:08.585: D/YahooFurigana.java[864:getFurigana](19259): furi=マヨネーズ
+02-22 12:46:08.585: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=マヨネーズ
+02-22 12:46:08.595: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コーヒー
+02-22 12:46:08.615: D/dalvikvm(19259): GC_CONCURRENT freed 1382K, 54% free 3201K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:09.175: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:09.175: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:09.175: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4067f638
+02-22 12:46:09.175: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:09.175: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:09.175: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"コーヒー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:09.175: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:09.185: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=コーヒー
+02-22 12:46:09.185: D/YahooFurigana.java[864:getFurigana](19259): furi=コーヒー
+02-22 12:46:09.185: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=コーヒー
+02-22 12:46:09.185: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=キンカン
+02-22 12:46:09.765: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:09.765: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:09.765: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@404f74c0
+02-22 12:46:09.765: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:09.765: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:09.765: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"キンカン"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:09.775: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:09.775: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=キンカン
+02-22 12:46:09.775: D/YahooFurigana.java[864:getFurigana](19259): furi=キンカン
+02-22 12:46:09.775: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=キンカン
+02-22 12:46:09.775: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=線香
+02-22 12:46:10.306: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:10.306: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:10.306: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@404d8d68
+02-22 12:46:10.306: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:10.315: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:10.315: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"せんこう","Surface":"線香","Roman":"senkou"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:10.315: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:10.315: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=せんこう
+02-22 12:46:10.315: D/YahooFurigana.java[864:getFurigana](19259): furi=せんこう
+02-22 12:46:10.315: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=せんこう
+02-22 12:46:10.315: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=消臭スプレー
+02-22 12:46:11.237: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:11.237: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:11.237: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40678898
+02-22 12:46:11.245: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:11.245: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:11.245: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:11.245: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:11.245: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:11.245: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しょうしゅう
+02-22 12:46:11.245: D/YahooFurigana.java[1009:getFurigana](19259): item=しょうしゅう
+02-22 12:46:11.255: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しょうしゅう
+02-22 12:46:11.255: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:11.255: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:11.255: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=スプレー
+02-22 12:46:11.255: D/YahooFurigana.java[1009:getFurigana](19259): item=しょうしゅう
+02-22 12:46:11.255: D/YahooFurigana.java[1009:getFurigana](19259): item=スプレー
+02-22 12:46:11.255: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しょうしゅうスプレー
+02-22 12:46:11.255: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=しょうしゅうスプレー
+02-22 12:46:11.255: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=卵
+02-22 12:46:11.775: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:11.775: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:11.775: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40568928
+02-22 12:46:11.805: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:11.825: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:11.835: D/dalvikvm(19259): GC_CONCURRENT freed 1096K, 55% free 3145K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:11.835: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"たまご","Surface":"卵","Roman":"tamago"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:11.835: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:11.835: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=たまご
+02-22 12:46:11.835: D/YahooFurigana.java[864:getFurigana](19259): furi=たまご
+02-22 12:46:11.845: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=たまご
+02-22 12:46:11.845: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミネラル・ウォーター
+02-22 12:46:12.358: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:12.358: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:12.358: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@404f29f8
+02-22 12:46:12.365: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:12.365: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:12.365: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:12.365: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:12.365: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:12.375: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ミネラル
+02-22 12:46:12.375: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:12.375: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル
+02-22 12:46:12.375: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:12.375: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:12.375: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=・
+02-22 12:46:12.375: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:12.375: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:12.375: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル・
+02-22 12:46:12.385: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:12.385: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:12.385: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ウォーター
+02-22 12:46:12.385: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:12.385: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:12.385: D/YahooFurigana.java[1009:getFurigana](19259): item=ウォーター
+02-22 12:46:12.385: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル・ウォーター
+02-22 12:46:12.385: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ミネラル・ウォーター
+02-22 12:46:12.385: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=消毒液
+02-22 12:46:12.925: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:12.925: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:12.925: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405e68f8
+02-22 12:46:12.925: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:12.925: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:12.925: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"しょうどくえき","Surface":"消毒液","Roman":"syoudokueki"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:12.925: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:12.925: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=しょうどくえき
+02-22 12:46:12.935: D/YahooFurigana.java[864:getFurigana](19259): furi=しょうどくえき
+02-22 12:46:12.935: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=しょうどくえき
+02-22 12:46:12.935: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=風邪薬
+02-22 12:46:13.445: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:13.445: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:13.445: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40604d40
+02-22 12:46:13.455: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:13.455: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:13.455: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"かぜぐすり","Surface":"風邪薬","Roman":"kazegusuri"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:13.455: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:13.455: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=かぜぐすり
+02-22 12:46:13.455: D/YahooFurigana.java[864:getFurigana](19259): furi=かぜぐすり
+02-22 12:46:13.455: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=かぜぐすり
+02-22 12:46:13.455: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クリアーファイル
+02-22 12:46:13.998: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:13.998: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:13.998: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405583f8
+02-22 12:46:14.005: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:14.005: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:14.005: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:14.005: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:14.005: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:14.005: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=クリアー
+02-22 12:46:14.025: D/YahooFurigana.java[1009:getFurigana](19259): item=クリアー
+02-22 12:46:14.035: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=クリアー
+02-22 12:46:14.045: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:14.055: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:14.075: D/dalvikvm(19259): GC_CONCURRENT freed 1042K, 55% free 3127K/6919K, external 2791K/3477K, paused 4ms+2ms
+02-22 12:46:14.075: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ファイル
+02-22 12:46:14.075: D/YahooFurigana.java[1009:getFurigana](19259): item=クリアー
+02-22 12:46:14.075: D/YahooFurigana.java[1009:getFurigana](19259): item=ファイル
+02-22 12:46:14.075: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=クリアーファイル
+02-22 12:46:14.075: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=クリアーファイル
+02-22 12:46:14.075: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=歯ブラシ
+02-22 12:46:14.587: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:14.587: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:14.587: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406931c0
+02-22 12:46:14.595: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:14.595: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:14.605: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"は","Surface":"歯","Roman":"ha"},{"Furigana":"ぶらし","Surface":"ブラシ","Roman":"burasi"}]},"Furigana":"はぶらし","Surface":"歯ブラシ","Roman":"haburasi"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:14.605: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:14.605: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=はぶらし
+02-22 12:46:14.605: D/YahooFurigana.java[864:getFurigana](19259): furi=はぶらし
+02-22 12:46:14.605: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=はぶらし
+02-22 12:46:14.605: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=歯みがき液
+02-22 12:46:15.415: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:15.415: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:15.415: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4052ca20
+02-22 12:46:15.425: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:15.425: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:15.425: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:15.425: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:15.425: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=4
+02-22 12:46:15.425: D/YahooFurigana.java[972:getFurigana](19259): Furigana=はみがき
+02-22 12:46:15.425: D/YahooFurigana.java[1009:getFurigana](19259): item=はみがき
+02-22 12:46:15.425: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=はみがき
+02-22 12:46:15.435: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:15.435: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:15.435: D/YahooFurigana.java[972:getFurigana](19259): Furigana=えき
+02-22 12:46:15.435: D/YahooFurigana.java[1009:getFurigana](19259): item=はみがき
+02-22 12:46:15.435: D/YahooFurigana.java[1009:getFurigana](19259): item=えき
+02-22 12:46:15.435: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=はみがきえき
+02-22 12:46:15.435: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=はみがきえき
+02-22 12:46:15.435: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ミネラル・ウォーター
+02-22 12:46:16.417: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:16.417: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:16.417: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405cf478
+02-22 12:46:16.425: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:16.425: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:16.425: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:16.425: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:16.435: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:16.435: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ミネラル
+02-22 12:46:16.435: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:16.435: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル
+02-22 12:46:16.435: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:16.435: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:16.435: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=・
+02-22 12:46:16.435: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:16.435: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:16.435: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル・
+02-22 12:46:16.445: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:16.445: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:16.445: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ウォーター
+02-22 12:46:16.455: D/YahooFurigana.java[1009:getFurigana](19259): item=ミネラル
+02-22 12:46:16.455: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:16.455: D/YahooFurigana.java[1009:getFurigana](19259): item=ウォーター
+02-22 12:46:16.455: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ミネラル・ウォーター
+02-22 12:46:16.455: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ミネラル・ウォーター
+02-22 12:46:16.455: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=食パン
+02-22 12:46:17.025: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:17.025: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:17.025: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4055bd80
+02-22 12:46:17.075: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:17.085: D/dalvikvm(19259): GC_CONCURRENT freed 1080K, 56% free 3065K/6919K, external 2791K/3477K, paused 3ms+2ms
+02-22 12:46:17.085: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:17.085: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"しょく","Surface":"食","Roman":"syoku"},{"Furigana":"ぱん","Surface":"パン","Roman":"pan"}]},"Furigana":"しょくぱん","Surface":"食パン","Roman":"syokupan"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:17.095: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:17.095: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=しょくぱん
+02-22 12:46:17.095: D/YahooFurigana.java[864:getFurigana](19259): furi=しょくぱん
+02-22 12:46:17.095: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=しょくぱん
+02-22 12:46:17.095: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=プレシェーブ・リキッド
+02-22 12:46:17.677: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:17.677: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:17.677: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405f56f8
+02-22 12:46:17.685: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:17.685: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:17.685: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:17.685: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:17.685: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:17.685: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=プレ
+02-22 12:46:17.685: D/YahooFurigana.java[1009:getFurigana](19259): item=プレ
+02-22 12:46:17.685: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=プレ
+02-22 12:46:17.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:17.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:17.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=シェーブ
+02-22 12:46:17.695: D/YahooFurigana.java[1009:getFurigana](19259): item=プレ
+02-22 12:46:17.695: D/YahooFurigana.java[1009:getFurigana](19259): item=シェーブ
+02-22 12:46:17.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=プレシェーブ
+02-22 12:46:17.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:17.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:17.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=・
+02-22 12:46:17.695: D/YahooFurigana.java[1009:getFurigana](19259): item=プレ
+02-22 12:46:17.695: D/YahooFurigana.java[1009:getFurigana](19259): item=シェーブ
+02-22 12:46:17.705: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:17.705: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=プレシェーブ・
+02-22 12:46:17.705: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:17.705: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:17.705: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=リキッド
+02-22 12:46:17.705: D/YahooFurigana.java[1009:getFurigana](19259): item=プレ
+02-22 12:46:17.705: D/YahooFurigana.java[1009:getFurigana](19259): item=シェーブ
+02-22 12:46:17.705: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:17.715: D/YahooFurigana.java[1009:getFurigana](19259): item=リキッド
+02-22 12:46:17.715: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=プレシェーブ・リキッド
+02-22 12:46:17.715: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=プレシェーブ・リキッド
+02-22 12:46:17.715: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=かつぶし
+02-22 12:46:18.418: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:18.418: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:18.418: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406a30d0
+02-22 12:46:18.425: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:18.425: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:18.425: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"かつぶし"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:18.425: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:18.425: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=かつぶし
+02-22 12:46:18.425: D/YahooFurigana.java[864:getFurigana](19259): furi=かつぶし
+02-22 12:46:18.425: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=かつぶし
+02-22 12:46:18.435: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コピー用紙(A4)
+02-22 12:46:18.998: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:18.998: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:18.998: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405dd750
+02-22 12:46:19.005: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:19.005: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:19.005: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:19.005: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:19.005: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:19.015: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=コピー
+02-22 12:46:19.015: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:19.015: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピー
+02-22 12:46:19.015: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:19.025: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:19.025: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ようし
+02-22 12:46:19.025: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:19.025: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:19.025: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし
+02-22 12:46:19.025: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:19.025: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:19.025: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=(
+02-22 12:46:19.035: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:19.035: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:19.055: D/YahooFurigana.java[1009:getFurigana](19259): item=(
+02-22 12:46:19.065: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし(
+02-22 12:46:19.095: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:19.105: D/dalvikvm(19259): GC_CONCURRENT freed 998K, 56% free 3058K/6919K, external 2791K/3477K, paused 3ms+5ms
+02-22 12:46:19.105: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:19.115: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=A4
+02-22 12:46:19.115: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:19.115: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:19.115: D/YahooFurigana.java[1009:getFurigana](19259): item=(
+02-22 12:46:19.125: D/YahooFurigana.java[1009:getFurigana](19259): item=A4
+02-22 12:46:19.125: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし(A4
+02-22 12:46:19.125: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:19.125: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:19.125: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=)
+02-22 12:46:19.125: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:19.125: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:19.135: D/YahooFurigana.java[1009:getFurigana](19259): item=(
+02-22 12:46:19.135: D/YahooFurigana.java[1009:getFurigana](19259): item=A4
+02-22 12:46:19.135: D/YahooFurigana.java[1009:getFurigana](19259): item=)
+02-22 12:46:19.135: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし(A4)
+02-22 12:46:19.135: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=コピーようし(A4)
+02-22 12:46:19.135: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=寒天
+02-22 12:46:19.638: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:19.638: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:19.638: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4052b230
+02-22 12:46:19.645: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:19.645: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:19.645: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"かんてん","Surface":"寒天","Roman":"kanten"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:19.645: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:19.645: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=かんてん
+02-22 12:46:19.645: D/YahooFurigana.java[864:getFurigana](19259): furi=かんてん
+02-22 12:46:19.645: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=かんてん
+02-22 12:46:19.655: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ジャム
+02-22 12:46:20.195: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:20.195: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:20.195: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4052d5a8
+02-22 12:46:20.195: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:20.195: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:20.195: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"ジャム"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:20.205: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:20.205: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=ジャム
+02-22 12:46:20.205: D/YahooFurigana.java[864:getFurigana](19259): furi=ジャム
+02-22 12:46:20.205: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ジャム
+02-22 12:46:20.205: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=歯間ブラシ
+02-22 12:46:21.067: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:21.067: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:21.067: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406acdb8
+02-22 12:46:21.075: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:21.075: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:21.075: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:21.075: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:21.075: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:21.085: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しかん
+02-22 12:46:21.085: D/YahooFurigana.java[1009:getFurigana](19259): item=しかん
+02-22 12:46:21.085: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しかん
+02-22 12:46:21.085: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:21.085: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:21.085: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ブラシ
+02-22 12:46:21.085: D/YahooFurigana.java[1009:getFurigana](19259): item=しかん
+02-22 12:46:21.085: D/YahooFurigana.java[1009:getFurigana](19259): item=ブラシ
+02-22 12:46:21.085: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しかんブラシ
+02-22 12:46:21.095: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=しかんブラシ
+02-22 12:46:21.095: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=修正テープ
+02-22 12:46:21.615: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:21.615: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:21.625: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405f4770
+02-22 12:46:21.655: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:21.655: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:21.675: D/dalvikvm(19259): GC_CONCURRENT freed 970K, 56% free 3075K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:21.675: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:21.675: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:21.685: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:21.685: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しゅうせい
+02-22 12:46:21.685: D/YahooFurigana.java[1009:getFurigana](19259): item=しゅうせい
+02-22 12:46:21.685: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しゅうせい
+02-22 12:46:21.685: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:21.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:21.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=テープ
+02-22 12:46:21.695: D/YahooFurigana.java[1009:getFurigana](19259): item=しゅうせい
+02-22 12:46:21.695: D/YahooFurigana.java[1009:getFurigana](19259): item=テープ
+02-22 12:46:21.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=しゅうせいテープ
+02-22 12:46:21.695: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=しゅうせいテープ
+02-22 12:46:21.705: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=メンディング・テープ
+02-22 12:46:22.235: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:22.235: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:22.235: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40509220
+02-22 12:46:22.235: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:22.235: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:22.235: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:22.245: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.245: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.245: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=メンディング
+02-22 12:46:22.245: D/YahooFurigana.java[1009:getFurigana](19259): item=メンディング
+02-22 12:46:22.245: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=メンディング
+02-22 12:46:22.245: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.245: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.245: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=・
+02-22 12:46:22.245: D/YahooFurigana.java[1009:getFurigana](19259): item=メンディング
+02-22 12:46:22.255: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:22.255: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=メンディング・
+02-22 12:46:22.255: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.255: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.255: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=テープ
+02-22 12:46:22.255: D/YahooFurigana.java[1009:getFurigana](19259): item=メンディング
+02-22 12:46:22.255: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:22.255: D/YahooFurigana.java[1009:getFurigana](19259): item=テープ
+02-22 12:46:22.255: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=メンディング・テープ
+02-22 12:46:22.255: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=メンディング・テープ
+02-22 12:46:22.265: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ビニル袋→32x38
+02-22 12:46:22.805: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:22.805: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:22.805: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40607e68
+02-22 12:46:22.805: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:22.805: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:22.815: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:22.815: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.815: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.815: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ビニル
+02-22 12:46:22.815: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.815: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニル
+02-22 12:46:22.815: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.815: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:22.815: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ぶくろ
+02-22 12:46:22.815: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.825: D/YahooFurigana.java[1009:getFurigana](19259): item=ぶくろ
+02-22 12:46:22.825: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニルぶくろ
+02-22 12:46:22.825: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.825: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.825: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=→
+02-22 12:46:22.825: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.825: D/YahooFurigana.java[1009:getFurigana](19259): item=ぶくろ
+02-22 12:46:22.825: D/YahooFurigana.java[1009:getFurigana](19259): item=→
+02-22 12:46:22.825: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニルぶくろ→
+02-22 12:46:22.825: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.825: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.835: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=32
+02-22 12:46:22.835: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.835: D/YahooFurigana.java[1009:getFurigana](19259): item=ぶくろ
+02-22 12:46:22.835: D/YahooFurigana.java[1009:getFurigana](19259): item=→
+02-22 12:46:22.835: D/YahooFurigana.java[1009:getFurigana](19259): item=32
+02-22 12:46:22.835: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニルぶくろ→32
+02-22 12:46:22.835: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.835: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.835: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=x
+02-22 12:46:22.835: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.845: D/YahooFurigana.java[1009:getFurigana](19259): item=ぶくろ
+02-22 12:46:22.845: D/YahooFurigana.java[1009:getFurigana](19259): item=→
+02-22 12:46:22.845: D/YahooFurigana.java[1009:getFurigana](19259): item=32
+02-22 12:46:22.845: D/YahooFurigana.java[1009:getFurigana](19259): item=x
+02-22 12:46:22.845: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニルぶくろ→32x
+02-22 12:46:22.845: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:22.845: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:22.845: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=38
+02-22 12:46:22.845: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニル
+02-22 12:46:22.855: D/YahooFurigana.java[1009:getFurigana](19259): item=ぶくろ
+02-22 12:46:22.855: D/YahooFurigana.java[1009:getFurigana](19259): item=→
+02-22 12:46:22.855: D/YahooFurigana.java[1009:getFurigana](19259): item=32
+02-22 12:46:22.855: D/YahooFurigana.java[1009:getFurigana](19259): item=x
+02-22 12:46:22.885: D/YahooFurigana.java[1009:getFurigana](19259): item=38
+02-22 12:46:22.885: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニルぶくろ→32x38
+02-22 12:46:22.895: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ビニルぶくろ→32x38
+02-22 12:46:22.905: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=砂糖
+02-22 12:46:22.915: D/dalvikvm(19259): GC_CONCURRENT freed 1097K, 57% free 2981K/6919K, external 2791K/3477K, paused 4ms+2ms
+02-22 12:46:23.517: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:23.517: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:23.517: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406530a0
+02-22 12:46:23.525: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:23.525: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:23.525: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"さとう","Surface":"砂糖","Roman":"satou"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:23.525: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:23.535: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=さとう
+02-22 12:46:23.535: D/YahooFurigana.java[864:getFurigana](19259): furi=さとう
+02-22 12:46:23.535: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=さとう
+02-22 12:46:23.535: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ハンドクリーム
+02-22 12:46:24.055: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:24.065: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:24.065: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40514510
+02-22 12:46:24.065: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:24.065: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:24.065: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:24.065: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:24.065: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:24.065: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ハンド
+02-22 12:46:24.075: D/YahooFurigana.java[1009:getFurigana](19259): item=ハンド
+02-22 12:46:24.075: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ハンド
+02-22 12:46:24.075: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:24.075: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:24.075: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=クリーム
+02-22 12:46:24.075: D/YahooFurigana.java[1009:getFurigana](19259): item=ハンド
+02-22 12:46:24.075: D/YahooFurigana.java[1009:getFurigana](19259): item=クリーム
+02-22 12:46:24.085: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ハンドクリーム
+02-22 12:46:24.085: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ハンドクリーム
+02-22 12:46:24.085: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=酢
+02-22 12:46:24.875: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:24.875: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:24.875: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4053fe38
+02-22 12:46:24.875: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:24.875: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:24.875: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"す","Surface":"酢","Roman":"su"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:24.875: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:24.875: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=す
+02-22 12:46:24.885: D/YahooFurigana.java[864:getFurigana](19259): furi=す
+02-22 12:46:24.885: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=す
+02-22 12:46:24.885: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ボディソープ
+02-22 12:46:25.400: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:25.400: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:25.405: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4056a9e0
+02-22 12:46:25.405: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:25.405: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:25.405: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:25.405: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:25.405: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:25.405: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ボディ
+02-22 12:46:25.405: D/YahooFurigana.java[1009:getFurigana](19259): item=ボディ
+02-22 12:46:25.415: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボディ
+02-22 12:46:25.415: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:25.415: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:25.415: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ソープ
+02-22 12:46:25.415: D/YahooFurigana.java[1009:getFurigana](19259): item=ボディ
+02-22 12:46:25.415: D/YahooFurigana.java[1009:getFurigana](19259): item=ソープ
+02-22 12:46:25.415: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボディソープ
+02-22 12:46:25.445: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ボディソープ
+02-22 12:46:25.445: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=シャンプー
+02-22 12:46:25.475: D/dalvikvm(19259): GC_CONCURRENT freed 884K, 56% free 3057K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:26.726: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:26.726: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:26.726: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4068a098
+02-22 12:46:26.735: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:26.735: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:26.735: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"シャンプー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:26.735: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:26.735: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=シャンプー
+02-22 12:46:26.735: D/YahooFurigana.java[864:getFurigana](19259): furi=シャンプー
+02-22 12:46:26.735: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=シャンプー
+02-22 12:46:26.735: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=リンス
+02-22 12:46:27.267: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:27.267: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:27.267: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405093e8
+02-22 12:46:27.267: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:27.275: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:27.275: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"リンス"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:27.275: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:27.275: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=リンス
+02-22 12:46:27.275: D/YahooFurigana.java[864:getFurigana](19259): furi=リンス
+02-22 12:46:27.275: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=リンス
+02-22 12:46:27.275: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コードとめ具
+02-22 12:46:27.949: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:27.949: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:27.949: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405e0570
+02-22 12:46:27.955: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:27.955: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:27.955: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:27.955: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:27.955: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:27.955: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=コード
+02-22 12:46:27.955: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:27.965: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コード
+02-22 12:46:27.965: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:27.965: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:27.965: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=とめ
+02-22 12:46:27.965: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:27.965: D/YahooFurigana.java[1009:getFurigana](19259): item=とめ
+02-22 12:46:27.965: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コードとめ
+02-22 12:46:27.965: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:27.965: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:27.965: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ぐ
+02-22 12:46:27.975: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:27.975: D/YahooFurigana.java[1009:getFurigana](19259): item=とめ
+02-22 12:46:27.975: D/YahooFurigana.java[1009:getFurigana](19259): item=ぐ
+02-22 12:46:27.975: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コードとめぐ
+02-22 12:46:27.975: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=コードとめぐ
+02-22 12:46:27.975: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=植木鉢（長方形、プラスチック）
+02-22 12:46:28.685: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:28.685: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:28.685: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40550108
+02-22 12:46:28.685: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:28.695: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:28.695: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:28.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:28.695: D/YahooFurigana.java[972:getFurigana](19259): Furigana=うえきばち
+02-22 12:46:28.695: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち
+02-22 12:46:28.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.735: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:28.735: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:28.735: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.745: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:28.755: D/dalvikvm(19259): GC_CONCURRENT freed 997K, 56% free 3056K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:28.755: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち（
+02-22 12:46:28.755: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.755: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:28.765: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ちょうほうけい
+02-22 12:46:28.765: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.765: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:28.765: D/YahooFurigana.java[1009:getFurigana](19259): item=ちょうほうけい
+02-22 12:46:28.765: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち（ちょうほうけい
+02-22 12:46:28.775: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.775: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:28.775: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=、
+02-22 12:46:28.775: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.775: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:28.775: D/YahooFurigana.java[1009:getFurigana](19259): item=ちょうほうけい
+02-22 12:46:28.785: D/YahooFurigana.java[1009:getFurigana](19259): item=、
+02-22 12:46:28.785: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち（ちょうほうけい、
+02-22 12:46:28.785: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.785: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:28.785: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=プラスチック
+02-22 12:46:28.785: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.785: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:28.785: D/YahooFurigana.java[1009:getFurigana](19259): item=ちょうほうけい
+02-22 12:46:28.785: D/YahooFurigana.java[1009:getFurigana](19259): item=、
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=プラスチック
+02-22 12:46:28.795: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち（ちょうほうけい、プラスチック
+02-22 12:46:28.795: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:28.795: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:28.795: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=うえきばち
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=ちょうほうけい
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=、
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=プラスチック
+02-22 12:46:28.795: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:28.795: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=うえきばち（ちょうほうけい、プラスチック）
+02-22 12:46:28.805: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=うえきばち（ちょうほうけい、プラスチック）
+02-22 12:46:28.805: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ビーチサンダル
+02-22 12:46:29.375: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:29.375: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:29.375: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405ab708
+02-22 12:46:29.375: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:29.375: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:29.375: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:29.375: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:29.385: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:29.385: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ビーチ
+02-22 12:46:29.385: D/YahooFurigana.java[1009:getFurigana](19259): item=ビーチ
+02-22 12:46:29.385: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビーチ
+02-22 12:46:29.385: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:29.385: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:29.385: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=サンダル
+02-22 12:46:29.385: D/YahooFurigana.java[1009:getFurigana](19259): item=ビーチ
+02-22 12:46:29.385: D/YahooFurigana.java[1009:getFurigana](19259): item=サンダル
+02-22 12:46:29.395: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビーチサンダル
+02-22 12:46:29.395: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ビーチサンダル
+02-22 12:46:29.395: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=バンドエイド
+02-22 12:46:30.075: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:30.075: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:30.075: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40696ef0
+02-22 12:46:30.075: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:30.075: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:30.075: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:30.085: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.085: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:30.085: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=バンド
+02-22 12:46:30.085: D/YahooFurigana.java[1009:getFurigana](19259): item=バンド
+02-22 12:46:30.085: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=バンド
+02-22 12:46:30.085: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.085: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:30.085: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=エイド
+02-22 12:46:30.095: D/YahooFurigana.java[1009:getFurigana](19259): item=バンド
+02-22 12:46:30.095: D/YahooFurigana.java[1009:getFurigana](19259): item=エイド
+02-22 12:46:30.095: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=バンドエイド
+02-22 12:46:30.095: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=バンドエイド
+02-22 12:46:30.095: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ボールペン（小）
+02-22 12:46:30.625: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:30.625: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:30.655: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405cb270
+02-22 12:46:30.665: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:30.685: D/dalvikvm(19259): GC_CONCURRENT freed 1072K, 57% free 2987K/6919K, external 2791K/3477K, paused 3ms+2ms
+02-22 12:46:30.685: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:30.685: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:30.685: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.685: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:30.685: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ボールペン
+02-22 12:46:30.685: D/YahooFurigana.java[1009:getFurigana](19259): item=ボールペン
+02-22 12:46:30.685: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボールペン
+02-22 12:46:30.685: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:30.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:30.695: D/YahooFurigana.java[1009:getFurigana](19259): item=ボールペン
+02-22 12:46:30.695: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:30.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボールペン（
+02-22 12:46:30.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:30.695: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しょう
+02-22 12:46:30.695: D/YahooFurigana.java[1009:getFurigana](19259): item=ボールペン
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=しょう
+02-22 12:46:30.705: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボールペン（しょう
+02-22 12:46:30.705: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:30.705: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:30.705: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=ボールペン
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=しょう
+02-22 12:46:30.705: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:30.715: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボールペン（しょう）
+02-22 12:46:30.715: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ボールペン（しょう）
+02-22 12:46:30.715: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=腕時計
+02-22 12:46:31.445: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:31.445: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:31.445: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40535330
+02-22 12:46:31.445: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:31.455: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:31.455: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"うでどけい","Surface":"腕時計","Roman":"udedokei"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:31.455: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:31.455: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=うでどけい
+02-22 12:46:31.455: D/YahooFurigana.java[864:getFurigana](19259): furi=うでどけい
+02-22 12:46:31.455: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=うでどけい
+02-22 12:46:31.455: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=容器（小）
+02-22 12:46:32.080: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:32.080: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:32.085: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4064fe88
+02-22 12:46:32.085: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:32.085: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:32.085: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:32.085: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.085: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:32.085: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ようき
+02-22 12:46:32.095: D/YahooFurigana.java[1009:getFurigana](19259): item=ようき
+02-22 12:46:32.095: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ようき
+02-22 12:46:32.095: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.095: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:32.095: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:32.095: D/YahooFurigana.java[1009:getFurigana](19259): item=ようき
+02-22 12:46:32.095: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.095: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ようき（
+02-22 12:46:32.095: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.105: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:32.105: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しょう
+02-22 12:46:32.105: D/YahooFurigana.java[1009:getFurigana](19259): item=ようき
+02-22 12:46:32.105: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.105: D/YahooFurigana.java[1009:getFurigana](19259): item=しょう
+02-22 12:46:32.105: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ようき（しょう
+02-22 12:46:32.105: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.105: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:32.105: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:32.105: D/YahooFurigana.java[1009:getFurigana](19259): item=ようき
+02-22 12:46:32.115: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.115: D/YahooFurigana.java[1009:getFurigana](19259): item=しょう
+02-22 12:46:32.115: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:32.115: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ようき（しょう）
+02-22 12:46:32.115: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ようき（しょう）
+02-22 12:46:32.115: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=油性マーカー（黒）
+02-22 12:46:32.645: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:32.675: D/dalvikvm(19259): GC_CONCURRENT freed 884K, 56% free 3059K/6919K, external 2791K/3477K, paused 2ms+3ms
+02-22 12:46:32.675: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:32.675: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405dd588
+02-22 12:46:32.685: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:32.685: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:32.685: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:32.685: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.685: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:32.685: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ゆせい
+02-22 12:46:32.685: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:32.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせい
+02-22 12:46:32.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:32.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=マーカー
+02-22 12:46:32.695: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:32.695: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:32.695: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー
+02-22 12:46:32.695: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.695: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:32.695: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.705: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（
+02-22 12:46:32.705: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.705: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:32.705: D/YahooFurigana.java[972:getFurigana](19259): Furigana=くろ
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.705: D/YahooFurigana.java[1009:getFurigana](19259): item=くろ
+02-22 12:46:32.715: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（くろ
+02-22 12:46:32.715: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:32.715: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:32.715: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:32.715: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:32.715: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:32.715: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:32.715: D/YahooFurigana.java[1009:getFurigana](19259): item=くろ
+02-22 12:46:32.715: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:32.715: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（くろ）
+02-22 12:46:32.715: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ゆせいマーカー（くろ）
+02-22 12:46:32.715: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=油性マーカー（青）
+02-22 12:46:33.236: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:33.236: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:33.236: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40536938
+02-22 12:46:33.236: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:33.245: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:33.245: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:33.245: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.245: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:33.245: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ゆせい
+02-22 12:46:33.245: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:33.245: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせい
+02-22 12:46:33.245: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.255: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:33.255: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=マーカー
+02-22 12:46:33.255: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:33.255: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:33.255: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー
+02-22 12:46:33.255: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.255: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:33.255: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:33.255: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:33.255: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:33.255: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:33.265: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（
+02-22 12:46:33.265: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.265: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:33.265: D/YahooFurigana.java[972:getFurigana](19259): Furigana=あお
+02-22 12:46:33.265: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:33.265: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:33.265: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:33.265: D/YahooFurigana.java[1009:getFurigana](19259): item=あお
+02-22 12:46:33.265: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（あお
+02-22 12:46:33.265: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.275: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:33.275: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:33.275: D/YahooFurigana.java[1009:getFurigana](19259): item=ゆせい
+02-22 12:46:33.275: D/YahooFurigana.java[1009:getFurigana](19259): item=マーカー
+02-22 12:46:33.275: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:33.275: D/YahooFurigana.java[1009:getFurigana](19259): item=あお
+02-22 12:46:33.275: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:33.275: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ゆせいマーカー（あお）
+02-22 12:46:33.275: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ゆせいマーカー（あお）
+02-22 12:46:33.275: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=コピー用紙（A4）
+02-22 12:46:33.917: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:33.917: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:33.945: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40550910
+02-22 12:46:33.985: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:33.995: D/dalvikvm(19259): GC_CONCURRENT freed 1072K, 57% free 2986K/6919K, external 2791K/3477K, paused 2ms+3ms
+02-22 12:46:33.995: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:33.995: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:33.995: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:33.995: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:33.995: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=コピー
+02-22 12:46:33.995: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:33.995: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピー
+02-22 12:46:33.995: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:34.005: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:34.005: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ようし
+02-22 12:46:34.005: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:34.005: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:34.005: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし
+02-22 12:46:34.005: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:34.005: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:34.005: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:34.005: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:34.005: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:34.005: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:34.005: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし（
+02-22 12:46:34.005: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:34.015: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:34.015: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=A4
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=A4
+02-22 12:46:34.015: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし（A4
+02-22 12:46:34.015: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:34.015: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:34.015: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=コピー
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=ようし
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:34.015: D/YahooFurigana.java[1009:getFurigana](19259): item=A4
+02-22 12:46:34.025: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:34.025: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=コピーようし（A4）
+02-22 12:46:34.025: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=コピーようし（A4）
+02-22 12:46:34.025: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=イヤホン
+02-22 12:46:34.545: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:34.545: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:34.545: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405bf508
+02-22 12:46:34.545: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:34.555: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:34.555: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"イヤホン"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:34.555: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:34.555: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=イヤホン
+02-22 12:46:34.555: D/YahooFurigana.java[864:getFurigana](19259): furi=イヤホン
+02-22 12:46:34.555: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=イヤホン
+02-22 12:46:34.555: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ボタン・セット
+02-22 12:46:35.055: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:35.055: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:35.055: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405f6108
+02-22 12:46:35.265: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:35.265: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:35.265: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:35.265: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:35.265: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:35.265: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ボタン
+02-22 12:46:35.265: D/YahooFurigana.java[1009:getFurigana](19259): item=ボタン
+02-22 12:46:35.265: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボタン
+02-22 12:46:35.265: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:35.275: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:35.275: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=・
+02-22 12:46:35.275: D/YahooFurigana.java[1009:getFurigana](19259): item=ボタン
+02-22 12:46:35.275: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:35.275: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボタン・
+02-22 12:46:35.275: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:35.275: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:35.275: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=セット
+02-22 12:46:35.275: D/YahooFurigana.java[1009:getFurigana](19259): item=ボタン
+02-22 12:46:35.275: D/YahooFurigana.java[1009:getFurigana](19259): item=・
+02-22 12:46:35.285: D/YahooFurigana.java[1009:getFurigana](19259): item=セット
+02-22 12:46:35.285: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ボタン・セット
+02-22 12:46:35.285: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ボタン・セット
+02-22 12:46:35.285: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ビニールひも
+02-22 12:46:35.445: D/dalvikvm(19259): GC_CONCURRENT freed 878K, 56% free 3056K/6919K, external 2791K/3477K, paused 2ms+3ms
+02-22 12:46:35.875: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:35.875: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:35.875: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405acef8
+02-22 12:46:35.875: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:35.875: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:35.875: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:35.875: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:35.885: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:35.885: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ビニール
+02-22 12:46:35.885: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニール
+02-22 12:46:35.885: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニール
+02-22 12:46:35.885: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:35.885: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:35.885: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ひも
+02-22 12:46:35.885: D/YahooFurigana.java[1009:getFurigana](19259): item=ビニール
+02-22 12:46:35.885: D/YahooFurigana.java[1009:getFurigana](19259): item=ひも
+02-22 12:46:35.895: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ビニールひも
+02-22 12:46:35.895: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ビニールひも
+02-22 12:46:35.895: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ジップロック
+02-22 12:46:36.395: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:36.395: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:36.395: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@404d8cb8
+02-22 12:46:36.395: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:36.395: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:36.395: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:36.395: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:36.405: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:36.405: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ジップ
+02-22 12:46:36.405: D/YahooFurigana.java[1009:getFurigana](19259): item=ジップ
+02-22 12:46:36.405: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ジップ
+02-22 12:46:36.405: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:36.405: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:36.405: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ロック
+02-22 12:46:36.405: D/YahooFurigana.java[1009:getFurigana](19259): item=ジップ
+02-22 12:46:36.405: D/YahooFurigana.java[1009:getFurigana](19259): item=ロック
+02-22 12:46:36.415: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ジップロック
+02-22 12:46:36.415: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ジップロック
+02-22 12:46:36.415: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=バンダナ
+02-22 12:46:36.897: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:36.897: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:36.897: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405c87f0
+02-22 12:46:36.905: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:36.905: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:36.905: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"バンダナ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:36.905: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:36.915: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=バンダナ
+02-22 12:46:36.915: D/YahooFurigana.java[864:getFurigana](19259): furi=バンダナ
+02-22 12:46:36.915: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=バンダナ
+02-22 12:46:36.915: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=磁石
+02-22 12:46:37.398: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:37.398: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:37.398: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405dd560
+02-22 12:46:37.705: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:37.705: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:37.705: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"じしゃく","Surface":"磁石","Roman":"zisyaku"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:37.705: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:37.705: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=じしゃく
+02-22 12:46:37.705: D/YahooFurigana.java[864:getFurigana](19259): furi=じしゃく
+02-22 12:46:37.705: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=じしゃく
+02-22 12:46:37.715: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=日付スタンプ
+02-22 12:46:38.525: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:38.525: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:38.545: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40647068
+02-22 12:46:38.555: D/dalvikvm(19259): GC_CONCURRENT freed 906K, 55% free 3153K/6919K, external 2791K/3477K, paused 2ms+4ms
+02-22 12:46:38.565: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:38.565: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:38.565: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:38.565: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:38.565: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:38.565: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ひづけ
+02-22 12:46:38.565: D/YahooFurigana.java[1009:getFurigana](19259): item=ひづけ
+02-22 12:46:38.565: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ひづけ
+02-22 12:46:38.565: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:38.575: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:38.575: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=スタンプ
+02-22 12:46:38.575: D/YahooFurigana.java[1009:getFurigana](19259): item=ひづけ
+02-22 12:46:38.575: D/YahooFurigana.java[1009:getFurigana](19259): item=スタンプ
+02-22 12:46:38.575: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ひづけスタンプ
+02-22 12:46:38.575: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ひづけスタンプ
+02-22 12:46:38.575: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ブリーフ
+02-22 12:46:39.055: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:39.065: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:39.065: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40510d50
+02-22 12:46:39.065: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:39.065: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:39.075: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"ブリーフ"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:39.075: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:39.075: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=ブリーフ
+02-22 12:46:39.075: D/YahooFurigana.java[864:getFurigana](19259): furi=ブリーフ
+02-22 12:46:39.075: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ブリーフ
+02-22 12:46:39.075: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=金ボール
+02-22 12:46:42.611: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:42.615: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:42.615: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406997e0
+02-22 12:46:42.615: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:42.615: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:42.615: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:42.625: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:42.625: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:42.625: D/YahooFurigana.java[972:getFurigana](19259): Furigana=きん
+02-22 12:46:42.625: D/YahooFurigana.java[1009:getFurigana](19259): item=きん
+02-22 12:46:42.625: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=きん
+02-22 12:46:42.625: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:42.625: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:42.625: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=ボール
+02-22 12:46:42.635: D/YahooFurigana.java[1009:getFurigana](19259): item=きん
+02-22 12:46:42.635: D/YahooFurigana.java[1009:getFurigana](19259): item=ボール
+02-22 12:46:42.635: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=きんボール
+02-22 12:46:42.635: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=きんボール
+02-22 12:46:42.635: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=ホウ砂
+02-22 12:46:43.225: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:43.225: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:43.225: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405b0600
+02-22 12:46:43.235: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:43.235: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:43.235: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"ほう","Surface":"ホウ","Roman":"hou"},{"Furigana":"しゃ","Surface":"砂","Roman":"sya"}]},"Furigana":"ほうしゃ","Surface":"ホウ砂","Roman":"housya"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:43.235: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:43.235: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=ほうしゃ
+02-22 12:46:43.235: D/YahooFurigana.java[864:getFurigana](19259): furi=ほうしゃ
+02-22 12:46:43.235: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ほうしゃ
+02-22 12:46:43.235: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=手袋
+02-22 12:46:43.748: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:43.748: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:43.748: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405f3c78
+02-22 12:46:43.755: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:43.755: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:43.755: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"てぶくろ","Surface":"手袋","Roman":"tebukuro"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:43.755: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:43.775: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=てぶくろ
+02-22 12:46:43.795: D/YahooFurigana.java[864:getFurigana](19259): furi=てぶくろ
+02-22 12:46:43.805: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=てぶくろ
+02-22 12:46:43.805: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=お盆
+02-22 12:46:43.815: D/dalvikvm(19259): GC_CONCURRENT freed 1047K, 55% free 3131K/6919K, external 2791K/3477K, paused 2ms+3ms
+02-22 12:46:44.308: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:44.308: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:44.308: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40557c70
+02-22 12:46:44.315: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:44.315: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:44.325: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"お","Surface":"お","Roman":"o"},{"Furigana":"ぼん","Surface":"盆","Roman":"bon"}]},"Furigana":"おぼん","Surface":"お盆","Roman":"obon"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:44.325: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:44.325: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=おぼん
+02-22 12:46:44.325: D/YahooFurigana.java[864:getFurigana](19259): furi=おぼん
+02-22 12:46:44.325: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=おぼん
+02-22 12:46:44.325: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=くつ下
+02-22 12:46:44.846: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:44.846: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:44.846: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40542dc0
+02-22 12:46:44.855: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:44.855: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:44.855: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"くつ","Surface":"くつ","Roman":"kutu"},{"Furigana":"した","Surface":"下","Roman":"sita"}]},"Furigana":"くつした","Surface":"くつ下","Roman":"kutusita"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:44.855: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:44.855: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=くつした
+02-22 12:46:44.855: D/YahooFurigana.java[864:getFurigana](19259): furi=くつした
+02-22 12:46:44.855: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=くつした
+02-22 12:46:44.865: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=チャッカマン
+02-22 12:46:45.358: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:45.358: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:45.358: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40530610
+02-22 12:46:45.365: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:45.365: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:45.365: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"チャッカマン"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:45.365: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:45.365: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=チャッカマン
+02-22 12:46:45.375: D/YahooFurigana.java[864:getFurigana](19259): furi=チャッカマン
+02-22 12:46:45.375: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=チャッカマン
+02-22 12:46:45.375: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=チャッカマン
+02-22 12:46:45.885: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:45.895: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:45.895: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4064b678
+02-22 12:46:45.895: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:45.895: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:45.905: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"チャッカマン"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:45.905: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:45.905: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=チャッカマン
+02-22 12:46:45.905: D/YahooFurigana.java[864:getFurigana](19259): furi=チャッカマン
+02-22 12:46:45.905: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=チャッカマン
+02-22 12:46:45.905: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=保護シート
+02-22 12:46:46.920: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:46.920: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:46.925: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406866d0
+02-22 12:46:46.925: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:46.925: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:46.965: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:46.965: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:46.965: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:46.975: D/YahooFurigana.java[972:getFurigana](19259): Furigana=ほご
+02-22 12:46:46.985: D/dalvikvm(19259): GC_CONCURRENT freed 1024K, 55% free 3131K/6919K, external 2791K/3477K, paused 4ms+3ms
+02-22 12:46:46.985: D/YahooFurigana.java[1009:getFurigana](19259): item=ほご
+02-22 12:46:46.985: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ほご
+02-22 12:46:46.985: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:46.985: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:46.985: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=シート
+02-22 12:46:46.995: D/YahooFurigana.java[1009:getFurigana](19259): item=ほご
+02-22 12:46:46.995: D/YahooFurigana.java[1009:getFurigana](19259): item=シート
+02-22 12:46:46.995: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=ほごシート
+02-22 12:46:46.995: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=ほごシート
+02-22 12:46:46.995: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=板チョコ
+02-22 12:46:47.886: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:47.886: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:47.886: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4066fc18
+02-22 12:46:47.895: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:47.895: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:47.895: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"SubWordList":{"SubWord":[{"Furigana":"いた","Surface":"板","Roman":"ita"},{"Furigana":"ちょこ","Surface":"チョコ","Roman":"tyoko"}]},"Furigana":"いたちょこ","Surface":"板チョコ","Roman":"itatyoko"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:47.895: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=4
+02-22 12:46:47.895: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=いたちょこ
+02-22 12:46:47.895: D/YahooFurigana.java[864:getFurigana](19259): furi=いたちょこ
+02-22 12:46:47.895: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=いたちょこ
+02-22 12:46:47.905: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=クッキー
+02-22 12:46:48.757: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:48.757: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:48.757: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405036f0
+02-22 12:46:48.765: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:48.765: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:48.765: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"クッキー"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:48.765: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:48.765: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=クッキー
+02-22 12:46:48.765: D/YahooFurigana.java[864:getFurigana](19259): furi=クッキー
+02-22 12:46:48.765: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=クッキー
+02-22 12:46:48.775: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=延長コード（イヤホン用）
+02-22 12:46:49.306: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:49.306: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:49.306: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4064c898
+02-22 12:46:49.315: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:49.315: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:49.315: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:49.315: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.325: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:49.325: D/YahooFurigana.java[972:getFurigana](19259): Furigana=えんちょう
+02-22 12:46:49.325: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.325: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょう
+02-22 12:46:49.325: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.325: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:49.325: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=コード
+02-22 12:46:49.325: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.325: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:49.335: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょうコード
+02-22 12:46:49.335: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.335: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:49.335: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:49.335: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.335: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:49.335: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:49.335: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょうコード（
+02-22 12:46:49.335: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.345: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:49.345: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=イヤホン
+02-22 12:46:49.345: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.345: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:49.345: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:49.345: D/YahooFurigana.java[1009:getFurigana](19259): item=イヤホン
+02-22 12:46:49.345: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょうコード（イヤホン
+02-22 12:46:49.345: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.345: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:49.345: D/YahooFurigana.java[972:getFurigana](19259): Furigana=よう
+02-22 12:46:49.345: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.355: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:49.355: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:49.355: D/YahooFurigana.java[1009:getFurigana](19259): item=イヤホン
+02-22 12:46:49.355: D/YahooFurigana.java[1009:getFurigana](19259): item=よう
+02-22 12:46:49.355: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょうコード（イヤホンよう
+02-22 12:46:49.355: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:49.355: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:49.355: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:49.395: D/YahooFurigana.java[1009:getFurigana](19259): item=えんちょう
+02-22 12:46:49.405: D/YahooFurigana.java[1009:getFurigana](19259): item=コード
+02-22 12:46:49.425: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:49.435: D/dalvikvm(19259): GC_CONCURRENT freed 1154K, 57% free 2989K/6919K, external 2791K/3477K, paused 2ms+3ms
+02-22 12:46:49.435: D/YahooFurigana.java[1009:getFurigana](19259): item=イヤホン
+02-22 12:46:49.435: D/YahooFurigana.java[1009:getFurigana](19259): item=よう
+02-22 12:46:49.435: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:49.435: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=えんちょうコード（イヤホンよう）
+02-22 12:46:49.445: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=えんちょうコード（イヤホンよう）
+02-22 12:46:49.445: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=財布
+02-22 12:46:49.985: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:49.995: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:49.995: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@4050b1c8
+02-22 12:46:49.995: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:49.995: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:49.995: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"さいふ","Surface":"財布","Roman":"saihu"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:49.995: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:49.995: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=さいふ
+02-22 12:46:49.995: D/YahooFurigana.java[864:getFurigana](19259): furi=さいふ
+02-22 12:46:50.005: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=さいふ
+02-22 12:46:50.005: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=箸
+02-22 12:46:50.495: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:50.505: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:50.505: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40637758
+02-22 12:46:50.505: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:50.505: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:50.505: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Furigana":"はし","Surface":"箸","Roman":"hasi"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:50.505: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=3
+02-22 12:46:50.515: D/YahooFurigana.java[1116:getFuriganaFromJSONObjectWord](19259): Furigana=はし
+02-22 12:46:50.515: D/YahooFurigana.java[864:getFurigana](19259): furi=はし
+02-22 12:46:50.515: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=はし
+02-22 12:46:50.515: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=スポンジ（食器用）
+02-22 12:46:51.045: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:51.045: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:51.045: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@406a2080
+02-22 12:46:51.045: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:51.055: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:51.055: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:51.055: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.055: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.055: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=スポンジ
+02-22 12:46:51.055: D/YahooFurigana.java[1009:getFurigana](19259): item=スポンジ
+02-22 12:46:51.055: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=スポンジ
+02-22 12:46:51.065: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.065: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.065: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:51.065: D/YahooFurigana.java[1009:getFurigana](19259): item=スポンジ
+02-22 12:46:51.065: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.075: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=スポンジ（
+02-22 12:46:51.075: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.075: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:51.075: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しょっきよう
+02-22 12:46:51.075: D/YahooFurigana.java[1009:getFurigana](19259): item=スポンジ
+02-22 12:46:51.075: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.075: D/YahooFurigana.java[1009:getFurigana](19259): item=しょっきよう
+02-22 12:46:51.075: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=スポンジ（しょっきよう
+02-22 12:46:51.075: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.075: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.075: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:51.085: D/YahooFurigana.java[1009:getFurigana](19259): item=スポンジ
+02-22 12:46:51.085: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.085: D/YahooFurigana.java[1009:getFurigana](19259): item=しょっきよう
+02-22 12:46:51.085: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:51.085: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=スポンジ（しょっきよう）
+02-22 12:46:51.085: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=スポンジ（しょっきよう）
+02-22 12:46:51.085: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=目玉クリップ（小小）
+02-22 12:46:51.345: D/dalvikvm(19259): GC_CONCURRENT freed 879K, 56% free 3059K/6919K, external 2791K/3477K, paused 3ms+3ms
+02-22 12:46:51.875: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:51.875: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:51.875: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40643d20
+02-22 12:46:51.875: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:51.875: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:51.885: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:51.895: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.895: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:51.895: D/YahooFurigana.java[972:getFurigana](19259): Furigana=めだま
+02-22 12:46:51.895: D/YahooFurigana.java[1009:getFurigana](19259): item=めだま
+02-22 12:46:51.895: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=めだま
+02-22 12:46:51.895: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.895: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.895: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=クリップ
+02-22 12:46:51.905: D/YahooFurigana.java[1009:getFurigana](19259): item=めだま
+02-22 12:46:51.905: D/YahooFurigana.java[1009:getFurigana](19259): item=クリップ
+02-22 12:46:51.905: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=めだまクリップ
+02-22 12:46:51.905: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.905: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.905: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:51.905: D/YahooFurigana.java[1009:getFurigana](19259): item=めだま
+02-22 12:46:51.905: D/YahooFurigana.java[1009:getFurigana](19259): item=クリップ
+02-22 12:46:51.905: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.905: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=めだまクリップ（
+02-22 12:46:51.905: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.905: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:51.915: D/YahooFurigana.java[972:getFurigana](19259): Furigana=しょうしょう
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=めだま
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=クリップ
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=しょうしょう
+02-22 12:46:51.915: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=めだまクリップ（しょうしょう
+02-22 12:46:51.915: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:51.915: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:51.915: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=めだま
+02-22 12:46:51.915: D/YahooFurigana.java[1009:getFurigana](19259): item=クリップ
+02-22 12:46:51.925: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:51.925: D/YahooFurigana.java[1009:getFurigana](19259): item=しょうしょう
+02-22 12:46:51.925: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:51.925: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=めだまクリップ（しょうしょう）
+02-22 12:46:51.925: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=めだまクリップ（しょうしょう）
+02-22 12:46:51.925: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=洗濯網（中）
+02-22 12:46:52.438: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:52.438: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:52.438: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@405cf208
+02-22 12:46:52.445: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:52.445: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:52.445: D/YahooFurigana.java[840:getFurigana](19259): jaWords => Obtained
+02-22 12:46:52.445: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:52.455: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:52.455: D/YahooFurigana.java[972:getFurigana](19259): Furigana=せんたく
+02-22 12:46:52.455: D/YahooFurigana.java[1009:getFurigana](19259): item=せんたく
+02-22 12:46:52.455: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=せんたく
+02-22 12:46:52.455: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:52.455: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:52.455: D/YahooFurigana.java[972:getFurigana](19259): Furigana=もう
+02-22 12:46:52.455: D/YahooFurigana.java[1009:getFurigana](19259): item=せんたく
+02-22 12:46:52.455: D/YahooFurigana.java[1009:getFurigana](19259): item=もう
+02-22 12:46:52.455: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=せんたくもう
+02-22 12:46:52.465: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:52.465: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:52.465: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=（
+02-22 12:46:52.465: D/YahooFurigana.java[1009:getFurigana](19259): item=せんたく
+02-22 12:46:52.465: D/YahooFurigana.java[1009:getFurigana](19259): item=もう
+02-22 12:46:52.465: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:52.465: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=せんたくもう（
+02-22 12:46:52.465: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:52.465: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=3
+02-22 12:46:52.465: D/YahooFurigana.java[972:getFurigana](19259): Furigana=なか
+02-22 12:46:52.465: D/YahooFurigana.java[1009:getFurigana](19259): item=せんたく
+02-22 12:46:52.465: D/YahooFurigana.java[1009:getFurigana](19259): item=もう
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=なか
+02-22 12:46:52.475: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=せんたくもう（なか
+02-22 12:46:52.475: D/YahooFurigana.java[911:getFurigana](19259): joWord => Created
+02-22 12:46:52.475: D/YahooFurigana.java[951:getFurigana](19259): keyList.size()=1
+02-22 12:46:52.475: D/YahooFurigana.java[986:getFurigana](19259): No 'Furigana' key; 'Surface'=）
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=せんたく
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=もう
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=（
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=なか
+02-22 12:46:52.475: D/YahooFurigana.java[1009:getFurigana](19259): item=）
+02-22 12:46:52.485: D/YahooFurigana.java[1021:getFurigana](19259): Furigana is=せんたくもう（なか）
+02-22 12:46:52.485: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=せんたくもう（なか）
+02-22 12:46:52.485: D/YahooFurigana.java[213:getJsonObjectFromKeyWord](19259): url=http://benfranklin.chips.jp/Learn_php/01/01_get_furigana.php?kw=テスト
+02-22 12:46:52.977: D/YahooFurigana.java[276:getJsonObjectFromKeyWord](19259): hr => Not null
+02-22 12:46:53.005: D/YahooFurigana.java[290:getJsonObjectFromKeyWord](19259): status=200
+02-22 12:46:53.005: D/YahooFurigana.java[302:getJsonObjectFromKeyWord](19259): entity.toString()=org.apache.http.conn.BasicManagedEntity@40520030
+02-22 12:46:53.045: D/dalvikvm(19259): GC_CONCURRENT freed 1047K, 57% free 3008K/6919K, external 2791K/3477K, paused 3ms+5ms
+02-22 12:46:53.180: D/YahooFurigana.java[763:getFurigana](19259): JSONObject => Created (Tag=Result)
+02-22 12:46:53.180: D/YahooFurigana.java[799:getFurigana](19259): JSONObject => Created (Tag=WordList)
+02-22 12:46:53.185: E/YahooFurigana.java[849:getFurigana](19259): org.json.JSONException: Value {"Surface":"テスト"} at Word of type org.json.JSONObject cannot be converted to JSONArray
+02-22 12:46:53.185: D/YahooFurigana.java[1087:getFuriganaFromJSONObjectWord](19259): keyList.size()=1
+02-22 12:46:53.185: D/YahooFurigana.java[1166:getFuriganaFromJSONObjectWord](19259): No 'Furigana' key; 'Surface'=テスト
+02-22 12:46:53.185: D/YahooFurigana.java[864:getFurigana](19259): furi=テスト
+02-22 12:46:53.185: D/Task_GetYomi.java[252:doInBackground_B18_v_5_2](19259): furi=テスト
+02-22 12:46:53.205: D/Task_GetYomi.java[339:doInBackground_B18_v_5_2](19259): furiganaList.size()=77/numOfYes=77/numOfNo=0
+02-22 12:46:53.205: D/Task_GetYomi.java[351:doInBackground_B18_v_5_2](19259): Time=20130222_124653

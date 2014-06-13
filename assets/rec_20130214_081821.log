@@ -1,0 +1,94 @@
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Can't open keycharmap file
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Error loading keycharmap file '/data/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Can't open keycharmap file
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Error loading keycharmap file '/system/usr/keychars/qtouch-obp-ts.kcm.bin'. hw.keyboards.131072.devname='qtouch-obp-ts'
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Can't open keycharmap file
+02-14 08:15:51.508: W/KeyCharacterMap(12877): Using default keymap: /system/usr/keychars/qwerty.kcm.bin
+02-14 08:15:52.948: D/dalvikvm(12877): GC_EXTERNAL_ALLOC freed 75K, 48% free 2684K/5123K, external 2438K/2773K, paused 52ms
+02-14 08:15:54.058: D/Methods_sl.java[936:getYomi_xml](12877): Executing postRequest...
+02-14 08:15:55.569: D/Methods_sl.java[988:getYomi_xml](12877): statusCode: 200
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877): <?xml version="1.0" encoding="UTF-8"?>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877): <ResultSet xmlns="urn:yahoo:jp:jlp:FuriganaService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd">
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):   <Result>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):     <WordList>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):       <Word>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):         <Surface>柿ピー</Surface>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):         <Furigana>かきぴー</Furigana>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):         <Roman>kakipi-</Roman>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):         <SubWordList>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):           <SubWord>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Surface>柿</Surface>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Furigana>かき</Furigana>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Roman>kaki</Roman>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):           </SubWord>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):           <SubWord>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Surface>ピー</Surface>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Furigana>ぴー</Furigana>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):             <Roman>pi-</Roman>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):           </SubWord>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):         </SubWordList>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):       </Word>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):     </WordList>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877):   </Result>
+02-14 08:15:55.578: D/Methods_sl.java[1007:getYomi_xml](12877): </ResultSet>
+02-14 08:15:55.578: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=ResultSet
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Result
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=WordList
+02-14 08:15:55.588: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Word
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.598: D/Methods_sl.java[1079:getYomi_xml](12877): Furigana=かきぴー
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Furigana
+02-14 08:15:55.598: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWordList
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWord
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.608: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.618: D/Methods_sl.java[1079:getYomi_xml](12877): Furigana=かき
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Furigana
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.618: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWord
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWord
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Surface
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.628: D/Methods_sl.java[1079:getYomi_xml](12877): Furigana=ぴー
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Furigana
+02-14 08:15:55.628: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Roman
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWord
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.638: D/Methods_sl.java[1091:getYomi_xml](12877): tag=SubWordList
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Word
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=WordList
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=Result
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=null
+02-14 08:15:55.648: D/Methods_sl.java[1091:getYomi_xml](12877): tag=ResultSet

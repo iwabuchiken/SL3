@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@android:id/tabhost" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		
+		
+		<TabWidget android:id="@android:id/tabs"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></TabWidget>
+		
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_width="wrap_content" android:layout_height="wrap_content">
+			
+		    <!-- Tab: Items -->
+			<LinearLayout
+			    android:id="@+id/first_content"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				
+				android:orientation="vertical"
+				>
+
+				<ListView
+				    android:id="@+id/itemlist_tab1_lv"
+				    android:layout_width="match_parent"
+				    android:layout_height="400dp" >
+
+				</ListView>
+
+				<LinearLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content" >
+
+					<LinearLayout
+					    android:layout_width="wrap_content"
+					    android:layout_height="match_parent" >
+
+						<TextView
+						    android:id="@+id/itemlist_tab1_tv_store_name"
+						    android:layout_width="wrap_content"
+						    android:layout_height="wrap_content"
+						    android:layout_margin="3dp"
+						    android:background="@color/white"
+						    android:padding="3dp"
+						    android:text="@string/v1_tv_store"
+						    android:textColor="@color/black"
+						    android:textSize="18sp" />
+
+						<Spinner
+						    android:id="@+id/itemlist_tab1_sp_store_name"
+						    android:layout_width="120dp"
+						    android:layout_height="wrap_content"
+						    android:layout_weight="1" />
+
+					</LinearLayout>
+
+					<LinearLayout
+					    android:layout_width="wrap_content"
+					    android:layout_height="match_parent" >
+
+						<TextView
+						    android:id="@+id/itemlist_tab1_tv_genre"
+						    android:layout_width="wrap_content"
+						    android:layout_height="wrap_content"
+						    android:layout_margin="3dp"
+						    android:layout_weight="1"
+						    android:background="@color/white"
+						    android:padding="3dp"
+						    android:text="@string/v1_tv_genre"
+						    android:textColor="@color/black"
+						    android:textSize="15sp" />
+
+						<Spinner
+						    android:id="@+id/itemlist_tab1_sp_genre"
+						    android:layout_width="120dp"
+						    android:layout_height="wrap_content"
+						    android:layout_weight="1" />
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+				<LinearLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:background="@color/darkgreen"
+				    android:gravity="center_horizontal"
+				    android:paddingBottom="5dp"
+				    android:paddingTop="5dp" >
+								
+					<ImageButton
+					    android:id="@+id/itemlist_tab1_ib"
+					    android:layout_width="wrap_content"
+					    android:layout_height="35dp"
+					    android:layout_gravity="center_vertical"
+					    android:background="@color/darkgreen"
+					    android:src="@drawable/sl_add_item_bar_150x150" />
+				
+				</LinearLayout>
+
+			</LinearLayout>
+			
+			<!-- Tab: To buy -->
+
+			<LinearLayout
+			    android:id="@+id/second_content"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center_horizontal"
+			    android:orientation="vertical"
+			    >
+				
+			    <ListView
+			        android:id="@+id/itemlist_tab2_lv"
+			        android:layout_width="match_parent"
+			        android:layout_height="250dp"
+			        android:background="@color/black" >
+
+				</ListView>
+
+			    <TextView
+			        android:id="@+id/itemlist_tab2_tv_sum"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginBottom="3dp"
+			        android:layout_marginTop="3dp"
+			        android:background="@color/white"
+			        android:gravity="center_horizontal"
+			        android:padding="10dp"
+			        android:text="@string/itemlist_tabs_tobuy_sum"
+			        android:textColor="@color/black"
+			        android:textSize="25sp" />
+
+			    <TextView
+			        android:id="@+id/itemlist_tab2_tv_due_date"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:background="@color/white"
+			        android:gravity="center_horizontal"
+			        android:padding="10dp"
+			        
+			        android:textColor="@color/black"
+			        android:textSize="25sp" />
+				
+			</LinearLayout>
+			
+		</FrameLayout>
+		
+	</LinearLayout>
+	
+</TabHost>

@@ -1,0 +1,50 @@
+02-15 15:18:24.846: D/Task_GetYomi.java[98:doInBackground_B18_v_2_0_d_t_2](25745): nWord1 => Element node
+02-15 15:18:24.846: D/Task_GetYomi.java[123:doInBackground_B18_v_2_0_d_t_2](25745): nlWord1Surface.getLength()=1
+02-15 15:18:24.846: D/Task_GetYomi.java[150:doInBackground_B18_v_2_0_d_t_2](25745): name=#text/value=?
+02-15 15:18:24.846: D/Task_GetYomi.java[190:doInBackground_B18_v_2_0_d_t_2](25745): nlChildrenOfSurface.item(0)
+02-15 15:18:24.846: D/Task_GetYomi.java[197:doInBackground_B18_v_2_0_d_t_2](25745): 1: Name=#text/Type=3/Value=?
+02-15 15:18:24.846: D/Task_GetYomi.java[215:doInBackground_B18_v_2_0_d_t_2](25745): n.getChildNodes().getLength()0
+02-15 15:18:24.846: W/dalvikvm(25745): threadid=9: thread exiting with uncaught exception (group=0x4001a560)
+02-15 15:18:24.856: E/AndroidRuntime(25745): FATAL EXCEPTION: AsyncTask #1
+02-15 15:18:24.856: E/AndroidRuntime(25745): java.lang.RuntimeException: An error occured while executing doInBackground()
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at android.os.AsyncTask$3.done(AsyncTask.java:200)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.FutureTask$Sync.innerSetException(FutureTask.java:274)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.FutureTask.setException(FutureTask.java:125)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:308)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.lang.Thread.run(Thread.java:1019)
+02-15 15:18:24.856: E/AndroidRuntime(25745): Caused by: java.lang.ClassCastException: org.apache.harmony.xml.dom.TextImpl
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at sl.tasks.Task_GetYomi.doInBackground_B18_v_2_0_d_t_2(Task_GetYomi.java:220)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:63)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:1)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at android.os.AsyncTask$2.call(AsyncTask.java:185)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+02-15 15:18:24.856: E/AndroidRuntime(25745): 	... 4 more
+02-15 15:18:25.476: E/WindowManager(25745): Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f7fe0 that was originally added here
+02-15 15:18:25.476: E/WindowManager(25745): android.view.WindowLeaked: Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404f7fe0 that was originally added here
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.view.ViewRoot.<init>(ViewRoot.java:263)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:148)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.view.Window$LocalWindowManager.addView(Window.java:424)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.app.Dialog.show(Dialog.java:241)
+02-15 15:18:25.476: E/WindowManager(25745): 	at sl.utils.Methods_dlg.dlg_db_activity(Methods_dlg.java:84)
+02-15 15:18:25.476: E/WindowManager(25745): 	at sl.main.MainActv.onOptionsItemSelected(MainActv.java:427)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.app.Activity.onMenuItemSelected(Activity.java:2264)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.policy.impl.PhoneWindow.onMenuItemSelected(PhoneWindow.java:813)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:143)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:855)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.view.menu.IconMenuView.invokeItem(IconMenuView.java:553)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.view.menu.IconMenuItemView.performClick(IconMenuItemView.java:122)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.view.View$PerformClick.run(View.java:9089)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.os.Handler.handleCallback(Handler.java:587)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.os.Looper.loop(Looper.java:130)
+02-15 15:18:25.476: E/WindowManager(25745): 	at android.app.ActivityThread.main(ActivityThread.java:3806)
+02-15 15:18:25.476: E/WindowManager(25745): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-15 15:18:25.476: E/WindowManager(25745): 	at java.lang.reflect.Method.invoke(Method.java:507)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+02-15 15:18:25.476: E/WindowManager(25745): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+02-15 15:18:25.476: E/WindowManager(25745): 	at dalvik.system.NativeStart.main(Native Method)
+02-15 15:23:24.907: I/Process(25745): Sending signal. PID: 25745 SIG: 9

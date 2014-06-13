@@ -1,0 +1,127 @@
+02-13 16:47:07.438: D/dalvikvm(4360): GC_EXTERNAL_ALLOC freed 75K, 48% free 2684K/5123K, external 2438K/2773K, paused 49ms
+02-13 16:47:23.338: D/Methods_sl.java[804:getYomi](4360): statusCode: 200
+02-13 16:47:23.478: I/XMLSerializer(4360): Using default type string
+02-13 16:47:23.478: E/dalvikvm(4360): Could not find class 'org.apache.commons.collections.map.ListOrderedMap', referenced from method net.sf.json.JSONObject.<init>
+02-13 16:47:23.478: W/dalvikvm(4360): VFY: unable to resolve new-instance 804 (Lorg/apache/commons/collections/map/ListOrderedMap;) in Lnet/sf/json/JSONObject;
+02-13 16:47:23.478: D/dalvikvm(4360): VFY: replacing opcode 0x22 at 0x0003
+02-13 16:47:23.478: D/dalvikvm(4360): VFY: dead code 0x0005-000a in Lnet/sf/json/JSONObject;.<init> ()V
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.488: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.morph, referenced from method net.sf.json.JSONObject.convertPropertyValueToArray
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to resolve virtual method 1015: Lnet/sf/ezmorph/MorpherRegistry;.morph (Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x0052
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.488: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.getMorpherFor, referenced from method net.sf.json.JSONObject.convertPropertyValueToArray
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to resolve virtual method 1014: Lnet/sf/ezmorph/MorpherRegistry;.getMorpherFor (Ljava/lang/Class;)Lnet/sf/ezmorph/Morpher;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x0075
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x0055-0055 in Lnet/sf/json/JSONObject;.convertPropertyValueToArray (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;Lnet/sf/json/JsonConfig;Ljava/util/Map;)Ljava/lang/Object;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x0078-00a8 in Lnet/sf/json/JSONObject;.convertPropertyValueToArray (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;Lnet/sf/json/JsonConfig;Ljava/util/Map;)Ljava/lang/Object;
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to find class referenced in signature ([Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.488: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getName, referenced from method net.sf.json.JSONObject.defaultBeanProcessing
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to resolve virtual method 124: Ljava/beans/PropertyDescriptor;.getName ()Ljava/lang/String;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x0026
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x0029-00a3 in Lnet/sf/json/JSONObject;.defaultBeanProcessing (Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Lnet/sf/json/JSONObject;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x00b0-00e9 in Lnet/sf/json/JSONObject;.defaultBeanProcessing (Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Lnet/sf/json/JSONObject;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x00fd-0144 in Lnet/sf/json/JSONObject;.defaultBeanProcessing (Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Lnet/sf/json/JSONObject;
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.488: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.getMorpherFor, referenced from method net.sf.json.JSONObject.morphPropertyValue
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to resolve virtual method 1014: Lnet/sf/ezmorph/MorpherRegistry;.getMorpherFor (Ljava/lang/Class;)Lnet/sf/ezmorph/Morpher;
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x0004
+02-13 16:47:23.488: D/dalvikvm(4360): VFY: dead code 0x0007-0079 in Lnet/sf/json/JSONObject;.morphPropertyValue (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Object;
+02-13 16:47:23.488: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.morph, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 1015: Lnet/sf/ezmorph/MorpherRegistry;.morph (Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x00da
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x00dd-00e2 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;)Ljava/lang/Object;
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getWriteMethod, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 128: Ljava/beans/PropertyDescriptor;.getWriteMethod ()Ljava/lang/reflect/Method;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x0082
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getPropertyType, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 126: Ljava/beans/PropertyDescriptor;.getPropertyType ()Ljava/lang/Class;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x00cb
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getPropertyType, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 126: Ljava/beans/PropertyDescriptor;.getPropertyType ()Ljava/lang/Class;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x0262
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getPropertyType, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 126: Ljava/beans/PropertyDescriptor;.getPropertyType ()Ljava/lang/Class;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x0355
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.morph, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 1015: Lnet/sf/ezmorph/MorpherRegistry;.morph (Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x04ca
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x0085-00b6 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x00ce-00d4 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x012c-0216 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x0265-0303 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x0358-0420 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: dead code 0x04cd-04d8 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Ljava/lang/Object;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getWriteMethod, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 128: Ljava/beans/PropertyDescriptor;.getWriteMethod ()Ljava/lang/reflect/Method;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x017f
+02-13 16:47:23.498: I/dalvikvm(4360): Could not find method java.beans.PropertyDescriptor.getPropertyType, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to resolve virtual method 126: Ljava/beans/PropertyDescriptor;.getPropertyType ()Ljava/lang/Class;
+02-13 16:47:23.498: D/dalvikvm(4360): VFY: replacing opcode 0x74 at 0x01bd
+02-13 16:47:23.498: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Ljava/beans/PropertyDescriptor;)
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.508: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.morph, referenced from method net.sf.json.JSONObject.toBean
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to resolve virtual method 1015: Lnet/sf/ezmorph/MorpherRegistry;.morph (Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x04bf
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: dead code 0x0182-01ba in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: dead code 0x01c0-03bd in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: dead code 0x04c2-04c9 in Lnet/sf/json/JSONObject;.toBean (Lnet/sf/json/JSONObject;Lnet/sf/json/JsonConfig;)Ljava/lang/Object;
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to find class referenced in signature (Lnet/sf/ezmorph/MorpherRegistry;)
+02-13 16:47:23.508: I/dalvikvm(4360): Could not find method net.sf.ezmorph.MorpherRegistry.getMorpherFor, referenced from method net.sf.json.JSONObject.equals
+02-13 16:47:23.508: W/dalvikvm(4360): VFY: unable to resolve virtual method 1014: Lnet/sf/ezmorph/MorpherRegistry;.getMorpherFor (Ljava/lang/Class;)Lnet/sf/ezmorph/Morpher;
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: replacing opcode 0x6e at 0x0109
+02-13 16:47:23.508: D/dalvikvm(4360): VFY: dead code 0x010c-015b in Lnet/sf/json/JSONObject;.equals (Ljava/lang/Object;)Z
+02-13 16:47:23.518: W/dalvikvm(4360): threadid=9: thread exiting with uncaught exception (group=0x4001a560)
+02-13 16:47:23.518: E/AndroidRuntime(4360): FATAL EXCEPTION: AsyncTask #1
+02-13 16:47:23.518: E/AndroidRuntime(4360): java.lang.RuntimeException: An error occured while executing doInBackground()
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at android.os.AsyncTask$3.done(AsyncTask.java:200)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.FutureTask$Sync.innerSetException(FutureTask.java:274)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.FutureTask.setException(FutureTask.java:125)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:308)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.lang.Thread.run(Thread.java:1019)
+02-13 16:47:23.518: E/AndroidRuntime(4360): Caused by: java.lang.NoClassDefFoundError: org.apache.commons.collections.map.ListOrderedMap
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at net.sf.json.JSONObject.<init>(JSONObject.java:1450)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at net.sf.json.xml.XMLSerializer.processObjectElement(XMLSerializer.java:1054)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at net.sf.json.xml.XMLSerializer.read(XMLSerializer.java:322)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at sl.utils.Methods_sl.getYomi(Methods_sl.java:822)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:33)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at sl.tasks.Task_GetYomi.doInBackground(Task_GetYomi.java:1)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at android.os.AsyncTask$2.call(AsyncTask.java:185)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+02-13 16:47:23.518: E/AndroidRuntime(4360): 	... 4 more
+02-13 16:47:24.098: E/WindowManager(4360): Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404fb088 that was originally added here
+02-13 16:47:24.098: E/WindowManager(4360): android.view.WindowLeaked: Activity sl.main.MainActv has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@404fb088 that was originally added here
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.view.ViewRoot.<init>(ViewRoot.java:263)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:148)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:91)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.view.Window$LocalWindowManager.addView(Window.java:424)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.app.Dialog.show(Dialog.java:241)
+02-13 16:47:24.098: E/WindowManager(4360): 	at sl.utils.Methods_dlg.dlg_db_activity(Methods_dlg.java:84)
+02-13 16:47:24.098: E/WindowManager(4360): 	at sl.main.MainActv.onOptionsItemSelected(MainActv.java:427)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.app.Activity.onMenuItemSelected(Activity.java:2264)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.policy.impl.PhoneWindow.onMenuItemSelected(PhoneWindow.java:813)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:143)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:855)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.view.menu.IconMenuView.invokeItem(IconMenuView.java:553)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.view.menu.IconMenuItemView.performClick(IconMenuItemView.java:122)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.view.View$PerformClick.run(View.java:9089)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.os.Handler.handleCallback(Handler.java:587)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.os.Looper.loop(Looper.java:130)
+02-13 16:47:24.098: E/WindowManager(4360): 	at android.app.ActivityThread.main(ActivityThread.java:3806)
+02-13 16:47:24.098: E/WindowManager(4360): 	at java.lang.reflect.Method.invokeNative(Native Method)
+02-13 16:47:24.098: E/WindowManager(4360): 	at java.lang.reflect.Method.invoke(Method.java:507)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:839)
+02-13 16:47:24.098: E/WindowManager(4360): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:597)
+02-13 16:47:24.098: E/WindowManager(4360): 	at dalvik.system.NativeStart.main(Native Method)

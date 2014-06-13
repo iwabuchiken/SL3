@@ -1,0 +1,44 @@
+a
+a p && pushd C:\WORKS\WS\WS_Android~\ShoppingList && gitk
+
+
+pushd C:\WORKS\WS\WS_Android~\ShoppingList && gitk
+gitk
+
+[db]
+/data/data/sl.main/databases/sl
+/mnt/sdcard-ext/ShoppingList_backup
+
+
+C:\WORKS\WS\a
+C:\WORKS\PROGRAMS\FreeMind\FreeMind.exe C:\WORKS\WS\WS_Android~\FM\ShoppingList\ShoppingList.mm
+
+C:\WORKS\PROGRAMS\FreeMind\FreeMind.exe C:\WORKS\WORKSPACES_ANDROID\FM\ShoppingList.mm
+C:\WORKS\PROGRAMS\FreeMind\FreeMind.exe C:\WORKS\WORKSPACES_ANDROID\FM\Activity_log.mm
+
+copy ..\ImageFileManager6\.gitignore .
+
+[Git]
+g init
+g a .
+
+git log --grep=B4 -3
+git log --grep=B5 -3
+
+
+[Git for mm]
+pushd C:\WORKS\WORKSPACES_ANDROID\FM
+
+[svn]
+pushd C:\WORKS\WS\WS_Android~\Sample\05_Techbooster
+svn co https://techbooster.googlecode.com/svn/trunk/ContextMenu/ ContextMenu
+svn co http://techbooster.googlecode.com/svn/trunk/audioTrack/
+
+[sqlite3]
+.explain on
+.tables
+
+pragma table_info(shopping_item);
+pragma table_info(stores);
+
+SELECT 

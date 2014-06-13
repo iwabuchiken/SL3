@@ -1,0 +1,3 @@
+02-13 15:16:48.406: D/dalvikvm(31113): GC_EXTERNAL_ALLOC freed 74K, 48% free 2680K/5123K, external 2438K/2773K, paused 46ms
+02-13 15:16:51.616: D/Methods_sl.java[802:getYomi](31113): statusCode: 200
+02-13 15:16:51.626: D/Methods_sl.java[833:getYomi](31113): org.json.JSONException: Value <?xml of type java.lang.String cannot be converted to JSONObject

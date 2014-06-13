@@ -1,0 +1,30 @@
+02-14 15:02:03.327: D/Methods.java[1936:getYomi_getHttpEntity](5805): statusCode: 200
+02-14 15:02:03.327: D/XmlHandler.java[69:showXml](5805): Entering...
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805): java.net.MalformedURLException: Protocol not found: <?xml version="1.0" encoding="UTF-8"?>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805): <ResultSet xmlns="urn:yahoo:jp:jlp:FuriganaService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd">
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):   <Result>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):     <WordList>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       <Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Surface>êÙëÛ</Surface>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Furigana>ÇπÇÒÇΩÇ≠</Furigana>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Roman>sentaku</Roman>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       </Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       <Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Surface>ñ‘</Surface>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Furigana>Ç‡Ç§</Furigana>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Roman>mou</Roman>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       </Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       <Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Surface>Åi</Surface>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       </Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       <Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Surface>íÜ</Surface>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Furigana>Ç»Ç©</Furigana>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Roman>naka</Roman>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       </Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       <Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):         <Surface>Åj</Surface>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):       </Word>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):     </WordList>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805):   </Result>
+02-14 15:02:03.327: E/Task_GetYomi.java[298:doInBackground__2__1__XmlHandler](5805): </ResultSet>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item android:id="@+id/v1_menu_db_manager" android:title="@string/v1_menu_db_manager" android:icon="@drawable/v1_menu_db_manager_30x30"></item>
+
+	<item android:id="@+id/menu_main_tab_actv"
+		android:title="@string/menu_main_tab_actv"
+		android:icon="@android:drawable/ic_menu_call"></item>
+	  
+	<item android:id="@+id/menu_main_pref_actv"
+		android:title="@string/menu_main_pref_actv"
+		android:icon="@android:drawable/ic_menu_preferences"></item>
+
+</menu>
