@@ -59,9 +59,9 @@ public class DBUtils extends SQLiteOpenHelper {
 //																	{"TEXT", "TEXT"};
 //	
 
-	// DB name => Use default: CONS.dbName
+	// DB name => Use default: CONS.DBAdmin.dbName
 	public DBUtils(Context context) {
-		super(context, CONS.dbName, CONS.factory, CONS.version);
+		super(context, CONS.DBAdmin.dbName, CONS.factory, CONS.version);
 		// 
 		this.context = context;
 		
@@ -527,6 +527,12 @@ public class DBUtils extends SQLiteOpenHelper {
 
 	public Cursor getAllData(
 					SQLiteDatabase db, String tableName, String[] cols) {
+		
+		////////////////////////////////
+
+		// validate: table exists
+
+		////////////////////////////////
 		//
 		Cursor cursor = db.query(tableName, cols, null, null, null, null, null);
 		
@@ -823,30 +829,30 @@ public class DBUtils extends SQLiteOpenHelper {
 		"created_at", "updated_at", "posted_at"
 		*/
 		String sql =
-				"UPDATE " + CONS.tableName
+				"UPDATE " + CONS.DBAdmin.tableName
 				+ " SET "
-				+ CONS.cols_SI_full[0] + "='" + si.getStore() + "'"
+				+ CONS.DBAdmin.cols_SI_full[0] + "='" + si.getStore() + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[1] + "='" + si.getName() + "'"
+				+ CONS.DBAdmin.cols_SI_full[1] + "='" + si.getName() + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[2] + "='" + String.valueOf(si.getPrice()) + "'"
+				+ CONS.DBAdmin.cols_SI_full[2] + "='" + String.valueOf(si.getPrice()) + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[3] + "='" + si.getGenre() + "'"
+				+ CONS.DBAdmin.cols_SI_full[3] + "='" + si.getGenre() + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[4] + "='" + si.getYomi() + "'"
+				+ CONS.DBAdmin.cols_SI_full[4] + "='" + si.getYomi() + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[6] + "='" + String.valueOf(si.getCreated_at()) + "'"
+				+ CONS.DBAdmin.cols_SI_full[6] + "='" + String.valueOf(si.getCreated_at()) + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[7] + "='" + String.valueOf(si.getUpdated_at()) + "'"
+				+ CONS.DBAdmin.cols_SI_full[7] + "='" + String.valueOf(si.getUpdated_at()) + "'"
 				
 				+ " AND "
-				+ CONS.cols_SI_full[8] + "='" + String.valueOf(si.getPosted_at()) + "'"
+				+ CONS.DBAdmin.cols_SI_full[8] + "='" + String.valueOf(si.getPosted_at()) + "'"
 				
 //					+ " WHERE file_id = '" + dbId + "'";
 				+ " WHERE "
@@ -1085,30 +1091,30 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		SQLiteDatabase rdb = this.getReadableDatabase();
 		
-//		CONS.columns => "store", "name", "price", "genre", "yomi"
+//		CONS.DBAdmin.columns => "store", "name", "price", "genre", "yomi"
 //		Cursor cursor = rdb.query(
-//							CONS.tableName,
-////							CONS.columns,
-//							CONS.columns_with_index2,
+//							CONS.DBAdmin.tableName,
+////							CONS.DBAdmin.columns,
+//							CONS.DBAdmin.columns_with_index2,
 ////							android.provider.BaseColumns._ID + "=",	// where
-//							String.valueOf(CONS.columns_with_index2[0]),
+//							String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
 //							new String[]{dbId},	// param
 //							null, null, null);
 
 //		// From: TabActv.java
 //		Cursor cursor = rdb.query(
-//				CONS.tableName, 
+//				CONS.DBAdmin.tableName, 
 ////										DBManager.columns,
-////				CONS.columns_with_index,
-//				CONS.columns_with_index2,
-//				String.valueOf(CONS.columns_with_index2[0]),
+////				CONS.DBAdmin.columns_with_index,
+//				CONS.DBAdmin.columns_with_index2,
+//				String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
 //				new String[]{dbId},
 //				null, null, null);
 		
 //		String sql = "SELECT " + "store, name, price, genre, yomi"
 		String sql = "SELECT " + "*"
-					+ " FROM " + CONS.tableName
-					+ " WHERE " + CONS.columns_with_index2[0]
+					+ " FROM " + CONS.DBAdmin.tableName
+					+ " WHERE " + CONS.DBAdmin.columns_with_index2[0]
 					+ " = "
 					+ dbId;
 		
@@ -1153,7 +1159,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		ShoppingItem si = new ShoppingItem();
 		
-		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.columns_with_index2[0])));
+		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DBAdmin.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
 		si.setName(cursor.getString(cursor.getColumnIndex("name")));
 		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
@@ -1186,8 +1192,8 @@ public class DBUtils extends SQLiteOpenHelper {
 		SQLiteDatabase rdb = this.getReadableDatabase();
 		
 		String sql = "SELECT " + "*"
-				+ " FROM " + CONS.tableName
-				+ " WHERE " + CONS.columns_with_index2[1]
+				+ " FROM " + CONS.DBAdmin.tableName
+				+ " WHERE " + CONS.DBAdmin.columns_with_index2[1]
 						+ " = "
 						+ itemName;
 		
@@ -1232,7 +1238,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		ShoppingItem si = new ShoppingItem();
 		
-		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.columns_with_index2[0])));
+		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DBAdmin.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
 		si.setName(cursor.getString(cursor.getColumnIndex("name")));
 		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
@@ -1493,11 +1499,11 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 //		0			1		2		3		4
 //		"store", "name", "price", "genre", "yomi"
-		cv.put(CONS.columns[0], si.getStore());
-		cv.put(CONS.columns[1], si.getName());
-		cv.put(CONS.columns[2], si.getPrice());
-		cv.put(CONS.columns[3], si.getGenre());
-		cv.put(CONS.columns[4], si.getYomi());
+		cv.put(CONS.DBAdmin.columns[0], si.getStore());
+		cv.put(CONS.DBAdmin.columns[1], si.getName());
+		cv.put(CONS.DBAdmin.columns[2], si.getPrice());
+		cv.put(CONS.DBAdmin.columns[3], si.getGenre());
+		cv.put(CONS.DBAdmin.columns[4], si.getYomi());
 		
 		/***************************************
 		 * Setup db
@@ -1517,9 +1523,9 @@ public class DBUtils extends SQLiteOpenHelper {
 //			}//for (int i = 0; i < columnNames.length; i++)
 
 			// Insert data
-//			long res = wdb.insert(CONS.tableName, null, cv);
+//			long res = wdb.insert(CONS.DBAdmin.tableName, null, cv);
 			long res = wdb.update(
-							CONS.tableName,
+							CONS.DBAdmin.tableName,
 							cv,
 							android.provider.BaseColumns._ID + " = ?",
 							new String[]{String.valueOf(si.getId())});
@@ -1595,15 +1601,15 @@ public class DBUtils extends SQLiteOpenHelper {
 		"created_at", "updated_at", "posted_at"
 		*/
 		
-		cv.put(CONS.cols_SI_full[0], si.getStore());
-		cv.put(CONS.cols_SI_full[1], si.getName());
-		cv.put(CONS.cols_SI_full[2], si.getPrice());
-		cv.put(CONS.cols_SI_full[3], si.getGenre());
-		cv.put(CONS.cols_SI_full[4], si.getYomi());
+		cv.put(CONS.DBAdmin.cols_SI_full[0], si.getStore());
+		cv.put(CONS.DBAdmin.cols_SI_full[1], si.getName());
+		cv.put(CONS.DBAdmin.cols_SI_full[2], si.getPrice());
+		cv.put(CONS.DBAdmin.cols_SI_full[3], si.getGenre());
+		cv.put(CONS.DBAdmin.cols_SI_full[4], si.getYomi());
 		
-		cv.put(CONS.cols_SI_full[6], si.getCreated_at());
-		cv.put(CONS.cols_SI_full[7], si.getUpdated_at());
-		cv.put(CONS.cols_SI_full[8], si.getPosted_at());
+		cv.put(CONS.DBAdmin.cols_SI_full[6], si.getCreated_at());
+		cv.put(CONS.DBAdmin.cols_SI_full[7], si.getUpdated_at());
+		cv.put(CONS.DBAdmin.cols_SI_full[8], si.getPosted_at());
 		
 		/***************************************
 		 * Setup db
@@ -1623,9 +1629,9 @@ public class DBUtils extends SQLiteOpenHelper {
 //			}//for (int i = 0; i < columnNames.length; i++)
 			
 			// Insert data
-//			long res = wdb.insert(CONS.tableName, null, cv);
+//			long res = wdb.insert(CONS.DBAdmin.tableName, null, cv);
 			long res = wdb.update(
-					CONS.tableName,
+					CONS.DBAdmin.tableName,
 					cv,
 					android.provider.BaseColumns._ID + " = ?",
 					new String[]{String.valueOf(si.getId())});
@@ -1678,6 +1684,37 @@ public class DBUtils extends SQLiteOpenHelper {
 		}//try
 		
 	}//public boolean updateData_SI_all_V2(ShoppingItem si)
+
+	public static boolean 
+	tableExists
+	(Activity actv, String dbName, String tableName) {
+		// The table exists?
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		//
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+
+		Cursor cursor = rdb.rawQuery(
+				"SELECT * FROM sqlite_master WHERE tbl_name = '" + 
+						tableName + "'", null);
+		
+		actv.startManagingCursor(cursor);
+//		actv.startManagingCursor(cursor);
+		
+		// Judge
+		if (cursor.getCount() > 0) {
+		
+			rdb.close();
+			return true;
+			
+		} else {//if (cursor.getCount() > 0)
+			
+			rdb.close();
+			return false;
+			
+		}//if (cursor.getCount() > 0)
+		
+	}//public boolean tableExists(String tableName)
 
 }//public class DBUtils extends SQLiteOpenHelper
 

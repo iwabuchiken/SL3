@@ -77,7 +77,7 @@ public class Methods_sl {
 			 * Get data in the "price" column
 			 *********************************/
 //			int colNumPrice = Methods.getArrayIndex(
-//									CONS.columns,
+//									CONS.DBAdmin.columns,
 //									"price");
 //			
 //			// Log
@@ -89,7 +89,7 @@ public class Methods_sl {
 			
 			String data =
 					c.getString(1 + Methods.getArrayIndex(
-									CONS.columns,
+									CONS.DBAdmin.columns,
 									"price"));
 			
 			// Log
@@ -112,7 +112,7 @@ public class Methods_sl {
 								.getMethodName() + "]",
 						"Data type => OK: "
 							+ c.getString(1 + Methods.getArrayIndex(
-												CONS.columns,
+												CONS.DBAdmin.columns,
 												"name")));
 				
 			} else {//if (Methods.is_numeric(data))
@@ -127,7 +127,7 @@ public class Methods_sl {
 								.getMethodName() + "]",
 						"Data type => Not OK: "
 							+ c.getString(1 + Methods.getArrayIndex(
-											CONS.columns,
+											CONS.DBAdmin.columns,
 											"name")));
 
 				long dbId = c.getLong(0);
@@ -135,15 +135,15 @@ public class Methods_sl {
 				dbu.updateData(actv,
 						wdb, tableName,
 						dbId,
-						CONS.columns[
-						     Methods.getArrayIndex(CONS.columns, "yomi")],
+						CONS.DBAdmin.columns[
+						     Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi")],
 						data);
 
 				dbu.updateData(actv,
 						wdb, tableName,
 						dbId,
-						CONS.columns[
-				             Methods.getArrayIndex(CONS.columns, "price")],
+						CONS.DBAdmin.columns[
+				             Methods.getArrayIndex(CONS.DBAdmin.columns, "price")],
 						"");
 				
 			}//if (Methods.is_numeric(data))
@@ -164,7 +164,7 @@ public class Methods_sl {
 		/*********************************
 		 * Setup DB
 		 *********************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -290,7 +290,7 @@ public class Methods_sl {
 		/*********************************
 		 * Setup DB
 		 *********************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -369,7 +369,7 @@ public class Methods_sl {
 				 *********************************/
 				String data =
 						c.getString(1 + Methods.getArrayIndex(
-										CONS.columns,
+										CONS.DBAdmin.columns,
 										"genre"));
 				
 				// Log
@@ -397,15 +397,15 @@ public class Methods_sl {
 					dbu.updateData(actv,
 							wdb, tableName,
 							dbId,
-							CONS.columns[
-							     Methods.getArrayIndex(CONS.columns, "price")],
+							CONS.DBAdmin.columns[
+							     Methods.getArrayIndex(CONS.DBAdmin.columns, "price")],
 							data);
 
 					dbu.updateData(actv,
 							wdb, tableName,
 							dbId,
-							CONS.columns[
-					             Methods.getArrayIndex(CONS.columns, "genre")],
+							CONS.DBAdmin.columns[
+					             Methods.getArrayIndex(CONS.DBAdmin.columns, "genre")],
 							"");
 					
 				} else {//if (Methods.is_numeric(data))
@@ -455,7 +455,7 @@ public class Methods_sl {
 		/*********************************
 		 * Setup DB
 		 *********************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -606,12 +606,12 @@ public class Methods_sl {
 			 * Get data in the "price" column
 			 *********************************/
 			String storeName = c.getString(1 + Methods.getArrayIndex(
-									CONS.columns,
+									CONS.DBAdmin.columns,
 									"store"));
 			
 			String priceData =
 					c.getString(1 + Methods.getArrayIndex(
-									CONS.columns,
+									CONS.DBAdmin.columns,
 									"price"));
 
 			// Log
@@ -644,9 +644,9 @@ public class Methods_sl {
 				res = dbu.updateData(actv,
 						wdb, tableName,
 						dbId,
-						CONS.columns[
+						CONS.DBAdmin.columns[
 						     Methods.getArrayIndex(
-						    		 	CONS.columns,
+						    		 	CONS.DBAdmin.columns,
 						    		 	targetColName)],
 						100);
 				
@@ -1814,7 +1814,7 @@ public class Methods_sl {
 		/***************************************
 		 * Clear the list "toBuyList : ListView<ShoppingItem>
 		 ***************************************/
-		CONS.toBuyList.clear();
+		CONS.TabActv.toBuyList.clear();
 		
 		/***************************************
 		 * Setup db
@@ -1825,17 +1825,17 @@ public class Methods_sl {
 		
 		Cursor c = null;
 		
-		for (Integer itemId : CONS.tab_toBuyItemIds) {
+		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
 			
 			try {
 				
 				c = rdb.query(
-						CONS.tableName, 
+						CONS.DBAdmin.tableName, 
 	//										DBManager.columns,
-	//				CONS.columns_with_index,
-						CONS.columns_with_index2,
-//						String.valueOf(CONS.columns_with_index2[0]),
-						String.valueOf(CONS.columns_with_index2[0]) + "=?",
+	//				CONS.DBAdmin.columns_with_index,
+						CONS.DBAdmin.columns_with_index2,
+//						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
+						String.valueOf(CONS.DBAdmin.columns_with_index2[0]) + "=?",
 						new String[]{String.valueOf(itemId.intValue())},
 						null, null, null);
 				
@@ -1916,7 +1916,7 @@ public class Methods_sl {
 						);
 				
 				//
-				CONS.toBuyList.add(item);
+				CONS.TabActv.toBuyList.add(item);
 				
 				// Log
 				Log.d("Methods_sl.java"
@@ -1933,7 +1933,7 @@ public class Methods_sl {
 				
 			}//for (int i = 0; i < c.getCount(); i++)
 
-		}//for (Integer itemId : CONS.tab_toBuyItemIds)
+		}//for (Integer itemId : CONS.TabActv.tab_toBuyItemIds)
 
 		//
 		rdb.close();
@@ -1941,7 +1941,7 @@ public class Methods_sl {
 		/***************************************
 		 * Sort list
 		 ***************************************/
-		Methods_sl.sortItemList(CONS.toBuyList);
+		Methods_sl.sortItemList(CONS.TabActv.toBuyList);
 		
 		/***************************************
 		 * Update "sum" value
@@ -1951,14 +1951,14 @@ public class Methods_sl {
 		// Get sum
 		int sum = 0;
 		
-		for (int i = 0; i < CONS.toBuyList.size(); i++) {
+		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
-//			ShoppingItem si = CONS.toBuyList.get(0);
-			ShoppingItem si = CONS.toBuyList.get(i);
+//			ShoppingItem si = CONS.TabActv.toBuyList.get(0);
+			ShoppingItem si = CONS.TabActv.toBuyList.get(i);
 			
 			sum += si.getPrice();
 			
-		}//for (int i = 0; i < CONS.toBuyList.size(); i++)
+		}//for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++)
 		
 		// Display
 		tvSum.setText(String.format("合計 %d 円", sum));
@@ -1968,7 +1968,7 @@ public class Methods_sl {
 	
 	public static List<PS> getPSList(Activity actv) {
 		
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		List<PS> psList = dbu.getPSList(actv);
 		
@@ -2338,7 +2338,7 @@ public class Methods_sl {
 		 ***************************************/
 		DBUtils dbu = new DBUtils(actv);
 		
-		boolean result = dbu.deleteItem(CONS.tableName, si.getId());
+		boolean result = dbu.deleteItem(CONS.DBAdmin.tableName, si.getId());
 		
 		if (result == true) {
 			// Log
@@ -2369,7 +2369,7 @@ public class Methods_sl {
 		// TODO Auto-generated method stub
 		boolean res = true;
 		
-		res = CONS.itemList.remove(si);
+		res = CONS.TabActv.itemList.remove(si);
 		
 		if (res == false) {
 			
@@ -2377,7 +2377,7 @@ public class Methods_sl {
 			
 		}
 		
-		CONS.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 		return res;
 		
@@ -2405,9 +2405,9 @@ public class Methods_sl {
 		try {
 			
 			c = rdb.query(
-					CONS.tableName, 
-					CONS.cols_SI_full,
-//					CONS.columns_with_index2,
+					CONS.DBAdmin.tableName, 
+					CONS.DBAdmin.cols_SI_full,
+//					CONS.DBAdmin.columns_with_index2,
 											null, null, null, null, null);
 		} catch (Exception e) {
 			
@@ -2490,15 +2490,15 @@ public class Methods_sl {
 		try {
 			
 			c = rdb.query(
-					CONS.tableName, 
-//					CONS.columns_with_index2,
-					CONS.cols_SI_full,
+					CONS.DBAdmin.tableName, 
+//					CONS.DBAdmin.columns_with_index2,
+					CONS.DBAdmin.cols_SI_full,
 					String.valueOf(
-						CONS.cols_SI_full[Methods.getArrayIndex(
-								CONS.cols_SI_full,
+						CONS.DBAdmin.cols_SI_full[Methods.getArrayIndex(
+								CONS.DBAdmin.cols_SI_full,
 								android.provider.BaseColumns._ID)]) + " = ?",
-//					String.valueOf(CONS.cols_SI_full[0]) + " = ?",
-//					String.valueOf(CONS.columns_with_index2[0]) + " = ?",
+//					String.valueOf(CONS.DBAdmin.cols_SI_full[0]) + " = ?",
+//					String.valueOf(CONS.DBAdmin.columns_with_index2[0]) + " = ?",
 					new String[]{String.valueOf(dbId)},
 					null, null, null);
 			
@@ -2585,10 +2585,10 @@ public class Methods_sl {
 		try {
 			
 			String q = 
-					CONS.cols_SI_full[1] + " = ?"	// name
+					CONS.DBAdmin.cols_SI_full[1] + " = ?"	// name
 					+ " and "
-//					+ CONS.cols_SI_full[4] + " = ?";	// store
-					+ CONS.cols_SI_full[0] + " = ?";	// store
+//					+ CONS.DBAdmin.cols_SI_full[4] + " = ?";	// store
+					+ CONS.DBAdmin.cols_SI_full[0] + " = ?";	// store
 			
 			String[] params = {
 					
@@ -2596,11 +2596,11 @@ public class Methods_sl {
 			};
 			
 			c = rdb.query(
-					CONS.tableName, 
-//					CONS.columns_with_index2,
-					CONS.cols_SI_full,
+					CONS.DBAdmin.tableName, 
+//					CONS.DBAdmin.columns_with_index2,
+					CONS.DBAdmin.cols_SI_full,
 					q,
-//					String.valueOf(CONS.columns_with_index2[0]) + " = ?",
+//					String.valueOf(CONS.DBAdmin.columns_with_index2[0]) + " = ?",
 					params,
 					null, null, null);
 			
@@ -2704,7 +2704,7 @@ public class Methods_sl {
 			
 			c = rdb.query(
 					CONS.DBAdmin.tname_stores, 
-					CONS.columns_for_table_stores_with_index,
+					CONS.DBAdmin.columns_for_table_stores_with_index,
 											null, null, null, null, null);
 			
 		} catch (Exception e) {
@@ -2770,7 +2770,7 @@ public class Methods_sl {
 			
 			c = rdb.query(
 					CONS.DBAdmin.tname_genres, 
-					CONS.columns_for_table_genres_with_index,
+					CONS.DBAdmin.columns_for_table_genres_with_index,
 					null, null, null, null, null);
 			
 		} catch (Exception e) {

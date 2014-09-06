@@ -230,17 +230,17 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		}
 
 		//default
-		if (CONS.tab_toBuyItemIds == null) {
+		if (CONS.TabActv.tab_toBuyItemIds == null) {
 			
 			return 1
 					+ CONS.ReturnValues.MAGINITUDE_ONE;
 			
-		} else {//if (CONS.tab_toBuyItemIds == null)
+		} else {//if (CONS.TabActv.tab_toBuyItemIds == null)
 			
-			return CONS.tab_toBuyItemIds.size()
+			return CONS.TabActv.tab_toBuyItemIds.size()
 					+ CONS.ReturnValues.MAGINITUDE_ONE;
 			
-		}//if (CONS.tab_toBuyItemIds == null)
+		}//if (CONS.TabActv.tab_toBuyItemIds == null)
 		
 		
 	}//private int _doInBackground__PurHistory()
@@ -263,7 +263,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		 *********************************/
 		String itemIds = _doInBackground__getJSONBody_PurHistory_BuildItemIds();
 //				String itemIds = StringUtils.join(
-//				CONS.tab_toBuyItemIds.toArray(),
+//				CONS.TabActv.tab_toBuyItemIds.toArray(),
 //				CONS.HTTPData.PostItems_SeparatorString);
 		
 		// Log
@@ -285,7 +285,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		 ***************************************/
 		ShoppingItem si = Methods_sl.getSI_FromDbId(
 						actv,
-						CONS.tab_toBuyItemIds.get(0));
+						CONS.TabActv.tab_toBuyItemIds.get(0));
 		
 		Object[] values = new Object[]{
 				
@@ -333,27 +333,27 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	}//_doInBackground__getJSONBody_PurHistory()
 
 	/*********************************
-	 * @return null => CONS.tab_toBuyItemIds == null
+	 * @return null => CONS.TabActv.tab_toBuyItemIds == null
 	 *********************************/
 	private String
 	_doInBackground__getJSONBody_PurHistory_BuildItemIds() {
 		
 		String itemIds = null;
 		
-		if (CONS.tab_toBuyItemIds == null) {
+		if (CONS.TabActv.tab_toBuyItemIds == null) {
 			
 			return null;
 			
 //			itemIds = "40,1 87,1 109,2";
 			
-		} else {//if (CONS.tab_toBuyItemIds == null)
+		} else {//if (CONS.TabActv.tab_toBuyItemIds == null)
 			
-			String[] mixedLabel = new String[CONS.tab_toBuyItemIds.size()];
+			String[] mixedLabel = new String[CONS.TabActv.tab_toBuyItemIds.size()];
 				
 			for (int i = 0; i < mixedLabel.length; i++) {
 				
 				mixedLabel[i] =
-						String.valueOf(CONS.tab_toBuyItemIds.get(i))
+						String.valueOf(CONS.TabActv.tab_toBuyItemIds.get(i))
 						+ ","
 						+ String.valueOf(1);
 				
@@ -361,10 +361,10 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 			
 			itemIds = StringUtils.join(
 					mixedLabel,
-//					CONS.tab_toBuyItemIds.toArray(),
+//					CONS.TabActv.tab_toBuyItemIds.toArray(),
 					CONS.HTTPData.PostItems_SeparatorString);
 			
-		}//if (CONS.tab_toBuyItemIds == null)
+		}//if (CONS.TabActv.tab_toBuyItemIds == null)
 		
 		return itemIds;
 		

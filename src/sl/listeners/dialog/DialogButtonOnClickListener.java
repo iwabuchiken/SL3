@@ -454,9 +454,9 @@ DialogButtonOnClickListener implements OnClickListener {
 	private void case_dlg_edit_items_bt_ok__updateItemList(ShoppingItem newSI) {
 		// TODO Auto-generated method stub
 		
-		for (int i = 0; i < CONS.itemList.size(); i++) {
+		for (int i = 0; i < CONS.TabActv.itemList.size(); i++) {
 			
-			ShoppingItem si = CONS.itemList.get(i);
+			ShoppingItem si = CONS.TabActv.itemList.get(i);
 			
 			if (si.getId() == newSI.getId()) {
 				
@@ -466,17 +466,17 @@ DialogButtonOnClickListener implements OnClickListener {
 				si.setPrice(newSI.getPrice());
 				si.setGenre(newSI.getGenre());
 			
-				CONS.itemList.remove(i);
-				CONS.itemList.add(si);
+				CONS.TabActv.itemList.remove(i);
+				CONS.TabActv.itemList.add(si);
 				
-				Methods_sl.sortItemList(CONS.itemList);
+				Methods_sl.sortItemList(CONS.TabActv.itemList);
 				
-				CONS.adpItems.notifyDataSetChanged();
+				CONS.TabActv.adpItems.notifyDataSetChanged();
 
 				break;
 			}//if (si.getId() == newSI.getId())
 			
-		}//for (int i = 0; i < CONS.itemList.size(); i++)
+		}//for (int i = 0; i < CONS.TabActv.itemList.size(); i++)
 		
 		
 	}
@@ -498,7 +498,7 @@ DialogButtonOnClickListener implements OnClickListener {
 		/***************************************
 		 * Setup db
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		boolean res = dbu.deleteItem(CONS.DBAdmin.tname_purchaseSchedule, dbId);
 		
@@ -589,19 +589,19 @@ DialogButtonOnClickListener implements OnClickListener {
 		 ***************************************/
 		StringBuilder sb = new StringBuilder();
 		
-		for (Integer id : CONS.tab_toBuyItemIds) {
+		for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
 			
 			sb.append(String.valueOf(id.intValue()));
 			sb.append(" ");
 			
-		}//for (Integer id : CONS.tab_toBuyItemIds)
+		}//for (Integer id : CONS.TabActv.tab_toBuyItemIds)
 
 		String itemIdsString = sb.toString();		
 		
 		/***************************************
 		 * Update
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		boolean res = dbu.updateData_PS_ItemIds(actv, storeName, dueDate, itemIdsString);
 		
@@ -817,12 +817,12 @@ DialogButtonOnClickListener implements OnClickListener {
 		/***************************************
 		 * Store the PS instance to database
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 //		
 //		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
 		boolean res = dbu.storeData_PS(
-								CONS.dbName,
+								CONS.DBAdmin.dbName,
 								CONS.DBAdmin.tname_purchaseSchedule,
 								ps);
 		
@@ -855,12 +855,12 @@ DialogButtonOnClickListener implements OnClickListener {
 		// TODO Auto-generated method stub
 		StringBuilder sb = new StringBuilder();
 		
-		for (Integer id : CONS.tab_toBuyItemIds) {
+		for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
 			
 			sb.append(String.valueOf(id.intValue()));
 			sb.append(" ");
 			
-		}//for (Integer id : CONS.tab_toBuyItemIds)
+		}//for (Integer id : CONS.TabActv.tab_toBuyItemIds)
 
 		return sb.toString().trim();
 		

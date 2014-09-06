@@ -77,31 +77,31 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
         
         setTitle(this.getClass().getName());
         
-        initVars();
-        
-        setupTabs();
-        
-        setupItemListView();
-        
-        setupToBuyListView();
-        
-        setupListeners();
-        
-        //debug
-        int[] size = Methods.getDisplaySize(this);
-        
-        // Log
-		Log.d("TabActv.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]",
-				"window size: width=" + size[0]
-				+ "/"
-				+ "window size: height=" + size[1]);
-         
-		//debug
-//		test_B32_v_1_2();
+//        initVars();
+//        
+//        setupTabs();
+//        
+//        setupItemListView();
+//        
+//        setupToBuyListView();
+//        
+//        setupListeners();
+//        
+//        //debug
+//        int[] size = Methods.getDisplaySize(this);
+//        
+//        // Log
+//		Log.d("TabActv.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]",
+//				"window size: width=" + size[0]
+//				+ "/"
+//				+ "window size: height=" + size[1]);
+//         
+//		//debug
+////		test_B32_v_1_2();
 		
     }//public void onCreate(Bundle savedInstanceState)
 
@@ -226,7 +226,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		
 	}//private void test_B32_v_1_2()
 
-	private void setupListeners() {
+	private void _Setup_Listeners() {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Set listener: lvTab1
@@ -278,11 +278,11 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		
 	}//private void setupListeners()
 
-	private void initVars() {
+	private void _Setup_InitVars() {
 		// TODO Auto-generated method stub
-		CONS.tab_checkedItemIds = new ArrayList<Integer>();
-		CONS.tab_toBuyItemIds = new ArrayList<Integer>();
-		CONS.tab_boughtItemIds = new ArrayList<Integer>();
+		CONS.TabActv.tab_checkedItemIds = new ArrayList<Integer>();
+		CONS.TabActv.tab_toBuyItemIds = new ArrayList<Integer>();
+		CONS.TabActv.tab_boughtItemIds = new ArrayList<Integer>();
 		
 		/***************************************
 		 * Get preference value: bgm
@@ -304,8 +304,11 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 
 	}//private void initVars()
 
-	private void setupTabs() {
+	private boolean _SetupTabs() {
 		// TODO Auto-generated method stub
+		
+		boolean res;
+		
         /***************************************
 		 * Tab host
 		 ***************************************/
@@ -316,22 +319,16 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
         /***************************************
 		 * First tab
 		 ***************************************/
-        setupTabs__first();
-//        // TabHostからTabSpecの生成
-////        TabSpec CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec("First");
-////        CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec("First");
-//        CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec(this.getString(R.string.tabactv_tabtags_first));
-//        
-//        // タブ部分に表示するテキストおよびアイコンのセット
-////        CONS.TabActv.firstTab.setIndicator("CONS.TabActv.firstTab", getResources().getDrawable(android.R.drawable.ic_menu_agenda));
-//        CONS.TabActv.firstTab.setIndicator(
-//        		"",
-//        		getResources().getDrawable(R.drawable.sl_tab_itemlist));
-//        
-//        // タブ選択時に表示したいViewのセット
-//        CONS.TabActv.firstTab.setContent(R.id.first_content);
-//        // タブをTabHostに追加
-//        CONS.TabActv.tabHost.addTab(CONS.TabActv.firstTab);
+        res = _SetupTabs__first();
+        
+        if (res == false) {
+			
+        	String msg = "Can't setup tabs";
+			Methods_dlg.dlg_ShowMessage(this, msg, R.color.red);
+			
+			return false;
+        	
+		}
         
         /***************************************
 		 * Second tab
@@ -494,7 +491,12 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
         //最初にカーソルを当てたいタブを指定
         CONS.TabActv.tabHost.setCurrentTabByTag("First");
         
-        
+        ////////////////////////////////
+
+		// return
+
+		////////////////////////////////
+		return true;
         
 	}//private void setupTabs()
 
@@ -516,93 +518,112 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 
 	}
 
-	private void setupTabs__first() {
+	private boolean
+	_SetupTabs__first() {
 		// TODO Auto-generated method stub
-        // TabHostからTabSpecの生成
-//      TabSpec CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec("First");
-//      CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec("First");
-      CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec(
+		
+		CONS.TabActv.firstTab = CONS.TabActv.tabHost.newTabSpec(
     		  					this.getString(R.string.tabactv_tabtags_first));
       
       // タブ部分に表示するテキストおよびアイコンのセット
 //      CONS.TabActv.firstTab.setIndicator("CONS.TabActv.firstTab", getResources().getDrawable(android.R.drawable.ic_menu_agenda));
-      CONS.TabActv.firstTab.setIndicator(
-      		"",
-      		getResources().getDrawable(R.drawable.sl_tab_itemlist));
+		CONS.TabActv.firstTab.setIndicator(
+				"",
+				getResources().getDrawable(R.drawable.sl_tab_itemlist));
       
-      // タブ選択時に表示したいViewのセット
-      CONS.TabActv.firstTab.setContent(R.id.first_content);
-      // タブをTabHostに追加
-      CONS.TabActv.tabHost.addTab(CONS.TabActv.firstTab);
-
-      /***************************************
-	 * Spinners
-	 ***************************************/
+		// タブ選択時に表示したいViewのセット
+		CONS.TabActv.firstTab.setContent(R.id.first_content);
+		// タブをTabHostに追加
+		CONS.TabActv.tabHost.addTab(CONS.TabActv.firstTab);
+		
+		////////////////////////////////
+	
+		// setup: Spinners
+	
+		////////////////////////////////
 		spStore = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_store_name);
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-	              this, android.R.layout.simple_spinner_item);
-	
-		/***************************************
-		 * Get store names from db
-		 ***************************************/
-		DBUtils dbm = new DBUtils(this);
+		CONS.TabActv.adp_List_Store = Methods.get_Adp_List_Store(this);
 		
-		SQLiteDatabase db = dbm.getReadableDatabase();
-		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
-		
-		// Log
-		Log.d("ListOnItemLongClickListener.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-	
-	//		int count = 0;
-		
-		while (c.moveToNext()) {
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.TabActv.adp_List_Store == null) {
 			
-			adapter.add(c.getString(1));
+			// Log
+			String msg_Log = "CONS.TabActv.adp_List_Store => null";
+			Log.e("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return false;
 			
 		}
-	
-		adapter.add(this.getString(R.string.generic_label_all));
 		
-	//		c.moveToFirst();
-	//		
-	//		// Log
-	//		for (int i = 0; i < c.getCount(); i++) {
-	//
-	//			adapter.add(c.getString(1));
-	//
-	//			c.moveToNext();
-	//			
-	//		}//for (int i = 0; i < c.getCount(); i++)
-		
-		
-		/*----------------------------
-		 * 3-1. setDropDownViewResource
-			----------------------------*/
-		adapter.setDropDownViewResource(
-						android.R.layout.simple_spinner_dropdown_item);
-		
-		/*----------------------------
-		 * 3-2. Close db
-			----------------------------*/
-		db.close();
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//	              this, android.R.layout.simple_spinner_item);
+//	
+//		/***************************************
+//		 * Get store names from db
+//		 ***************************************/
+//		DBUtils dbm = new DBUtils(this);
+//		
+//		SQLiteDatabase db = dbm.getReadableDatabase();
+//		
+//		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+//		
+//		// Log
+//		Log.d("ListOnItemLongClickListener.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", "c.getCount()" + c.getCount());
+//	
+//	//		int count = 0;
+//		
+//		while (c.moveToNext()) {
+//			
+//			adapter.add(c.getString(1));
+//			
+//		}
+//	
+//		adapter.add(this.getString(R.string.generic_label_all));
+//		
+//	//		c.moveToFirst();
+//	//		
+//	//		// Log
+//	//		for (int i = 0; i < c.getCount(); i++) {
+//	//
+//	//			adapter.add(c.getString(1));
+//	//
+//	//			c.moveToNext();
+//	//			
+//	//		}//for (int i = 0; i < c.getCount(); i++)
+//		
+//		
+//		/*----------------------------
+//		 * 3-1. setDropDownViewResource
+//			----------------------------*/
+//		adapter.setDropDownViewResource(
+//						android.R.layout.simple_spinner_dropdown_item);
+//		
+//		/*----------------------------
+//		 * 3-2. Close db
+//			----------------------------*/
+//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
 			----------------------------*/
-		spStore.setAdapter(adapter);
+		spStore.setAdapter(CONS.TabActv.adp_List_Store);
+//		spStore.setAdapter(adapter);
 	
 		/***************************************
 		 * Set initial value
 		 ***************************************/
 		int num = 0;
 		
-		for (int i = 0; i < adapter.getCount(); i++) {
+		for (int i = 0; i < CONS.TabActv.adp_List_Store.getCount(); i++) {
 			
-			String genreName = adapter.getItem(i);
+			String genreName = CONS.TabActv.adp_List_Store.getItem(i);
 	
 			if (genreName.equals(this.getString(R.string.generic_label_all))) {
 				
@@ -621,66 +642,83 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		 ***************************************/
 		spGenre = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_genre);
 		
-		ArrayAdapter<String> adapterGenre = new ArrayAdapter<String>(
-	              this, android.R.layout.simple_spinner_item);
-	//
-		/*----------------------------
-		 * 2. Get genre names from db
-			----------------------------*/
-		dbm = new DBUtils(this);
+		CONS.TabActv.adapterGenre = Methods.get_Adp_List_Genre(this);
 		
-		db = dbm.getReadableDatabase();
-		
-		c = dbm.getAllData(db, "genres", CONS.columns_for_table_genres_with_index);
-		
-		// Log
-		Log.d("RegisterItem.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-	
-		while (c.moveToNext()) {
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.TabActv.adapterGenre == null) {
 			
-			adapterGenre.add(c.getString(1));
+			// Log
+			String msg_Log = "CONS.TabActv.adapterGenre => null";
+			Log.e("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return false;
 			
 		}
-	
-		adapterGenre.add(this.getString(R.string.generic_label_all));
 		
-	//		c.moveToFirst();
-	//		
-	//		// Log
-	//		for (int i = 0; i < c.getCount(); i++) {
-	//
-	//			adapter.add(c.getString(1));
-	//
-	//			c.moveToNext();
-	//		}//for (int i = 0; i < c.getCount(); i++)
-		
-		
-		/*----------------------------
-		 * 3-1. setDropDownViewResource
-			----------------------------*/
-		adapterGenre.setDropDownViewResource(
-						android.R.layout.simple_spinner_dropdown_item);
-		
-		/*----------------------------
-		 * 3-2. Close db
-			----------------------------*/
-		db.close();
+//		ArrayAdapter<String> adapterGenre = new ArrayAdapter<String>(
+//	              this, android.R.layout.simple_spinner_item);
+//	//
+//		/*----------------------------
+//		 * 2. Get genre names from db
+//			----------------------------*/
+//		dbm = new DBUtils(this);
+//		
+//		db = dbm.getReadableDatabase();
+//		
+//		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
+//		
+//		// Log
+//		Log.d("RegisterItem.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", "c.getCount()" + c.getCount());
+//	
+//		while (c.moveToNext()) {
+//			
+//			adapterGenre.add(c.getString(1));
+//			
+//		}
+//	
+//		adapterGenre.add(this.getString(R.string.generic_label_all));
+//		
+//	//		c.moveToFirst();
+//	//		
+//	//		// Log
+//	//		for (int i = 0; i < c.getCount(); i++) {
+//	//
+//	//			adapter.add(c.getString(1));
+//	//
+//	//			c.moveToNext();
+//	//		}//for (int i = 0; i < c.getCount(); i++)
+//		
+//		
+//		/*----------------------------
+//		 * 3-1. setDropDownViewResource
+//			----------------------------*/
+//		adapterGenre.setDropDownViewResource(
+//						android.R.layout.simple_spinner_dropdown_item);
+//		
+//		/*----------------------------
+//		 * 3-2. Close db
+//			----------------------------*/
+//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
 			----------------------------*/
-		spGenre.setAdapter(adapterGenre);
+		spGenre.setAdapter(CONS.TabActv.adapterGenre);
 		
 		/***************************************
 		 * Set initial value
 		 ***************************************/
 		num = 0;
 		
-		for (int i = 0; i < adapterGenre.getCount(); i++) {
+		for (int i = 0; i < CONS.TabActv.adapterGenre.getCount(); i++) {
 			
-			String genreName = adapterGenre.getItem(i);
+			String genreName = CONS.TabActv.adapterGenre.getItem(i);
 	
 			if (genreName.equals(this.getString(R.string.generic_label_all))) {
 				
@@ -693,10 +731,17 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		}//for (int i = 0; i < adapter.getCount(); i++)
 		
 		spGenre.setSelection(num);
-		
-	}//private void setupTabs__first()
+	
+		////////////////////////////////
 
-	private void setupItemListView() {
+		// return
+
+		////////////////////////////////
+		return true;
+		
+	}//_SetupTabs__first
+
+	private boolean _Setup_ItemListView() {
 		
 		int numOfEntries = 30;
 		
@@ -726,22 +771,24 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			 * Adapter
 			 ***************************************/
 
-			CONS.adpItems = new ItemListAdapter2(
+			CONS.TabActv.adpItems = new ItemListAdapter2(
 					this,
 					R.layout.adapteritem,
-					CONS.itemList
+					CONS.TabActv.itemList
 					);
 			
 //			lvTab1.setAdapter(adpTab1);
-			lvTab1.setAdapter(CONS.adpItems);
+			lvTab1.setAdapter(CONS.TabActv.adpItems);
 
 			// Log
 			Log.d("TabActv.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "itemList.size()=" + CONS.itemList.size());
+					+ "]", "itemList.size()=" + CONS.TabActv.itemList.size());
 	
+			return true;
+			
 		} else {//if (res == CONS.PREP_LIST_SUCCESSFUL)
 			
 			// Log
@@ -751,11 +798,13 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "Prep item list => Failed");
 			
+			return false;
+			
 		}//if (res == CONS.PREP_LIST_SUCCESSFUL)
 
 	}//private void setupListView()
 
-	private void setupToBuyListView() {
+	private void _Setup_ToBuyListView() {
 		
 		/***************************************
 		 * List in the tab 2
@@ -782,12 +831,12 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 	//		ArrayAdapter<String> adpTab2 = new ArrayAdapter<String>(
 			
-//			CONS.adpToBuys = new ItemListAdapter2(
-			CONS.adpToBuys = new ToBuyListAdapter(
+//			CONS.TabActv.adpToBuys = new ItemListAdapter2(
+			CONS.TabActv.adpToBuys = new ToBuyListAdapter(
 					this,
 	//				android.R.layout.simple_list_item_1,
 					R.layout.adapteritem,
-					CONS.toBuyList
+					CONS.TabActv.toBuyList
 					);
 			
 		} else {//if (res == CONS.PREP_LIST_SUCCESSFUL)
@@ -802,14 +851,14 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		}//if (res == CONS.PREP_LIST_SUCCESSFUL)
 
 //		lvTab2.setAdapter(adpTab2);
-		lvTab2.setAdapter(CONS.adpToBuys);
+		lvTab2.setAdapter(CONS.TabActv.adpToBuys);
 
 		// Log
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "CONS.adpToBuys => Set");
+				+ "]", "CONS.TabActv.adpToBuys => Set");
 		
 	}//private void setupToBuyListView()
 
@@ -817,7 +866,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * itemList
 		 ***************************************/
-		CONS.itemList = new ArrayList<ShoppingItem>();
+		CONS.TabActv.itemList = new ArrayList<ShoppingItem>();
 		
 		//
 		DBUtils dbm = new DBUtils(this);
@@ -828,10 +877,10 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		
 		try {
 			c = rdb.query(
-					CONS.tableName, 
+					CONS.DBAdmin.tableName, 
 //										DBManager.columns,
-//				CONS.columns_with_index,
-					CONS.columns_with_index2,
+//				CONS.DBAdmin.columns_with_index,
+					CONS.DBAdmin.columns_with_index2,
 											null, null, null, null, null);
 		} catch (Exception e) {
 			
@@ -865,7 +914,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 					);
 			
 			//
-			CONS.itemList.add(item);
+			CONS.TabActv.itemList.add(item);
 			
 			//
 			c.moveToNext();
@@ -880,13 +929,13 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ " : "
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "CONS.itemList.size()=" + CONS.itemList.size());
+				+ "]", "CONS.TabActv.itemList.size()=" + CONS.TabActv.itemList.size());
 		
 		
 		/***************************************
 		 * Sort list
 		 ***************************************/
-		Methods_sl.sortItemList(CONS.itemList);
+		Methods_sl.sortItemList(CONS.TabActv.itemList);
 		
 		/***************************************
 		 * Return
@@ -899,7 +948,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * itemList
 		 ***************************************/
-		CONS.toBuyList = new ArrayList<ShoppingItem>();
+		CONS.TabActv.toBuyList = new ArrayList<ShoppingItem>();
 		
 		/***************************************
 		 * Setup db
@@ -910,16 +959,16 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		
 		Cursor c = null;
 		
-		for (Integer itemId : CONS.tab_toBuyItemIds) {
+		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
 			
 			try {
 				
 				c = rdb.query(
-						CONS.tableName, 
+						CONS.DBAdmin.tableName, 
 	//										DBManager.columns,
-	//				CONS.columns_with_index,
-						CONS.columns_with_index2,
-						String.valueOf(CONS.columns_with_index2[0]),
+	//				CONS.DBAdmin.columns_with_index,
+						CONS.DBAdmin.columns_with_index2,
+						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
 						new String[]{String.valueOf(itemId.intValue())},
 						null, null, null);
 				
@@ -996,7 +1045,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 						);
 				
 				//
-				CONS.toBuyList.add(item);
+				CONS.TabActv.toBuyList.add(item);
 				
 				//
 				c.moveToNext();
@@ -1012,13 +1061,13 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		 * Sort list
 		 ***************************************/
 //		Methods_sl.sortItemList(itemList);
-		Methods_sl.sortItemList(CONS.toBuyList);
+		Methods_sl.sortItemList(CONS.TabActv.toBuyList);
 		
 		//debug
 		//debug
 		StringBuilder sb = new StringBuilder();
 		
-		for (ShoppingItem item : CONS.toBuyList) {
+		for (ShoppingItem item : CONS.TabActv.toBuyList) {
 			
 			sb.append(item.getId());
 			
@@ -1031,7 +1080,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "CONS.toBuyList=" + sb.toString());
+				+ "]", "CONS.TabActv.toBuyList=" + sb.toString());
 		
 		/***************************************
 		 * Return
@@ -1127,11 +1176,11 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 
 			Methods_dlg.dlg_tabActv_clearSelections(this);
 			
-//			CONS.toBuyList.clear();
+//			CONS.TabActv.toBuyList.clear();
 //			CONS.tab_toBuyItemIds.clear();
 //			
-//			CONS.adpItems.notifyDataSetChanged();
-//			CONS.adpToBuys.notifyDataSetChanged();
+//			CONS.TabActv.adpItems.notifyDataSetChanged();
+//			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
 			break;
 			
@@ -1153,5 +1202,42 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 
 		return super.onOptionsItemSelected(item);
 	}
+
+	@Override
+	protected void 
+	onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		
+		boolean res;
+		
+		_Setup_InitVars();
+		
+		////////////////////////////////
+
+		// tabs
+
+		////////////////////////////////
+		res = _SetupTabs();
+
+		if (res == false) return;
+		
+		////////////////////////////////
+
+		// Item list
+
+		////////////////////////////////
+		res = _Setup_ItemListView();
+		
+		if (res == false) return;
+		
+		_Setup_ToBuyListView();
+		
+		_Setup_Listeners();
+		
+		//debug
+//		test_B32_v_1_2();
+
+	}//onStart
 
 }//public class TabActv extends TabActivity implements TabHost.TabContentFactory

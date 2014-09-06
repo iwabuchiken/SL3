@@ -78,7 +78,7 @@ public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
 		TextView tvGenre = (TextView) convertView.findViewById(R.id.adapteritem_tv_genre);
 		
 		
-		if (CONS.tab_toBuyItemIds.contains(new Integer(si.getId()))) {
+		if (CONS.TabActv.tab_toBuyItemIds.contains(new Integer(si.getId()))) {
 		
 			convertView.setBackgroundColor(Color.GREEN);
 			
@@ -90,7 +90,7 @@ public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
 			tvPrice.setTextColor(Color.BLACK);
 			tvGenre.setTextColor(Color.BLACK);
 			
-		} else if (CONS.tab_checkedItemIds.contains(new Integer(si.getId()))) {
+		} else if (CONS.TabActv.tab_checkedItemIds.contains(new Integer(si.getId()))) {
 			
 			convertView.setBackgroundColor(Color.BLUE);
 			

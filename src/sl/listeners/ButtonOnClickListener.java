@@ -278,8 +278,8 @@ public class ButtonOnClickListener implements OnClickListener {
 		*/
 		boolean result = dbm.storeData(
 						db, 
-						CONS.tableName, 
-						CONS.cols_SI_Register,
+						CONS.DBAdmin.tableName, 
+						CONS.DBAdmin.cols_SI_Register,
 //						CONS.columns,
 						new String[]{
 //								et_store.getText().toString(),
@@ -403,15 +403,15 @@ public class ButtonOnClickListener implements OnClickListener {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]",
-				"CONS.tab_checkedItemIds.size()=" + CONS.tab_checkedItemIds.size());
+				"CONS.TabActv.tab_checkedItemIds.size()=" + CONS.TabActv.tab_checkedItemIds.size());
 		
-		for (Integer id : CONS.tab_checkedItemIds) {
+		for (Integer id : CONS.TabActv.tab_checkedItemIds) {
 			
-			if (!CONS.tab_toBuyItemIds.contains(id)) {
+			if (!CONS.TabActv.tab_toBuyItemIds.contains(id)) {
 				
-				CONS.tab_toBuyItemIds.add(id);
+				CONS.TabActv.tab_toBuyItemIds.add(id);
 				
-			} else {//if (CONS.tab_toBuyItemIds.contains(id))
+			} else {//if (CONS.TabActv.tab_toBuyItemIds.contains(id))
 				
 				// Log
 				Log.d("ButtonOnClickListener.java"
@@ -423,15 +423,15 @@ public class ButtonOnClickListener implements OnClickListener {
 								.getMethodName() + "]",
 						"Item is already in toBuy list: " + id.intValue());
 				
-			}//if (CONS.tab_toBuyItemIds.contains(id))
+			}//if (CONS.TabActv.tab_toBuyItemIds.contains(id))
 			
 			
-		}//for (Integer id : CONS.tab_checkedItemIds)
+		}//for (Integer id : CONS.TabActv.tab_checkedItemIds)
 		
 		//debug
 		StringBuilder sb = new StringBuilder();
 		
-		for (Integer id : CONS.tab_toBuyItemIds) {
+		for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
 			
 			sb.append(id.intValue());
 			
@@ -444,13 +444,13 @@ public class ButtonOnClickListener implements OnClickListener {
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "CONS.tab_toBuyItemIds=" + sb.toString());
+				+ "]", "CONS.TabActv.tab_toBuyItemIds=" + sb.toString());
 		
 		/***************************************
 		 * Notify adapter: adpItems
 		 * 	=> The background of the items go green 
 		 ***************************************/
-		CONS.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 		/***************************************
 		 * Update: toBuyList
@@ -461,7 +461,7 @@ public class ButtonOnClickListener implements OnClickListener {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]",
-				"CONS.toBuyList.size()=" + CONS.toBuyList.size());
+				"CONS.TabActv.toBuyList.size()=" + CONS.TabActv.toBuyList.size());
 		
 		Methods_sl.updateListView_ToBuyList(actv);
 		
@@ -471,12 +471,12 @@ public class ButtonOnClickListener implements OnClickListener {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]",
-				"CONS.toBuyList.size()=" + CONS.toBuyList.size());
+				"CONS.TabActv.toBuyList.size()=" + CONS.TabActv.toBuyList.size());
 		
 		/***************************************
-		 * Notify adapter: CONS.tab_toBuyItemIds
+		 * Notify adapter: CONS.TabActv.tab_toBuyItemIds
 		 ***************************************/
-		CONS.adpToBuys.notifyDataSetChanged();
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
 	}//private void itemlist_tabs_bt_choose()
 

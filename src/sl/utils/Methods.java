@@ -191,9 +191,9 @@ public class Methods {
 			 * 1-2. If not => Create table
 				----------------------------*/
 			//
-			String[] columns = CONS.columns_for_table_stores;
+			String[] columns = CONS.DBAdmin.columns_for_table_stores;
 			
-			String[] types = CONS.column_types_for_table_stores;
+			String[] types = CONS.DBAdmin.column_types_for_table_stores;
 			
 			dbm.createTable_generic(db, tableName, columns, types);
 			
@@ -324,7 +324,7 @@ public class Methods {
 		boolean result = dbm.storeData(
 										db, 
 										tableName, 
-										CONS.columns_for_table_stores, 
+										CONS.DBAdmin.columns_for_table_stores, 
 										new String[]{storeName, ""});
 		
 		// Log
@@ -517,8 +517,8 @@ public class Methods {
 			result = dbm.createTable_generic(
 					db, 
 					tableName, 
-					CONS.columns_for_table_genres, 
-					CONS.column_types_for_table_genres);
+					CONS.DBAdmin.columns_for_table_genres, 
+					CONS.DBAdmin.column_types_for_table_genres);
 			
 			if (result == false) {
 				/*----------------------------
@@ -556,7 +556,7 @@ public class Methods {
 		result = dbm.storeData(
 										db, 
 										tableName, 
-										CONS.columns_for_table_genres, 
+										CONS.DBAdmin.columns_for_table_genres, 
 										new String[]{genreName, ""});
 
 		/*----------------------------
@@ -1017,7 +1017,7 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
 		
 		// All
 		storeList.add(actv.getString(R.string.generic_label_all));
@@ -1038,7 +1038,7 @@ public class Methods {
 			----------------------------*/
 		List<String> genreList = new ArrayList<String>();
 		
-		c = dbm.getAllData(db, "genres", CONS.columns_for_table_genres_with_index);
+		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
 		
 		// All
 		genreList.add(actv.getString(R.string.generic_label_all));
@@ -1156,7 +1156,7 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
 		
 		// All
 		storeList.add(actv.getString(R.string.generic_label_all));
@@ -1177,7 +1177,7 @@ public class Methods {
 		 ***************************************/
 		List<String> genreList = new ArrayList<String>();
 		
-		c = dbm.getAllData(db, "genres", CONS.columns_for_table_genres_with_index);
+		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
 		
 		// All
 		genreList.add(actv.getString(R.string.generic_label_all));
@@ -1299,26 +1299,26 @@ public class Methods {
 		// Both are "All"
 		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 				genreName.equals(actv.getString(R.string.generic_label_all))) {
-			query = "SELECT * FROM " + CONS.tableName;
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
 
 		// Store => All, Genre => Specific
 		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						!genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 							" WHERE genre is '" + genreName + "'";
 					
 		// Store => Specific, Genre => All
 		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 					" WHERE store is '" + storeName + "'";
 
 		// Store => Specific, Genre => Specific
 		} else {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 					" WHERE store is '" + storeName + "'" + " AND " +
 					"genre is '" + genreName + "'";
 			
@@ -1480,7 +1480,7 @@ public class Methods {
 		c.moveToFirst();
 		
 //		ItemListActv.list.clear();
-		CONS.itemList.clear();
+		CONS.TabActv.itemList.clear();
 		
 		//
 		for (int i = 0; i < c.getCount(); i++) {
@@ -1508,7 +1508,7 @@ public class Methods {
 //			
 //			//
 ////			ItemListActv.list.add(item);
-			CONS.itemList.add(item);
+			CONS.TabActv.itemList.add(item);
 			
 			//
 			c.moveToNext();
@@ -1523,13 +1523,13 @@ public class Methods {
 		/***************************************
 		 * Sort list
 		 ***************************************/
-		Methods_sl.sortItemList(CONS.itemList);
+		Methods_sl.sortItemList(CONS.TabActv.itemList);
 		
 		/*----------------------------
 		 * 7. Notify adapter
 			----------------------------*/
 //		ItemListActv.adapter.notifyDataSetChanged();
-		CONS.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 		
 		
@@ -1608,7 +1608,7 @@ public class Methods {
 //		c.moveToFirst();
 		
 //		ItemListActv.list.clear();
-		CONS.itemList.clear();
+		CONS.TabActv.itemList.clear();
 		
 		while(c.moveToNext()) {
 			
@@ -1632,7 +1632,7 @@ public class Methods {
 //			
 //			//
 ////			ItemListActv.list.add(item);
-			CONS.itemList.add(item);
+			CONS.TabActv.itemList.add(item);
 			
 		}
 
@@ -1661,7 +1661,7 @@ public class Methods {
 ////			
 ////			//
 //////			ItemListActv.list.add(item);
-//			CONS.itemList.add(item);
+//			CONS.TabActv.itemList.add(item);
 //			
 //			//
 //			c.moveToNext();
@@ -1676,13 +1676,13 @@ public class Methods {
 		/***************************************
 		 * Sort list
 		 ***************************************/
-		Methods_sl.sortItemList(CONS.itemList);
+		Methods_sl.sortItemList(CONS.TabActv.itemList);
 		
 		/*----------------------------
 		 * 7. Notify adapter
 			----------------------------*/
 //		ItemListActv.adapter.notifyDataSetChanged();
-		CONS.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 
 	}//filterList3(Activity actv, String storeName, String genreName)
 
@@ -1696,26 +1696,26 @@ public class Methods {
 		// Both are "All"
 		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 				genreName.equals(actv.getString(R.string.generic_label_all))) {
-			query = "SELECT * FROM " + CONS.tableName;
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
 
 		// Store => All, Genre => Specific
 		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						!genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 							" WHERE genre = '" + genreName + "'";
 					
 		// Store => Specific, Genre => All
 		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 					" WHERE store = '" + storeName + "'";
 
 		// Store => Specific, Genre => Specific
 		} else {
 			
-			query = "SELECT * FROM " + CONS.tableName + 
+			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 					" WHERE store = '" + storeName + "'" + " AND " +
 					"genre = '" + genreName + "'";
 			
@@ -1732,26 +1732,26 @@ public class Methods {
 //		// Both are "All"
 //		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 //				genreName.equals(actv.getString(R.string.generic_label_all))) {
-//			query = "SELECT * FROM " + CONS.tableName;
+//			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
 //
 //		// Store => All, Genre => Specific
 //		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 //						!genreName.equals(actv.getString(R.string.generic_label_all))) {
 //			
-//			query = "SELECT * FROM " + CONS.tableName + 
+//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 //							" WHERE genre is '" + genreName + "'";
 //					
 //		// Store => Specific, Genre => All
 //		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
 //						genreName.equals(actv.getString(R.string.generic_label_all))) {
 //			
-//			query = "SELECT * FROM " + CONS.tableName + 
+//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 //					" WHERE store is '" + storeName + "'";
 //
 //		// Store => Specific, Genre => Specific
 //		} else {
 //			
-//			query = "SELECT * FROM " + CONS.tableName + 
+//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
 //					" WHERE store is '" + storeName + "'" + " AND " +
 //					"genre is '" + genreName + "'";
 //			
@@ -2901,7 +2901,7 @@ public class Methods {
 		
 		List<String> names = new ArrayList<String>();
 		
-		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -2920,5 +2920,170 @@ public class Methods {
 		return names;
 		
 	}//get_ColumnNames(Activity actv, String tname)
+
+	public static ArrayAdapter<String> 
+	get_Adp_List_Store
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+	              actv, android.R.layout.simple_spinner_item);
+	
+		/***************************************
+		 * Get store names from db
+		 ***************************************/
+		DBUtils dbm = new DBUtils(actv);
+		
+		SQLiteDatabase db = dbm.getReadableDatabase();
+		
+		////////////////////////////////
+
+		// validate: table exists
+
+		////////////////////////////////
+		boolean res = DBUtils.tableExists(
+							actv, CONS.DBAdmin.dbName, CONS.DBAdmin.tname_stores);
+		
+		if (res == false) {
+			
+			// Log
+			String msg_Log = "table => exist not: " + CONS.DBAdmin.tname_stores;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			db.close();
+			
+			return null;
+			
+		}
+		
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		
+		// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "c.getCount()" + c.getCount());
+	
+	//		int count = 0;
+		
+		while (c.moveToNext()) {
+			
+			adapter.add(c.getString(1));
+			
+		}
+	
+		adapter.add(actv.getString(R.string.generic_label_all));
+		
+	//		c.moveToFirst();
+	//		
+	//		// Log
+	//		for (int i = 0; i < c.getCount(); i++) {
+	//
+	//			adapter.add(c.getString(1));
+	//
+	//			c.moveToNext();
+	//			
+	//		}//for (int i = 0; i < c.getCount(); i++)
+		
+		
+		/*----------------------------
+		 * 3-1. setDropDownViewResource
+			----------------------------*/
+		adapter.setDropDownViewResource(
+						android.R.layout.simple_spinner_dropdown_item);
+		
+		/*----------------------------
+		 * 3-2. Close db
+			----------------------------*/
+		db.close();
+		
+		return adapter;
+		
+	}//get_Adp_List_Store
+	
+	public static ArrayAdapter<String> 
+	get_Adp_List_Genre
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+				actv, android.R.layout.simple_spinner_item);
+		
+		/***************************************
+		 * Get store names from db
+		 ***************************************/
+		DBUtils dbm = new DBUtils(actv);
+		
+		SQLiteDatabase db = dbm.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists
+		
+		////////////////////////////////
+		boolean res = DBUtils.tableExists(
+				actv, CONS.DBAdmin.dbName, CONS.DBAdmin.tname_genres);
+		
+		if (res == false) {
+			
+			// Log
+			String msg_Log = "table => exist not: " + CONS.DBAdmin.tname_genres;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			db.close();
+			
+			return null;
+			
+		}
+		
+		Cursor c = dbm.getAllData(
+							db, 
+							CONS.DBAdmin.tname_genres, 
+							CONS.DBAdmin.columns_for_table_genres_with_index);
+		
+		// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "c.getCount()" + c.getCount());
+		
+		//		int count = 0;
+		
+		while (c.moveToNext()) {
+			
+			adapter.add(c.getString(1));
+			
+		}
+		
+		adapter.add(actv.getString(R.string.generic_label_all));
+		
+		//		c.moveToFirst();
+		//		
+		//		// Log
+		//		for (int i = 0; i < c.getCount(); i++) {
+		//
+		//			adapter.add(c.getString(1));
+		//
+		//			c.moveToNext();
+		//			
+		//		}//for (int i = 0; i < c.getCount(); i++)
+		
+		
+		/*----------------------------
+		 * 3-1. setDropDownViewResource
+			----------------------------*/
+		adapter.setDropDownViewResource(
+				android.R.layout.simple_spinner_dropdown_item);
+		
+		/*----------------------------
+		 * 3-2. Close db
+			----------------------------*/
+		db.close();
+		
+		return adapter;
+		
+	}//get_Adp_List_Genre
 	
 }//public class Methods

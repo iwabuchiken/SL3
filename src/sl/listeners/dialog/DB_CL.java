@@ -33,8 +33,8 @@ DB_CL implements OnClickListener {
 		----------------------------*/
 	//
 	Activity actv;
-	Dialog dlg1;
-	Dialog dlg2;		//=> Used in dlg_input_empty_btn_XXX
+	Dialog d1;
+	Dialog d2;		//=> Used in dlg_input_empty_btn_XXX
 	Dialog dlg3;		//=> Methods_dlg.java: Dialog dlg_template_okCancel_3Dialogues
 
 	PS ps;
@@ -48,8 +48,8 @@ DB_CL implements OnClickListener {
 			Dialog dlg2) {
 		//
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
 		
 		//
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
@@ -60,10 +60,23 @@ DB_CL implements OnClickListener {
 			Dialog dlg2, ShoppingItem si) {
 		
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
 		
 		this.si = si;
+		
+		//
+		vib = (Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
+
+	}
+
+	public 
+	DB_CL
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
 		
 		//
 		vib = (Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
@@ -92,15 +105,21 @@ DB_CL implements OnClickListener {
 			
 		case generic_cancel_second_dialog:
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			
 			break;
 			
 		case tab2_post_items_ok:
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			
-			Methods_sl.post_BoughtItems(actv, dlg1, dlg2);
+			Methods_sl.post_BoughtItems(actv, d1, d2);
+			
+			break;
+			
+		case dlg_generic_dismiss:
+			
+			d1.dismiss();
 			
 			break;
 			
@@ -168,8 +187,8 @@ DB_CL implements OnClickListener {
 		/*********************************
 		 * Dismiss dialogues
 		 *********************************/
-		dlg2.dismiss();
-		dlg1.dismiss();
+		d2.dismiss();
+		d1.dismiss();
 		
 	}//case_tab1_delete_item_ok(View v)
 

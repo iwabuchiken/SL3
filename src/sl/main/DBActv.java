@@ -52,7 +52,7 @@ public class DBActv extends Activity {
 		SQLiteDatabase wdb = dbm.getWritableDatabase();
 
 		// REF=> http://stackoverflow.com/questions/947215/how-to-get-a-list-of-column-names-on-sqlite3-iphone
-		String sql = "PRAGMA table_info('" + CONS.tableName + "')";
+		String sql = "PRAGMA table_info('" + CONS.DBAdmin.tableName + "')";
 		
 		Cursor c = wdb.rawQuery(sql, null);
 		
@@ -108,14 +108,14 @@ public class DBActv extends Activity {
 		
 		SQLiteDatabase wdb = dbm.getWritableDatabase();
 		
-		boolean result = dbm.tableExists(wdb, CONS.tableName);
+		boolean result = dbm.tableExists(wdb, CONS.DBAdmin.tableName);
 		
 		if (result == false) {
 			
 			// Log
 			Log.d("DBAdminActivity.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "Table doesn't exist: " + CONS.tableName);
+					+ "]", "Table doesn't exist: " + CONS.DBAdmin.tableName);
 			
 			wdb.close();
 			
@@ -125,7 +125,7 @@ public class DBActv extends Activity {
 		
 		// REF=> http://www.dbonline.jp/sqlite/table/index4.html
 		//
-		String sql = "ALTER TABLE " + CONS.tableName + " ADD COLUMN " + "yomi TEXT";
+		String sql = "ALTER TABLE " + CONS.DBAdmin.tableName + " ADD COLUMN " + "yomi TEXT";
 		
 		try {
 			wdb.execSQL(sql);

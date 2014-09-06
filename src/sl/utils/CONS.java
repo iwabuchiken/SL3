@@ -7,6 +7,7 @@ import sl.adapters.ToBuyListAdapter;
 import sl.items.ShoppingItem;
 
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.widget.ArrayAdapter;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -52,82 +53,82 @@ public class CONS {
 		
 		generic_cancel_second_dialog,
 		
-		tab2_post_items_ok,
+		tab2_post_items_ok, dlg_generic_dismiss,
 		
 	};
 	
 	
-	/*********************************
-	 * From: DBManager.java
-	 *********************************/
-	public static String tableName = "shopping_item";
-
-//	public static String[] columns = {"store", "name", "price", "genre"};
-	public static String[] columns =
-					{"store", "name", "price", "genre", "yomi"};
-	
-	public static String[] columns_with_index = 
-					{"store", "name", "price", "genre", android.provider.BaseColumns._ID};
-
-	public static String[]
-	columns_with_index2 = 
-		//		0							1		2		3		4			5
-		{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"};
-	
-	public static String[]
-		cols_SI_full = { 
-		//	0		1		2
-		"store", "name", "price",
-		//	3		4			5
-		"genre", "yomi", android.provider.BaseColumns._ID, 
-		//	6			7				8
-		"created_at", "updated_at", "posted_at"
-	};
-	
-	public static String[]
-			cols_SI_Register = { 
-		//	0		1		2
-		"store", "name", "price",
-		//	3		4	
-		"genre", "yomi", 
-		//	5			6	
-		"created_at", "updated_at"
-	};
-	/*		cid   name
-	----  ------------
-	0     store
-	1     name
-	2     price
-	3     genre
-	4     yomi
-	5     _id
-	6     created_at
-	7     updated_at
-	8     posted_at*/
-
-	public static String[] columns_for_table_stores = 
-					{"store_name", "memo"};
-	
-	public static String[] columns_for_table_stores_with_index = 
-		{android.provider.BaseColumns._ID, "store_name", "memo"};
-
-	public static String[] column_types_for_table_stores = 
-												{"TEXT", "TEXT"};
-	
-	public static String[] columns_for_table_genres = 
-										{"genre_name", "memo"};
-
-	
-	public static String[] columns_for_table_genres_with_index = 
-		{android.provider.BaseColumns._ID, "genre_name", "memo"};
-
-	public static String[] column_types_for_table_genres = 
-												{"TEXT", "TEXT"};
-		
-	/*********************************
-	 * DB
-	 *********************************/
-	public static String dbName = "sl";
+//	/*********************************
+//	 * From: DBManager.java
+//	 *********************************/
+//	public static String tableName = "shopping_item";
+//
+////	public static String[] columns = {"store", "name", "price", "genre"};
+//	public static String[] columns =
+//					{"store", "name", "price", "genre", "yomi"};
+//	
+//	public static String[] columns_with_index = 
+//					{"store", "name", "price", "genre", android.provider.BaseColumns._ID};
+//
+//	public static String[]
+//	columns_with_index2 = 
+//		//		0							1		2		3		4			5
+//		{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"};
+//	
+//	public static String[]
+//		cols_SI_full = { 
+//		//	0		1		2
+//		"store", "name", "price",
+//		//	3		4			5
+//		"genre", "yomi", android.provider.BaseColumns._ID, 
+//		//	6			7				8
+//		"created_at", "updated_at", "posted_at"
+//	};
+//	
+//	public static String[]
+//			cols_SI_Register = { 
+//		//	0		1		2
+//		"store", "name", "price",
+//		//	3		4	
+//		"genre", "yomi", 
+//		//	5			6	
+//		"created_at", "updated_at"
+//	};
+//	/*		cid   name
+//	----  ------------
+//	0     store
+//	1     name
+//	2     price
+//	3     genre
+//	4     yomi
+//	5     _id
+//	6     created_at
+//	7     updated_at
+//	8     posted_at*/
+//
+//	public static String[] columns_for_table_stores = 
+//					{"store_name", "memo"};
+//	
+//	public static String[] columns_for_table_stores_with_index = 
+//		{android.provider.BaseColumns._ID, "store_name", "memo"};
+//
+//	public static String[] column_types_for_table_stores = 
+//												{"TEXT", "TEXT"};
+//	
+//	public static String[] columns_for_table_genres = 
+//										{"genre_name", "memo"};
+//
+//	
+//	public static String[] columns_for_table_genres_with_index = 
+//		{android.provider.BaseColumns._ID, "genre_name", "memo"};
+//
+//	public static String[] column_types_for_table_genres = 
+//												{"TEXT", "TEXT"};
+//		
+//	/*********************************
+//	 * DB
+//	 *********************************/
+//	public static String dbName = "sl";
 	
 	/*********************************
 	 * Created at: 20130222_095606<br>
@@ -192,21 +193,21 @@ public class CONS {
 	 * List: Ids
 	 ***************************************/
 //	public static List<Integer> tab_checkedPositions;
-	public static List<Integer> tab_checkedItemIds;
-	public static List<Integer> tab_toBuyItemIds;
-	public static List<Integer> tab_boughtItemIds;
-	
-	/***************************************
-	 * Adapters
-	 ***************************************/
-	public static ItemListAdapter2 adpItems;
-	public static ToBuyListAdapter adpToBuys;
-	
-	/***************************************
-	 * List: ShoppingItem
-	 ***************************************/
-	public static List<ShoppingItem> toBuyList;
-	public static List<ShoppingItem> itemList;
+//	public static List<Integer> tab_checkedItemIds;
+//	public static List<Integer> tab_toBuyItemIds;
+//	public static List<Integer> tab_boughtItemIds;
+//	
+//	/***************************************
+//	 * Adapters
+//	 ***************************************/
+//	public static ItemListAdapter2 adpItems;
+//	public static ToBuyListAdapter adpToBuys;
+//	
+//	/***************************************
+//	 * List: ShoppingItem
+//	 ***************************************/
+//	public static List<ShoppingItem> toBuyList;
+//	public static List<ShoppingItem> itemList;
 	
 	public static boolean bgm;
 	
@@ -217,7 +218,12 @@ public class CONS {
 //	}
 	
 	public static class DBAdmin {
-		
+
+		/*********************************
+		 * DB
+		 *********************************/
+		public static String dbName = "sl";
+
 		/*********************************
 		 * Table names
 		 *********************************/
@@ -263,6 +269,73 @@ public class CONS {
 		
 		final static int DB_DATA_UPDATE_FAILED = -3;
 		
+		/*********************************
+		 * From: DBManager.java
+		 *********************************/
+		public static String tableName = "shopping_item";
+
+//		public static String[] columns = {"store", "name", "price", "genre"};
+		public static String[] columns =
+						{"store", "name", "price", "genre", "yomi"};
+		
+		public static String[] columns_with_index = 
+						{"store", "name", "price", "genre", android.provider.BaseColumns._ID};
+
+		public static String[]
+		columns_with_index2 = 
+			//		0							1		2		3		4			5
+			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"};
+		
+		public static String[]
+			cols_SI_full = { 
+			//	0		1		2
+			"store", "name", "price",
+			//	3		4			5
+			"genre", "yomi", android.provider.BaseColumns._ID, 
+			//	6			7				8
+			"created_at", "updated_at", "posted_at"
+		};
+		
+		public static String[]
+				cols_SI_Register = { 
+			//	0		1		2
+			"store", "name", "price",
+			//	3		4	
+			"genre", "yomi", 
+			//	5			6	
+			"created_at", "updated_at"
+		};
+		/*		cid   name
+		----  ------------
+		0     store
+		1     name
+		2     price
+		3     genre
+		4     yomi
+		5     _id
+		6     created_at
+		7     updated_at
+		8     posted_at*/
+
+		public static String[] columns_for_table_stores = 
+						{"store_name", "memo"};
+		
+		public static String[] columns_for_table_stores_with_index = 
+			{android.provider.BaseColumns._ID, "store_name", "memo"};
+
+		public static String[] column_types_for_table_stores = 
+													{"TEXT", "TEXT"};
+		
+		public static String[] columns_for_table_genres = 
+											{"genre_name", "memo"};
+
+		
+		public static String[] columns_for_table_genres_with_index = 
+			{android.provider.BaseColumns._ID, "genre_name", "memo"};
+
+		public static String[] column_types_for_table_genres = 
+													{"TEXT", "TEXT"};
+			
 	}
 	
 	public static class SQLs {
@@ -468,17 +541,17 @@ public class CONS {
 				a_20140108_220957_AddColumns_created_at_etc
 				= {
 					"ALTER TABLE"
-						+ " " + CONS.tableName
+						+ " " + CONS.DBAdmin.tableName
 						+ " ADD COLUMN"
 						+ " created_at INTEGER",
 					
 					"ALTER TABLE"
-						+ " " + CONS.tableName
+						+ " " + CONS.DBAdmin.tableName
 						+ " ADD COLUMN"
 						+ " updated_at INTEGER",
 							
 					"ALTER TABLE"
-						+ " " + CONS.tableName
+						+ " " + CONS.DBAdmin.tableName
 						+ " ADD COLUMN"
 						+ " posted_at INTEGER"
 		};
@@ -498,6 +571,27 @@ public class CONS {
 		public static TabHost tabHost;
 		public static TabSpec firstTab;
 		public static TabSpec secondTab;
+		
+		public static ArrayAdapter<String> adp_List_Store;
+		
+		public static ArrayAdapter<String> adapterGenre;
+		
+		public static List<Integer> tab_checkedItemIds;
+		public static List<Integer> tab_toBuyItemIds;
+		public static List<Integer> tab_boughtItemIds;
+		
+		/***************************************
+		 * Adapters
+		 ***************************************/
+		public static ItemListAdapter2 adpItems;
+		public static ToBuyListAdapter adpToBuys;
+		
+		/***************************************
+		 * List: ShoppingItem
+		 ***************************************/
+		public static List<ShoppingItem> toBuyList;
+		public static List<ShoppingItem> itemList;
+
 		
 	}
 	

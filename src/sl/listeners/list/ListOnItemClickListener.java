@@ -310,20 +310,20 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		 ***************************************/
 		String s_ItemList = ps.getItems();
 
-		CONS.toBuyList.clear();
+		CONS.TabActv.toBuyList.clear();
 		
-//		CONS.toBuyList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
+//		CONS.TabActv.toBuyList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
 		List<ShoppingItem> loadedSIList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
 				
 		
 		// Sort list
 		Methods_sl.sortItemList(loadedSIList);
 		
-//		CONS.toBuyList.addAll(Methods_sl.getSIListFromItemList(actv, s_ItemList));
-		CONS.toBuyList.addAll(loadedSIList);
+//		CONS.TabActv.toBuyList.addAll(Methods_sl.getSIListFromItemList(actv, s_ItemList));
+		CONS.TabActv.toBuyList.addAll(loadedSIList);
 		
 		// Log
-		if (CONS.toBuyList == null) {
+		if (CONS.TabActv.toBuyList == null) {
 			
 			// debug
 			Toast.makeText(actv, "Couldn't get the list", Toast.LENGTH_LONG).show();
@@ -333,30 +333,30 @@ public class ListOnItemClickListener implements OnItemClickListener {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "CONS.toBuyList == null");
+					+ "]", "CONS.TabActv.toBuyList == null");
 			
 			return;
 
-		}//if (CONS.toBuyList == null)
+		}//if (CONS.TabActv.toBuyList == null)
 		
 //		Log.d("ListOnItemClickListener.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "CONS.toBuyList.size()=" + CONS.toBuyList.size());
+//				+ "]", "CONS.TabActv.toBuyList.size()=" + CONS.TabActv.toBuyList.size());
 		
 		/***************************************
-		 * Add new item ids to CONS.tab_toBuyItemIds
+		 * Add new item ids to CONS.TabActv.tab_toBuyItemIds
 		 * 1. First, clear the current list
 		 * 2. Then, add new item ids
 		 ***************************************/
-		CONS.tab_toBuyItemIds.clear();
+		CONS.TabActv.tab_toBuyItemIds.clear();
 		
 		for (int i = 0; i < loadedSIList.size(); i++) {
 			
 			ShoppingItem si = loadedSIList.get(i);
 			
-			CONS.tab_toBuyItemIds.add(si.getId());
+			CONS.TabActv.tab_toBuyItemIds.add(si.getId());
 			
 		}//for (int i = 0; i < loadedSIList.size(); i++)
 		
@@ -364,7 +364,7 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		/***************************************
 		 * Set list to the tab
 		 ***************************************/
-		CONS.adpToBuys.notifyDataSetChanged();
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
 		
 		
@@ -397,13 +397,13 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		// Get sum
 		int sum = 0;
 		
-		for (int i = 0; i < CONS.toBuyList.size(); i++) {
+		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
-			ShoppingItem si = CONS.toBuyList.get(i);
+			ShoppingItem si = CONS.TabActv.toBuyList.get(i);
 			
 			sum += si.getPrice();
 			
-		}//for (int i = 0; i < CONS.toBuyList.size(); i++)
+		}//for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++)
 		
 		// Display
 		tvSum.setText(String.format("合計 %d 円", sum));
@@ -437,17 +437,17 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		 ***************************************/
 		int itemId = si.getId();
 		
-		if (CONS.tab_boughtItemIds.contains(itemId)) {
+		if (CONS.TabActv.tab_boughtItemIds.contains(itemId)) {
 			
 			// Log
 			Log.d("ListOnItemClickListener.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Contained in CONS.tab_boughtItemIds=" + itemId);
+					+ "]", "Contained in CONS.TabActv.tab_boughtItemIds=" + itemId);
 			
-//			CONS.tab_checkedPositions.remove(itemId);
-			CONS.tab_boughtItemIds.remove(new Integer(itemId));
+//			CONS.TabActv.tab_checkedPositions.remove(itemId);
+			CONS.TabActv.tab_boughtItemIds.remove(new Integer(itemId));
 
 			/***************************************
 			 * BGM
@@ -463,16 +463,16 @@ public class ListOnItemClickListener implements OnItemClickListener {
 				
 			}//if (bgm == true)
 
-		} else if (!CONS.tab_boughtItemIds.contains(itemId)) {//if (CONS.tab_checkedPositions.contains(itemId))
+		} else if (!CONS.TabActv.tab_boughtItemIds.contains(itemId)) {//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
 
 			// Log
 			Log.d("ListOnItemClickListener.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Not contained in CONS.tab_boughtItemIds=" + itemId);
+					+ "]", "Not contained in CONS.TabActv.tab_boughtItemIds=" + itemId);
 
-			CONS.tab_boughtItemIds.add(itemId);
+			CONS.TabActv.tab_boughtItemIds.add(itemId);
 			
 			// Log
 			Log.d("ListOnItemClickListener.java" + "["
@@ -495,17 +495,17 @@ public class ListOnItemClickListener implements OnItemClickListener {
 				
 			}//if (bgm == true)
 
-		}//if (CONS.tab_checkedPositions.contains(itemId))
+		}//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
 		
 //		//debug
 //		StringBuilder sb = new StringBuilder();
 //		
-//		for (int i = 0; i < CONS.tab_toBuyItemIds.size(); i++) {
+//		for (int i = 0; i < CONS.TabActv.tab_toBuyItemIds.size(); i++) {
 //		
-//			sb.append(CONS.tab_toBuyItemIds.get(i));
+//			sb.append(CONS.TabActv.tab_toBuyItemIds.get(i));
 //			sb.append(",");
 //			
-//		}//for (int i = 0; i < CONS.tab_checkedPositions.size(); i++)
+//		}//for (int i = 0; i < CONS.TabActv.tab_checkedPositions.size(); i++)
 //		
 //		// Log
 //		Log.d("ListOnItemClickListener.java" + "["
@@ -517,8 +517,8 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		/***************************************
 		 * Notify adapter
 		 ***************************************/
-//		CONS.adpItems.notifyDataSetChanged();
-		CONS.adpToBuys.notifyDataSetChanged();
+//		CONS.TabActv.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
 //		/***************************************
 //		 * Show dialog
@@ -547,12 +547,12 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		 ***************************************/
 		int itemId = si.getId();
 		
-//		if (CONS.tab_checkedItemIds.contains(itemId)) {
-		if (CONS.tab_checkedItemIds.contains(itemId)
-				&& !CONS.tab_toBuyItemIds.contains(itemId)) {
+//		if (CONS.TabActv.tab_checkedItemIds.contains(itemId)) {
+		if (CONS.TabActv.tab_checkedItemIds.contains(itemId)
+				&& !CONS.TabActv.tab_toBuyItemIds.contains(itemId)) {
 			
-//			CONS.tab_checkedPositions.remove(itemId);
-			CONS.tab_checkedItemIds.remove(new Integer(itemId));
+//			CONS.TabActv.tab_checkedPositions.remove(itemId);
+			CONS.TabActv.tab_checkedItemIds.remove(new Integer(itemId));
 
 			/***************************************
 			 * BGM
@@ -568,11 +568,11 @@ public class ListOnItemClickListener implements OnItemClickListener {
 				
 			}//if (bgm == true)
 
-//		} else if (!CONS.tab_checkedItemIds.contains(itemId)) {//if (CONS.tab_checkedPositions.contains(itemId))
-		} else if (!CONS.tab_checkedItemIds.contains(itemId)
-					&& !CONS.tab_toBuyItemIds.contains(itemId)) {//if (CONS.tab_checkedPositions.contains(itemId))
+//		} else if (!CONS.TabActv.tab_checkedItemIds.contains(itemId)) {//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
+		} else if (!CONS.TabActv.tab_checkedItemIds.contains(itemId)
+					&& !CONS.TabActv.tab_toBuyItemIds.contains(itemId)) {//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
 			
-			CONS.tab_checkedItemIds.add(itemId);
+			CONS.TabActv.tab_checkedItemIds.add(itemId);
 			
 			// Log
 			Log.d("ListOnItemClickListener.java" + "["
@@ -595,23 +595,23 @@ public class ListOnItemClickListener implements OnItemClickListener {
 				
 			}//if (bgm == true)
 
-		}//if (CONS.tab_checkedPositions.contains(itemId))
+		}//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
 		
 		//debug
 		StringBuilder sb = new StringBuilder();
 		
-		for (int i = 0; i < CONS.tab_checkedItemIds.size(); i++) {
+		for (int i = 0; i < CONS.TabActv.tab_checkedItemIds.size(); i++) {
 		
-			sb.append(CONS.tab_checkedItemIds.get(i));
+			sb.append(CONS.TabActv.tab_checkedItemIds.get(i));
 			sb.append(",");
 //			// Log
 //			Log.d("ListOnItemClickListener.java" + "["
 //					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //					+ ":"
 //					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]", "item" + (i+1) + "=" + CONS.tab_checkedPositions.get(i));
+//					+ "]", "item" + (i+1) + "=" + CONS.TabActv.tab_checkedPositions.get(i));
 //			
-		}//for (int i = 0; i < CONS.tab_checkedPositions.size(); i++)
+		}//for (int i = 0; i < CONS.TabActv.tab_checkedPositions.size(); i++)
 		
 		// Log
 		Log.d("ListOnItemClickListener.java" + "["
@@ -645,7 +645,7 @@ public class ListOnItemClickListener implements OnItemClickListener {
 		/***************************************
 		 * Notify adapter
 		 ***************************************/
-		CONS.adpItems.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 	}//private void tab_itemList(AdapterView<?> parent, int position)
 

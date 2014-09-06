@@ -115,10 +115,10 @@ public class ItemListActv extends ListActivity {
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
 		Cursor c = db.query(
-				CONS.tableName, 
+				CONS.DBAdmin.tableName, 
 //										DBManager.columns,
-//				CONS.columns_with_index,
-				CONS.columns_with_index2,
+//				CONS.DBAdmin.columns_with_index,
+				CONS.DBAdmin.columns_with_index2,
 										null, null, null, null, null);
 		
 		//

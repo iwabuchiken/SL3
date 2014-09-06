@@ -68,7 +68,7 @@ public class RegisterItemActv extends Activity {
 		
 		SQLiteDatabase db = dbm.getWritableDatabase();
 		
-		boolean result = dbm.createTable(db, CONS.tableName);
+		boolean result = dbm.createTable(db, CONS.DBAdmin.tableName);
 		
 		db.close();
 
@@ -184,7 +184,7 @@ public class RegisterItemActv extends Activity {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["
@@ -251,7 +251,7 @@ public class RegisterItemActv extends Activity {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "genres", CONS.columns_for_table_genres_with_index);
+		Cursor c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["

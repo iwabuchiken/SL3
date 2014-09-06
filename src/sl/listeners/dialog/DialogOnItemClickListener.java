@@ -331,26 +331,26 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		if (currrentTabTag.equals(actv.getString(
 				R.string.tabactv_tabtags_first))) {
 
-			Methods_sl.sortItemList(CONS.itemList);
+			Methods_sl.sortItemList(CONS.TabActv.itemList);
 			
-			CONS.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
 			
 			dlg.dismiss();
 		
 		} else if (currrentTabTag.equals(actv.getString(
 						R.string.tabactv_tabtags_second))) {
 		
-			Methods_sl.sortItemList(CONS.toBuyList);
+			Methods_sl.sortItemList(CONS.TabActv.toBuyList);
 			
-			CONS.adpToBuys.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
 			dlg.dismiss();
 		
 		}//if (currrentTabTag.equals(actv.getString(
 
-		Methods_sl.sortItemList(CONS.toBuyList);
+		Methods_sl.sortItemList(CONS.TabActv.toBuyList);
 		
-		CONS.adpToBuys.notifyDataSetChanged();
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
 		dlg.dismiss();
 		
@@ -370,18 +370,18 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		if (currrentTabTag.equals(actv.getString(
 								R.string.tabactv_tabtags_first))) {
 			
-			Methods_sl.sortItemList_GenreItemName(CONS.itemList);
+			Methods_sl.sortItemList_GenreItemName(CONS.TabActv.itemList);
 			
-			CONS.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 			dlg.dismiss();
 			
 		} else if (currrentTabTag.equals(actv.getString(
 								R.string.tabactv_tabtags_second))) {
 
-			Methods_sl.sortItemList_GenreItemName(CONS.toBuyList);
+			Methods_sl.sortItemList_GenreItemName(CONS.TabActv.toBuyList);
 			
-			CONS.adpToBuys.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
 			dlg.dismiss();
 			
@@ -401,11 +401,11 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		if (choice.equals(actv.getString(
 					R.string.menu_listitem_tabToBuy_clear_basket))) {
 			
-			CONS.toBuyList.clear();
-			CONS.tab_toBuyItemIds.clear();
+			CONS.TabActv.toBuyList.clear();
+			CONS.TabActv.tab_toBuyItemIds.clear();
 			
-			CONS.adpItems.notifyDataSetChanged();
-			CONS.adpToBuys.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
 			/***************************************
 			 * Close dialog
@@ -428,9 +428,9 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		} else if (choice.equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_clear_checked_items))) {//if (choice.equals(actv.getString(
 			
-			CONS.tab_checkedItemIds.clear();
+			CONS.TabActv.tab_checkedItemIds.clear();
 			
-			CONS.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
 
 			/***************************************
 			 * Close dialog
@@ -440,12 +440,12 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		} else if (choice.equals(actv.getString(
 				R.string.generic_label_all))) {//if (choice.equals(actv.getString(
 			
-			CONS.toBuyList.clear();
-			CONS.tab_toBuyItemIds.clear();
-			CONS.tab_checkedItemIds.clear();
+			CONS.TabActv.toBuyList.clear();
+			CONS.TabActv.tab_toBuyItemIds.clear();
+			CONS.TabActv.tab_checkedItemIds.clear();
 			
-			CONS.adpItems.notifyDataSetChanged();
-			CONS.adpToBuys.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
 			dlg.dismiss();
 
@@ -474,14 +474,14 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		if (choice.equals(
 					actv.getString(R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list))) {
 			
-			if (CONS.toBuyList.size() < 1) {
+			if (CONS.TabActv.toBuyList.size() < 1) {
 				
 				// debug
 				Toast.makeText(actv, "Seems basket is empty", Toast.LENGTH_LONG).show();
 				
 				return;
 				
-			}//if (CONS.toBuyList.size() == condition)
+			}//if (CONS.TabActv.toBuyList.size() == condition)
 			
 			Methods_dlg.dlg_saveToBuyList(actv, dlg);
 			
@@ -517,16 +517,16 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		
 			/***************************************
 			 * 1. Remove the si from toBuyList
-			 * 2. Notify the adapter: CONS.adpToBuys, CONS.adpItems
+			 * 2. Notify the adapter: CONS.TabActv.adpToBuys, CONS.TabActv.adpItems
 			 ***************************************/
-			CONS.toBuyList.remove(si);
+			CONS.TabActv.toBuyList.remove(si);
 			
-//			CONS.tab_toBuyItemIds.remove(si.getId());
-			CONS.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
+//			CONS.TabActv.tab_toBuyItemIds.remove(si.getId());
+			CONS.TabActv.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
 			
-			CONS.adpToBuys.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
-			CONS.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpItems.notifyDataSetChanged();
 			
 			/***************************************
 			 * Close dlg
@@ -649,7 +649,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		String dst = StringUtils.join(
 						new String[]{
 								CONS.dirPath_db,
-								CONS.dbName},
+								CONS.DBAdmin.dbName},
 						File.separator);
 
 		// Log
@@ -662,7 +662,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 				+ "|"
 				+ "dst=" + dst);
 
-		boolean res = Methods.restore_db(actv, CONS.dbName, src, dst);
+		boolean res = Methods.restore_db(actv, CONS.DBAdmin.dbName, src, dst);
 
 	}//private void dlg_db_admin_lv_RestoreDb()
 
@@ -687,7 +687,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 //		/*********************************
 //		 * Setup DB
 //		 *********************************/
-//		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+//		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
 //		
 //		SQLiteDatabase wdb = dbu.getWritableDatabase();
 //		
@@ -810,7 +810,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 	private void dlg_db_admin_lv_backupDb() {
 		// TODO Auto-generated method stub
 		int res = Methods.backupDb(
-				actv, CONS.dbName, CONS.dirPath_db_backup);
+				actv, CONS.DBAdmin.dbName, CONS.dirPath_db_backup);
 
 		if (res == CONS.DB_DOESNT_EXIST) {
 			

@@ -180,7 +180,7 @@ public class MainActv extends Activity {
 //				CONS.SQLs.a_20140105_112211_DropTable_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -232,7 +232,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_112211_DropTable_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -285,7 +285,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140110_104629_Createtable_ShoppingItemNew;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -338,7 +338,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_113651_ChangeTableName_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -390,7 +390,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_113308_DropTable_shopping_item;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -456,7 +456,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140110_095304_AddColumns_CreatedAt_ToShoppingItemNew;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -505,7 +505,7 @@ public class MainActv extends Activity {
 
 	private void _debug_D_44_V_3_0_6_GetColumnNames() {
 		// TODO Auto-generated method stub
-		List<String> names = Methods.get_ColumnNames(this, CONS.tableName);
+		List<String> names = Methods.get_ColumnNames(this, CONS.DBAdmin.tableName);
 		
 		for (String name : names) {
 			
@@ -523,7 +523,7 @@ public class MainActv extends Activity {
 
 	private void _debug_D_44_V_3_0_6_Test_update_SI() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -587,7 +587,7 @@ public class MainActv extends Activity {
 	
 	private void _debug_D_44_V_3_0_6_Test_update_SI_V2() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		ShoppingItem si =
 				Methods_sl.getSI_FromDbId(this, 203);
@@ -650,7 +650,7 @@ public class MainActv extends Activity {
 		String[] sqls =
 				CONS.SQLs.a_20140108_220957_AddColumns_created_at_etc;
 		
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -756,7 +756,7 @@ public class MainActv extends Activity {
 					+ ")"
 					);
 		
-//		List<String> names = Methods.get_ColumnNames(this, CONS.tableName);
+//		List<String> names = Methods.get_ColumnNames(this, CONS.DBAdmin.tableName);
 //		
 //		for (String name : names) {
 //			
@@ -775,7 +775,7 @@ public class MainActv extends Activity {
 
 	private void _debug_1_d_44() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -797,7 +797,7 @@ public class MainActv extends Activity {
 //		String[] sqls = CONS.SQLs.a_20140105_102851_add_column_created_at_etc;
 //		String sql = CONS.SQLs.a_20140105_102851_add_column;
 */
-		DBUtils dbu = new DBUtils(this, CONS.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -850,7 +850,7 @@ public class MainActv extends Activity {
 		boolean res =
 				Methods.createTable(
 							this,
-							CONS.dbName,
+							CONS.DBAdmin.dbName,
 							CONS.DBAdmin.tname_purchaseSchedule,
 							CONS.DBAdmin.col_purchaseSchedule,
 							CONS.DBAdmin.colTypes_purchaseSchedule);
@@ -929,7 +929,7 @@ public class MainActv extends Activity {
 		/*********************************
 		 * Create a db file
 		 *********************************/
-		DBUtils dbm = new DBUtils(this, CONS.dbName);
+		DBUtils dbm = new DBUtils(this, CONS.DBAdmin.dbName);
 		
 		SQLiteDatabase db = dbm.getWritableDatabase();
 		
@@ -964,11 +964,11 @@ public class MainActv extends Activity {
 		String dst = StringUtils.join(
 							new String[]{
 									CONS.dirPath_db,
-									CONS.dbName},
+									CONS.DBAdmin.dbName},
 							File.separator);
 //		String dst = CONS.dirPath_db;
 		
-		Methods.restore_db(this, CONS.dbName, src, dst);
+		Methods.restore_db(this, CONS.DBAdmin.dbName, src, dst);
 		
 //		for (String name : fileNames) {
 //			
@@ -996,11 +996,11 @@ public class MainActv extends Activity {
 		
 		String dst = StringUtils.join(
 				new String[]{CONS.dirPath_db,
-						CONS.dbName},
+						CONS.DBAdmin.dbName},
 				File.separator);
 		
 		// Restore db
-		Methods.restore_db(this, CONS.dbName, src, dst);
+		Methods.restore_db(this, CONS.DBAdmin.dbName, src, dst);
 		
 		
 		File f = new File(CONS.dirPath_db);
@@ -1038,7 +1038,7 @@ public class MainActv extends Activity {
 		String db_src = StringUtils.join(
 							new String[]{
 								CONS.dirPath_db,
-								CONS.dbName},
+								CONS.DBAdmin.dbName},
 							File.separator);
 		
 		String db_dst = StringUtils.join(

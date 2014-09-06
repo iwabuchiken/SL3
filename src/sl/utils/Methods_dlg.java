@@ -413,7 +413,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["
@@ -456,11 +456,11 @@ public class Methods_dlg {
 		
 		/***************************************
 		 * Set spinner default value
-		 * 1. Get the first item from CONS.toBuyList
+		 * 1. Get the first item from CONS.TabActv.toBuyList
 		 * 2. Get the store name from the item
 		 * 3. Use this store name as the default
 		 ***************************************/
-		ShoppingItem item = CONS.toBuyList.get(0);
+		ShoppingItem item = CONS.TabActv.toBuyList.get(0);
 		
 		if (item != null) {
 			
@@ -486,11 +486,11 @@ public class Methods_dlg {
 		 ***************************************/
 		int amount = 0;
 		
-		for (ShoppingItem i : CONS.toBuyList) {
+		for (ShoppingItem i : CONS.TabActv.toBuyList) {
 			
 			amount += i.getPrice();
 			
-		}//for (ShoppingItem i : CONS.toBuyList)
+		}//for (ShoppingItem i : CONS.TabActv.toBuyList)
 		
 		EditText etAmount = (EditText) dlg2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
 		
@@ -1521,7 +1521,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("ListOnItemLongClickListener.java" + "["
@@ -1622,7 +1622,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "genres", CONS.columns_for_table_genres_with_index);
+		Cursor c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["
@@ -1754,7 +1754,7 @@ public class Methods_dlg {
 		/*********************************
 		 * Validation
 		 *********************************/
-		if (CONS.tab_toBuyItemIds == null) {
+		if (CONS.TabActv.tab_toBuyItemIds == null) {
 			
 			// debug
 			Toast.makeText(actv,
@@ -1764,7 +1764,7 @@ public class Methods_dlg {
 			
 		}
 		
-		if (CONS.tab_toBuyItemIds.size() < 1) {
+		if (CONS.TabActv.tab_toBuyItemIds.size() < 1) {
 			
 			// debug
 			Toast.makeText(actv,
@@ -1812,7 +1812,7 @@ public class Methods_dlg {
 		tv_Message.setText(actv.getString(
 						R.string.dlg_post_bought_items_message));
 		
-		tv_Value.setText(String.valueOf(CONS.tab_toBuyItemIds.size()) + " items");
+		tv_Value.setText(String.valueOf(CONS.TabActv.tab_toBuyItemIds.size()) + " items");
 		
 		dlg2.show();
 		
@@ -1879,5 +1879,97 @@ public class Methods_dlg {
 		return dlg2;
 
 	}//dlg_template_okCancel_2Dialogues
+
+	public static void
+	dlg_ShowMessage(Activity actv, String message) {
+		
+		Dialog dlg = Methods_dlg.dlg_Template_Cancel(
+				actv, R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_title_reconfirm, 
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+//				R.id.dlg_db_admin_bt_cancel, 
+				CONS.DialogButtonTags.dlg_generic_dismiss);
+		
+		TextView tv_Message = 
+				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		dlg.show();
+		
+	}
+
+	public static
+	Dialog dlg_Template_Cancel
+	(Activity actv, int layoutId, int titleStringId,
+			int cancelButtonId, DialogButtonTags tag_CancelButton) {
+		/****************************
+		* Steps
+		* 1. Set up
+		* 2. Add listeners => OnTouch
+		* 3. Add listeners => OnClick
+		****************************/
+		
+		// 
+		Dialog dlg = new Dialog(actv);
+		
+		//
+		dlg.setContentView(layoutId);
+		
+		// Title
+		dlg.setTitle(titleStringId);
+		
+		/****************************
+		* 2. Add listeners => OnTouch
+		****************************/
+		//
+		Button btn_cancel = (Button) dlg.findViewById(cancelButtonId);
+		
+		//
+		btn_cancel.setTag(tag_CancelButton);
+		
+		//
+		btn_cancel.setOnTouchListener(new DB_TL(actv, dlg));
+		
+		/****************************
+		* 3. Add listeners => OnClick
+		****************************/
+		//
+		btn_cancel.setOnClickListener(new DB_CL(actv, dlg));
+		
+		//
+		//dlg.show();
+		
+		return dlg;
+	
+	}//public static Dialog dlg_template_okCancel()
+
+	public static void
+	dlg_ShowMessage
+	(Activity actv, String message, int colorId) {
+		
+		Dialog dlg = Methods_dlg.dlg_Template_Cancel(
+				actv, R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_ok, 
+//				R.string.generic_tv_confirm, 
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+//				R.id.dlg_db_admin_bt_cancel, 
+				CONS.DialogButtonTags.dlg_generic_dismiss);
+		
+		TextView tv_Message = 
+				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		////////////////////////////////
+
+		// background
+
+		////////////////////////////////
+		tv_Message.setBackgroundColor(actv.getResources().getColor(colorId));
+		
+		dlg.show();
+		
+	}//dlg_ShowMessage
 
 }//public class Methods_dlg

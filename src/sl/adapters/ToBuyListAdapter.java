@@ -102,7 +102,7 @@ public class ToBuyListAdapter extends ArrayAdapter<ShoppingItem> {
 				+ "]", "postion=" + position);
 		
 //		if (CONS.tab_toBuyItemIds.contains(new Integer(position))) {
-		if (CONS.tab_boughtItemIds.contains(Integer.valueOf(si.getId()))) {
+		if (CONS.TabActv.tab_boughtItemIds.contains(Integer.valueOf(si.getId()))) {
 
 			// Log
 			Log.d("ToBuyListAdapter.java" + "["
