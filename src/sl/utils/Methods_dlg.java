@@ -14,7 +14,7 @@ import sl.listeners.dialog.DialogOnItemClickListener;
 import sl.listeners.list.ListOnItemClickListener;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
-import sl.utils.CONS.DialogButtonTags;
+import sl.utils.Tags.DialogButtonTags;
 import sl.utils.Tags;
 import sl.utils.Tags.DialogTags;
 
@@ -413,7 +413,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["
@@ -671,7 +671,7 @@ public class Methods_dlg {
 			
 			int okButtonId, int cancelButtonId,
 			
-			CONS.DialogButtonTags okTag, CONS.DialogButtonTags cancelTag,
+			Tags.DialogButtonTags okTag, Tags.DialogButtonTags cancelTag,
 			
 			Dialog dlg1, ShoppingItem si) {
 		/*----------------------------
@@ -1521,7 +1521,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("ListOnItemLongClickListener.java" + "["
@@ -1622,7 +1622,7 @@ public class Methods_dlg {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
+		Cursor c = dbm.getAllData(db, "genres", CONS.DB.columns_for_table_genres_with_index);
 		
 		// Log
 		Log.d("RegisterItem.java" + "["
@@ -1715,8 +1715,8 @@ public class Methods_dlg {
 //						R.id.dlg_template_ok_cancel_btn_ok,
 						R.id.dlg_template_ok_cancel_btn_cancel,
 						
-						CONS.DialogButtonTags.tab1_delete_item_ok,
-						CONS.DialogButtonTags.generic_cancel_second_dialog,
+						Tags.DialogButtonTags.tab1_delete_item_ok,
+						Tags.DialogButtonTags.generic_cancel_second_dialog,
 				
 						dlg1, si);
 		
@@ -1786,8 +1786,8 @@ public class Methods_dlg {
 //				R.id.dlg_template_ok_cancel_btn_ok,
 				R.id.dlg_template_ok_cancel_btn_cancel,
 				
-				CONS.DialogButtonTags.tab2_post_items_ok,
-				CONS.DialogButtonTags.generic_cancel_second_dialog,
+				Tags.DialogButtonTags.tab2_post_items_ok,
+				Tags.DialogButtonTags.generic_cancel_second_dialog,
 		
 				dlg1);
 		
@@ -1888,7 +1888,7 @@ public class Methods_dlg {
 				R.string.generic_title_reconfirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				CONS.DialogButtonTags.dlg_generic_dismiss);
+				Tags.DialogButtonTags.dlg_generic_dismiss);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
@@ -1954,7 +1954,7 @@ public class Methods_dlg {
 //				R.string.generic_tv_confirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				CONS.DialogButtonTags.dlg_generic_dismiss);
+				Tags.DialogButtonTags.dlg_generic_dismiss);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);

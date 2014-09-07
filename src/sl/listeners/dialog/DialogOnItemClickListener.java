@@ -596,7 +596,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 
 	private void dlg_db_admin_lv_RestoreDb() {
 		
-		String src_dir = CONS.dirPath_db_backup;
+		String src_dir = CONS.DB.dirPath_db_backup;
 		
 		File f_dir = new File(src_dir);
 		
@@ -641,15 +641,15 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		
 //		String src = StringUtils.join(
 //						new String[]{
-//								CONS.dirPath_db_backup,
+//								CONS.DB.dirPath_db_backup,
 //								"shoppinglist_backup_20131218_160952.bk"},
 ////								"shoppinglist_backup_20130213_121226.bk"},
 //						File.separator);
 		
 		String dst = StringUtils.join(
 						new String[]{
-								CONS.dirPath_db,
-								CONS.DBAdmin.dbName},
+								CONS.DB.dirPath_db,
+								CONS.DB.dbName},
 						File.separator);
 
 		// Log
@@ -662,7 +662,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 				+ "|"
 				+ "dst=" + dst);
 
-		boolean res = Methods.restore_db(actv, CONS.DBAdmin.dbName, src, dst);
+		boolean res = Methods.restore_db(actv, CONS.DB.dbName, src, dst);
 
 	}//private void dlg_db_admin_lv_RestoreDb()
 
@@ -675,7 +675,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		/*********************************
 		 * Close dialog
 		 *********************************/
-		if (res == CONS.DATA_REFACTORED) {
+		if (res == CONS.RV.DATA_REFACTORED) {
 		
 			dlg.dismiss();
 			
@@ -810,9 +810,9 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 	private void dlg_db_admin_lv_backupDb() {
 		// TODO Auto-generated method stub
 		int res = Methods.backupDb(
-				actv, CONS.DBAdmin.dbName, CONS.dirPath_db_backup);
+				actv, CONS.DB.dbName, CONS.DB.dirPath_db_backup);
 
-		if (res == CONS.DB_DOESNT_EXIST) {
+		if (res == CONS.RV.DB_DOESNT_EXIST) {
 			
 			// Log
 			Log.d("DialogOnItemClickListener.java"
@@ -823,7 +823,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 					+ Thread.currentThread().getStackTrace()[2]
 							.getMethodName() + "]", "DB file doesn't exist: " + res);
 			
-		} else if (res == CONS.DB_FILE_COPY_EXCEPTION) {//if (res == CONS.DB_DOESNT_EXIST)
+		} else if (res == CONS.RV.DB_FILE_COPY_EXCEPTION) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
 			Log.d("DialogOnItemClickListener.java"
@@ -835,7 +835,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 							.getMethodName() + "]",
 					"Copying file => Failed: " + res);
 		
-		} else if (res == CONS.DB_CANT_CREATE_FOLDER) {//if (res == CONS.DB_DOESNT_EXIST)
+		} else if (res == CONS.RV.DB_CANT_CREATE_FOLDER) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
 			Log.d("DialogOnItemClickListener.java"
@@ -847,7 +847,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 							.getMethodName() + "]",
 					"Can't create a backup folder: " + res);
 		
-		} else if (res == CONS.DB_BACKUP_SUCCESSFUL) {//if (res == CONS.DB_DOESNT_EXIST)
+		} else if (res == CONS.RV.DB_BACKUP_SUCCESSFUL) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
 			Log.d("DialogOnItemClickListener.java"
@@ -869,7 +869,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			 *********************************/
 			dlg.dismiss();
 		
-		}//if (res == CONS.DB_DOESNT_EXIST)
+		}//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 	}//private void dlg_db_admin_lv_backupDb()
 

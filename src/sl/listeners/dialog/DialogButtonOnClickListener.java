@@ -498,9 +498,9 @@ DialogButtonOnClickListener implements OnClickListener {
 		/***************************************
 		 * Setup db
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
-		boolean res = dbu.deleteItem(CONS.DBAdmin.tname_purchaseSchedule, dbId);
+		boolean res = dbu.deleteItem(CONS.DB.tname_purchaseSchedule, dbId);
 		
 		// Log
 		Log.d("DialogButtonOnClickListener.java" + "["
@@ -601,7 +601,7 @@ DialogButtonOnClickListener implements OnClickListener {
 		/***************************************
 		 * Update
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		boolean res = dbu.updateData_PS_ItemIds(actv, storeName, dueDate, itemIdsString);
 		
@@ -817,13 +817,13 @@ DialogButtonOnClickListener implements OnClickListener {
 		/***************************************
 		 * Store the PS instance to database
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 //		
 //		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
 		boolean res = dbu.storeData_PS(
-								CONS.DBAdmin.dbName,
-								CONS.DBAdmin.tname_purchaseSchedule,
+								CONS.DB.dbName,
+								CONS.DB.tname_purchaseSchedule,
 								ps);
 		
 		/***************************************

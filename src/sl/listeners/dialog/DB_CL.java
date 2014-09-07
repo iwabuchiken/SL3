@@ -86,7 +86,7 @@ DB_CL implements OnClickListener {
 	//	@Override
 	public void onClick(View v) {
 		//
-		CONS.DialogButtonTags tag_name = (CONS.DialogButtonTags) v.getTag();
+		Tags.DialogButtonTags tag_name = (Tags.DialogButtonTags) v.getTag();
 
 		// Log
 		Log.d("[" + "DB_CL.java : "

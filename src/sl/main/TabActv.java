@@ -77,32 +77,6 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
         
         setTitle(this.getClass().getName());
         
-//        initVars();
-//        
-//        setupTabs();
-//        
-//        setupItemListView();
-//        
-//        setupToBuyListView();
-//        
-//        setupListeners();
-//        
-//        //debug
-//        int[] size = Methods.getDisplaySize(this);
-//        
-//        // Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"window size: width=" + size[0]
-//				+ "/"
-//				+ "window size: height=" + size[1]);
-//         
-//		//debug
-////		test_B32_v_1_2();
-		
     }//public void onCreate(Bundle savedInstanceState)
 
     private void test_B32_v_1_2() {
@@ -753,7 +727,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * List in the tab 1
 		 ***************************************/
-		if (res == CONS.PREP_LIST_SUCCESSFUL) {
+		if (res == CONS.RV.PREP_LIST_SUCCESSFUL) {
 
 			lvTab1 = (ListView) findViewById(R.id.itemlist_tab1_lv);
 			
@@ -818,7 +792,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "res=" + res);
 		
-		if (res == CONS.PREP_LIST_SUCCESSFUL) {
+		if (res == CONS.RV.PREP_LIST_SUCCESSFUL) {
 			lvTab2 = (ListView) findViewById(R.id.itemlist_tab2_lv);
 			
 //			List<String> listTab2 = new ArrayList<String>();
@@ -877,10 +851,10 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		
 		try {
 			c = rdb.query(
-					CONS.DBAdmin.tableName, 
+					CONS.DB.tableName, 
 //										DBManager.columns,
 //				CONS.DBAdmin.columns_with_index,
-					CONS.DBAdmin.columns_with_index2,
+					CONS.DB.columns_with_index2,
 											null, null, null, null, null);
 		} catch (Exception e) {
 			
@@ -893,7 +867,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 			rdb.close();
 			
-			return CONS.PREP_LIST_FAILED;
+			return CONS.RV.PREP_LIST_FAILED;
 			
 		}//try
 		
@@ -940,7 +914,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.PREP_LIST_SUCCESSFUL;
+		return CONS.RV.PREP_LIST_SUCCESSFUL;
 		
 	}//private void prepareItemList()
 
@@ -964,11 +938,11 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			try {
 				
 				c = rdb.query(
-						CONS.DBAdmin.tableName, 
+						CONS.DB.tableName, 
 	//										DBManager.columns,
 	//				CONS.DBAdmin.columns_with_index,
-						CONS.DBAdmin.columns_with_index2,
-						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
+						CONS.DB.columns_with_index2,
+						String.valueOf(CONS.DB.columns_with_index2[0]),
 						new String[]{String.valueOf(itemId.intValue())},
 						null, null, null);
 				
@@ -983,7 +957,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 				
 				rdb.close();
 				
-				return CONS.PREP_LIST_FAILED;
+				return CONS.RV.PREP_LIST_FAILED;
 				
 			}//try
 
@@ -1085,7 +1059,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.PREP_LIST_SUCCESSFUL;
+		return CONS.RV.PREP_LIST_SUCCESSFUL;
 		
 	}//private int prepareToBuyList()
 
@@ -1141,6 +1115,14 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		MenuInflater mi = getMenuInflater();
 		mi.inflate(R.menu.itemlist, menu);
 
+		CONS.TabActv.menu = menu;
+		
+		// Log
+		String msg_Log = "menu => created";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		return super.onCreateOptionsMenu(menu);
 	}
 

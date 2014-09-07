@@ -105,4 +105,18 @@ public class Tags {
 	public static enum SpinnerTag {
 		spStrore, spGenre,
 	}
+
+	/*********************************
+	 * Dialog button tags
+	 *********************************/
+	public static enum DialogButtonTags {
+		tab1_delete_item_ok,
+		
+		generic_cancel_second_dialog,
+		
+		tab2_post_items_ok, dlg_generic_dismiss,
+		
+	};
+
+	
 }//public class Tags

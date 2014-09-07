@@ -44,10 +44,10 @@ public class MainActv extends Activity {
 	
 	public static Vibrator vib;
 
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-    	/*----------------------------
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+  	/*----------------------------
 		 * Steps
 		 * 1. Set up
 		 * 		1. super
@@ -56,27 +56,27 @@ public class MainActv extends Activity {
 		 * 2. Add listeners
 			----------------------------*/
 		
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.actv_main);
-        
-        setTitle(this.getClass().getName());
-        
-        vib = (Vibrator) this.getSystemService(this.VIBRATOR_SERVICE);
-        
-        /*----------------------------
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.actv_main);
+      
+      setTitle(this.getClass().getName());
+      
+      vib = (Vibrator) this.getSystemService(this.VIBRATOR_SERVICE);
+      
+      /*----------------------------
 		 * 2. Add listeners
 			----------------------------*/
 		add_listeners();
-        
-        //debug
+      
+      //debug
 		do_debugs();
 		
 		//admin
 		admin_createTable_purchaseSchedule();
 		
-    }//public void onCreate(Bundle savedInstanceState)
+  }//public void onCreate(Bundle savedInstanceState)
 
-    
+  
 	private void do_debugs() {
 		
 //		_debug_D_44_V_3_0_11_EnterCreatedAtData();
@@ -180,7 +180,7 @@ public class MainActv extends Activity {
 //				CONS.SQLs.a_20140105_112211_DropTable_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -232,7 +232,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_112211_DropTable_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -285,7 +285,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140110_104629_Createtable_ShoppingItemNew;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -338,7 +338,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_113651_ChangeTableName_shopping_item_new;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -390,7 +390,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140105_113308_DropTable_shopping_item;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -456,7 +456,7 @@ public class MainActv extends Activity {
 				CONS.SQLs.a_20140110_095304_AddColumns_CreatedAt_ToShoppingItemNew;
 //		CONS.SQLs.a_20140110_071149_CreateTable_shopping_item_new;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -505,7 +505,7 @@ public class MainActv extends Activity {
 
 	private void _debug_D_44_V_3_0_6_GetColumnNames() {
 		// TODO Auto-generated method stub
-		List<String> names = Methods.get_ColumnNames(this, CONS.DBAdmin.tableName);
+		List<String> names = Methods.get_ColumnNames(this, CONS.DB.tableName);
 		
 		for (String name : names) {
 			
@@ -523,7 +523,7 @@ public class MainActv extends Activity {
 
 	private void _debug_D_44_V_3_0_6_Test_update_SI() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -587,7 +587,7 @@ public class MainActv extends Activity {
 	
 	private void _debug_D_44_V_3_0_6_Test_update_SI_V2() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		ShoppingItem si =
 				Methods_sl.getSI_FromDbId(this, 203);
@@ -650,7 +650,7 @@ public class MainActv extends Activity {
 		String[] sqls =
 				CONS.SQLs.a_20140108_220957_AddColumns_created_at_etc;
 		
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -775,7 +775,7 @@ public class MainActv extends Activity {
 
 	private void _debug_1_d_44() {
 		// TODO Auto-generated method stub
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -797,7 +797,7 @@ public class MainActv extends Activity {
 //		String[] sqls = CONS.SQLs.a_20140105_102851_add_column_created_at_etc;
 //		String sql = CONS.SQLs.a_20140105_102851_add_column;
 */
-		DBUtils dbu = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 
@@ -850,10 +850,10 @@ public class MainActv extends Activity {
 		boolean res =
 				Methods.createTable(
 							this,
-							CONS.DBAdmin.dbName,
-							CONS.DBAdmin.tname_purchaseSchedule,
-							CONS.DBAdmin.col_purchaseSchedule,
-							CONS.DBAdmin.colTypes_purchaseSchedule);
+							CONS.DB.dbName,
+							CONS.DB.tname_purchaseSchedule,
+							CONS.DB.col_purchaseSchedule,
+							CONS.DB.colTypes_purchaseSchedule);
 		
 		if (res == true) {
 			
@@ -863,7 +863,7 @@ public class MainActv extends Activity {
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]",
-					"Table created => " + CONS.DBAdmin.tname_purchaseSchedule);
+					"Table created => " + CONS.DB.tname_purchaseSchedule);
 			
 		} else {//if (res == true)
 			
@@ -873,7 +873,7 @@ public class MainActv extends Activity {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]",
-				"Table creation failed => " + CONS.DBAdmin.tname_purchaseSchedule);
+				"Table creation failed => " + CONS.DB.tname_purchaseSchedule);
 			
 		}//if (res == true)
 		
@@ -882,7 +882,7 @@ public class MainActv extends Activity {
 
 	private void debug_B13_v_1_0() {
 		
-		File f = new File(CONS.dirPath_db);
+		File f = new File(CONS.DB.dirPath_db);
 		
 		String[] fileNames = f.list();
 
@@ -929,7 +929,7 @@ public class MainActv extends Activity {
 		/*********************************
 		 * Create a db file
 		 *********************************/
-		DBUtils dbm = new DBUtils(this, CONS.DBAdmin.dbName);
+		DBUtils dbm = new DBUtils(this, CONS.DB.dbName);
 		
 		SQLiteDatabase db = dbm.getWritableDatabase();
 		
@@ -954,21 +954,21 @@ public class MainActv extends Activity {
 		 * Restore db
 		 *********************************/
 		String srcFileName = Methods.getFileNameFromDir_latest(
-										this, CONS.dirPath_db_backup);
+										this, CONS.DB.dirPath_db_backup);
 		
 		String src = StringUtils.join(
-							new String[]{CONS.dirPath_db_backup,
+							new String[]{CONS.DB.dirPath_db_backup,
 									srcFileName},
 							File.separator);
 		
 		String dst = StringUtils.join(
 							new String[]{
-									CONS.dirPath_db,
-									CONS.DBAdmin.dbName},
+									CONS.DB.dirPath_db,
+									CONS.DB.dbName},
 							File.separator);
-//		String dst = CONS.dirPath_db;
+//		String dst = CONS.DB.dirPath_db;
 		
-		Methods.restore_db(this, CONS.DBAdmin.dbName, src, dst);
+		Methods.restore_db(this, CONS.DB.dbName, src, dst);
 		
 //		for (String name : fileNames) {
 //			
@@ -989,21 +989,21 @@ public class MainActv extends Activity {
 		 * memo
 		 *********************************/
 		String src = StringUtils.join(
-				new String[]{CONS.dirPath_db_backup,
+				new String[]{CONS.DB.dirPath_db_backup,
 //						"shoppinglist_backup_20121108_122426.bk"},
 						"shoppinglist_backup_20130905_004749.bk"},
 				File.separator);
 		
 		String dst = StringUtils.join(
-				new String[]{CONS.dirPath_db,
-						CONS.DBAdmin.dbName},
+				new String[]{CONS.DB.dirPath_db,
+						CONS.DB.dbName},
 				File.separator);
 		
 		// Restore db
-		Methods.restore_db(this, CONS.DBAdmin.dbName, src, dst);
+		Methods.restore_db(this, CONS.DB.dbName, src, dst);
 		
 		
-		File f = new File(CONS.dirPath_db);
+		File f = new File(CONS.DB.dirPath_db);
 		
 		String[] f_list = f.list();
 		
@@ -1037,17 +1037,17 @@ public class MainActv extends Activity {
 		
 		String db_src = StringUtils.join(
 							new String[]{
-								CONS.dirPath_db,
-								CONS.DBAdmin.dbName},
+								CONS.DB.dirPath_db,
+								CONS.DB.dbName},
 							File.separator);
 		
 		String db_dst = StringUtils.join(
 							new String[]{
-								CONS.dirPath_db_backup,
-								CONS.fileName_db_backup_trunk},
+								CONS.DB.dirPath_db_backup,
+								CONS.DB.fileName_db_backup_trunk},
 							File.separator);
 		
-		db_dst = db_dst + "_" + time_label + CONS.fileName_db_backup_ext;
+		db_dst = db_dst + "_" + time_label + CONS.DB.fileName_db_backup_ext;
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -1065,7 +1065,7 @@ public class MainActv extends Activity {
 //		/*----------------------------
 //		 * 2-2. Folder exists?
 //			----------------------------*/
-//		File db_backup = new File(CONS.dirPath_db_backup);
+//		File db_backup = new File(CONS.DB.dirPath_db_backup);
 //		
 //		if (!db_backup.exists()) {
 //			
@@ -1346,7 +1346,7 @@ public class MainActv extends Activity {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		super.onDestroy();
 	}
-    
-    
-    
+  
+  
+  
 }//public class MainActv extends Activity

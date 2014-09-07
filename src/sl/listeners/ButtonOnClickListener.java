@@ -278,8 +278,8 @@ public class ButtonOnClickListener implements OnClickListener {
 		*/
 		boolean result = dbm.storeData(
 						db, 
-						CONS.DBAdmin.tableName, 
-						CONS.DBAdmin.cols_SI_Register,
+						CONS.DB.tableName, 
+						CONS.DB.cols_SI_Register,
 //						CONS.columns,
 						new String[]{
 //								et_store.getText().toString(),

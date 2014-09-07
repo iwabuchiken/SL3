@@ -131,7 +131,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 ***************************************/
 		if (wordList.size() < 1) {
 			
-			return CONS.GETYOMI_NO_ENTRY;
+			return CONS.RV.GETYOMI_NO_ENTRY;
 			
 		}//if (wordList.size() < 1)
 		
@@ -202,7 +202,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_6_0()
 
@@ -214,7 +214,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 	 * 
 	 ***************************************/
 	private static List<Word> doInBackground_B18_v_6_0__1_getWordList() {
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -224,16 +224,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
@@ -247,7 +247,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -302,9 +302,9 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //		for (int i = 0; i < numOfSamples; i++) {
 		for (int i = 0; i < c.getCount(); i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
-			String yomi = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi"));
+			String yomi = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "yomi"));
 		
 			long itemId = c.getLong(0);
 
@@ -517,7 +517,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Setup
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -538,16 +538,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //			long dbId = wordList.get(i).getId();
 			long dbId = word.getId();
 			
-			String colYomi = CONS.DBAdmin.columns[Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi")];
+			String colYomi = CONS.DB.columns[Methods.getArrayIndex(CONS.DB.columns, "yomi")];
 			
 			// Get "gana" value: "gana" value in a Word instance 
 			//	corresponds to "yomi" yomi in db
 //			String yomi = word.getName();
 			String yomi = word.getYomi();
 			
-			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DBAdmin.tableName, dbId, colYomi, yomi);
+			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DB.tableName, dbId, colYomi, yomi);
 
-			if (res == CONS.DB_UPDATE_SUCCESSFUL) {
+			if (res == CONS.RV.DB_UPDATE_SUCCESSFUL) {
 				
 				numOfSuccess += 1;
 				
@@ -780,7 +780,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_5_4()
 
@@ -935,7 +935,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 	}//private static void doInBackground_B18_v_5_4__2_getFurigana
 
 	private static List<Furi> doInBackground_B18_v_5_4__1_getFuriganaList() {
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -945,16 +945,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
@@ -968,7 +968,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -1016,9 +1016,9 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //		for (int i = 0; i < 10; i++) {
 		for (int i = 0; i < numOfSamples; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
-			String yomi = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi"));
+			String yomi = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "yomi"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -1076,7 +1076,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Setup
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -1105,14 +1105,14 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //			long dbId = furiganaList.get(i).getId();
 			long dbId = furi.getId();
 			
-			String colName = CONS.DBAdmin.columns[Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi")];
+			String colName = CONS.DB.columns[Methods.getArrayIndex(CONS.DB.columns, "yomi")];
 			
 //			String value = furi.getName();
 			String value = furi.getGana();
 			
-			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DBAdmin.tableName, dbId, colName, value);
+			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DB.tableName, dbId, colName, value);
 
-			if (res == CONS.DB_UPDATE_SUCCESSFUL) {
+			if (res == CONS.RV.DB_UPDATE_SUCCESSFUL) {
 				
 				numOfSuccess += 1;
 				
@@ -1327,7 +1327,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_5_3()
 
@@ -1336,7 +1336,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Setup
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -1365,16 +1365,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //			long dbId = furiganaList.get(i).getId();
 			long dbId = furi.getId();
 			
-			String colName = CONS.DBAdmin.columns[Methods.getArrayIndex(CONS.DBAdmin.columns, "yomi")];
+			String colName = CONS.DB.columns[Methods.getArrayIndex(CONS.DB.columns, "yomi")];
 			
 			// Get "gana" value: "gana" value in a Furi instance 
 			//	corresponds to "yomi" value in db
 //			String value = furi.getName();
 			String value = furi.getGana();
 			
-			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DBAdmin.tableName, dbId, colName, value);
+			int res = dbu.updateData_shoppingItem(actv, wdb, CONS.DB.tableName, dbId, colName, value);
 
-			if (res == CONS.DB_UPDATE_SUCCESSFUL) {
+			if (res == CONS.RV.DB_UPDATE_SUCCESSFUL) {
 				
 				numOfSuccess += 1;
 				
@@ -1434,7 +1434,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 	}//private static void doInBackground_B18_v_5_3__2_updateTable
 
 	private static List<Furi> doInBackground_B18_v_5_3__1_getFuriganaList() {
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -1444,16 +1444,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
@@ -1467,7 +1467,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -1515,7 +1515,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //		for (int i = 0; i < 10; i++) {
 		for (int i = 0; i < numOfSamples; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -1577,7 +1577,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "Time=" + Methods.get_TimeLabel(Methods.getMillSeconds_now()));
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -1587,20 +1587,20 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (res == false)
 		
@@ -1610,7 +1610,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -1631,7 +1631,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 		}
 	
 		/*********************************
@@ -1651,7 +1651,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //		for (int i = 0; i < 10; i++) {
 		for (int i = 0; i < numOfSamples; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -1823,14 +1823,14 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_5_2()
 
 	private static Integer doInBackground_B18_v_5_0_e_1_t_1() {
-		String keyWord = "洗濯網（中）目玉クリップ";
-//		String keyWord = "かりんとう";
-//		String keyWord = "のど飴";
+		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ??臥岼邇峨け繝ｪ繝????";
+//		String keyWord = "縺九ｊ繧薙→縺?";
+//		String keyWord = "縺ｮ縺ｩ鬟ｴ";
 		
 //		YahooFurigana yf = YahooFurigana.getInstanceWithKeyWord(keyWord);
 //		
@@ -1857,11 +1857,11 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "furi(Hiragana)=" + Methods.convert_Kana2Gana(furi));
 
-			return CONS.GETYOMI_SUCCESSFUL;
+			return CONS.RV.GETYOMI_SUCCESSFUL;
 			
 		} else {//if (furi != null)
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (furi != null)
 
@@ -1869,10 +1869,10 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static Integer doInBackground_B18_v_5_1a() {
 		// TODO Auto-generated method stub
-//		String keyWord = "洗濯網（中）";
-//		String keyWord = "目玉クリップ";
+//		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ???";
+//		String keyWord = "逶ｮ邇峨け繝ｪ繝????";
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -1882,20 +1882,20 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (res == false)
 		
@@ -1905,7 +1905,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -1926,7 +1926,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 		}
 	
 		/*********************************
@@ -1945,7 +1945,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //		for (int i = 0; i < 10; i++) {
 		for (int i = 0; i < numOfSamples; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -2130,16 +2130,16 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_5_1a()
 
 	private static Integer doInBackground_B18_v_5_1() {
 		// TODO Auto-generated method stub
-//		String keyWord = "洗濯網（中）";
-//		String keyWord = "目玉クリップ";
+//		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ???";
+//		String keyWord = "逶ｮ邇峨け繝ｪ繝????";
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -2149,20 +2149,20 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (res == false)
 		
@@ -2172,7 +2172,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -2193,7 +2193,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 		}
 	
 		/*********************************
@@ -2207,7 +2207,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		
 		for (int i = 0; i < 10; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -2329,17 +2329,17 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		}//for (int i = 0; i < furiganaList.size(); i++)
 		
 		
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 	}//private static void doInBackground_B18_v_5_1()
 
 	
 	private static Integer doInBackground_B18_v_5_0() {
 		// TODO Auto-generated method stub
-//		String keyWord = "洗濯網（中）";
-//		String keyWord = "目玉クリップ";
+//		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ???";
+//		String keyWord = "逶ｮ邇峨け繝ｪ繝????";
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -2349,20 +2349,20 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		// Log
 		Log.d("Task_GetYomi.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "tableName=" + CONS.DBAdmin.tableName);
+				+ "]", "tableName=" + CONS.DB.tableName);
 		
-		boolean res = dbu.tableExists(rdb, CONS.DBAdmin.tableName);
+		boolean res = dbu.tableExists(rdb, CONS.DB.tableName);
 		
 		if (res == false) {
 			
 			// Log
 			Log.d("Task_GetYomi.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "getAllData() => Table doesn't exist: " + CONS.DBAdmin.tableName);
+					+ "]", "getAllData() => Table doesn't exist: " + CONS.DB.tableName);
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (res == false)
 		
@@ -2372,7 +2372,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		 * 		2.2. Add to list
 			----------------------------*/
 		//
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tableName;
+		String sql = "SELECT * FROM " + CONS.DB.tableName;
 		
 		Cursor c = null;
 		
@@ -2393,7 +2393,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			rdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 		}
 	
 		/*********************************
@@ -2407,7 +2407,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		
 		for (int i = 0; i < 10; i++) {
 			
-			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DBAdmin.columns, "name"));
+			String name = c.getString(CONS.colAddUp + Methods.getArrayIndex(CONS.DB.columns, "name"));
 			
 //			long itemId = c.getLong(Methods.getArrayIndex(
 //											CONS.DBAdmin.columns,
@@ -2529,10 +2529,10 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		}//for (int i = 0; i < furiganaList.size(); i++)
 		
 		
-		return CONS.GETYOMI_SUCCESSFUL;
+		return CONS.RV.GETYOMI_SUCCESSFUL;
 		
 		
-//		String keyWord = "洗濯網（中）目玉クリップ";
+//		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ??臥岼邇峨け繝ｪ繝????";
 //		
 //		YahooFurigana yf = YahooFurigana.getInstance();
 //		
@@ -2566,9 +2566,9 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static Integer doInBackground_B18_v_4_1() {
 		// TODO Auto-generated method stub
-//		String keyWord = "洗濯網（中）";
-//		String keyWord = "目玉クリップ";
-		String keyWord = "洗濯網（中）目玉クリップ";
+//		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ???";
+//		String keyWord = "逶ｮ邇峨け繝ｪ繝????";
+		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ??臥岼邇峨け繝ｪ繝????";
 		
 //		YahooFurigana yf = YahooFurigana.getInstanceWithKeyWord(keyWord);
 //		
@@ -2593,11 +2593,11 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "furi(Hiragana)=" + Methods.convert_Kana2Gana(furi));
 
-			return CONS.GETYOMI_SUCCESSFUL;
+			return CONS.RV.GETYOMI_SUCCESSFUL;
 			
 		} else {//if (furi != null)
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (furi != null)
 		
@@ -2606,7 +2606,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static Integer doInBackground_B18_v_4_0() {
 		// TODO Auto-generated method stub
-		String keyWord = "洗濯網（中）";
+		String keyWord = "豢玲ｿｯ邯ｲ??井ｸｭ???";
 		
 //		YahooFurigana yf = YahooFurigana.getInstanceWithKeyWord(keyWord);
 //		
@@ -2625,11 +2625,11 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		
 		if (furi != null) {
 			
-			return CONS.GETYOMI_SUCCESSFUL;
+			return CONS.RV.GETYOMI_SUCCESSFUL;
 			
 		} else {//if (furi != null)
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (furi != null)
 		
@@ -2638,7 +2638,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_3_0() {
 		// TODO Auto-generated method stub
-		String kw = "洗濯網（中）";
+		String kw = "豢玲ｿｯ邯ｲ??井ｸｭ???";
 		
 //		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 //				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-&grade=1" +
@@ -2987,7 +2987,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_2() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3167,7 +3167,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_3() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3443,7 +3443,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 //			//=> [515:doInBackground_B18_v_2_0_d_t_3](2417): 1: Name=#text/Type=3/Value=?
 
 		/*********************************
-		 * Node.getFirstChild()�@���g����@
+		 * Node.getFirstChild()??ｽ@??ｽ??ｽ??ｽg??ｽ??ｽ??ｽ??ｽ@
 		 *********************************/
 		Node n1 = nWord1.getFirstChild();
 		
@@ -3489,7 +3489,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_4() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3512,7 +3512,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_5() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3535,7 +3535,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_6() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3595,7 +3595,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 		/*********************************
 		 * TRY: http://www.anddev.org/parse_xml_with_dom_-_getnodevalue_always_null-t3082.html
-		 * 	=> by ExxKA �� Sun Nov 08, 2009 5:05 pm
+		 * 	=> by ExxKA ??ｽ??ｽ Sun Nov 08, 2009 5:05 pm
 		 *********************************/
 		Node childOfSurface = el_Surface.getFirstChild();
 		
@@ -3648,7 +3648,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d_t_7() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -3708,7 +3708,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 		/*********************************
 		 * TRY: http://www.anddev.org/parse_xml_with_dom_-_getnodevalue_always_null-t3082.html
-		 * 	=> by ExxKA �� Sun Nov 08, 2009 5:05 pm
+		 * 	=> by ExxKA ??ｽ??ｽ Sun Nov 08, 2009 5:05 pm
 		 *********************************/
 		Node childOfSurface = el_Surface.getFirstChild();
 		
@@ -3902,7 +3902,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground_B18_v_2_0_d() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -4031,7 +4031,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static int doInBackground__1() {
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
@@ -4061,7 +4061,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 				
 				wdb.close();
 				
-				return CONS.GETYOMI_FAILED;
+				return CONS.RV.GETYOMI_FAILED;
 				
 			}//if (null == c)
 			
@@ -4081,7 +4081,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 				
 				wdb.close();
 				
-				return CONS.GETYOMI_FAILED;
+				return CONS.RV.GETYOMI_FAILED;
 				
 			}//if (null == c)
 			
@@ -4094,12 +4094,12 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 				String yomi =
 						c.getString(1 + Methods.getArrayIndex(
-											CONS.DBAdmin.columns,
+											CONS.DB.columns,
 											"yomi"));
 	
 				String name =
 						c.getString(1 + Methods.getArrayIndex(
-											CONS.DBAdmin.columns,
+											CONS.DB.columns,
 											"name"));
 				
 				// Log
@@ -4151,13 +4151,13 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			wdb.close();
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//try
 		
 		wdb.close();
 		
-		return CONS.GETYOMI_FAILED;
+		return CONS.RV.GETYOMI_FAILED;
 		
 	}//private static int doInBackground__1()
 
@@ -4165,7 +4165,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		/*********************************
 		 * API-related processes
 		 *********************************/
-		String name = "����ԁi���j";
+		String name = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 
 		String yomi = Methods_sl.getYomi_full(name, "utf-8")[2];
 		
@@ -4180,7 +4180,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "yomi=" + yomi);
 			
-			return CONS.GETYOMI_SUCCESSFUL;
+			return CONS.RV.GETYOMI_SUCCESSFUL;
 			
 		} else {//if (yomi != null)
 		
@@ -4191,7 +4191,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "yomi == null (" + name + ")");
 			
-			return CONS.GETYOMI_FAILED;
+			return CONS.RV.GETYOMI_FAILED;
 			
 		}//if (yomi != null)
 		
@@ -4200,7 +4200,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 
 	private static void doInBackground__2__1__XmlHandler() {
 		// TODO Auto-generated method stub
-		String kw = "����ԁi���j";
+		String kw = "??ｽ??ｽ??ｽ??ｽﾔ（??ｽ??ｽ??ｽj";
 		
 		String url = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana" +
 				"?appid=dj0zaiZpPTZjQWNRNExhd0thayZkPVlXazlhR2gwTTJGUE56SW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9Mjc-" +
@@ -4296,7 +4296,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 		
 		switch (res) {
 		
-		case CONS.GETYOMI_SUCCESSFUL:
+		case CONS.RV.GETYOMI_SUCCESSFUL:
 			
 			// debug
 			Toast.makeText(actv,
@@ -4310,7 +4310,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			break;
 			
-		case CONS.GETYOMI_NO_ENTRY:
+		case CONS.RV.GETYOMI_NO_ENTRY:
 			
 			// debug
 			Toast.makeText(actv,
@@ -4320,7 +4320,7 @@ public class Task_GetYomi extends AsyncTask<String, Integer, Integer> {
 			
 			break;
 			
-		case CONS.GETYOMI_FAILED:
+		case CONS.RV.GETYOMI_FAILED:
 
 			// debug
 			Toast.makeText(actv,

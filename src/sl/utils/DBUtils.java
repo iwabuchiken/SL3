@@ -61,7 +61,7 @@ public class DBUtils extends SQLiteOpenHelper {
 
 	// DB name => Use default: CONS.DBAdmin.dbName
 	public DBUtils(Context context) {
-		super(context, CONS.DBAdmin.dbName, CONS.factory, CONS.version);
+		super(context, CONS.DB.dbName, CONS.factory, CONS.version);
 		// 
 		this.context = context;
 		
@@ -414,42 +414,42 @@ public class DBUtils extends SQLiteOpenHelper {
 //		"store_name", "due_date", "amount", "memo", "items"
 		
 		cv.put(
-				CONS.DBAdmin
+				CONS.DB
 					.col_purchaseSchedule[
 				              Methods.getArrayIndex(
-				            		  CONS.DBAdmin.col_purchaseSchedule,
+				            		  CONS.DB.col_purchaseSchedule,
 				            		  "store_name")],
 				ps.getStoreName());
 
 		cv.put(
-				CONS.DBAdmin
+				CONS.DB
 					.col_purchaseSchedule[
 				              Methods.getArrayIndex(
-				            		  CONS.DBAdmin.col_purchaseSchedule,
+				            		  CONS.DB.col_purchaseSchedule,
 				            		  "due_date")],
 				ps.getDueDate());
 
 		cv.put(
-				CONS.DBAdmin
+				CONS.DB
 					.col_purchaseSchedule[
 				              Methods.getArrayIndex(
-				            		  CONS.DBAdmin.col_purchaseSchedule,
+				            		  CONS.DB.col_purchaseSchedule,
 				            		  "amount")],
 				ps.getAmount());
 		
 		cv.put(
-				CONS.DBAdmin
+				CONS.DB
 					.col_purchaseSchedule[
 				              Methods.getArrayIndex(
-				            		  CONS.DBAdmin.col_purchaseSchedule,
+				            		  CONS.DB.col_purchaseSchedule,
 				            		  "memo")],
 				ps.getMemo());
 
 		cv.put(
-				CONS.DBAdmin
+				CONS.DB
 					.col_purchaseSchedule[
 				              Methods.getArrayIndex(
-				            		  CONS.DBAdmin.col_purchaseSchedule,
+				            		  CONS.DB.col_purchaseSchedule,
 				            		  "items")],
 				ps.getItems());
 		
@@ -474,12 +474,12 @@ public class DBUtils extends SQLiteOpenHelper {
 			 ***************************************/
 			// "created_at"
 			cv.put(
-					CONS.DBAdmin.timeStamps[0],
+					CONS.DB.timeStamps[0],
 					Methods.getMillSeconds_now());
 
 			// "modified_at"
 			cv.put(
-					CONS.DBAdmin.timeStamps[1],
+					CONS.DB.timeStamps[1],
 					Methods.getMillSeconds_now());
 
 			/***************************************
@@ -791,7 +791,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			//Methods.toastAndLog(actv, "Data updated", 2000);
 			
-			return CONS.DB_UPDATE_SUCCESSFUL;
+			return CONS.RV.DB_UPDATE_SUCCESSFUL;
 			
 			
 		} catch (SQLException e) {
@@ -804,7 +804,7 @@ public class DBUtils extends SQLiteOpenHelper {
 					+ "]",
 					"Exception => " + e.toString() + " / " + "sql: " + sql);
 			
-			return CONS.EXCEPTION_SQL;
+			return CONS.RV.EXCEPTION_SQL;
 			
 		}//try
 		
@@ -829,30 +829,30 @@ public class DBUtils extends SQLiteOpenHelper {
 		"created_at", "updated_at", "posted_at"
 		*/
 		String sql =
-				"UPDATE " + CONS.DBAdmin.tableName
+				"UPDATE " + CONS.DB.tableName
 				+ " SET "
-				+ CONS.DBAdmin.cols_SI_full[0] + "='" + si.getStore() + "'"
+				+ CONS.DB.cols_SI_full[0] + "='" + si.getStore() + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[1] + "='" + si.getName() + "'"
+				+ CONS.DB.cols_SI_full[1] + "='" + si.getName() + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[2] + "='" + String.valueOf(si.getPrice()) + "'"
+				+ CONS.DB.cols_SI_full[2] + "='" + String.valueOf(si.getPrice()) + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[3] + "='" + si.getGenre() + "'"
+				+ CONS.DB.cols_SI_full[3] + "='" + si.getGenre() + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[4] + "='" + si.getYomi() + "'"
+				+ CONS.DB.cols_SI_full[4] + "='" + si.getYomi() + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[6] + "='" + String.valueOf(si.getCreated_at()) + "'"
+				+ CONS.DB.cols_SI_full[6] + "='" + String.valueOf(si.getCreated_at()) + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[7] + "='" + String.valueOf(si.getUpdated_at()) + "'"
+				+ CONS.DB.cols_SI_full[7] + "='" + String.valueOf(si.getUpdated_at()) + "'"
 				
 				+ " AND "
-				+ CONS.DBAdmin.cols_SI_full[8] + "='" + String.valueOf(si.getPosted_at()) + "'"
+				+ CONS.DB.cols_SI_full[8] + "='" + String.valueOf(si.getPosted_at()) + "'"
 				
 //					+ " WHERE file_id = '" + dbId + "'";
 				+ " WHERE "
@@ -981,9 +981,9 @@ public class DBUtils extends SQLiteOpenHelper {
 		try {
 			
 			c = rdb.query(
-							CONS.DBAdmin.tname_purchaseSchedule,
+							CONS.DB.tname_purchaseSchedule,
 //							CONS.DBAdmin.col_purchaseSchedule,
-							CONS.DBAdmin.col_purchaseSchedule_full,
+							CONS.DB.col_purchaseSchedule_full,
 							null, null, null, null, null);
 			
 		} catch (Exception e) {
@@ -1046,7 +1046,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			PS ps = new PS();
 			
 			ps.setDbId(c.getLong(
-							c.getColumnIndex(CONS.DBAdmin.col_purchaseSchedule_full[0])));
+							c.getColumnIndex(CONS.DB.col_purchaseSchedule_full[0])));
 			
 			ps.setStoreName(c.getString(c.getColumnIndex("store_name")));
 //			ps.setDueDate(c.getInt(c.getColumnIndex("due_date")));
@@ -1113,8 +1113,8 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 //		String sql = "SELECT " + "store, name, price, genre, yomi"
 		String sql = "SELECT " + "*"
-					+ " FROM " + CONS.DBAdmin.tableName
-					+ " WHERE " + CONS.DBAdmin.columns_with_index2[0]
+					+ " FROM " + CONS.DB.tableName
+					+ " WHERE " + CONS.DB.columns_with_index2[0]
 					+ " = "
 					+ dbId;
 		
@@ -1159,7 +1159,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		ShoppingItem si = new ShoppingItem();
 		
-		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DBAdmin.columns_with_index2[0])));
+		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
 		si.setName(cursor.getString(cursor.getColumnIndex("name")));
 		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
@@ -1192,8 +1192,8 @@ public class DBUtils extends SQLiteOpenHelper {
 		SQLiteDatabase rdb = this.getReadableDatabase();
 		
 		String sql = "SELECT " + "*"
-				+ " FROM " + CONS.DBAdmin.tableName
-				+ " WHERE " + CONS.DBAdmin.columns_with_index2[1]
+				+ " FROM " + CONS.DB.tableName
+				+ " WHERE " + CONS.DB.columns_with_index2[1]
 						+ " = "
 						+ itemName;
 		
@@ -1238,7 +1238,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		ShoppingItem si = new ShoppingItem();
 		
-		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DBAdmin.columns_with_index2[0])));
+		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
 		si.setName(cursor.getString(cursor.getColumnIndex("name")));
 		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
@@ -1277,12 +1277,12 @@ public class DBUtils extends SQLiteOpenHelper {
 		/***************************************
 		 * Exec updating
 		 ***************************************/
-		String tname = CONS.DBAdmin.tname_purchaseSchedule;
+		String tname = CONS.DB.tname_purchaseSchedule;
 //		String colName = CONS.DBAdmin.col_purchaseSchedule[4];
 		
 		String sql = "UPDATE " + tname
 					+ " SET "
-					+ CONS.DBAdmin.col_purchaseSchedule[4] + "='"	// items
+					+ CONS.DB.col_purchaseSchedule[4] + "='"	// items
 						+ itemIdsString + "'"
 					+ " WHERE " + android.provider.BaseColumns._ID
 					+ " = '" + dbId + "'";
@@ -1339,7 +1339,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		 ***************************************/
 		SQLiteDatabase rdb = getReadableDatabase();
 		
-		String sql = "SELECT * FROM " + CONS.DBAdmin.tname_purchaseSchedule;
+		String sql = "SELECT * FROM " + CONS.DB.tname_purchaseSchedule;
 		
 		Cursor c = null;
 		
@@ -1357,7 +1357,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			rdb.close();
 			
-			return CONS.DBAdmin.DB_QUERY_FAILED;
+			return CONS.DB.DB_QUERY_FAILED;
 			
 		}//try
 
@@ -1377,7 +1377,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			rdb.close();
 			
-			return CONS.DBAdmin.DB_QUERY_FAILED;
+			return CONS.DB.DB_QUERY_FAILED;
 			
 		} else if (c.getCount() < 1) {//if (c == null)
 			
@@ -1390,7 +1390,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			rdb.close();
 			
-			return CONS.DBAdmin.DB_QUERY_NO_ENTRY;
+			return CONS.DB.DB_QUERY_NO_ENTRY;
 			
 		}//if (c == null)
 
@@ -1403,13 +1403,13 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			long targetDueDate = c.getLong(
 					c.getColumnIndex(
-							CONS.DBAdmin.col_purchaseSchedule[1]));
+							CONS.DB.col_purchaseSchedule[1]));
 	
 			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
 
 			String targetStoreName = c.getString(
 					c.getColumnIndex(
-							CONS.DBAdmin.col_purchaseSchedule[0]));
+							CONS.DB.col_purchaseSchedule[0]));
 
 			if (targetStoreName.equals(storeName)
 				&& referenceDueDateData[0] == targetDueDateData[0]
@@ -1442,7 +1442,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		 ***************************************/
 		rdb.close();
 		
-		return CONS.DBAdmin.DB_QUERY_NO_ENTRY;
+		return CONS.DB.DB_QUERY_NO_ENTRY;
 		
 	}//private long getDbId_PS(String storeName, long dueDate)
 
@@ -1499,11 +1499,11 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 //		0			1		2		3		4
 //		"store", "name", "price", "genre", "yomi"
-		cv.put(CONS.DBAdmin.columns[0], si.getStore());
-		cv.put(CONS.DBAdmin.columns[1], si.getName());
-		cv.put(CONS.DBAdmin.columns[2], si.getPrice());
-		cv.put(CONS.DBAdmin.columns[3], si.getGenre());
-		cv.put(CONS.DBAdmin.columns[4], si.getYomi());
+		cv.put(CONS.DB.columns[0], si.getStore());
+		cv.put(CONS.DB.columns[1], si.getName());
+		cv.put(CONS.DB.columns[2], si.getPrice());
+		cv.put(CONS.DB.columns[3], si.getGenre());
+		cv.put(CONS.DB.columns[4], si.getYomi());
 		
 		/***************************************
 		 * Setup db
@@ -1525,7 +1525,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			// Insert data
 //			long res = wdb.insert(CONS.DBAdmin.tableName, null, cv);
 			long res = wdb.update(
-							CONS.DBAdmin.tableName,
+							CONS.DB.tableName,
 							cv,
 							android.provider.BaseColumns._ID + " = ?",
 							new String[]{String.valueOf(si.getId())});
@@ -1601,15 +1601,15 @@ public class DBUtils extends SQLiteOpenHelper {
 		"created_at", "updated_at", "posted_at"
 		*/
 		
-		cv.put(CONS.DBAdmin.cols_SI_full[0], si.getStore());
-		cv.put(CONS.DBAdmin.cols_SI_full[1], si.getName());
-		cv.put(CONS.DBAdmin.cols_SI_full[2], si.getPrice());
-		cv.put(CONS.DBAdmin.cols_SI_full[3], si.getGenre());
-		cv.put(CONS.DBAdmin.cols_SI_full[4], si.getYomi());
+		cv.put(CONS.DB.cols_SI_full[0], si.getStore());
+		cv.put(CONS.DB.cols_SI_full[1], si.getName());
+		cv.put(CONS.DB.cols_SI_full[2], si.getPrice());
+		cv.put(CONS.DB.cols_SI_full[3], si.getGenre());
+		cv.put(CONS.DB.cols_SI_full[4], si.getYomi());
 		
-		cv.put(CONS.DBAdmin.cols_SI_full[6], si.getCreated_at());
-		cv.put(CONS.DBAdmin.cols_SI_full[7], si.getUpdated_at());
-		cv.put(CONS.DBAdmin.cols_SI_full[8], si.getPosted_at());
+		cv.put(CONS.DB.cols_SI_full[6], si.getCreated_at());
+		cv.put(CONS.DB.cols_SI_full[7], si.getUpdated_at());
+		cv.put(CONS.DB.cols_SI_full[8], si.getPosted_at());
 		
 		/***************************************
 		 * Setup db
@@ -1631,7 +1631,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			// Insert data
 //			long res = wdb.insert(CONS.DBAdmin.tableName, null, cv);
 			long res = wdb.update(
-					CONS.DBAdmin.tableName,
+					CONS.DB.tableName,
 					cv,
 					android.provider.BaseColumns._ID + " = ?",
 					new String[]{String.valueOf(si.getId())});

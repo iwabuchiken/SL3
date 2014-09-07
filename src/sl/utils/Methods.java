@@ -191,9 +191,9 @@ public class Methods {
 			 * 1-2. If not => Create table
 				----------------------------*/
 			//
-			String[] columns = CONS.DBAdmin.columns_for_table_stores;
+			String[] columns = CONS.DB.columns_for_table_stores;
 			
-			String[] types = CONS.DBAdmin.column_types_for_table_stores;
+			String[] types = CONS.DB.column_types_for_table_stores;
 			
 			dbm.createTable_generic(db, tableName, columns, types);
 			
@@ -324,7 +324,7 @@ public class Methods {
 		boolean result = dbm.storeData(
 										db, 
 										tableName, 
-										CONS.DBAdmin.columns_for_table_stores, 
+										CONS.DB.columns_for_table_stores, 
 										new String[]{storeName, ""});
 		
 		// Log
@@ -517,8 +517,8 @@ public class Methods {
 			result = dbm.createTable_generic(
 					db, 
 					tableName, 
-					CONS.DBAdmin.columns_for_table_genres, 
-					CONS.DBAdmin.column_types_for_table_genres);
+					CONS.DB.columns_for_table_genres, 
+					CONS.DB.column_types_for_table_genres);
 			
 			if (result == false) {
 				/*----------------------------
@@ -556,7 +556,7 @@ public class Methods {
 		result = dbm.storeData(
 										db, 
 										tableName, 
-										CONS.DBAdmin.columns_for_table_genres, 
+										CONS.DB.columns_for_table_genres, 
 										new String[]{genreName, ""});
 
 		/*----------------------------
@@ -1017,7 +1017,7 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// All
 		storeList.add(actv.getString(R.string.generic_label_all));
@@ -1038,7 +1038,7 @@ public class Methods {
 			----------------------------*/
 		List<String> genreList = new ArrayList<String>();
 		
-		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
+		c = dbm.getAllData(db, "genres", CONS.DB.columns_for_table_genres_with_index);
 		
 		// All
 		genreList.add(actv.getString(R.string.generic_label_all));
@@ -1156,7 +1156,7 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// All
 		storeList.add(actv.getString(R.string.generic_label_all));
@@ -1177,7 +1177,7 @@ public class Methods {
 		 ***************************************/
 		List<String> genreList = new ArrayList<String>();
 		
-		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
+		c = dbm.getAllData(db, "genres", CONS.DB.columns_for_table_genres_with_index);
 		
 		// All
 		genreList.add(actv.getString(R.string.generic_label_all));
@@ -1299,26 +1299,26 @@ public class Methods {
 		// Both are "All"
 		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 				genreName.equals(actv.getString(R.string.generic_label_all))) {
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
+			query = "SELECT * FROM " + CONS.DB.tableName;
 
 		// Store => All, Genre => Specific
 		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						!genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 							" WHERE genre is '" + genreName + "'";
 					
 		// Store => Specific, Genre => All
 		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 					" WHERE store is '" + storeName + "'";
 
 		// Store => Specific, Genre => Specific
 		} else {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 					" WHERE store is '" + storeName + "'" + " AND " +
 					"genre is '" + genreName + "'";
 			
@@ -1696,26 +1696,26 @@ public class Methods {
 		// Both are "All"
 		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 				genreName.equals(actv.getString(R.string.generic_label_all))) {
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
+			query = "SELECT * FROM " + CONS.DB.tableName;
 
 		// Store => All, Genre => Specific
 		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						!genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 							" WHERE genre = '" + genreName + "'";
 					
 		// Store => Specific, Genre => All
 		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
 						genreName.equals(actv.getString(R.string.generic_label_all))) {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 					" WHERE store = '" + storeName + "'";
 
 		// Store => Specific, Genre => Specific
 		} else {
 			
-			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
+			query = "SELECT * FROM " + CONS.DB.tableName + 
 					" WHERE store = '" + storeName + "'" + " AND " +
 					"genre = '" + genreName + "'";
 			
@@ -2129,17 +2129,17 @@ public class Methods {
 		
 		String db_src = StringUtils.join(
 						new String[]{
-								CONS.dirPath_db,
+								CONS.DB.dirPath_db,
 								dbName},
 						File.separator);
 		
 		String db_dst = StringUtils.join(
 						new String[]{
 								dirPathBk,
-								CONS.fileName_db_backup_trunk},
+								CONS.DB.fileName_db_backup_trunk},
 						File.separator);
 		
-		db_dst = db_dst + "_" + timeLabel + CONS.fileName_db_backup_ext;
+		db_dst = db_dst + "_" + timeLabel + CONS.DB.fileName_db_backup_ext;
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -2173,7 +2173,7 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "File doesn't exist=");
 			
-			return CONS.DB_DOESNT_EXIST;
+			return CONS.RV.DB_DOESNT_EXIST;
 			
 		}//if (f.exists())
 
@@ -2209,7 +2209,7 @@ public class Methods {
 								.getMethodName() + "]",
 						"Create folder => Failed");
 				
-				return CONS.DB_CANT_CREATE_FOLDER;
+				return CONS.RV.DB_CANT_CREATE_FOLDER;
 				
 			}
 			
@@ -2241,7 +2241,7 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "File copied");
 			
-			return CONS.DB_BACKUP_SUCCESSFUL;
+			return CONS.RV.DB_BACKUP_SUCCESSFUL;
 
 		} catch (FileNotFoundException e) {
 
@@ -2252,7 +2252,7 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "Exception: " + e.toString());
 			
-			return CONS.DB_FILE_COPY_EXCEPTION;
+			return CONS.RV.DB_FILE_COPY_EXCEPTION;
 			
 		} catch (IOException e) {
 
@@ -2263,7 +2263,7 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", "Exception: " + e.toString());
 			
-			return CONS.DB_FILE_COPY_EXCEPTION;
+			return CONS.RV.DB_FILE_COPY_EXCEPTION;
 			
 		}//try
 		
@@ -2901,7 +2901,7 @@ public class Methods {
 		
 		List<String> names = new ArrayList<String>();
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DBAdmin.dbName);
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
@@ -2942,12 +2942,12 @@ public class Methods {
 
 		////////////////////////////////
 		boolean res = DBUtils.tableExists(
-							actv, CONS.DBAdmin.dbName, CONS.DBAdmin.tname_stores);
+							actv, CONS.DB.dbName, CONS.DB.tname_stores);
 		
 		if (res == false) {
 			
 			// Log
-			String msg_Log = "table => exist not: " + CONS.DBAdmin.tname_stores;
+			String msg_Log = "table => exist not: " + CONS.DB.tname_stores;
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
@@ -2958,7 +2958,7 @@ public class Methods {
 			
 		}
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -3023,12 +3023,12 @@ public class Methods {
 		
 		////////////////////////////////
 		boolean res = DBUtils.tableExists(
-				actv, CONS.DBAdmin.dbName, CONS.DBAdmin.tname_genres);
+				actv, CONS.DB.dbName, CONS.DB.tname_genres);
 		
 		if (res == false) {
 			
 			// Log
-			String msg_Log = "table => exist not: " + CONS.DBAdmin.tname_genres;
+			String msg_Log = "table => exist not: " + CONS.DB.tname_genres;
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
@@ -3041,8 +3041,8 @@ public class Methods {
 		
 		Cursor c = dbm.getAllData(
 							db, 
-							CONS.DBAdmin.tname_genres, 
-							CONS.DBAdmin.columns_for_table_genres_with_index);
+							CONS.DB.tname_genres, 
+							CONS.DB.columns_for_table_genres_with_index);
 		
 		// Log
 		Log.d("Methods.java" + "["

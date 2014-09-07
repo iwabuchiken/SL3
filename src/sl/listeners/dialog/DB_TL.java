@@ -33,7 +33,7 @@ public class DB_TL implements OnTouchListener {
 //	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
-		CONS.DialogButtonTags tag_name = (CONS.DialogButtonTags) v.getTag();
+		Tags.DialogButtonTags tag_name = (Tags.DialogButtonTags) v.getTag();
 		
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_DOWN:
