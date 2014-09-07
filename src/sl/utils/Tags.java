@@ -118,5 +118,11 @@ public class Tags {
 		
 	};
 
+	/*********************************
+	 * List tags
+	 *********************************/
+	public static enum ListViewTags {
+		tab1_long_click,
+	};
 	
 }//public class Tags

@@ -15,39 +15,6 @@ import android.widget.TabHost.TabSpec;
 public class CONS {
 
 	/*********************************
-	 * From: SLActv.java
-	 *********************************/
-	/*********************************
-	 * Paths
-	 *********************************/
-//	public static String dirName_ExternalStorage = "/mnt/sdcard-ext";
-//
-////	public static String dirPath_db = "/data/data/shoppinglist.main/databases";
-//	public static String dirPath_db = "/data/data/sl.main/databases";
-//	
-//	public static String fileName_db_backup_trunk = "shoppinglist_backup";
-//
-//	public static String fileName_db_backup_ext = ".bk";
-//
-//	public static String dirPath_db_backup = 
-//					dirName_ExternalStorage + "/ShoppingList_backup";
-	
-//	public static String[] registerItems = {"�i��", "�X��", "�W������"};
-	
-//	public static enum registerChoice = {
-	public static enum registerChoice {
-		items, stores, genres,
-	};
-			
-	/*********************************
-	 * List tags
-	 *********************************/
-	public static enum ListViewTags {
-		tab1_long_click,
-	};
-	
-	
-	/*********************************
 	 * Created at: 20130222_095606<br>
 	 * 1. Number of columns automatically added 
 	 * 		when the table gets created<br/>
@@ -62,48 +29,12 @@ public class CONS {
 	/*********************************
 	 * From: DBUtils.java (formerly, DBManager.java)
 	 *********************************/
-	// Name
-//	public static final String name = "shopping_list.db";
-	
 	// Version
 	static final int version = 1;
 	
 	// Factory
 	public static final CursorFactory factory = null;
 
-//	/*********************************
-//	 * Constant values
-//	 *********************************/
-//	// Generic
-//	public static final int UNKNOWN_ERROR = -9;
-//	public static final int EXCEPTION = -10;
-//
-//	// Generi: Exception
-//	public static final int EXCEPTION_SQL = -1;
-//	
-//	public static final int DB_DOESNT_EXIST = -1;
-//	public static final int DB_CANT_CREATE_FOLDER = -2;
-//	public static final int DB_BACKUP_SUCCESSFUL = 1;
-//	public static final int DB_FILE_COPY_EXCEPTION = -3;
-//	
-//	public static final int DB_UPDATE_SUCCESSFUL = 2;
-//	
-//	// Methods_sl.refactorDb_colPrice()
-//	public static final int CURSOR_NULL = -1;
-//	public static final int CURSOR_NO_ENTRY = -2;
-//	public static final int DATA_REFACTORING_FAILED = -3;
-//	public static final int DATA_REFACTORED = 1;
-//
-//	// Get yomi
-//	public static final int GETYOMI_SUCCESSFUL = 1;
-//	public static final int GETYOMI_NO_ENTRY = 2;
-//	public static final int GETYOMI_FAILED = -1;
-//
-//	// TabActv.java
-//	public static final int PREP_LIST_SUCCESSFUL = 1;
-//	public static final int PREP_LIST_FAILED = -1;
-
-	
 	public static boolean bgm;
 	
 	public static class DB {
@@ -661,6 +592,14 @@ public class CONS {
 		public static final int PREP_LIST_SUCCESSFUL = 1;
 		public static final int PREP_LIST_FAILED = -1;
 
+		
+	}
+
+	public static class Enum {
+		
+		public static enum registerChoice {
+			items, stores, genres,
+		};
 		
 	}
 	

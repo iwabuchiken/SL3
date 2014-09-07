@@ -1854,18 +1854,18 @@ public class Methods {
 		 * 2.2. Prepare list data
 			----------------------------*/
 //		List<String> registerItems = new ArrayList<String>();
-		List<CONS.registerChoice> registerItems = 
-					new ArrayList<CONS.registerChoice>();
+		List<CONS.Enum.registerChoice> registerItems = 
+					new ArrayList<CONS.Enum.registerChoice>();
 		
-		for (CONS.registerChoice item : CONS.registerChoice.values()) {
+		for (CONS.Enum.registerChoice item : CONS.Enum.registerChoice.values()) {
 			
 			registerItems.add(item);
 			
 		}//for (String string : ShoppingListActivity.registerItems)
 		
 //		ArrayAdapter<String> adp = new ArrayAdapter<String>(
-		ArrayAdapter<CONS.registerChoice> adp = 
-				new ArrayAdapter<CONS.registerChoice>(
+		ArrayAdapter<CONS.Enum.registerChoice> adp = 
+				new ArrayAdapter<CONS.Enum.registerChoice>(
 		
 				actv,
 				android.R.layout.simple_list_item_1,

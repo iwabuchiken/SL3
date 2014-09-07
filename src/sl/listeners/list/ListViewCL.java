@@ -47,7 +47,7 @@ public class ListViewCL implements OnItemClickListener {
 	Vibrator vib;
 	
 	//
-	CONS.ListViewTags lvTag = null;
+	Tags.ListViewTags lvTag = null;
 	
 	public ListViewCL(Activity actv, Dialog dlg, ShoppingItem si) {
 		// 
@@ -76,7 +76,7 @@ public class ListViewCL implements OnItemClickListener {
 		/*********************************
 		 * Called from: Methods_dlg.dlg_db_activity()
 		 *********************************/
-		CONS.ListViewTags tag = (CONS.ListViewTags) parent.getTag();
+		Tags.ListViewTags tag = (Tags.ListViewTags) parent.getTag();
 		
 		// Log
 		Log.d("[" + "DOICL_2.java : "

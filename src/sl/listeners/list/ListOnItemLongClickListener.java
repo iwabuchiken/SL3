@@ -108,7 +108,7 @@ public class ListOnItemLongClickListener implements OnItemLongClickListener {
 		/*********************************
 		 * Set: tag
 		 *********************************/
-		lv.setTag(CONS.ListViewTags.tab1_long_click);
+		lv.setTag(Tags.ListViewTags.tab1_long_click);
 
 		
 		/*----------------------------

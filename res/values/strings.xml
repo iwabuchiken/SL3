@@ -77,6 +77,7 @@
     	<string name="menu_listitem_filter">フィルター</string>
     	<string name="menu_listitem_tabToBuy_clear_selections">Clear selections</string>
     	<string name="menu_listitem_tabToBuy_admin_db">Admin db</string>
+    	<string name="menu_listitem_tabToBuy_admin">Admin db</string>
     	
     	<string name="menu_listitem_tabToBuy_clear_basket">Basket</string>
     	<string name="menu_listitem_tabToBuy_clear_checked_items">Checked items</string>

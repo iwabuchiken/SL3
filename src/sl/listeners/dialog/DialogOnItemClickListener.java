@@ -225,8 +225,8 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 		} else if (dlgTag != null && dlgTag == DialogTags.dlg_register_main) {
 			
-			CONS.registerChoice item = 
-							(CONS.registerChoice) parent.getItemAtPosition(position);
+			CONS.Enum.registerChoice item = 
+							(CONS.Enum.registerChoice) parent.getItemAtPosition(position);
 			
 			switch (item) {
 			case items:
