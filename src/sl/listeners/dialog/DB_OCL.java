@@ -27,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class
-DialogButtonOnClickListener implements OnClickListener {
+DB_OCL implements OnClickListener {
 	/*----------------------------
 	 * Fields
 		----------------------------*/
@@ -44,7 +44,7 @@ DialogButtonOnClickListener implements OnClickListener {
 	//
 	Vibrator vib;
 	
-	public DialogButtonOnClickListener(Activity actv, Dialog dlg) {
+	public DB_OCL(Activity actv, Dialog dlg) {
 		//
 		this.actv = actv;
 		this.dlg1 = dlg;
@@ -53,7 +53,7 @@ DialogButtonOnClickListener implements OnClickListener {
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
 	}
 
-	public DialogButtonOnClickListener(Activity actv, Dialog dlg1,
+	public DB_OCL(Activity actv, Dialog dlg1,
 			Dialog dlg2) {
 		//
 		this.actv = actv;
@@ -64,7 +64,7 @@ DialogButtonOnClickListener implements OnClickListener {
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
 	}
 
-	public DialogButtonOnClickListener
+	public DB_OCL
 	(Activity actv, Dialog dlg1, Dialog dlg2, Dialog dlg3) {
 		//
 		this.actv = actv;
@@ -77,7 +77,7 @@ DialogButtonOnClickListener implements OnClickListener {
 		
 	}
 
-	public DialogButtonOnClickListener(Activity actv, Dialog dlg1,
+	public DB_OCL(Activity actv, Dialog dlg1,
 			Dialog dlg2, Dialog dlg3, PS ps) {
 		this.actv = actv;
 		this.dlg1 = dlg1;
@@ -91,7 +91,7 @@ DialogButtonOnClickListener implements OnClickListener {
 
 	}
 
-	public DialogButtonOnClickListener(Activity actv, Dialog dlg1,
+	public DB_OCL(Activity actv, Dialog dlg1,
 			ShoppingItem si) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
@@ -104,7 +104,7 @@ DialogButtonOnClickListener implements OnClickListener {
 
 	}
 
-	public DialogButtonOnClickListener(Activity actv, Dialog dlg1,
+	public DB_OCL(Activity actv, Dialog dlg1,
 			Dialog dlg2, ShoppingItem si) {
 		
 		this.actv = actv;
@@ -125,6 +125,37 @@ DialogButtonOnClickListener implements OnClickListener {
 
 		//
 		switch (tag_name) {
+		
+		case dlg_generic_cancel://------------------------------------------
+			
+			dlg1.dismiss();
+			
+			break;
+		
+		case dlg_generic_dismiss://------------------------------------------
+			
+			dlg1.dismiss();
+			
+			break;
+
+		case dlg_generic_dismiss_second_dialog://------------------------------------------
+			
+			dlg2.dismiss();
+			
+			break;
+
+		case dlg_generic_dismiss_third_dialog://------------------------------------------
+			
+			dlg3.dismiss();
+			
+			break;// case dlg_generic_dismiss_third_dialog
+			
+		case generic_cancel_second_dialog:
+			
+			dlg2.dismiss();
+			
+			break;
+		
 		case dlg_register_store_ok://------------------------------------------
 			/*----------------------------
 			 * Validate if the edit view has some input.
@@ -314,30 +345,6 @@ DialogButtonOnClickListener implements OnClickListener {
 			
 			break;
 
-		case dlg_generic_cancel://------------------------------------------
-			
-			dlg1.dismiss();
-			
-			break;
-		
-		case dlg_generic_dismiss://------------------------------------------
-			
-			dlg1.dismiss();
-			
-			break;
-
-		case dlg_generic_dismiss_second_dialog://------------------------------------------
-			
-			dlg2.dismiss();
-			
-			break;
-
-		case dlg_generic_dismiss_third_dialog://------------------------------------------
-			
-			dlg3.dismiss();
-			
-			break;// case dlg_generic_dismiss_third_dialog
-			
 		case dlg_save_tobuy_list_bt_ok://------------------------------------------
 			
 			case_dlg_save_tobuy_list_bt_ok();

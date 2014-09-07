@@ -15,8 +15,8 @@ import sl.items.ShoppingItem;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
 import sl.listeners.ItemSelectedListener;
-import sl.listeners.list.ListOnItemClickListener;
-import sl.listeners.list.ListOnItemLongClickListener;
+import sl.listeners.list.LOI_CL;
+import sl.listeners.list.LOI_LCL;
 import sl.utils.CONS;
 import sl.utils.DBUtils;
 import sl.utils.Methods;
@@ -49,17 +49,18 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-public class TabActv extends TabActivity implements TabHost.TabContentFactory {
+public class TabActv extends TabActivity 
+					implements TabHost.TabContentFactory {
 	
 //	public static TabHost CONS.TabActv.tabHost;
 //	TabSpec CONS.TabActv.firstTab;
 //	TabSpec CONS.TabActv.secondTab;
 
-	ListView lvTab1;
-	ListView lvTab2;
+//	ListView lvTab1;
+//	ListView lvTab2;
 
-	Spinner spStore;
-	Spinner spGenre;
+//	Spinner spStore;
+//	Spinner spGenre;
 	
 //	ArrayAdapter<String> adpTab1;
 //	ArrayAdapter<String> adpTab2;
@@ -203,13 +204,13 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 	private void _Setup_Listeners() {
 		// TODO Auto-generated method stub
 		/***************************************
-		 * Set listener: lvTab1
+		 * Set listener: CONS.TabActv.lvTab1
 		 ***************************************/
-		lvTab1.setTag(Tags.ListTags.tab_itemList);
+		CONS.TabActv.lvTab1.setTag(Tags.ListTags.tab_itemList);
 		
-		lvTab1.setOnItemClickListener(new ListOnItemClickListener(this));
+		CONS.TabActv.lvTab1.setOnItemClickListener(new LOI_CL(this));
 
-		lvTab1.setOnItemLongClickListener(new ListOnItemLongClickListener(this));
+		CONS.TabActv.lvTab1.setOnItemLongClickListener(new LOI_LCL(this));
 		
 		/***************************************
 		 * Set listener: ImageButton
@@ -228,26 +229,26 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/***************************************
 		 * Listener: Item click
 		 ***************************************/
-		lvTab2.setTag(Tags.ListTags.tab_toBuyList);
+		CONS.TabActv.lvTab2.setTag(Tags.ListTags.tab_toBuyList);
 		
-		lvTab2.setOnItemClickListener(new ListOnItemClickListener(this));
+		CONS.TabActv.lvTab2.setOnItemClickListener(new LOI_CL(this));
 		
 		/***************************************
 		 * Listener: Item long click
 		 ***************************************/
-		lvTab2.setOnItemLongClickListener(new ListOnItemLongClickListener(this));
+		CONS.TabActv.lvTab2.setOnItemLongClickListener(new LOI_LCL(this));
 		
 		/***************************************
 		 * Change listeners: Spinner: store
 		 ***************************************/
-		spStore.setTag(Tags.SpinnerTag.spStrore);
-		spStore.setOnItemSelectedListener(new ItemSelectedListener(this));
+		CONS.TabActv.spStore.setTag(Tags.SpinnerTag.spStrore);
+		CONS.TabActv.spStore.setOnItemSelectedListener(new ItemSelectedListener(this));
 		
 		/***************************************
 		 * Change listeners: Spinner: store
 		 ***************************************/
-		spGenre.setTag(Tags.SpinnerTag.spGenre);
-		spGenre.setOnItemSelectedListener(new ItemSelectedListener(this));
+		CONS.TabActv.spGenre.setTag(Tags.SpinnerTag.spGenre);
+		CONS.TabActv.spGenre.setOnItemSelectedListener(new ItemSelectedListener(this));
 		
 		
 	}//private void setupListeners()
@@ -515,7 +516,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		// setup: Spinners
 	
 		////////////////////////////////
-		spStore = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_store_name);
+		CONS.TabActv.spStore = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_store_name);
 		
 		CONS.TabActv.adp_List_Store = Methods.get_Adp_List_Store(this);
 		
@@ -587,7 +588,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/*----------------------------
 		 * 4. Set adapter to spinner
 			----------------------------*/
-		spStore.setAdapter(CONS.TabActv.adp_List_Store);
+		CONS.TabActv.spStore.setAdapter(CONS.TabActv.adp_List_Store);
 //		spStore.setAdapter(adapter);
 	
 		/***************************************
@@ -609,12 +610,12 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 		}//for (int i = 0; i < adapter.getCount(); i++)
 		
-		spStore.setSelection(num);
+		CONS.TabActv.spStore.setSelection(num);
 	
 		/***************************************
 		 * Spinner: Genre
 		 ***************************************/
-		spGenre = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_genre);
+		CONS.TabActv.spGenre = (Spinner) this.findViewById(R.id.itemlist_tab1_sp_genre);
 		
 		CONS.TabActv.adapterGenre = Methods.get_Adp_List_Genre(this);
 		
@@ -683,7 +684,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		/*----------------------------
 		 * 4. Set adapter to spinner
 			----------------------------*/
-		spGenre.setAdapter(CONS.TabActv.adapterGenre);
+		CONS.TabActv.spGenre.setAdapter(CONS.TabActv.adapterGenre);
 		
 		/***************************************
 		 * Set initial value
@@ -704,7 +705,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 		}//for (int i = 0; i < adapter.getCount(); i++)
 		
-		spGenre.setSelection(num);
+		CONS.TabActv.spGenre.setSelection(num);
 	
 		////////////////////////////////
 
@@ -729,7 +730,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 		 ***************************************/
 		if (res == CONS.RV.PREP_LIST_SUCCESSFUL) {
 
-			lvTab1 = (ListView) findViewById(R.id.itemlist_tab1_lv);
+			CONS.TabActv.lvTab1 = (ListView) findViewById(R.id.itemlist_tab1_lv);
 			
 			List<String> listTab1 = new ArrayList<String>();
 
@@ -751,8 +752,8 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 					CONS.TabActv.itemList
 					);
 			
-//			lvTab1.setAdapter(adpTab1);
-			lvTab1.setAdapter(CONS.TabActv.adpItems);
+//			CONS.TabActv.lvTab1.setAdapter(adpTab1);
+			CONS.TabActv.lvTab1.setAdapter(CONS.TabActv.adpItems);
 
 			// Log
 			Log.d("TabActv.java" + "["
@@ -793,7 +794,7 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 				+ "]", "res=" + res);
 		
 		if (res == CONS.RV.PREP_LIST_SUCCESSFUL) {
-			lvTab2 = (ListView) findViewById(R.id.itemlist_tab2_lv);
+			CONS.TabActv.lvTab2 = (ListView) findViewById(R.id.itemlist_tab2_lv);
 			
 //			List<String> listTab2 = new ArrayList<String>();
 			
@@ -824,8 +825,8 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 		}//if (res == CONS.PREP_LIST_SUCCESSFUL)
 
-//		lvTab2.setAdapter(adpTab2);
-		lvTab2.setAdapter(CONS.TabActv.adpToBuys);
+//		CONS.TabActv.lvTab2.setAdapter(adpTab2);
+		CONS.TabActv.lvTab2.setAdapter(CONS.TabActv.adpToBuys);
 
 		// Log
 		Log.d("TabActv.java" + "["
@@ -1168,7 +1169,8 @@ public class TabActv extends TabActivity implements TabHost.TabContentFactory {
 			
 		case R.id.menu_listitem_tabToBuy_admin_db:
 			
-			Methods_dlg.dlg_tabActv_adminDb(this);
+//			Methods_dlg.dlg_tabActv_adminDb(this);
+			Methods_dlg.dlg_OptMenu_TabActv_Admin(this);
 			
 			break;// case R.id.menu_listitem_tabToBuy_admin_db
 			

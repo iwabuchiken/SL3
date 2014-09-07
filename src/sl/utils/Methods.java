@@ -35,9 +35,9 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import sl.items.ShoppingItem;
 import sl.listeners.ButtonOnTouchListener;
-import sl.listeners.dialog.DialogButtonOnClickListener;
+import sl.listeners.dialog.DB_OCL;
 import sl.listeners.dialog.DialogButtonOnTouchListener;
-import sl.listeners.dialog.DialogOnItemClickListener;
+import sl.listeners.dialog.DOI_CL;
 import sl.main.ItemListActv;
 import sl3.main.R;
 import sl.main.MainActv;
@@ -112,8 +112,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 
 		//
 		dlg.show();
@@ -156,8 +156,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
 		
 		//
 		dlg_new.show();
@@ -271,8 +271,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
 		
 		/*----------------------------
 		 * 4. Set store name
@@ -397,8 +397,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 
 		//
 		dlg.show();
@@ -443,8 +443,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg_new));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
 		
 		/*----------------------------
 		 * 4. Set store name
@@ -631,8 +631,8 @@ public class Methods {
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 
 		//
 		dlg.show();
@@ -782,7 +782,7 @@ public class Methods {
 		 * 1.3. Add listeners => OnClick
 			----------------------------*/
 		//
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 
 		/*----------------------------
 		 * 2. Adapter
@@ -854,7 +854,7 @@ public class Methods {
 		 * 4. Set listener to list view
 			----------------------------*/
 //		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg));
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg, Tags.DialogTags.dlg_drop_table));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg, Tags.DialogTags.dlg_drop_table));
 
 		/*----------------------------
 		 * 5. Show dialog
@@ -910,12 +910,12 @@ public class Methods {
 		/*----------------------------
 		 * 4. Set listener => Cancel
 			----------------------------*/
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg2));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg2));
 		
 		/*----------------------------
 		 * 5. Set listener => Drop
 			----------------------------*/
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg2));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, dlg2));
 		
 		/*----------------------------
 		 * 6. Show dialog
@@ -1109,8 +1109,8 @@ public class Methods {
 		 * 5.2. Click
 			----------------------------*/
 		// 
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		/*----------------------------
 		 * 9. Show dialog
@@ -1248,8 +1248,8 @@ public class Methods {
 		 * 5.2. Click
 		 ***************************************/
 		// 
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		/*----------------------------
 		 * 9. Show dialog
@@ -1881,7 +1881,7 @@ public class Methods {
 		 * 3. Set listener => list
 			----------------------------*/
 		lv.setOnItemClickListener(
-						new DialogOnItemClickListener(
+						new DOI_CL(
 								actv, 
 								dlg, 
 								Tags.DialogTags.dlg_register_main));

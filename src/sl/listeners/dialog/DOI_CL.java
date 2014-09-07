@@ -6,6 +6,7 @@ import java.util.Comparator;
 
 import org.apache.commons.lang.StringUtils;
 
+import sl.items.ListItem;
 import sl.items.ShoppingItem;
 import sl.main.MainActv;
 import sl3.main.R;
@@ -34,12 +35,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class DialogOnItemClickListener implements OnItemClickListener {
+public class DOI_CL implements OnItemClickListener {
 
 	//
 	Activity actv;
 	
-	Dialog dlg;
+	Dialog d1;
 	Dialog dlg1;
 	Dialog dlg2;
 	
@@ -50,19 +51,19 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 	//
 	Tags.DialogTags dlgTag = null;
 	
-	public DialogOnItemClickListener(Activity actv, Dialog dlg) {
+	public DOI_CL(Activity actv, Dialog d1) {
 		// 
 		this.actv = actv;
-		this.dlg = dlg;
+		this.d1 = d1;
 		
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
 		
 	}//public DialogOnItemClickListener(Activity actv, Dialog dlg)
 
-	public DialogOnItemClickListener(Activity actv, Dialog dlg, Tags.DialogTags dlgTag) {
+	public DOI_CL(Activity actv, Dialog dlg, Tags.DialogTags dlgTag) {
 		// 
 		this.actv = actv;
-		this.dlg = dlg;
+		this.d1 = dlg;
 		this.dlgTag = dlgTag;
 		
 		//
@@ -70,10 +71,10 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		
 	}//public DialogOnItemClickListener(Activity actv, Dialog dlg)
 
-	public DialogOnItemClickListener(Activity actv,
+	public DOI_CL(Activity actv,
 							Dialog dlg, ShoppingItem si) {
 		this.actv = actv;
-		this.dlg = dlg;
+		this.d1 = dlg;
 		this.si = si;
 		
 		//
@@ -81,7 +82,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 
 	}
 
-	public DialogOnItemClickListener
+	public DOI_CL
 	(Activity actv, Dialog dlg1, DialogTags dlgTag, ShoppingItem si) {
 		
 		this.actv = actv;
@@ -113,31 +114,10 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		 *********************************/
 		Tags.DialogTags tag = (Tags.DialogTags) parent.getTag();
 		
-		//debug
 		if (tag != null) {
 			
-			// Log
-			Log.d("["
-					+ "DialogOnItemClickListener.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "tag.name()=" + tag.name());
-			
-		} else {//if (tag != nill)
-			
-			// Log
-			Log.d("["
-					+ "DialogOnItemClickListener.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "tag => null");
-			
-		}//if (tag != nill)
-		
-		
-		if (tag != null) {
+			ListItem li;
+			String choice;
 			
 			// Log
 			Log.d("["
@@ -151,7 +131,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			case dlg_db_admin_lv:
 				
-				String choice = (String) parent.getItemAtPosition(position);
+				choice = (String) parent.getItemAtPosition(position);
 				
 				dlg_db_admin_lv(choice);
 				
@@ -206,6 +186,14 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 				
 				break;// case dlg_sort_list_lv
 				
+			case ACTV_TAB_OPT_ADMIN://----------------------------
+				
+				li= (ListItem) parent.getItemAtPosition(position);
+				
+				case_ACTV_TAB_OPT_ADMIN(li);
+				
+				break;// case dlg_sort_list_lv
+				
 			default:
 				break;
 			}//switch (tag)
@@ -221,7 +209,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			String tableName = (String) parent.getItemAtPosition(position);
 			
-			Methods.dlg_confirmTableDrop(actv, dlg, tableName);
+			Methods.dlg_confirmTableDrop(actv, d1, tableName);
 			
 		} else if (dlgTag != null && dlgTag == DialogTags.dlg_register_main) {
 			
@@ -263,7 +251,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			if (choice.equals(actv.getString(
 					R.string.dlg_item_list_long_click_edit))) {
 				
-				Methods_dlg.dlg_tab1_edit_item(actv, si, dlg);
+				Methods_dlg.dlg_tab1_edit_item(actv, si, d1);
 				
 				
 			} else if (choice.equals(actv.getString(
@@ -279,6 +267,36 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 
+	private void 
+	case_ACTV_TAB_OPT_ADMIN
+	(ListItem li) {
+		// TODO Auto-generated method stub
+		
+		if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Main__BackupDB))) {
+
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Main__Operations))) {
+			
+			Methods_dlg.dlg_OptMenu_TabActv_Opearations(actv, d1);
+
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Main__SeeLog))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+
+		}//if (choice.equals(actv.getString(
+		
+		
+		
+		
+	}//case_ACTV_TAB_OPT_ADMIN
+
 	private void
 	case_dlg_item_list_long_click(String choice) {
 		
@@ -292,7 +310,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		if (choice.equals(actv.getString(
 				R.string.dlg_item_list_long_click_edit))) {
 			
-			Methods_dlg.dlg_tab1_edit_item(actv, si, dlg);
+			Methods_dlg.dlg_tab1_edit_item(actv, si, d1);
 			
 			
 		} else if (choice.equals(actv.getString(
@@ -335,7 +353,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			CONS.TabActv.adpItems.notifyDataSetChanged();
 			
-			dlg.dismiss();
+			d1.dismiss();
 		
 		} else if (currrentTabTag.equals(actv.getString(
 						R.string.tabactv_tabtags_second))) {
@@ -344,7 +362,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
-			dlg.dismiss();
+			d1.dismiss();
 		
 		}//if (currrentTabTag.equals(actv.getString(
 
@@ -352,7 +370,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		
 		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
-		dlg.dismiss();
+		d1.dismiss();
 		
 	}
 
@@ -374,7 +392,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			CONS.TabActv.adpItems.notifyDataSetChanged();
 		
-			dlg.dismiss();
+			d1.dismiss();
 			
 		} else if (currrentTabTag.equals(actv.getString(
 								R.string.tabactv_tabtags_second))) {
@@ -383,7 +401,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			
 			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
-			dlg.dismiss();
+			d1.dismiss();
 			
 		}//if (currrentTabTag.equals(actv.getString(
 		
@@ -410,7 +428,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			/***************************************
 			 * Close dialog
 			 ***************************************/
-			dlg.dismiss();
+			d1.dismiss();
 			
 			/***************************************
 			 * Clear sum
@@ -435,7 +453,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			/***************************************
 			 * Close dialog
 			 ***************************************/
-			dlg.dismiss();
+			d1.dismiss();
 
 		} else if (choice.equals(actv.getString(
 				R.string.generic_label_all))) {//if (choice.equals(actv.getString(
@@ -447,7 +465,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			CONS.TabActv.adpItems.notifyDataSetChanged();
 			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
-			dlg.dismiss();
+			d1.dismiss();
 
 			/***************************************
 			 * Clear sum
@@ -483,22 +501,22 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 				
 			}//if (CONS.TabActv.toBuyList.size() == condition)
 			
-			Methods_dlg.dlg_saveToBuyList(actv, dlg);
+			Methods_dlg.dlg_saveToBuyList(actv, d1);
 			
 		} else if (choice.equals(
 					actv.getString(R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list))) {
 			
-			Methods_dlg.dlg_LoadToBuyList(actv, dlg);
+			Methods_dlg.dlg_LoadToBuyList(actv, d1);
 		
 		} else if (choice.equals(
 				actv.getString(R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list))) {
 	
-			Methods_dlg.dlg_DeleteToBuyList(actv, dlg);
+			Methods_dlg.dlg_DeleteToBuyList(actv, d1);
 			
 		} else if (choice.equals(actv.getString(	// Upload bought items
 				R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))) {
 			
-			Methods_dlg.dlg_PostToBuyList(actv, dlg);
+			Methods_dlg.dlg_PostToBuyList(actv, d1);
 			
 		}//if (choice.equals(actv.getString(R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list)))
 		
@@ -531,7 +549,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			/***************************************
 			 * Close dlg
 			 ***************************************/
-			dlg.dismiss();
+			d1.dismiss();
 			
 		} else {//if (choice.equals(actv.getString(R.string.tabactv_tab2_lv_delete_from_list)))
 			
@@ -576,11 +594,11 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 
 	private void dlg_db_admin_lv_PostData() {
 		// TODO Auto-generated method stub
-		Task_PostData task = new Task_PostData(actv, dlg);
+		Task_PostData task = new Task_PostData(actv, d1);
 		
 		task.execute(CONS.HTTPData.registerChoice.pur_history.toString());
 		
-		dlg.dismiss();
+		d1.dismiss();
 		
 	}//private void dlg_db_admin_lv_PostData()
 
@@ -677,7 +695,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		 *********************************/
 		if (res == CONS.RV.DATA_REFACTORED) {
 		
-			dlg.dismiss();
+			d1.dismiss();
 			
 		}//if (res == true)
 		
@@ -867,7 +885,7 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 			/*********************************
 			 * If successful, dismiss the dialog
 			 *********************************/
-			dlg.dismiss();
+			d1.dismiss();
 		
 		}//if (res == CONS.RV.DB_DOESNT_EXIST)
 		

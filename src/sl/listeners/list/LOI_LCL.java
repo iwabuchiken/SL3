@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sl.items.ShoppingItem;
-import sl.listeners.dialog.DialogOnItemClickListener;
+import sl.listeners.dialog.DOI_CL;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.CONS;
@@ -25,12 +25,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemLongClickListener;
 
-public class ListOnItemLongClickListener implements OnItemLongClickListener {
+public class LOI_LCL implements OnItemLongClickListener {
 
 	Activity actv;
 	Vibrator vib;
 	
-	public ListOnItemLongClickListener(Activity actv) {
+	public LOI_LCL(Activity actv) {
 		//
 		this.actv = actv;
 		//

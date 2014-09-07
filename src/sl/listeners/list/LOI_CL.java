@@ -38,7 +38,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ListOnItemClickListener implements OnItemClickListener {
+public class LOI_CL implements OnItemClickListener {
 
 	//
 	Activity actv;
@@ -53,7 +53,7 @@ public class ListOnItemClickListener implements OnItemClickListener {
 	//
 	Tags.DialogTags dlgTag = null;
 
-	public ListOnItemClickListener(Activity actv) {
+	public LOI_CL(Activity actv) {
 		//
 		this.actv = actv;
 		//
@@ -80,7 +80,7 @@ public class ListOnItemClickListener implements OnItemClickListener {
 	}//public ListOnItemClickListener(Activity actv)
 
 	
-	public ListOnItemClickListener(Activity actv, Dialog dlg1, Dialog dlg2) {
+	public LOI_CL(Activity actv, Dialog dlg1, Dialog dlg2) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
 		//

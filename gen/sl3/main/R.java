@@ -177,51 +177,53 @@ public final class R {
         public static final int dlg_template_ok_cancel_tv_message=0x7f0a0075;
         public static final int dlg_tmpl_cancel_1tv_bt_cancel=0x7f0a007a;
         public static final int dlg_tmpl_cancel_1tv_tv=0x7f0a0079;
-        public static final int dlg_tmpl_cancel_lv_bt_cancel=0x7f0a007c;
-        public static final int dlg_tmpl_cancel_lv_lv=0x7f0a007b;
-        public static final int dlg_tmpl_toast_ok_bt_cancel=0x7f0a007e;
-        public static final int dlg_tmpl_toast_ok_tv_message=0x7f0a007d;
-        public static final int first_content=0x7f0a0081;
-        public static final int itemlist_LL_list=0x7f0a007f;
-        public static final int itemlist_bt_choose=0x7f0a0080;
-        public static final int itemlist_tab1_ib=0x7f0a0087;
-        public static final int itemlist_tab1_lv=0x7f0a0082;
-        public static final int itemlist_tab1_sp_genre=0x7f0a0086;
-        public static final int itemlist_tab1_sp_store_name=0x7f0a0084;
-        public static final int itemlist_tab1_tv_genre=0x7f0a0085;
-        public static final int itemlist_tab1_tv_store_name=0x7f0a0083;
-        public static final int itemlist_tab2_lv=0x7f0a0089;
-        public static final int itemlist_tab2_tv_due_date=0x7f0a008b;
-        public static final int itemlist_tab2_tv_sum=0x7f0a008a;
-        public static final int list_row_slimple_iv_1_iv=0x7f0a008d;
-        public static final int list_row_slimple_iv_1_ll=0x7f0a008c;
-        public static final int list_row_slimple_iv_1_tv=0x7f0a008e;
-        public static final int listrow_load_tobuy_list_tv_due_date=0x7f0a0090;
-        public static final int listrow_load_tobuy_list_tv_store_name=0x7f0a008f;
-        public static final int menu_listitem_filter=0x7f0a009d;
-        public static final int menu_listitem_tabToBuy_admin_db=0x7f0a009f;
-        public static final int menu_listitem_tabToBuy_clear_selections=0x7f0a009e;
-        public static final int menu_listitem_tabToBuy_sort_list=0x7f0a00a0;
-        public static final int menu_main_pref_actv=0x7f0a00a3;
-        public static final int menu_main_tab_actv=0x7f0a00a2;
-        public static final int second_content=0x7f0a0088;
+        public static final int dlg_tmpl_cancel_lv_bt_cancel=0x7f0a007e;
+        public static final int dlg_tmpl_cancel_lv_ll_filepath=0x7f0a007d;
+        public static final int dlg_tmpl_cancel_lv_ll_main=0x7f0a007b;
+        public static final int dlg_tmpl_cancel_lv_lv=0x7f0a007c;
+        public static final int dlg_tmpl_toast_ok_bt_cancel=0x7f0a0080;
+        public static final int dlg_tmpl_toast_ok_tv_message=0x7f0a007f;
+        public static final int first_content=0x7f0a0083;
+        public static final int itemlist_LL_list=0x7f0a0081;
+        public static final int itemlist_bt_choose=0x7f0a0082;
+        public static final int itemlist_tab1_ib=0x7f0a0089;
+        public static final int itemlist_tab1_lv=0x7f0a0084;
+        public static final int itemlist_tab1_sp_genre=0x7f0a0088;
+        public static final int itemlist_tab1_sp_store_name=0x7f0a0086;
+        public static final int itemlist_tab1_tv_genre=0x7f0a0087;
+        public static final int itemlist_tab1_tv_store_name=0x7f0a0085;
+        public static final int itemlist_tab2_lv=0x7f0a008b;
+        public static final int itemlist_tab2_tv_due_date=0x7f0a008d;
+        public static final int itemlist_tab2_tv_sum=0x7f0a008c;
+        public static final int list_row_slimple_iv_1_iv=0x7f0a008f;
+        public static final int list_row_slimple_iv_1_ll=0x7f0a008e;
+        public static final int list_row_slimple_iv_1_tv=0x7f0a0090;
+        public static final int listrow_load_tobuy_list_tv_due_date=0x7f0a0092;
+        public static final int listrow_load_tobuy_list_tv_store_name=0x7f0a0091;
+        public static final int menu_listitem_filter=0x7f0a009f;
+        public static final int menu_listitem_tabToBuy_admin_db=0x7f0a00a1;
+        public static final int menu_listitem_tabToBuy_clear_selections=0x7f0a00a0;
+        public static final int menu_listitem_tabToBuy_sort_list=0x7f0a00a2;
+        public static final int menu_main_pref_actv=0x7f0a00a5;
+        public static final int menu_main_tab_actv=0x7f0a00a4;
+        public static final int second_content=0x7f0a008a;
         public static final int sl_tv_item_list=0x7f0a0002;
         public static final int sl_tv_register=0x7f0a0003;
         public static final int tableRow1=0x7f0a000b;
         public static final int tableRow2=0x7f0a000e;
-        public static final int v1_btn_register=0x7f0a009c;
-        public static final int v1_et_name=0x7f0a0095;
-        public static final int v1_et_price=0x7f0a0099;
-        public static final int v1_et_yomi=0x7f0a0097;
-        public static final int v1_menu_db_manager=0x7f0a00a1;
-        public static final int v1_sp_genre=0x7f0a009b;
-        public static final int v1_sp_store=0x7f0a0093;
-        public static final int v1_tl=0x7f0a0091;
-        public static final int v1_tv_genre=0x7f0a009a;
-        public static final int v1_tv_name=0x7f0a0094;
-        public static final int v1_tv_price=0x7f0a0098;
-        public static final int v1_tv_store=0x7f0a0092;
-        public static final int v1_tv_yomi=0x7f0a0096;
+        public static final int v1_btn_register=0x7f0a009e;
+        public static final int v1_et_name=0x7f0a0097;
+        public static final int v1_et_price=0x7f0a009b;
+        public static final int v1_et_yomi=0x7f0a0099;
+        public static final int v1_menu_db_manager=0x7f0a00a3;
+        public static final int v1_sp_genre=0x7f0a009d;
+        public static final int v1_sp_store=0x7f0a0095;
+        public static final int v1_tl=0x7f0a0093;
+        public static final int v1_tv_genre=0x7f0a009c;
+        public static final int v1_tv_name=0x7f0a0096;
+        public static final int v1_tv_price=0x7f0a009a;
+        public static final int v1_tv_store=0x7f0a0094;
+        public static final int v1_tv_yomi=0x7f0a0098;
     }
     public static final class layout {
         public static final int actv_db=0x7f030000;
@@ -281,36 +283,36 @@ public final class R {
         /**  db_manager.xml 
          */
         public static final int dlg_create_table_title=0x7f070031;
-        public static final int dlg_db_admin_item_backup_db=0x7f07004a;
-        public static final int dlg_db_admin_item_get_yomi=0x7f07004e;
-        public static final int dlg_db_admin_item_post_data=0x7f07004f;
-        public static final int dlg_db_admin_item_refatcor_db=0x7f07004c;
-        public static final int dlg_db_admin_item_refresh_db=0x7f07004b;
-        public static final int dlg_db_admin_item_restore_db=0x7f07004d;
+        public static final int dlg_db_admin_item_backup_db=0x7f070057;
+        public static final int dlg_db_admin_item_get_yomi=0x7f07005b;
+        public static final int dlg_db_admin_item_post_data=0x7f07005c;
+        public static final int dlg_db_admin_item_refatcor_db=0x7f070059;
+        public static final int dlg_db_admin_item_refresh_db=0x7f070058;
+        public static final int dlg_db_admin_item_restore_db=0x7f07005a;
         /**  dlg_db_admin.xml 
          */
-        public static final int dlg_db_admin_title=0x7f070049;
+        public static final int dlg_db_admin_title=0x7f070056;
         public static final int dlg_drop_table_title=0x7f070035;
         /**  dlg_edit_items.xml 
          */
-        public static final int dlg_edit_items_title=0x7f070061;
-        public static final int dlg_filter_list_tv_genre=0x7f07003f;
-        public static final int dlg_filter_list_tv_history=0x7f070040;
-        public static final int dlg_filter_list_tv_store=0x7f07003e;
+        public static final int dlg_edit_items_title=0x7f07006e;
+        public static final int dlg_filter_list_tv_genre=0x7f07004c;
+        public static final int dlg_filter_list_tv_history=0x7f07004d;
+        public static final int dlg_filter_list_tv_store=0x7f07004b;
         /**  dlg_filter_list.xml 
          */
-        public static final int dlg_filter_list_tv_title=0x7f07003d;
+        public static final int dlg_filter_list_tv_title=0x7f07004a;
         public static final int dlg_input_empty_cancel=0x7f070021;
         public static final int dlg_input_empty_message=0x7f07001f;
         public static final int dlg_input_empty_reenter=0x7f070020;
         public static final int dlg_input_empty_title=0x7f07001e;
-        public static final int dlg_item_list_long_click_delete=0x7f07006a;
+        public static final int dlg_item_list_long_click_delete=0x7f070077;
         /**  Dialog: Tab1, item list, long click 
          */
-        public static final int dlg_item_list_long_click_edit=0x7f070069;
+        public static final int dlg_item_list_long_click_edit=0x7f070076;
         /**  Dialog: Upload boutght items 
          */
-        public static final int dlg_post_bought_items_message=0x7f07006b;
+        public static final int dlg_post_bought_items_message=0x7f070078;
         public static final int dlg_reconfirm_genre_name=0x7f070005;
         public static final int dlg_reconfirm_store_name_cancel=0x7f070027;
         public static final int dlg_reconfirm_store_name_label_store_name=0x7f070023;
@@ -320,30 +322,30 @@ public final class R {
         public static final int dlg_reconfirm_store_name_title=0x7f070022;
         public static final int dlg_register_genre_message=0x7f070029;
         public static final int dlg_register_genre_title=0x7f07002a;
-        public static final int dlg_register_main_genres=0x7f070046;
+        public static final int dlg_register_main_genres=0x7f070053;
         /**  dlg_register_main.xml 
          */
-        public static final int dlg_register_main_items=0x7f070044;
-        public static final int dlg_register_main_stores=0x7f070045;
+        public static final int dlg_register_main_items=0x7f070051;
+        public static final int dlg_register_main_stores=0x7f070052;
         public static final int dlg_register_store_cancel=0x7f07001b;
         public static final int dlg_register_store_message=0x7f07001c;
         public static final int dlg_register_store_ok=0x7f07001a;
         public static final int dlg_register_store_title=0x7f07001d;
-        public static final int dlg_save_tobuy_list_amount=0x7f07005d;
-        public static final int dlg_save_tobuy_list_memo=0x7f07005e;
+        public static final int dlg_save_tobuy_list_amount=0x7f07006a;
+        public static final int dlg_save_tobuy_list_memo=0x7f07006b;
         /**  dlg_save_tobuy_list.xml 
          */
-        public static final int dlg_save_tobuy_list_scheduled_date=0x7f07005b;
-        public static final int dlg_save_tobuy_list_store_name=0x7f07005c;
-        public static final int dlg_sort_list_genre=0x7f070064;
-        public static final int dlg_sort_list_genre_item_name=0x7f070066;
-        public static final int dlg_sort_list_item_name=0x7f070063;
-        public static final int dlg_sort_list_store=0x7f070065;
-        public static final int dlg_sort_list_store_genre_item_name=0x7f070068;
-        public static final int dlg_sort_list_store_item_name=0x7f070067;
+        public static final int dlg_save_tobuy_list_scheduled_date=0x7f070068;
+        public static final int dlg_save_tobuy_list_store_name=0x7f070069;
+        public static final int dlg_sort_list_genre=0x7f070071;
+        public static final int dlg_sort_list_genre_item_name=0x7f070073;
+        public static final int dlg_sort_list_item_name=0x7f070070;
+        public static final int dlg_sort_list_store=0x7f070072;
+        public static final int dlg_sort_list_store_genre_item_name=0x7f070075;
+        public static final int dlg_sort_list_store_item_name=0x7f070074;
         /**  dlg_sort_list.xml 
          */
-        public static final int dlg_sort_list_title=0x7f070062;
+        public static final int dlg_sort_list_title=0x7f07006f;
         public static final int generic_cancel=0x7f070002;
         public static final int generic_label_all=0x7f070008;
         public static final int generic_label_choice=0x7f070009;
@@ -359,49 +361,62 @@ public final class R {
         public static final int hello=0x7f07000b;
         /**  itemlist.xml 
          */
-        public static final int itemlist_bt_choose=0x7f070047;
-        public static final int itemlist_bt_see_chosen=0x7f070048;
+        public static final int itemlist_bt_choose=0x7f070054;
+        public static final int itemlist_bt_see_chosen=0x7f070055;
         /**  itemlist_tabs.xml 
          */
-        public static final int itemlist_tabs_tobuy_sum=0x7f07005f;
-        public static final int itemlist_tabs_tobuy_sum_initial=0x7f070060;
+        public static final int itemlist_tabs_tobuy_sum=0x7f07006c;
+        public static final int itemlist_tabs_tobuy_sum_initial=0x7f07006d;
         /**  ItemList.java: Option menu 
          */
         public static final int menu_listitem_filter=0x7f070037;
         public static final int menu_listitem_tabToBuy_admin=0x7f07003a;
         public static final int menu_listitem_tabToBuy_admin_db=0x7f070039;
-        public static final int menu_listitem_tabToBuy_admin_db_delete_tobuy_list=0x7f070059;
-        public static final int menu_listitem_tabToBuy_admin_db_load_tobuy_list=0x7f070058;
-        public static final int menu_listitem_tabToBuy_admin_db_post_tobuy_list=0x7f07005a;
+        public static final int menu_listitem_tabToBuy_admin_db_delete_tobuy_list=0x7f070066;
+        public static final int menu_listitem_tabToBuy_admin_db_load_tobuy_list=0x7f070065;
+        public static final int menu_listitem_tabToBuy_admin_db_post_tobuy_list=0x7f070067;
         /**  menu_listitem_tabToBuy_admin_db 
          */
-        public static final int menu_listitem_tabToBuy_admin_db_save_tobuy_list=0x7f070057;
+        public static final int menu_listitem_tabToBuy_admin_db_save_tobuy_list=0x7f070064;
         public static final int menu_listitem_tabToBuy_clear_basket=0x7f07003b;
         public static final int menu_listitem_tabToBuy_clear_checked_items=0x7f07003c;
         public static final int menu_listitem_tabToBuy_clear_selections=0x7f070038;
         public static final int menu_main_pref_actv=0x7f07002f;
         public static final int menu_main_sort_list=0x7f070030;
         public static final int menu_main_tab_actv=0x7f07002e;
-        public static final int prefs_key_bgm=0x7f070051;
+        public static final int opt_TabActv_Admin_Main__BackupDB=0x7f07003d;
+        public static final int opt_TabActv_Admin_Main__Operations=0x7f07003e;
+        public static final int opt_TabActv_Admin_Main__SeeLog=0x7f07003f;
+        public static final int opt_TabActv_Admin_Ops__GetYomi=0x7f070042;
+        public static final int opt_TabActv_Admin_Ops__PostData=0x7f070043;
+        public static final int opt_TabActv_Admin_Ops__RestoreDB=0x7f070040;
+        public static final int opt_TabActv_Admin_Ops__Tables=0x7f070041;
+        public static final int opt_TabActv_Admin_Tables__Genres_Create=0x7f070046;
+        public static final int opt_TabActv_Admin_Tables__Genres_Drop=0x7f070047;
+        public static final int opt_TabActv_Admin_Tables__SI_Create=0x7f070048;
+        public static final int opt_TabActv_Admin_Tables__SI_Drop=0x7f070049;
+        public static final int opt_TabActv_Admin_Tables__Stores_Create=0x7f070044;
+        public static final int opt_TabActv_Admin_Tables__Stores_Drop=0x7f070045;
+        public static final int prefs_key_bgm=0x7f07005e;
         /**  preferences.xml 
          */
-        public static final int prefs_title_bgm=0x7f070050;
+        public static final int prefs_title_bgm=0x7f07005d;
         /**  SharedPreferencesName 
          */
-        public static final int shared_preferences_name=0x7f070052;
-        public static final int sl_tv_item_db=0x7f070043;
+        public static final int shared_preferences_name=0x7f07005f;
+        public static final int sl_tv_item_db=0x7f070050;
         /**  shoppinglist.xml 
          */
-        public static final int sl_tv_item_list=0x7f070041;
-        public static final int sl_tv_item_register=0x7f070042;
-        public static final int tabactv_tab2_lv_delete_from_list=0x7f070054;
+        public static final int sl_tv_item_list=0x7f07004e;
+        public static final int sl_tv_item_register=0x7f07004f;
+        public static final int tabactv_tab2_lv_delete_from_list=0x7f070061;
         /**  List: lvTab2 
          */
-        public static final int tabactv_tab2_lv_title=0x7f070053;
+        public static final int tabactv_tab2_lv_title=0x7f070060;
         /**  TabActv.java 
          */
-        public static final int tabactv_tabtags_first=0x7f070055;
-        public static final int tabactv_tabtags_second=0x7f070056;
+        public static final int tabactv_tabtags_first=0x7f070062;
+        public static final int tabactv_tabtags_second=0x7f070063;
         public static final int v1_btn_register=0x7f070014;
         public static final int v1_menu_1=0x7f07000d;
         public static final int v1_menu_add_genre=0x7f070028;

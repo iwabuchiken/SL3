@@ -3,32 +3,36 @@ package sl.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import sl.adapters.Adp_ListItems;
 import sl.adapters.PSListAdapter;
+import sl.items.ListItem;
 import sl.items.PS;
 import sl.items.ShoppingItem;
 import sl.listeners.dialog.DB_CL;
-import sl.listeners.dialog.DB_TL;
-import sl.listeners.dialog.DialogButtonOnClickListener;
+import sl.listeners.dialog.DB_OTL;
+import sl.listeners.dialog.DB_OCL;
 import sl.listeners.dialog.DialogButtonOnTouchListener;
-import sl.listeners.dialog.DialogOnItemClickListener;
-import sl.listeners.list.ListOnItemClickListener;
+import sl.listeners.dialog.DOI_CL;
+import sl.listeners.list.LOI_CL;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.Tags.DialogButtonTags;
 import sl.utils.Tags;
 import sl.utils.Tags.DialogTags;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -96,7 +100,7 @@ public class Methods_dlg {
 			----------------------------*/
 		lv.setTag(Tags.DialogTags.dlg_db_admin_lv);
 		
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg));
 		
 		/*----------------------------
 		 * 6. Show dialog
@@ -169,7 +173,7 @@ public class Methods_dlg {
 //		lv.setTag(Tags.DialogTags.dlg_db_admin_lv);
 		lv.setTag(Tags.DialogTags.dlg_tabActv_adminDb);
 		
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg));
 		
 		/*----------------------------
 		 * 6. Show dialog
@@ -219,7 +223,7 @@ public class Methods_dlg {
 		* 3. Add listeners => OnClick
 		----------------------------*/
 		//
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		//
 		//dlg.show();
@@ -265,7 +269,7 @@ public class Methods_dlg {
 		* 3. Add listeners => OnClick
 		----------------------------*/
 		//
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg1, dlg2));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg1, dlg2));
 		
 		//
 		//dlg2.show();
@@ -310,7 +314,7 @@ public class Methods_dlg {
 		* 3. Add listeners => OnClick
 		----------------------------*/
 		//
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		//
 		//dlg.show();
@@ -369,7 +373,7 @@ public class Methods_dlg {
 		 ***************************************/
 		lv.setTag(Tags.DialogTags.dlg_tabactv_tab2_lv);
 		
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg, si));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg, si));
 		
 		/***************************************
 		 * 6. Show dialog
@@ -540,8 +544,8 @@ public class Methods_dlg {
 		* 3. Add listeners => OnClick
 		----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		//
 		//dlg.show();
@@ -598,9 +602,9 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		
 		//
 		//dlg.show();
@@ -653,9 +657,9 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, si));
+				new DB_OCL(actv, dlg1, dlg2, si));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		
 		//
 		//dlg.show();
@@ -702,18 +706,18 @@ public class Methods_dlg {
 		
 		//
 		btn_ok.setOnTouchListener(
-				new DB_TL(actv, dlg2));
+				new DB_OTL(actv, dlg2));
 		btn_cancel.setOnTouchListener(
-				new DB_TL(actv, dlg2));
+				new DB_OTL(actv, dlg2));
 		
 		/*----------------------------
 		 * 3. Add listeners => OnClick
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DB_CL(actv, dlg1, dlg2, si));
+				new DB_OCL(actv, dlg1, dlg2, si));
 		btn_cancel.setOnClickListener(
-				new DB_CL(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		
 		//
 		//dlg.show();
@@ -769,9 +773,9 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		
 		//
 		//dlg.show();
@@ -828,9 +832,9 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		
 		//
 		//dlg.show();
@@ -887,9 +891,9 @@ public class Methods_dlg {
 		//
 		btn_ok.setOnClickListener(
 //				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3, ps));
+				new DB_OCL(actv, dlg1, dlg2, dlg3, ps));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		
 		//
 		//dlg.show();
@@ -950,11 +954,11 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		btn_cancel.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		btn_third.setOnClickListener(
-				new DialogButtonOnClickListener(actv, dlg1, dlg2, dlg3));
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
 		
 		//
 		//dlg.show();
@@ -1090,7 +1094,7 @@ public class Methods_dlg {
 		
 		lv.setTag(Tags.ListTags.load_toBuyList);
 		
-		lv.setOnItemClickListener(new ListOnItemClickListener(actv, dlg1, dlg2));
+		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
 		
 		
 		lv.setAdapter(adp);
@@ -1196,7 +1200,7 @@ public class Methods_dlg {
 //		lv.setTag(Tags.ListTags.load_toBuyList);
 		lv.setTag(Tags.ListTags.delete_toBuyList);
 		
-		lv.setOnItemClickListener(new ListOnItemClickListener(actv, dlg1, dlg2));
+		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
 		
 		
 		lv.setAdapter(adp);
@@ -1259,7 +1263,7 @@ public class Methods_dlg {
 		----------------------------*/
 		lv.setTag(Tags.DialogTags.dlg_clear_selections);
 		
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg));
 		
 		/*----------------------------
 		* 6. Show dialog
@@ -1348,8 +1352,8 @@ public class Methods_dlg {
 		* 3. Add listeners => OnClick
 		----------------------------*/
 		//
-		btn_ok.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, si));
-		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg));
+		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, si));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		//
 		//dlg.show();
@@ -1410,7 +1414,7 @@ public class Methods_dlg {
 		----------------------------*/
 		lv.setTag(Tags.DialogTags.dlg_sort_list_lv);
 		
-		lv.setOnItemClickListener(new DialogOnItemClickListener(actv, dlg));
+		lv.setOnItemClickListener(new DOI_CL(actv, dlg));
 		
 		/*----------------------------
 		* 6. Show dialog
@@ -1858,10 +1862,10 @@ public class Methods_dlg {
 		
 		//
 		btn_ok.setOnTouchListener(
-				new DB_TL(actv, dlg2));
+				new DB_OTL(actv, dlg2));
 //		new DialogButtonOnTouchListener(actv, dlg2));
 		btn_cancel.setOnTouchListener(
-				new DB_TL(actv, dlg2));
+				new DB_OTL(actv, dlg2));
 //		new DialogButtonOnTouchListener(actv, dlg2));
 		
 		/*----------------------------
@@ -1869,9 +1873,9 @@ public class Methods_dlg {
 		----------------------------*/
 		//
 		btn_ok.setOnClickListener(
-				new DB_CL(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		btn_cancel.setOnClickListener(
-				new DB_CL(actv, dlg1, dlg2));
+				new DB_OCL(actv, dlg1, dlg2));
 		
 		//
 		//dlg.show();
@@ -1888,7 +1892,7 @@ public class Methods_dlg {
 				R.string.generic_title_reconfirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogButtonTags.dlg_generic_dismiss);
+				Tags.DialogTags.dlg_generic_dismiss);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
@@ -1902,7 +1906,7 @@ public class Methods_dlg {
 	public static
 	Dialog dlg_Template_Cancel
 	(Activity actv, int layoutId, int titleStringId,
-			int cancelButtonId, DialogButtonTags tag_CancelButton) {
+			int cancelButtonId, DialogTags tag_CancelButton) {
 		/****************************
 		* Steps
 		* 1. Set up
@@ -1929,13 +1933,13 @@ public class Methods_dlg {
 		btn_cancel.setTag(tag_CancelButton);
 		
 		//
-		btn_cancel.setOnTouchListener(new DB_TL(actv, dlg));
+		btn_cancel.setOnTouchListener(new DB_OTL(actv, dlg));
 		
 		/****************************
 		* 3. Add listeners => OnClick
 		****************************/
 		//
-		btn_cancel.setOnClickListener(new DB_CL(actv, dlg));
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg));
 		
 		//
 		//dlg.show();
@@ -1954,7 +1958,7 @@ public class Methods_dlg {
 //				R.string.generic_tv_confirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogButtonTags.dlg_generic_dismiss);
+				Tags.DialogTags.dlg_generic_dismiss);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
@@ -1972,4 +1976,409 @@ public class Methods_dlg {
 		
 	}//dlg_ShowMessage
 
+	public static void 
+	dlg_OptMenu_TabActv_Admin
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
+		String msg_Log;
+		
+		
+		////////////////////////////////
+
+		// dlg
+
+		////////////////////////////////
+		Dialog d1 = Methods_dlg.dlg_Template_Cancel(
+						actv,
+						R.layout.dlg_tmpl_cancel_lv,
+						R.string.menu_listitem_tabToBuy_admin,
+						
+						R.id.dlg_tmpl_cancel_lv_bt_cancel,
+						Tags.DialogTags.dlg_generic_dismiss);
+		
+		/****************************
+		* 2. Prep => List
+		****************************/
+//		String[] choices = {
+//					actv.getString(R.string.dlg_actvmain_lv_delete),
+//					};
+		
+		List<ListItem> list = new ArrayList<ListItem>();
+//		List<String> list = new ArrayList<String>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+									R.string.opt_TabActv_Admin_Main__BackupDB))
+						.setIconID(R.drawable.menu_icon_admin_32x32)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__Operations))
+						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+						.setTextColor_ID(R.color.black)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__SeeLog))
+								.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+								.setTextColor_ID(R.color.purple4)
+								.build());
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adapter = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);
+		
+		/****************************
+		* 4. Set adapter
+		****************************/
+		ListView lv = (ListView) d1.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		
+		lv.setAdapter(adapter);
+		
+		/****************************
+		* 5. Set listener to list
+		****************************/
+		lv.setTag(Tags.DialogTags.ACTV_TAB_OPT_ADMIN);
+		
+		lv.setOnItemClickListener(new DOI_CL(actv, d1));
+		
+		/***************************************
+		* Modify the list view height
+		***************************************/
+//		lv.setLayoutParams(
+//				new LinearLayout.LayoutParams(
+//						300,	//	Width
+//						LayoutParams.WRAP_CONTENT	//	Height
+//				));
+		
+		/***************************************
+		* Modify: Button layout
+		***************************************/
+		LinearLayout llButton =
+					(LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_filepath);
+//		(LinearLayout) dlg1.findViewById(R.id.actv_imp_ll_filepath);
+		
+		LinearLayout.LayoutParams params =
+				new LinearLayout.LayoutParams(
+								LayoutParams.WRAP_CONTENT,
+								LayoutParams.WRAP_CONTENT);
+		
+		params.gravity = Gravity.CENTER_HORIZONTAL;
+		
+		llButton.setLayoutParams(params);
+
+		////////////////////////////////
+
+		// get: screen size
+
+		////////////////////////////////
+		//REF size http://stackoverflow.com/questions/19155559/how-to-get-android-device-screen-size answered Oct 3 '13 at 10:00
+		DisplayMetrics displayMetrics = actv.getResources()
+                			.getDisplayMetrics();
+		
+		int w = displayMetrics.widthPixels;
+		
+//		// Log
+//		String msg_Log = "w => " + w;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		int dialog_Width = w * CONS.Admin.ratio_Dialog_to_Screen_W / 100;
+		
+//		// Log
+//		msg_Log = "dialog_Width => " + dialog_Width;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// linear layot: main
+
+		////////////////////////////////
+		LinearLayout ll_Main = (LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_main);
+		
+		// Log
+		msg_Log = "ll_Main => created";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//REF parent layout http://stackoverflow.com/questions/4631966/set-relativelayout-layout-params-programmatically-throws-classcastexception answered Jan 8 '11 at 5:42
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): java.lang.ClassCastException: android.widget.LinearLayout$LayoutParams
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.widget.FrameLayout.onLayout(FrameLayout.java:293)
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.view.View.layout(View.java:7184)
+
+		FrameLayout.LayoutParams params2 =
+				new FrameLayout.LayoutParams(
+//						LinearLayout.LayoutParams params2 =
+//						new LinearLayout.LayoutParams(
+						dialog_Width,
+//						400,
+//						200,
+//						LayoutParams.WRAP_CONTENT,
+						LayoutParams.WRAP_CONTENT);
+		
+		// Log
+		msg_Log = "setting params...";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		ll_Main.setLayoutParams(params2);
+		
+		// Log
+		msg_Log = "params => set";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		/****************************
+		* 6. Show dialog
+		****************************/
+		d1.show();
+
+		
+	}//dlg_OptMenu_TabActv_Admin
+
+	public static void 
+	dlg_OptMenu_TabActv_Opearations
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
+		String msg_Log;
+		
+		////////////////////////////////
+
+		// dlg
+
+		////////////////////////////////
+		Dialog d2 = Methods_dlg.dlg_Template_Cancel_SecondDialog(
+						actv, d1,
+						R.layout.dlg_tmpl_cancel_lv,
+						R.string.menu_listitem_tabToBuy_admin,
+						
+						R.id.dlg_tmpl_cancel_lv_bt_cancel,
+						Tags.DialogTags.generic_cancel_second_dialog);
+		
+		/****************************
+		* 2. Prep => List
+		****************************/
+//		String[] choices = {
+//					actv.getString(R.string.dlg_actvmain_lv_delete),
+//					};
+		
+		List<ListItem> list = new ArrayList<ListItem>();
+//		List<String> list = new ArrayList<String>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+									R.string.opt_TabActv_Admin_Main__BackupDB))
+						.setIconID(R.drawable.menu_icon_admin_32x32)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__Operations))
+						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+						.setTextColor_ID(R.color.black)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__SeeLog))
+								.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+								.setTextColor_ID(R.color.purple4)
+								.build());
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adapter = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);
+		
+		/****************************
+		* 4. Set adapter
+		****************************/
+		ListView lv = (ListView) d2.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		
+		lv.setAdapter(adapter);
+		
+		/****************************
+		* 5. Set listener to list
+		****************************/
+		lv.setTag(Tags.DialogTags.ACTV_TAB_OPT_ADMIN);
+		
+		lv.setOnItemClickListener(new DOI_CL(actv, d2));
+		
+		/***************************************
+		* Modify the list view height
+		***************************************/
+//		lv.setLayoutParams(
+//				new LinearLayout.LayoutParams(
+//						300,	//	Width
+//						LayoutParams.WRAP_CONTENT	//	Height
+//				));
+		
+		/***************************************
+		* Modify: Button layout
+		***************************************/
+		LinearLayout llButton =
+					(LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_ll_filepath);
+//		(LinearLayout) dlg1.findViewById(R.id.actv_imp_ll_filepath);
+		
+		LinearLayout.LayoutParams params =
+				new LinearLayout.LayoutParams(
+								LayoutParams.WRAP_CONTENT,
+								LayoutParams.WRAP_CONTENT);
+		
+		params.gravity = Gravity.CENTER_HORIZONTAL;
+		
+		llButton.setLayoutParams(params);
+
+		////////////////////////////////
+
+		// get: screen size
+
+		////////////////////////////////
+		//REF size http://stackoverflow.com/questions/19155559/how-to-get-android-device-screen-size answered Oct 3 '13 at 10:00
+		DisplayMetrics displayMetrics = actv.getResources()
+                			.getDisplayMetrics();
+		
+		int w = displayMetrics.widthPixels;
+		
+//		// Log
+//		String msg_Log = "w => " + w;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		int dialog_Width = w * CONS.Admin.ratio_Dialog_to_Screen_W / 100;
+		
+//		// Log
+//		msg_Log = "dialog_Width => " + dialog_Width;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// linear layot: main
+
+		////////////////////////////////
+		LinearLayout ll_Main = (LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_ll_main);
+		
+		// Log
+		msg_Log = "ll_Main => created";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//REF parent layout http://stackoverflow.com/questions/4631966/set-relativelayout-layout-params-programmatically-throws-classcastexception answered Jan 8 '11 at 5:42
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): java.lang.ClassCastException: android.widget.LinearLayout$LayoutParams
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.widget.FrameLayout.onLayout(FrameLayout.java:293)
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.view.View.layout(View.java:7184)
+
+		FrameLayout.LayoutParams params2 =
+				new FrameLayout.LayoutParams(
+//						LinearLayout.LayoutParams params2 =
+//						new LinearLayout.LayoutParams(
+						dialog_Width,
+//						400,
+//						200,
+//						LayoutParams.WRAP_CONTENT,
+						LayoutParams.WRAP_CONTENT);
+		
+		// Log
+		msg_Log = "setting params...";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		ll_Main.setLayoutParams(params2);
+		
+		// Log
+		msg_Log = "params => set";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		/****************************
+		* 6. Show dialog
+		****************************/
+		d2.show();
+		
+	}//dlg_OptMenu_TabActv_Opearations
+
+	public static Dialog 
+	dlg_Template_Cancel_SecondDialog
+	(Activity actv, Dialog dlg1,
+			int layoutId, int titleStringId,
+			int cancelButtonId, DialogTags tag_CancelButton) {
+		/****************************
+		 * Steps
+		 * 1. Set up
+		 * 2. Add listeners => OnTouch
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		
+		// 
+		Dialog dlg2 = new Dialog(actv);
+		
+		//
+		dlg2.setContentView(layoutId);
+		
+		// Title
+		dlg2.setTitle(titleStringId);
+		
+		/****************************
+		 * 2. Add listeners => OnTouch
+		 ****************************/
+		//
+		Button btn_cancel = (Button) dlg2.findViewById(cancelButtonId);
+		
+		//
+		btn_cancel.setTag(tag_CancelButton);
+		
+		//
+		btn_cancel.setOnTouchListener(new DB_OTL(actv, dlg2));
+		
+		/****************************
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		//
+		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg1, dlg2));
+		
+		//
+		//dlg.show();
+		
+		return dlg2;
+		
+	}//public static Dialog dlg_template_okCancel()
+
+	
 }//public class Methods_dlg

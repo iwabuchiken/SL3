@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-public class DB_TL implements OnTouchListener {
+public class DB_OTL implements OnTouchListener {
 
 	/*----------------------------
 	 * Fields
@@ -19,13 +19,13 @@ public class DB_TL implements OnTouchListener {
 	Activity actv;
 	Dialog dlg;
 	
-	public DB_TL(Activity actv, Dialog dlg) {
+	public DB_OTL(Activity actv, Dialog dlg) {
 		//
 		this.actv = actv;
 		this.dlg = dlg;
 	}
 	
-	public DB_TL(Activity actv) {
+	public DB_OTL(Activity actv) {
 		//
 		this.actv = actv;
 	}
@@ -33,16 +33,22 @@ public class DB_TL implements OnTouchListener {
 //	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
-		Tags.DialogButtonTags tag_name = (Tags.DialogButtonTags) v.getTag();
+		Tags.DialogTags tag_name = (Tags.DialogTags) v.getTag();
+//		Tags.DialogButtonTags tag_name = (Tags.DialogButtonTags) v.getTag();
 		
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_DOWN:
 			switch (tag_name) {
 				//
 			
-			case tab1_delete_item_ok:
-			case generic_cancel_second_dialog:			
-			case tab2_post_items_ok:			
+//			case tab1_delete_item_ok:
+//			case generic_cancel_second_dialog:			
+//			case tab2_post_items_ok:
+			
+			case dlg_generic_cancel:
+			case dlg_generic_dismiss:
+			case dlg_generic_dismiss_second_dialog:
+			case dlg_generic_dismiss_third_dialog:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -56,10 +62,15 @@ public class DB_TL implements OnTouchListener {
 		case MotionEvent.ACTION_UP:
 			switch (tag_name) {
 				//
-			case tab1_delete_item_ok:
-			case generic_cancel_second_dialog:			
-			case tab2_post_items_ok:			
-				
+//			case tab1_delete_item_ok:
+//			case generic_cancel_second_dialog:			
+//			case tab2_post_items_ok:			
+
+			case dlg_generic_cancel:
+			case dlg_generic_dismiss:
+			case dlg_generic_dismiss_second_dialog:
+			case dlg_generic_dismiss_third_dialog:
+
 				v.setBackgroundColor(Color.WHITE);
 				
 				break;

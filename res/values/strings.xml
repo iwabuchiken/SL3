@@ -77,11 +77,36 @@
     	<string name="menu_listitem_filter">フィルター</string>
     	<string name="menu_listitem_tabToBuy_clear_selections">Clear selections</string>
     	<string name="menu_listitem_tabToBuy_admin_db">Admin db</string>
-    	<string name="menu_listitem_tabToBuy_admin">Admin db</string>
+    	<string name="menu_listitem_tabToBuy_admin">Admin</string>
     	
     	<string name="menu_listitem_tabToBuy_clear_basket">Basket</string>
     	<string name="menu_listitem_tabToBuy_clear_checked_items">Checked items</string>
+    	
+    	<string name="opt_TabActv_Admin_Main__BackupDB">Backup DB</string>
+    	<string name="opt_TabActv_Admin_Main__Operations">Operations</string>
+    	<string name="opt_TabActv_Admin_Main__SeeLog">See log</string>
     
+    	<string name="opt_TabActv_Admin_Ops__RestoreDB">Restore DB</string>
+    	<string name="opt_TabActv_Admin_Ops__Tables">Tables</string>
+    	<string name="opt_TabActv_Admin_Ops__GetYomi">Get Yomi</string>
+    	<string name="opt_TabActv_Admin_Ops__PostData">Post data</string>
+    
+    	<string name="opt_TabActv_Admin_Tables__Stores_Create">
+    	    										stores => create</string>
+    	<string name="opt_TabActv_Admin_Tables__Stores_Drop">
+    	    										stores => drop</string>
+    	<string name="opt_TabActv_Admin_Tables__Genres_Create">
+    	    										genres => create</string>
+    	<string name="opt_TabActv_Admin_Tables__Genres_Drop">
+    	    										genres => drop</string>
+    	<string name="opt_TabActv_Admin_Tables__SI_Create">
+    	    										shopping_item => create</string>
+    	<string name="opt_TabActv_Admin_Tables__SI_Drop">
+    	    										shopping_item => drop</string>
+    
+    	
+    	
+    	
     <!-- dlg_filter_list.xml -->
     <string name="dlg_filter_list_tv_title">フィルター</string>
     <string name="dlg_filter_list_tv_store">店舗</string>

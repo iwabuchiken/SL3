@@ -64,7 +64,7 @@ public class Tags {
 		dlg_sort_list_lv,
 		
 		// dlg_item_list_long_click
-		dlg_item_list_long_click,
+		dlg_item_list_long_click, ACTV_TAB_OPT_ADMIN, generic_cancel_second_dialog,
 		
 	}//public static enum DialogTags
 	

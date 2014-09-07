@@ -9,6 +9,8 @@ import sl.items.ShoppingItem;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -36,6 +38,14 @@ public class CONS {
 	public static final CursorFactory factory = null;
 
 	public static boolean bgm;
+	
+	public static class Admin {
+		
+		// X out of 100
+		// Usage => e.g. width = screen_width * 100 / ratio_Dialog_to_Screen_W
+		public static final int ratio_Dialog_to_Screen_W = 70;
+		
+	}
 	
 	public static class DB {
 
@@ -399,6 +409,12 @@ public class CONS {
 	}
 	
 	public static class TabActv {
+		
+		public static ListView lvTab1;
+		public static ListView lvTab2;
+		
+		public static Spinner spStore;
+		public static Spinner spGenre;
 		
 		public static TabHost tabHost;
 		public static TabSpec firstTab;
