@@ -2717,7 +2717,7 @@ public class Methods_dlg {
 	}//public static Dialog dlg_template_okCancel()
 
 	public static void 
-	conf_DropTable_Patterns
+	conf_DropTable
 	(Activity actv, Dialog d1, Dialog d2, Dialog d3, 
 		String tname, Tags.DialogTags tag_ButtonOK) {
 		// TODO Auto-generated method stub

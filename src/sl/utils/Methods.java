@@ -191,7 +191,7 @@ public class Methods {
 			 * 1-2. If not => Create table
 				----------------------------*/
 			//
-			String[] columns = CONS.DB.columns_for_table_stores;
+			String[] columns = CONS.DB.col_Names_Store;
 			
 			String[] types = CONS.DB.column_types_for_table_stores;
 			
@@ -324,7 +324,7 @@ public class Methods {
 		boolean result = dbm.storeData(
 										db, 
 										tableName, 
-										CONS.DB.columns_for_table_stores, 
+										CONS.DB.col_Names_Store, 
 										new String[]{storeName, ""});
 		
 		// Log
@@ -3203,7 +3203,11 @@ public class Methods {
 			
 		}
 		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
+		Cursor c = dbm.getAllData(
+							db, 
+							CONS.DB.tname_stores, 
+							CONS.DB.col_Names_Store_full);
+//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -3287,7 +3291,8 @@ public class Methods {
 		Cursor c = dbm.getAllData(
 							db, 
 							CONS.DB.tname_genres, 
-							CONS.DB.columns_for_table_genres_with_index);
+							CONS.DB.col_Names_Genre_full);
+//		CONS.DB.columns_for_table_genres_with_index);
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -3346,7 +3351,13 @@ public class Methods {
 			
 			_opt_ActvTab_CreateTables__SI(actv, d1, d2, d3);
 			
-		} else if (tname.equals(CONS.DB.tname_si)) {
+		} else if (tname.equals(CONS.DB.tname_stores)) {
+			
+			_opt_ActvTab_CreateTables__Stores(actv, d1, d2, d3);
+			
+		} else if (tname.equals(CONS.DB.tname_genres)) {
+			
+			_opt_ActvTab_CreateTables__Genres(actv, d1, d2, d3);
 			
 		} else {
 
@@ -3429,6 +3440,154 @@ public class Methods {
 		
 	}//_opt_ActvTab_CreateTables__SI
 
+	private static void 
+	_opt_ActvTab_CreateTables__Stores
+	(Activity actv,
+			Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		
+		String tname = CONS.DB.tname_stores;
+		
+		int res = DBUtils.createTable(
+				actv, 
+				CONS.DB.dbName, 
+				tname, 
+				CONS.DB.col_Names_Store, 
+				CONS.DB.col_Types_Store);
+		
+		// Log
+		String msg_Log = "res => " + res;
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// report
+		
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res) {
+		
+//		-1 Table exists
+//		-2 Exception in executing the sql
+//		1 Table created
+		
+		case -1: 
+			
+			msg = "Table alread exists => " + tname;
+			colorID = R.color.gold2;
+			
+//			d3.dismiss();
+			
+			break;
+			
+		case -2: 
+			
+			msg = "Exception in executing the sql";
+			colorID = R.color.red;
+			
+//			d3.dismiss();
+			
+			break;
+			
+		case 1: 
+			
+			msg = "Table created => " + tname;
+			colorID = R.color.green4;
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+		
+	}//_opt_ActvTab_CreateTables__SI
+	
+	private static void 
+	_opt_ActvTab_CreateTables__Genres
+	(Activity actv,
+			Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		
+		String tname = CONS.DB.tname_genres;
+		
+		int res = DBUtils.createTable(
+				actv, 
+				CONS.DB.dbName, 
+				tname, 
+				CONS.DB.col_Names_Genre, 
+				CONS.DB.col_Types_Genre);
+		
+		// Log
+		String msg_Log = "res => " + res;
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// report
+		
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res) {
+		
+//		-1 Table exists
+//		-2 Exception in executing the sql
+//		1 Table created
+		
+		case -1: 
+			
+			msg = "Table alread exists => " + tname;
+			colorID = R.color.gold2;
+			
+//			d3.dismiss();
+			
+			break;
+			
+		case -2: 
+			
+			msg = "Exception in executing the sql";
+			colorID = R.color.red;
+			
+//			d3.dismiss();
+			
+			break;
+			
+		case 1: 
+			
+			msg = "Table created => " + tname;
+			colorID = R.color.green4;
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+		
+	}//_opt_ActvTab_CreateTables__SI
+	
 	public static void 
 	opt_ActvTab_DropTables
 	(Activity actv, 

@@ -57,9 +57,9 @@ public class CONS {
 		/*********************************
 		 * Table names
 		 *********************************/
-		public static final String tname_stores	= "stores";
+//		public static final String tname_stores	= "stores";
 		
-		public static final String tname_genres	= "genres";
+//		public static final String tname_genres	= "genres";
 		
 //		public static final String tname_si	= "shopping_item";
 //
@@ -185,7 +185,7 @@ public class CONS {
 		public static String[] col_Names_SI_full = { 
 			
 			android.provider.BaseColumns._ID,	// 0
-			"created_at", "updated_at",			// 1,2
+			"created_at", "modified_at",			// 1,2
 			
 			"store", "name", "price",			// 3,4,5
 			"genre", "yomi", "num",				// 6,7
@@ -215,27 +215,97 @@ public class CONS {
 			//	5			6	
 			"created_at", "updated_at"
 		};
-		/*		cid   name
-		----  ------------
-		0     store
-		1     name
-		2     price
-		3     genre
-		4     yomi
-		5     _id
-		6     created_at
-		7     updated_at
-		8     posted_at*/
 
-		public static String[] columns_for_table_stores = 
-						{"store_name", "memo"};
+		////////////////////////////////
+
+		// stores
+
+		////////////////////////////////
+		public static final String tname_stores	= "stores";
+
+		public static String[] col_Names_Store = {
+			
+			"store_name",	// 0
+			"posted_at"		// 1
+			
+		};
 		
+		public static String[] col_Names_Store_full = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			"created_at", "modified_at",			// 1,2
+			
+			"store_name",						// 3
+			
+			"posted_at"							// 4
+			
+		};
+
+		public static String[] col_Types_Store = { 
+			
+			"TEXT",					// 3
+			"TEXT",			// 6,7
+			
+		};
+		
+		public static String[] col_Types_Store_full = { 
+			
+			"INTEGER",	// 0
+			"TEXT", "TEXT",			// 1,2
+			
+			"TEXT",					// 3
+			"TEXT",			// 6,7
+			
+		};
+
 		public static String[] columns_for_table_stores_with_index = 
 			{android.provider.BaseColumns._ID, "store_name", "memo"};
 
 		public static String[] column_types_for_table_stores = 
 													{"TEXT", "TEXT"};
+
+		////////////////////////////////
+
+		// genres
+
+		////////////////////////////////
+		public static final String tname_genres	= "genres";
+
+		public static String[] col_Names_Genre = {
+			
+			"genre_name",	// 0
+			"posted_at"		// 1
+			
+		};
 		
+		public static String[] col_Names_Genre_full = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			"created_at", "modified_at",			// 1,2
+			
+			"genre_name",						// 3
+			
+			"posted_at"							// 4
+			
+		};
+
+		public static String[] col_Types_Genre = { 
+			
+			"TEXT",					// 3
+			"TEXT",			// 6,7
+			
+		};
+		
+		public static String[] col_Types_Genre_full = { 
+			
+			"INTEGER",	// 0
+			"TEXT", "TEXT",			// 1,2
+			
+			"TEXT",					// 3
+			"TEXT",			// 6,7
+			
+		};
+
 		public static String[] columns_for_table_genres = 
 											{"genre_name", "memo"};
 

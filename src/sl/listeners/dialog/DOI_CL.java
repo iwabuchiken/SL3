@@ -250,30 +250,51 @@ public class DOI_CL implements OnItemClickListener {
 	(ListItem li) {
 		// TODO Auto-generated method stub
 
+		////////////////////////////////
+
+		// stores
+
+		////////////////////////////////
 		if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__Stores_Create))) {
 
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
-			
+			Methods.opt_ActvTab_CreateTables(
+							actv, d1, d2, d3,
+							CONS.DB.tname_stores);
+					
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__Stores_Drop))) {
 
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			Methods_dlg.conf_DropTable(
+					actv, d1, d2, d3,
+					CONS.DB.tname_stores, 
+					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_STORES);
+			
+		////////////////////////////////
 
+		// genres
+
+		////////////////////////////////
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__Genres_Create))) {
-			
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+
+			Methods.opt_ActvTab_CreateTables(
+					actv, d1, d2, d3,
+					CONS.DB.tname_genres);
 
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__Genres_Drop))) {
 			
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			Methods_dlg.conf_DropTable(
+					actv, d1, d2, d3,
+					CONS.DB.tname_genres, 
+					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_GENRES);
 			
+		////////////////////////////////
+
+		// shopping_item
+
+		////////////////////////////////
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__SI_Create))) {
 
@@ -284,17 +305,10 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__SI_Drop))) {
 			
-			Methods_dlg.conf_DropTable_Patterns(
+			Methods_dlg.conf_DropTable(
 							actv, d1, d2, d3,
 							CONS.DB.tname_si, 
 							Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_SI);
-			
-//			Methods.opt_ActvTab_DropTables(
-//							actv, d1, d2, d3,
-//							CONS.DB.tname_si);
-			
-//			String msg = "Sorry. Under construction";
-//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
 			
 		} else {//if (choice.equals(actv.getString(
 			

@@ -12,6 +12,7 @@ import sl.utils.Methods;
 import sl.utils.Methods_dlg;
 import sl.utils.Methods_sl;
 import sl.utils.Tags;
+import sl.utils.Tags.DialogTags;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -406,8 +407,10 @@ DB_OCL implements OnClickListener {
 			break;// case dlg_edit_items_bt_ok
 			
 		case ACTV_TAB_OPT_DROP_TABLE_SI://------------------------------------------
+		case ACTV_TAB_OPT_DROP_TABLE_STORES://------------------------------------------
+		case ACTV_TAB_OPT_DROP_TABLE_GENRES://------------------------------------------
 			
-			case_ACTV_TAB_OPT_DROP_TABLE_SI();
+			case_ACTV_TAB_OPT_DROP_TABLE(tag_name);
 			
 			break;// case dlg_edit_items_bt_ok
 			
@@ -417,10 +420,41 @@ DB_OCL implements OnClickListener {
 	}
 
 	private void 
-	case_ACTV_TAB_OPT_DROP_TABLE_SI() {
+	case_ACTV_TAB_OPT_DROP_TABLE(DialogTags tag_name) {
 		// TODO Auto-generated method stub
+		String tname = null;
 		
-		String tname = CONS.DB.tname_si;
+		switch(tag_name) {
+
+		case ACTV_TAB_OPT_DROP_TABLE_SI:
+			
+			tname = CONS.DB.tname_si;
+			
+			break;
+			
+		case ACTV_TAB_OPT_DROP_TABLE_STORES:
+			
+			tname = CONS.DB.tname_stores;
+			
+			break;
+			
+		case ACTV_TAB_OPT_DROP_TABLE_GENRES:
+			
+			tname = CONS.DB.tname_genres;
+			
+			break;
+			
+		default:
+			
+			// Log
+			String msg_Log = "Unknown tag => " + tag_name;
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
 		
 		int res = Methods.dropTable(actv, tname);
 		
