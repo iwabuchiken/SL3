@@ -61,9 +61,24 @@ public class CONS {
 		
 		public static final String tname_genres	= "genres";
 		
-		public static final String tname_si	= "shopping_item";
-		
+//		public static final String tname_si	= "shopping_item";
+//
+		////////////////////////////////
+
+		// Paths and names
+
+		////////////////////////////////
 		public static String dirName_ExternalStorage = "/mnt/sdcard-ext";
+		
+		public final static String dPath_Data_Root = 
+									dirName_ExternalStorage + "/ta2_data";
+//		public final static String dPath_Data_Root = "/mnt/sdcard-ext/ta2_data";
+		
+		public static String dPath_dbFile_Backup = dPath_Data_Root + "/backup";
+		
+		public final static String dPath_Data = dPath_Data_Root + "/data";
+		
+		public final static String dPath_Log = dPath_Data_Root + "/log";
 
 //		public static String dirPath_db = "/data/data/shoppinglist.main/databases";
 		public static String dirPath_db = "/data/data/sl.main/databases";
@@ -114,6 +129,13 @@ public class CONS {
 		/*********************************
 		 * From: DBManager.java
 		 *********************************/
+		////////////////////////////////
+
+		// shopping_item
+
+		////////////////////////////////
+		public static final String tname_si	= "shopping_item";
+
 		public static String tableName = "shopping_item";
 
 //		public static String[] columns = {"store", "name", "price", "genre"};
@@ -136,6 +158,48 @@ public class CONS {
 			"genre", "yomi", android.provider.BaseColumns._ID, 
 			//	6			7				8
 			"created_at", "updated_at", "posted_at"
+		};
+		
+		public static String[] col_Names_SI = { 
+			
+					"store", "name", "price",			// 0,1,2
+					"genre", "yomi",					// 3,4
+					
+					"posted_at"							// 5
+					
+		};
+		
+		public static String[] col_Types_SI = { 
+			
+			"TEXT", "TEXT", "TEXT",			// 0,1,2
+			"TEXT", "TEXT",					// 3,4
+			
+			"TEXT"							// 5
+			
+		};
+		
+		public static String[] col_Names_SI_full = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			"created_at", "updated_at",			// 1,2
+			
+			"store", "name", "price",			// 3,4,5
+			"genre", "yomi",					// 6,7
+			
+			"posted_at"							// 8
+			
+		};
+		
+		public static String[] col_Types_SI_full = { 
+			
+			"INTEGER",	// 0
+			"TEXT", "TEXT",			// 1,2
+			
+			"TEXT", "TEXT", "TEXT",			// 3,4,5
+			"TEXT", "TEXT",					// 6,7
+			
+			"TEXT"							// 8
+			
 		};
 		
 		public static String[]

@@ -6,7 +6,9 @@ public class Tags {
 		// dlg_generic
 		dlg_generic_cancel, dlg_generic_dismiss,
 		dlg_generic_dismiss_second_dialog,
-		dlg_generic_dismiss_third_dialog,
+		DLG_GENERIC_DISMISS_3RD_DIALOG,
+		
+		generic_cancel_second_dialog, 
 		
 		// dlg_register_store.xml
 		dlg_register_store_ok, dlg_register_store_cancel,
@@ -64,7 +66,14 @@ public class Tags {
 		dlg_sort_list_lv,
 		
 		// dlg_item_list_long_click
-		dlg_item_list_long_click, ACTV_TAB_OPT_ADMIN, generic_cancel_second_dialog,
+		dlg_item_list_long_click, 
+		
+		ACTV_TAB_OPT_ADMIN, 
+		ACTV_TAB_OPT_OPERATIONS, 
+		ACTV_TAB_OPT_TABLES, 
+		
+		GENERIC_DISMISS_ALL_SECOND_DIALOG, 
+		GENERIC_DISMISS_ALL_3RD_DIALOG,
 		
 	}//public static enum DialogTags
 	

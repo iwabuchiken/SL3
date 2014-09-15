@@ -17,12 +17,14 @@ public class DB_OTL implements OnTouchListener {
 		----------------------------*/
 	//
 	Activity actv;
-	Dialog dlg;
+	Dialog d1;
+	private Dialog d2;
+	private Dialog d3;
 	
 	public DB_OTL(Activity actv, Dialog dlg) {
 		//
 		this.actv = actv;
-		this.dlg = dlg;
+		this.d1 = dlg;
 	}
 	
 	public DB_OTL(Activity actv) {
@@ -30,7 +32,28 @@ public class DB_OTL implements OnTouchListener {
 		this.actv = actv;
 	}
 
-//	@Override
+	public DB_OTL
+	(Activity actv, Dialog d1, Dialog d2) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+
+	}
+
+	public DB_OTL
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+		this.d3 = d3;
+
+	}
+
+	//	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		Tags.DialogTags tag_name = (Tags.DialogTags) v.getTag();
@@ -48,7 +71,7 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_cancel:
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
-			case dlg_generic_dismiss_third_dialog:
+			case DLG_GENERIC_DISMISS_3RD_DIALOG:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -69,7 +92,7 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_cancel:
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
-			case dlg_generic_dismiss_third_dialog:
+			case DLG_GENERIC_DISMISS_3RD_DIALOG:
 
 				v.setBackgroundColor(Color.WHITE);
 				

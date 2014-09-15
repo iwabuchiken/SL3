@@ -42,7 +42,7 @@ public class DOI_CL implements OnItemClickListener {
 	
 	Dialog d1;
 	Dialog dlg1;
-	Dialog dlg2;
+	Dialog d2;
 	
 	ShoppingItem si;
 	//
@@ -50,6 +50,8 @@ public class DOI_CL implements OnItemClickListener {
 	
 	//
 	Tags.DialogTags dlgTag = null;
+
+	private Dialog d3;
 	
 	public DOI_CL(Activity actv, Dialog d1) {
 		// 
@@ -96,8 +98,37 @@ public class DOI_CL implements OnItemClickListener {
 		
 	}//public DialogOnItemClickListener
 
+	public DOI_CL
+	(Activity actv, Dialog d1, Dialog d2) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+		
+		//
+		vib = (Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
+		
+	}
+
+	public DOI_CL
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+		this.d3 = d3;
+		
+		//
+		vib = (Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
+
+	}
+
 	//	@Override
-	public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+	public void 
+	onItemClick
+	(AdapterView<?> parent, View v, int position, long id) {
 		/*----------------------------
 		 * Steps
 		 * 0. Vibrate
@@ -114,35 +145,33 @@ public class DOI_CL implements OnItemClickListener {
 		 *********************************/
 		Tags.DialogTags tag = (Tags.DialogTags) parent.getTag();
 		
-		if (tag != null) {
+		ListItem li;
+		String choice;
+		
+		// Log
+		Log.d("["
+				+ "DialogOnItemClickListener.java : "
+				+ +Thread.currentThread().getStackTrace()[2]
+						.getLineNumber() + " : "
+				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+				+ "]", "tag.name()=" + tag.name());
+		
+		switch (tag) {
+		
+		case dlg_db_admin_lv:
 			
-			ListItem li;
-			String choice;
+			choice = (String) parent.getItemAtPosition(position);
 			
-			// Log
-			Log.d("["
-					+ "DialogOnItemClickListener.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "tag.name()=" + tag.name());
+			dlg_db_admin_lv(choice);
 			
-			switch (tag) {
-			
-			case dlg_db_admin_lv:
-				
-				choice = (String) parent.getItemAtPosition(position);
-				
-				dlg_db_admin_lv(choice);
-				
-				break;
+			break;
 
-			case dlg_tabactv_tab2_lv:
-				
-				choice = (String) parent.getItemAtPosition(position);
+		case dlg_tabactv_tab2_lv:
+			
+			choice = (String) parent.getItemAtPosition(position);
 
-				dlg_tabactv_tab2_lv(choice);
-				
+			dlg_tabactv_tab2_lv(choice);
+			
 //				// Log
 //				Log.d("DialogOnItemClickListener.java"
 //						+ "["
@@ -152,120 +181,156 @@ public class DOI_CL implements OnItemClickListener {
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getMethodName() + "]", "choice=" + choice);
 //				
-				break;// case dlg_tabactv_tab2_lv
+			break;// case dlg_tabactv_tab2_lv
 
-			case dlg_tabActv_adminDb:
-				
-				choice = (String) parent.getItemAtPosition(position);
-				
-				case_dlg_tabActv_adminDb(choice);
-				
-				break;
-				
-			case dlg_clear_selections://----------------------------
-				
-				choice = (String) parent.getItemAtPosition(position);
-				
-				case_dlg_clear_selections(choice);
-				
-				break;// case dlg_clear_selections
-				
-			case dlg_sort_list_lv://----------------------------
-				
-				choice = (String) parent.getItemAtPosition(position);
-				
-				case_dlg_sort_list_lv(choice);
-				
-				break;// case dlg_sort_list_lv
-				
-			case dlg_item_list_long_click://----------------------------
-				
-				choice = (String) parent.getItemAtPosition(position);
-				
-				case_dlg_item_list_long_click(choice);
-				
-				break;// case dlg_sort_list_lv
-				
-			case ACTV_TAB_OPT_ADMIN://----------------------------
-				
-				li= (ListItem) parent.getItemAtPosition(position);
-				
-				case_ACTV_TAB_OPT_ADMIN(li);
-				
-				break;// case dlg_sort_list_lv
-				
-			default:
-				break;
-			}//switch (tag)
+		case dlg_tabActv_adminDb:
 			
-		}//if (tag != null)
-		
-		/*----------------------------
-		 * 2. Call a method
-			----------------------------*/
-
-		//
-		if (dlgTag != null && dlgTag == DialogTags.dlg_drop_table) {
+			choice = (String) parent.getItemAtPosition(position);
 			
-			String tableName = (String) parent.getItemAtPosition(position);
+			case_dlg_tabActv_adminDb(choice);
 			
-			Methods.dlg_confirmTableDrop(actv, d1, tableName);
+			break;
 			
-		} else if (dlgTag != null && dlgTag == DialogTags.dlg_register_main) {
+		case dlg_clear_selections://----------------------------
 			
-			CONS.Enum.registerChoice item = 
-							(CONS.Enum.registerChoice) parent.getItemAtPosition(position);
+			choice = (String) parent.getItemAtPosition(position);
 			
-			switch (item) {
-			case items:
-				
-				//
-				Intent i = new Intent();
-				
-				//
-				i.setClass(actv, RegisterItemActv.class);
-				
-				//
-				actv.startActivity(i);
-				
-				break;
-				
-			case stores:
-				
-				Methods.register_store(actv);
-				
-				break;
-				
-			case genres:
-				
-				Methods.registerGenre(actv);
-				
-				break;
+			case_dlg_clear_selections(choice);
 			
-			}//switch (item)
-
-		} else if (dlgTag != null && dlgTag == DialogTags.dlg_item_list_long_click) {
+			break;// case dlg_clear_selections
 			
-			String choice = (String) parent.getItemAtPosition(position);
+		case dlg_sort_list_lv://----------------------------
 			
-			if (choice.equals(actv.getString(
-					R.string.dlg_item_list_long_click_edit))) {
-				
-				Methods_dlg.dlg_tab1_edit_item(actv, si, d1);
-				
-				
-			} else if (choice.equals(actv.getString(
-					R.string.dlg_item_list_long_click_delete))) {
-
-				// debug
-				Toast.makeText(actv, "DELETE", Toast.LENGTH_SHORT).show();
-
-			}//if (choice.equals(actv.getString(
+			choice = (String) parent.getItemAtPosition(position);
 			
+			case_dlg_sort_list_lv(choice);
 			
-		} //if (dlgName != null && dlgName == "confirm_table_drop")
-		
+			break;// case dlg_sort_list_lv
+			
+		case dlg_item_list_long_click://----------------------------
+			
+			choice = (String) parent.getItemAtPosition(position);
+			
+			case_dlg_item_list_long_click(choice);
+			
+			break;// case dlg_sort_list_lv
+			
+		case ACTV_TAB_OPT_ADMIN://----------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_ACTV_TAB_OPT_ADMIN(li);
+			
+			break;// case dlg_sort_list_lv
+			
+		case ACTV_TAB_OPT_OPERATIONS://----------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_ACTV_TAB_OPT_OPERATIONS(li);
+			
+			break;// case dlg_sort_list_lv
+			
+		case ACTV_TAB_OPT_TABLES://----------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_ACTV_TAB_OPT_TABLES(li);
+			
+			break;// case dlg_sort_list_lv
+			
+		default:
+			break;
+		}//switch (tag)
+			
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+
+	private void 
+	case_ACTV_TAB_OPT_TABLES
+	(ListItem li) {
+		// TODO Auto-generated method stub
+
+		if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Stores_Create))) {
+
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Stores_Drop))) {
+
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Genres_Create))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Genres_Drop))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__SI_Create))) {
+
+			Methods.opt_ActvTab_CreateTables(
+							actv, d1, d2, d3,
+							CONS.DB.tname_si);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__SI_Drop))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		} else {//if (choice.equals(actv.getString(
+			
+			String msg = "Unknown option => " + li.getText();
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		}//if (choice.equals(actv.getString(
+
+		
+	}//case_ACTV_TAB_OPT_TABLES
+
+	private void 
+	case_ACTV_TAB_OPT_OPERATIONS
+	(ListItem li) {
+		// TODO Auto-generated method stub
+		
+		if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__RestoreDB))) {
+
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__Tables))) {
+			
+			Methods_dlg.dlg_Op_Tables(actv, d1, d2);
+
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__GetYomi))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__PostData))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		} else {//if (choice.equals(actv.getString(
+			
+			String msg = "Unknown option => " + li.getText();
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		}//if (choice.equals(actv.getString(
+		
+	}//case_ACTV_TAB_OPT_OPERATIONS
 
 	private void 
 	case_ACTV_TAB_OPT_ADMIN

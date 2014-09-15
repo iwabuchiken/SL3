@@ -3085,5 +3085,103 @@ public class Methods {
 		return adapter;
 		
 	}//get_Adp_List_Genre
+
+	public static void 
+	opt_ActvTab_CreateTables
+	(Activity actv,
+		Dialog d1, Dialog d2, Dialog d3, String tname) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// dispatch
+
+		////////////////////////////////
+		if (tname.equals(CONS.DB.tname_si)) {
+			
+			_opt_ActvTab_CreateTables__SI(actv, d1, d2, d3);
+			
+		} else if (tname.equals(CONS.DB.tname_si)) {
+			
+		} else {
+
+		}
+		
+		
+	}//opt_ActvTab_CreateTables
+
+	private static void 
+	_opt_ActvTab_CreateTables__SI
+	(Activity actv,
+		Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+
+		String tname = CONS.DB.tname_si;
+		
+		int res = DBUtils.createTable(
+							actv, 
+							CONS.DB.dbName, 
+							tname, 
+							CONS.DB.col_Names_SI, 
+							CONS.DB.col_Types_SI);
+		
+		// Log
+		String msg_Log = "res => " + res;
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res) {
+
+//		-1 Table exists
+//		-2 Exception in executing the sql
+//		1 Table created
+
+		case -1: 
+			
+			msg = "Table alread exists => " + tname;
+			colorID = R.color.gold2;
+			
+//			d3.dismiss();
+			
+			break;
+		
+		case -2: 
+			
+			msg = "Exception in executing the sql";
+			colorID = R.color.red;
+			
+//			d3.dismiss();
+			
+			break;
+			
+		case 1: 
+			
+			msg = "Table created => " + tname;
+			colorID = R.color.green4;
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+
+		
+	}//_opt_ActvTab_CreateTables__SI
 	
 }//public class Methods

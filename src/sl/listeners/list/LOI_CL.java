@@ -206,7 +206,7 @@ public class LOI_CL implements OnItemClickListener {
 				
 				Tags.DialogTags.dlg_confirm_delete_ps_item_bt_ok,
 //				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
-				Tags.DialogTags.dlg_generic_dismiss_third_dialog,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_3RD_DIALOG,
 				
 				dlg1, dlg2, ps);
 

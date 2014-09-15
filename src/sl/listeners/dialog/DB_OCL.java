@@ -33,9 +33,9 @@ DB_OCL implements OnClickListener {
 		----------------------------*/
 	//
 	Activity actv;
-	Dialog dlg1;
-	Dialog dlg2;		//=> Used in dlg_input_empty_btn_XXX
-	Dialog dlg3;		//=> Methods_dlg.java: Dialog dlg_template_okCancel_3Dialogues
+	Dialog d1;
+	Dialog d2;		//=> Used in dlg_input_empty_btn_XXX
+	Dialog d3;		//=> Methods_dlg.java: Dialog dlg_template_okCancel_3Dialogues
 
 	PS ps;
 	
@@ -47,7 +47,7 @@ DB_OCL implements OnClickListener {
 	public DB_OCL(Activity actv, Dialog dlg) {
 		//
 		this.actv = actv;
-		this.dlg1 = dlg;
+		this.d1 = dlg;
 		
 		//
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
@@ -57,8 +57,8 @@ DB_OCL implements OnClickListener {
 			Dialog dlg2) {
 		//
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
 		
 		//
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
@@ -68,9 +68,9 @@ DB_OCL implements OnClickListener {
 	(Activity actv, Dialog dlg1, Dialog dlg2, Dialog dlg3) {
 		//
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
-		this.dlg3 = dlg3;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
+		this.d3 = dlg3;
 		
 		//
 		vib = (Vibrator) actv.getSystemService(actv.VIBRATOR_SERVICE);
@@ -80,9 +80,9 @@ DB_OCL implements OnClickListener {
 	public DB_OCL(Activity actv, Dialog dlg1,
 			Dialog dlg2, Dialog dlg3, PS ps) {
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
-		this.dlg3 = dlg3;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
+		this.d3 = dlg3;
 	
 		this.ps = ps;
 		
@@ -95,7 +95,7 @@ DB_OCL implements OnClickListener {
 			ShoppingItem si) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
-		this.dlg1 = dlg1;
+		this.d1 = dlg1;
 		
 		this.si = si;
 		
@@ -108,8 +108,8 @@ DB_OCL implements OnClickListener {
 			Dialog dlg2, ShoppingItem si) {
 		
 		this.actv = actv;
-		this.dlg1 = dlg1;
-		this.dlg2 = dlg2;
+		this.d1 = dlg1;
+		this.d2 = dlg2;
 		
 		this.si = si;
 		
@@ -128,34 +128,42 @@ DB_OCL implements OnClickListener {
 		
 		case dlg_generic_cancel://------------------------------------------
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			break;
 		
 		case dlg_generic_dismiss://------------------------------------------
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			break;
 
 		case dlg_generic_dismiss_second_dialog://------------------------------------------
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			
 			break;
 
-		case dlg_generic_dismiss_third_dialog://------------------------------------------
+		case DLG_GENERIC_DISMISS_3RD_DIALOG://------------------------------------------
 			
-			dlg3.dismiss();
+			d3.dismiss();
 			
 			break;// case dlg_generic_dismiss_third_dialog
 			
 		case generic_cancel_second_dialog:
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			
 			break;
 		
+		case GENERIC_DISMISS_ALL_3RD_DIALOG:
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
 		case dlg_register_store_ok://------------------------------------------
 			/*----------------------------
 			 * Validate if the edit view has some input.
@@ -165,15 +173,15 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			EditText et = (EditText) dlg1.findViewById(R.id.dlg_register_store_et);
+			EditText et = (EditText) d1.findViewById(R.id.dlg_register_store_et);
 			
 			if (et.getText().toString().equals("")) {
 				
-				Methods.dlg_input_empty(actv, dlg1);
+				Methods.dlg_input_empty(actv, d1);
 				
 			} else {//if (et.getText().toString().equals(""))
 				
-				Methods.insertStoreName(actv, dlg1, "stores", et.getText().toString());
+				Methods.insertStoreName(actv, d1, "stores", et.getText().toString());
 				
 			}//if (et.getText().toString().equals(""))
 			
@@ -184,7 +192,7 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			break;
 			
@@ -193,7 +201,7 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			dlg2.dismiss();
+			d2.dismiss();
 			
 			break;
 			
@@ -202,8 +210,8 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			dlg2.dismiss();
-			dlg1.dismiss();
+			d2.dismiss();
+			d1.dismiss();
 			
 			break;
 			
@@ -214,7 +222,7 @@ DB_OCL implements OnClickListener {
 //			//
 //			et object = (et) findViewById(arguement);
 //			
-			Methods.insertStoreName_final(actv, dlg1, dlg2, "stores");
+			Methods.insertStoreName_final(actv, d1, d2, "stores");
 			
 			break;
 			
@@ -222,14 +230,14 @@ DB_OCL implements OnClickListener {
 			//
 			vib.vibrate(40);
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			break;
 
 		case dlg_register_genre_cancel://------------------------------------------
 			//
 			vib.vibrate(40);
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			break;
 			
 		case dlg_register_genre_register://------------------------------------------
@@ -241,15 +249,15 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			et = (EditText) dlg1.findViewById(R.id.dlg_register_genre_et);
+			et = (EditText) d1.findViewById(R.id.dlg_register_genre_et);
 			
 			if (et.getText().toString().equals("")) {
 				
-				Methods.dlg_input_empty(actv, dlg1);
+				Methods.dlg_input_empty(actv, d1);
 				
 			} else {//if (et.getText().toString().equals(""))
 				
-				Methods.dlg_reconfirm_genre_name(actv, dlg1, "genres", et.getText().toString());
+				Methods.dlg_reconfirm_genre_name(actv, d1, "genres", et.getText().toString());
 				
 //				// debug
 //				Toast.makeText(actv, "Start => registerGenre()",
@@ -266,7 +274,7 @@ DB_OCL implements OnClickListener {
 			//
 			vib.vibrate(40);
 			
-			Methods.registerGenreName_final(actv, dlg1, dlg2, "genres");
+			Methods.registerGenreName_final(actv, d1, d2, "genres");
 			
 //			// debug
 //			Toast.makeText(actv, "Register", 2000).show();
@@ -277,7 +285,7 @@ DB_OCL implements OnClickListener {
 			//
 			vib.vibrate(40);
 			
-			dlg2.dismiss();
+			d2.dismiss();
 			
 			break;
 			
@@ -286,7 +294,7 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			//
-			Methods.dlg_createTable_isInputEmpty(actv, dlg1);
+			Methods.dlg_createTable_isInputEmpty(actv, d1);
 			
 //			Methods.createTable_FromDialog(actv, dlg);
 			
@@ -296,7 +304,7 @@ DB_OCL implements OnClickListener {
 			//
 			vib.vibrate(40);
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			break;
 
@@ -304,15 +312,15 @@ DB_OCL implements OnClickListener {
 			//
 			vib.vibrate(40);
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			break;
 			
 		case dlg_confirm_drop_table_btn_cancel://------------------------------------------
 			//
 			vib.vibrate(40);
 			
-			dlg2.dismiss();
-			dlg1.dismiss();
+			d2.dismiss();
+			d1.dismiss();
 			
 			break;
 			
@@ -321,27 +329,27 @@ DB_OCL implements OnClickListener {
 			vib.vibrate(40);
 			
 			// Dismiss the first dialog
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			// Call the method; Pass the second dialog
-			Methods.dropTable(actv, dlg2);
+			Methods.dropTable(actv, d2);
 			break;
 			
 		case dlg_filter_list_cancel://------------------------------------------
 			
-			dlg1.dismiss();
+			d1.dismiss();
 			
 			break;
 
 		case dlg_filter_list_ok://------------------------------------------
 			
-			Methods.filterList(actv, dlg1);
+			Methods.filterList(actv, d1);
 			
 			break;
 			
 		case dlg_filter_list_ok2://------------------------------------------
 			
-			Methods.filterList2(actv, dlg1);
+			Methods.filterList2(actv, d1);
 			
 			break;
 
@@ -384,12 +392,12 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Get views
 		 ***************************************/
-		EditText etItemName = (EditText) dlg2.findViewById(R.id.dlg_edit_items_et_name);
-		EditText etPrice = (EditText) dlg2.findViewById(R.id.dlg_edit_items_et_price);	
-		EditText etYomi = (EditText) dlg2.findViewById(R.id.dlg_edit_items_et_yomi);
+		EditText etItemName = (EditText) d2.findViewById(R.id.dlg_edit_items_et_name);
+		EditText etPrice = (EditText) d2.findViewById(R.id.dlg_edit_items_et_price);	
+		EditText etYomi = (EditText) d2.findViewById(R.id.dlg_edit_items_et_yomi);
 		
-		Spinner spStoreName = (Spinner) dlg2.findViewById(R.id.dlg_edit_items_sp_store);
-		Spinner spGenre = (Spinner) dlg2.findViewById(R.id.dlg_edit_items_sp_genre);
+		Spinner spStoreName = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_store);
+		Spinner spGenre = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_genre);
 		
 		// Log
 		Log.d("[" + "DialogButtonOnClickListener.java : "
@@ -433,8 +441,8 @@ DB_OCL implements OnClickListener {
 					.show();
 			
 			// Close dialogues
-			dlg1.dismiss();
-			dlg2.dismiss();
+			d1.dismiss();
+			d2.dismiss();
 
 			/***************************************
 			 * Update the item list
@@ -521,9 +529,9 @@ DB_OCL implements OnClickListener {
 			// debug
 			Toast.makeText(actv, "Schedule => Deleted: " + dbId, Toast.LENGTH_LONG).show();
 
-			dlg3.dismiss();
-			dlg2.dismiss();
-			dlg1.dismiss();
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
 			
 		} else {//if (res == true)
 
@@ -544,7 +552,7 @@ DB_OCL implements OnClickListener {
 		 * 2. Store name
 		 * 3. 
 		 ***************************************/
-		DatePicker dp = (DatePicker) dlg2.findViewById(R.id.dlg_save_tobuy_list_dp);
+		DatePicker dp = (DatePicker) d2.findViewById(R.id.dlg_save_tobuy_list_dp);
 		
 		int year = dp.getYear();
 		int month = dp.getMonth();
@@ -571,7 +579,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Store name
 		 ***************************************/
-		Spinner spStoreNames = (Spinner) dlg2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
 		
 		String storeName = spStoreNames.getSelectedItem().toString();
 		
@@ -583,7 +591,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Close dialog 3
 		 ***************************************/
-		dlg3.dismiss();
+		d3.dismiss();
 		
 	}//private void case_dlg_scheduleInDb_update()
 
@@ -630,16 +638,16 @@ DB_OCL implements OnClickListener {
 			/***************************************
 			 * Close dialogues
 			 ***************************************/
-			dlg3.dismiss();
-			dlg2.dismiss();
-			dlg1.dismiss();
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
 			
 		} else {//if (res == true)
 			
 			// debug
 			Toast.makeText(actv, "Updated schedule data => Failed", Toast.LENGTH_LONG).show();
 
-			dlg3.dismiss();
+			d3.dismiss();
 			
 		}//if (res == true)
 		
@@ -652,7 +660,7 @@ DB_OCL implements OnClickListener {
 		 * 2. Store name
 		 * 3. 
 		 ***************************************/
-		DatePicker dp = (DatePicker) dlg2.findViewById(R.id.dlg_save_tobuy_list_dp);
+		DatePicker dp = (DatePicker) d2.findViewById(R.id.dlg_save_tobuy_list_dp);
 		
 		int year = dp.getYear();
 		int month = dp.getMonth();
@@ -679,7 +687,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Store name
 		 ***************************************/
-		Spinner spStoreNames = (Spinner) dlg2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
 		
 		String storeName = spStoreNames.getSelectedItem().toString();
 		
@@ -691,7 +699,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Close dialog 3
 		 ***************************************/
-		dlg3.dismiss();
+		d3.dismiss();
 		
 	}//private void case_dlg_scheduleInDb_ok()
 
@@ -700,7 +708,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Get data: Date
 		 ***************************************/
-		DatePicker dp = (DatePicker) dlg2.findViewById(R.id.dlg_save_tobuy_list_dp);
+		DatePicker dp = (DatePicker) d2.findViewById(R.id.dlg_save_tobuy_list_dp);
 		
 		int year = dp.getYear();
 		int month = dp.getMonth();
@@ -730,7 +738,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Store name
 		 ***************************************/
-		Spinner spStoreNames = (Spinner) dlg2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
 		
 		String storeName = spStoreNames.getSelectedItem().toString();
 		
@@ -751,7 +759,7 @@ DB_OCL implements OnClickListener {
 		 ***************************************/
 		if (res == true) {
 			
-			Methods_dlg.dlg_scheduleInDb(actv, dlg1, dlg2);
+			Methods_dlg.dlg_scheduleInDb(actv, d1, d2);
 			
 		} else {//if (res == true)
 			
@@ -769,12 +777,12 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Amount
 		 ***************************************/
-		EditText etAmount = (EditText) dlg2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
+		EditText etAmount = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
 		
 		/***************************************
 		 * Memo
 		 ***************************************/
-		EditText etMemo = (EditText) dlg2.findViewById(R.id.dlg_save_tobuy_list_et_memo);
+		EditText etMemo = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_memo);
 		
 		/***************************************
 		 * Items
@@ -853,8 +861,8 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Dismiss dialog
 		 ***************************************/
-		dlg1.dismiss();
-		dlg2.dismiss();
+		d1.dismiss();
+		d2.dismiss();
 		
 	}//private void case_dlg_save_tobuy_list_bt_ok_execute()
 
