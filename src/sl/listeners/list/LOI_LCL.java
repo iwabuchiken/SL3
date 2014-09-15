@@ -3,7 +3,7 @@ package sl.listeners.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.dialog.DOI_CL;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
@@ -71,7 +71,7 @@ public class LOI_LCL implements OnItemLongClickListener {
 	 ***************************************/
 	private void case_tab_itemList(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
-		ShoppingItem si = (ShoppingItem) parent.getItemAtPosition(position);
+		SI si = (SI) parent.getItemAtPosition(position);
 		
 		String title = si.getName() + "/" + si.getStore();
 		
@@ -140,7 +140,7 @@ public class LOI_LCL implements OnItemLongClickListener {
 		/***************************************
 		 * Get item
 		 ***************************************/
-		ShoppingItem si = (ShoppingItem) parent.getItemAtPosition(position);
+		SI si = (SI) parent.getItemAtPosition(position);
 		
 		// Log
 		Log.d("ListOnItemClickListener.java" + "["

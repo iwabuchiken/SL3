@@ -3,7 +3,7 @@ package sl.listeners.dialog;
 import java.util.Calendar;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.CONS;
@@ -39,7 +39,7 @@ DB_CL implements OnClickListener {
 
 	PS ps;
 	
-	ShoppingItem si;
+	SI si;
 	
 	//
 	Vibrator vib;
@@ -57,7 +57,7 @@ DB_CL implements OnClickListener {
 
 	public DB_CL
 	(Activity actv, Dialog dlg1,
-			Dialog dlg2, ShoppingItem si) {
+			Dialog dlg2, SI si) {
 		
 		this.actv = actv;
 		this.d1 = dlg1;

@@ -1,6 +1,6 @@
 package sl.main;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.ButtonOnClickListener;
 import sl3.main.R;
 import sl3.main.R.id;

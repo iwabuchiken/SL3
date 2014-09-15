@@ -2,7 +2,7 @@ package sl.adapters;
 
 import java.util.List;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.ItemListActv;
 import sl3.main.R;
 import sl3.main.R.id;
@@ -18,13 +18,13 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
+public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
 	//
 	private int resourceId; 
 	
 	public ItemListAdapter2(Context context, int textViewResourceId,
-												List<ShoppingItem> list) {
+												List<SI> list) {
 		super(context, textViewResourceId, list);
 		// TODO �����������ꂽ�R���X�g���N�^�[�E�X�^�u
 		
@@ -52,7 +52,7 @@ public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
             convertView = inflater.inflate(resourceId, null);
         }
 
-        ShoppingItem si = (ShoppingItem) getItem(position);
+        SI si = (SI) getItem(position);
 
         getView__1_setupTextView(convertView, si);
 
@@ -67,7 +67,7 @@ public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
 	}//public View getView(int position, View convertView, ViewGroup parent)
 
 	private void
-	getView__2_setupBackground(View convertView, ShoppingItem si, int position) {
+	getView__2_setupBackground(View convertView, SI si, int position) {
 
 		/***************************************
 		 * Checked items
@@ -130,7 +130,7 @@ public class ItemListAdapter2 extends ArrayAdapter<ShoppingItem> {
 
 	}//private void getView__2_setupBackground(View convertView, int position)
 
-	private void getView__1_setupTextView(View convertView, ShoppingItem si) {
+	private void getView__1_setupTextView(View convertView, SI si) {
 		// TODO Auto-generated method stub
         //
         TextView tv_item_name = 

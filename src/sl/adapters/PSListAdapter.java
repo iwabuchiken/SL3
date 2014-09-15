@@ -3,7 +3,7 @@ package sl.adapters;
 import java.util.List;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.ItemListActv;
 import sl3.main.R;
 import sl3.main.R.id;

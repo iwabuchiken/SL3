@@ -11,7 +11,7 @@ import sl.adapters.ItemListAdapter;
 import sl.adapters.ItemListAdapter2;
 import sl.adapters.ToBuyListAdapter;
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
 import sl.listeners.ItemSelectedListener;
@@ -85,14 +85,14 @@ public class TabActv extends TabActivity
     	/***************************************
 		 * Build: List
 		 ***************************************/
-    	List<ShoppingItem> itemList = new ArrayList<ShoppingItem>();
+    	List<SI> itemList = new ArrayList<SI>();
     	
-		itemList.add(new ShoppingItem.Builder().setName("B").setPrice(1).build());
-		itemList.add(new ShoppingItem.Builder().setName("C").setPrice(1).build());
-		itemList.add(new ShoppingItem.Builder().setName("A").setPrice(2).build());
-		itemList.add(new ShoppingItem.Builder().setName("B").setPrice(3).build());
-		itemList.add(new ShoppingItem.Builder().setName("B").setPrice(2).build());
-		itemList.add(new ShoppingItem.Builder().setName("A").setPrice(1).build());
+		itemList.add(new SI.Builder().setName("B").setPrice(1).build());
+		itemList.add(new SI.Builder().setName("C").setPrice(1).build());
+		itemList.add(new SI.Builder().setName("A").setPrice(2).build());
+		itemList.add(new SI.Builder().setName("B").setPrice(3).build());
+		itemList.add(new SI.Builder().setName("B").setPrice(2).build());
+		itemList.add(new SI.Builder().setName("A").setPrice(1).build());
 		
 		// Log
 		Log.d("TabActv.java" + "["
@@ -118,10 +118,10 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * Sort: Name
 		 ***************************************/
-		Collections.sort(itemList, new Comparator<ShoppingItem>(){
+		Collections.sort(itemList, new Comparator<SI>(){
 
 //			@Override
-			public int compare(ShoppingItem i1, ShoppingItem i2) {
+			public int compare(SI i1, SI i2) {
 
 				
 				return (int) (i1.getName().compareTo(i2.getName()));
@@ -154,10 +154,10 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * Sort: Price
 		 ***************************************/
-		Collections.sort(itemList, new Comparator<ShoppingItem>(){
+		Collections.sort(itemList, new Comparator<SI>(){
 
 //			@Override
-			public int compare(ShoppingItem i1, ShoppingItem i2) {
+			public int compare(SI i1, SI i2) {
 				
 //				if (!i1.getName().equals(i2.getName())) {
 				if (i1.getName().equals(i2.getName())) {
@@ -841,7 +841,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * itemList
 		 ***************************************/
-		CONS.TabActv.itemList = new ArrayList<ShoppingItem>();
+		CONS.TabActv.itemList = new ArrayList<SI>();
 		
 		//
 		DBUtils dbm = new DBUtils(this);
@@ -879,7 +879,7 @@ public class TabActv extends TabActivity
 
 //			0									1		2		3		4			5
 //			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-			ShoppingItem item = new ShoppingItem(
+			SI item = new SI(
 					c.getInt(0),		// id store
 					c.getString(1),		// name
 					c.getString(2),		// yomi
@@ -923,7 +923,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * itemList
 		 ***************************************/
-		CONS.TabActv.toBuyList = new ArrayList<ShoppingItem>();
+		CONS.TabActv.toBuyList = new ArrayList<SI>();
 		
 		/***************************************
 		 * Setup db
@@ -1010,7 +1010,7 @@ public class TabActv extends TabActivity
 	
 	//			0									1		2		3		4			5
 	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-				ShoppingItem item = new ShoppingItem(
+				SI item = new SI(
 						c.getInt(0),		// id store
 						c.getString(1),		// name
 						c.getString(2),		// yomi
@@ -1042,7 +1042,7 @@ public class TabActv extends TabActivity
 		//debug
 		StringBuilder sb = new StringBuilder();
 		
-		for (ShoppingItem item : CONS.TabActv.toBuyList) {
+		for (SI item : CONS.TabActv.toBuyList) {
 			
 			sb.append(item.getId());
 			

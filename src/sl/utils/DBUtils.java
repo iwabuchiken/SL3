@@ -1,10 +1,11 @@
 package sl.utils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -814,7 +815,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			Activity actv,
 			SQLiteDatabase wdb,
 			int id,
-			ShoppingItem si) {
+			SI si) {
 		
 		/*----------------------------
 		 * Steps
@@ -849,7 +850,7 @@ public class DBUtils extends SQLiteOpenHelper {
 				+ CONS.DB.cols_SI_full[6] + "='" + String.valueOf(si.getCreated_at()) + "'"
 				
 				+ " AND "
-				+ CONS.DB.cols_SI_full[7] + "='" + String.valueOf(si.getUpdated_at()) + "'"
+				+ CONS.DB.cols_SI_full[7] + "='" + String.valueOf(si.getModified_at()) + "'"
 				
 				+ " AND "
 				+ CONS.DB.cols_SI_full[8] + "='" + String.valueOf(si.getPosted_at()) + "'"
@@ -1079,7 +1080,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//public List<PS> getPSList(Activity actv)
 
-	public ShoppingItem getSIFromDbId(String dbId) {
+	public SI getSIFromDbId(String dbId) {
 		// TODO Auto-generated method stub
 		
 		// Log
@@ -1157,7 +1158,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		 ***************************************/
 		cursor.moveToFirst();
 		
-		ShoppingItem si = new ShoppingItem();
+		SI si = new SI();
 		
 		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
@@ -1179,7 +1180,7 @@ public class DBUtils extends SQLiteOpenHelper {
 	}//public ShoppingItem getSIFromDbId(String dbId)
 	
 	
-	public ShoppingItem getSI_FromItemName(String itemName) {
+	public SI getSI_FromItemName(String itemName) {
 		// TODO Auto-generated method stub
 		
 		// Log
@@ -1236,7 +1237,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		 ***************************************/
 		cursor.moveToFirst();
 		
-		ShoppingItem si = new ShoppingItem();
+		SI si = new SI();
 		
 		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
 		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
@@ -1490,7 +1491,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//public boolean deleteItem(String tname, long dbId)
 
-	public boolean updateData_SI_all(ShoppingItem si) {
+	public boolean updateData_SI_all(SI si) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Build value set
@@ -1585,7 +1586,7 @@ public class DBUtils extends SQLiteOpenHelper {
 	 * 	<pre>1. Transaction unsuccessful
 	 * 2. Exception</pre>
 	 *********************************/
-	public boolean updateData_SI_all_V2(ShoppingItem si) {
+	public boolean updateData_SI_all_V2(SI si) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Build value set
@@ -1608,7 +1609,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		cv.put(CONS.DB.cols_SI_full[4], si.getYomi());
 		
 		cv.put(CONS.DB.cols_SI_full[6], si.getCreated_at());
-		cv.put(CONS.DB.cols_SI_full[7], si.getUpdated_at());
+		cv.put(CONS.DB.cols_SI_full[7], si.getModified_at());
 		cv.put(CONS.DB.cols_SI_full[8], si.getPosted_at());
 		
 		/***************************************
@@ -1820,6 +1821,21 @@ public class DBUtils extends SQLiteOpenHelper {
 		}//try
 		
 	}//createTable_static
+
+	public static boolean 
+	db_Exists
+	(Activity actv, String dbName) {
+		// TODO Auto-generated method stub
+		
+		String dpath_DB = actv.getDatabasePath(CONS.DB.dbName).getPath();
+		
+		String dpath = Methods.get_Dirname(actv, dpath_DB);
+		
+		File db = new File(dpath, CONS.DB.dbName_SL_1);
+		
+		return db.exists();
+		
+	}
 
 }//public class DBUtils extends SQLiteOpenHelper
 

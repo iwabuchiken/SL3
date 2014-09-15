@@ -3,7 +3,7 @@ package sl.listeners.dialog;
 import java.util.Calendar;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
 import sl.utils.CONS;
@@ -40,7 +40,7 @@ DB_OCL implements OnClickListener {
 
 	PS ps;
 	
-	ShoppingItem si;
+	SI si;
 	
 	//
 	Vibrator vib;
@@ -94,7 +94,7 @@ DB_OCL implements OnClickListener {
 	}
 
 	public DB_OCL(Activity actv, Dialog dlg1,
-			ShoppingItem si) {
+			SI si) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
 		this.d1 = dlg1;
@@ -107,7 +107,7 @@ DB_OCL implements OnClickListener {
 	}
 
 	public DB_OCL(Activity actv, Dialog dlg1,
-			Dialog dlg2, ShoppingItem si) {
+			Dialog dlg2, SI si) {
 		
 		this.actv = actv;
 		this.d1 = dlg1;
@@ -441,7 +441,7 @@ DB_OCL implements OnClickListener {
 		
 		case ACTV_TAB_OPT_IMP_DATA_SI:
 			
-			Methods.import_Data_SI(actv, d1, d2, d3);
+			Methods.import_Data_SI(actv, d1, d2, d3, d4);
 			
 			break;
 		
@@ -573,7 +573,7 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Build a new si
 		 ***************************************/
-		ShoppingItem newSI = new ShoppingItem();
+		SI newSI = new SI();
 		
 		newSI.setId(si.getId());
 		newSI.setStore(spStoreName.getSelectedItem().toString());
@@ -630,12 +630,12 @@ DB_OCL implements OnClickListener {
 
 	}//private void case_dlg_edit_items_bt_ok()
 
-	private void case_dlg_edit_items_bt_ok__updateItemList(ShoppingItem newSI) {
+	private void case_dlg_edit_items_bt_ok__updateItemList(SI newSI) {
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < CONS.TabActv.itemList.size(); i++) {
 			
-			ShoppingItem si = CONS.TabActv.itemList.get(i);
+			SI si = CONS.TabActv.itemList.get(i);
 			
 			if (si.getId() == newSI.getId()) {
 				

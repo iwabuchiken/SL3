@@ -13,7 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.utils.CONS;
 import sl.utils.Methods;
 import sl.utils.Methods_sl;
@@ -33,7 +33,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	Dialog dlg1;
 	Dialog dlg2;
 
-	ShoppingItem si;
+	SI si;
 	
 	public static Vibrator vib;
 	
@@ -57,7 +57,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		
 	}
 
-	public Task_PostData(Activity actv, ShoppingItem si) {
+	public Task_PostData(Activity actv, SI si) {
 		// TODO Auto-generated constructor stub
 		
 		this.actv	= actv;
@@ -130,7 +130,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		/*********************************
 		 * Build: JSONObject
 		 *********************************/
-		List<ShoppingItem> si_list = Methods_sl.getSIList(actv);
+		List<SI> si_list = Methods_sl.getSIList(actv);
 		
 		if (si_list == null) {
 			
@@ -283,7 +283,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		 * Build: JOBody
 		 *
 		 ***************************************/
-		ShoppingItem si = Methods_sl.getSI_FromDbId(
+		SI si = Methods_sl.getSI_FromDbId(
 						actv,
 						CONS.TabActv.tab_toBuyItemIds.get(0));
 		
@@ -377,7 +377,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	 * 		
 	 * 
 	 *********************************/
-	private int _exec_post(ShoppingItem si) {
+	private int _exec_post(SI si) {
 		
 		if (si == null) {
 			
@@ -658,7 +658,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 
 	@SuppressWarnings("unused")
 	private JSONObject
-	_doInBackground__1_getJSONBody(ShoppingItem si) {
+	_doInBackground__1_getJSONBody(SI si) {
 		
 		/*********************************
 		 * Prep: values
@@ -720,7 +720,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 				si.getYomi(),	si.getId(),
 				
 				si.getCreated_at(),
-				si.getUpdated_at(),
+				si.getModified_at(),
 				si.getPosted_at()
 				
 		};

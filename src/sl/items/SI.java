@@ -1,33 +1,47 @@
 package sl.items;
 
 
-public class ShoppingItem {
+public class SI {
 
 	//
+	int		id;
+	String	created_at;
+	String	modified_at;
+
 	String	store, name, genre, yomi;
 	int		price;
-	int		id;
 	
-	String	created_at;
-	String	updated_at;
+	int		num;
+	
 	String	posted_at;
+	
+	public SI(Builder builder) {
 
-	public ShoppingItem(Builder builder) {
-
+		id = builder.id;
+		this.created_at	= builder.created_at;
+		this.modified_at	= builder.modified_at;
+		
 		store = builder.store;
 		name = builder.name;
 		genre = builder.genre;
 		yomi = builder.yomi;
 		price = builder.price;
-		id = builder.id;
 		
-		this.created_at	= builder.created_at;
-		this.updated_at	= builder.updated_at;
+		this.num	= builder.num;
+		
 		this.posted_at	= builder.posted_at;
 		
 	}//public BM(Builder builder)
 
-	public ShoppingItem(String store, String name, int price, String genre) {
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public SI(String store, String name, int price, String genre) {
 		
 		this.store = store;
 		this.name = name;
@@ -36,7 +50,7 @@ public class ShoppingItem {
 		
 	}//public ShoppingItem(String store, String name, int price, String genre)
 
-	public ShoppingItem(String store, String name, int price, String genre, int id) {
+	public SI(String store, String name, int price, String genre, int id) {
 		
 		this.store = store;
 		this.name = name;
@@ -46,7 +60,7 @@ public class ShoppingItem {
 		
 	}//public ShoppingItem(String store, String name, int price, String genre)
 	
-	public ShoppingItem
+	public SI
 		(String store, String name,
 		int price, String genre, int id,
 		String	created_at,
@@ -61,13 +75,13 @@ public class ShoppingItem {
 		this.id = id;
 		
 		this.created_at = created_at;
-		this.updated_at = updated_at;
+		this.modified_at = updated_at;
 		this.posted_at = posted_at;
 		
 	}//public ShoppingItem(String store, String name, int price, String genre)
 
 	public
-	ShoppingItem
+	SI
 	(int id, String name, String yomi, String genre, String store, int price) {
 		
 		this.id = id;
@@ -84,7 +98,7 @@ public class ShoppingItem {
 	
 
 	public
-	ShoppingItem
+	SI
 	(int id, String store, String name, int price, String genre, String yomi) {
 
 		this.id = id;
@@ -97,7 +111,7 @@ public class ShoppingItem {
 
 	}
 
-	public ShoppingItem() {
+	public SI() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -108,12 +122,12 @@ public class ShoppingItem {
 		return created_at;
 	}
 
-	public String getUpdated_at() {
-		return updated_at;
+	public String getModified_at() {
+		return modified_at;
 	}
 
-	public void setUpdated_at(String updated_at) {
-		this.updated_at = updated_at;
+	public void setModified_at(String updated_at) {
+		this.modified_at = updated_at;
 	}
 
 	public String getPosted_at() {
@@ -178,20 +192,31 @@ public class ShoppingItem {
 
 	public static class Builder {
 		
+		private int id;
+		private String	created_at;
+		private String	modified_at;
+		
 		private String store, name, genre, yomi;
 		private int price;
-		private int id;
+
+		private int num;
 		
-		private String	created_at;
-		private String	updated_at;
 		private String	posted_at;
 		
-		public ShoppingItem build() {
+		public SI build() {
 			
-			return new ShoppingItem(this);
+			return new SI(this);
 			
 		}
 		
+		public Builder setNum(int num) {
+			this.num = num; return this;
+		}
+
+		public Builder setModified_at(String modified_at) {
+			this.modified_at = modified_at; return this;
+		}
+
 		public Builder setStore(String store) {
 			this.store = store;	return this;
 		}
@@ -199,8 +224,8 @@ public class ShoppingItem {
 			this.created_at = created_at;	return this;
 		}
 
-		public Builder setUpdated_at(String updated_at) {
-			this.updated_at = updated_at;	return this;
+		public Builder setId(int id) {
+			this.id = id;	return this;
 		}
 
 		public Builder setPosted_at(String posted_at) {
@@ -219,9 +244,7 @@ public class ShoppingItem {
 		public Builder setPrice(int price) {
 			this.price = price;	return this;
 		}
-		public Builder setId(int id) {
-			this.id = id;	return this;
-		}
+
 
 		
 		

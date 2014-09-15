@@ -7,7 +7,7 @@ import java.util.Comparator;
 import org.apache.commons.lang.StringUtils;
 
 import sl.items.ListItem;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.MainActv;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
@@ -44,7 +44,7 @@ public class DOI_CL implements OnItemClickListener {
 	Dialog dlg1;
 	Dialog d2;
 	
-	ShoppingItem si;
+	SI si;
 	//
 	Vibrator vib;
 	
@@ -74,7 +74,7 @@ public class DOI_CL implements OnItemClickListener {
 	}//public DialogOnItemClickListener(Activity actv, Dialog dlg)
 
 	public DOI_CL(Activity actv,
-							Dialog dlg, ShoppingItem si) {
+							Dialog dlg, SI si) {
 		this.actv = actv;
 		this.d1 = dlg;
 		this.si = si;
@@ -85,7 +85,7 @@ public class DOI_CL implements OnItemClickListener {
 	}
 
 	public DOI_CL
-	(Activity actv, Dialog dlg1, DialogTags dlgTag, ShoppingItem si) {
+	(Activity actv, Dialog dlg1, DialogTags dlgTag, SI si) {
 		
 		this.actv = actv;
 		this.dlg1 = dlg1;
@@ -805,7 +805,7 @@ public class DOI_CL implements OnItemClickListener {
 
 	private void dlg_db_admin_lv_RestoreDb() {
 		
-		String src_dir = CONS.DB.dirPath_db_backup;
+		String src_dir = CONS.DB.dirPath_dbFile_Backup_SL_1;
 		
 		File f_dir = new File(src_dir);
 		
@@ -1019,7 +1019,7 @@ public class DOI_CL implements OnItemClickListener {
 	private void dlg_db_admin_lv_backupDb() {
 		// TODO Auto-generated method stub
 		int res = Methods.backupDb(
-				actv, CONS.DB.dbName, CONS.DB.dirPath_db_backup);
+				actv, CONS.DB.dbName, CONS.DB.dirPath_dbFile_Backup_SL_1);
 
 		if (res == CONS.RV.DB_DOESNT_EXIST) {
 			

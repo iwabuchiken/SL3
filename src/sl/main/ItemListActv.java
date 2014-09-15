@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import sl.adapters.ItemListAdapter;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
 import sl3.main.R;
@@ -31,7 +31,7 @@ import android.widget.Toast;
 public class ItemListActv extends ListActivity {
 
 	//
-	public static List<ShoppingItem> list;
+	public static List<SI> list;
 	
 	//
 	public static ItemListAdapter adapter;
@@ -107,7 +107,7 @@ public class ItemListActv extends ListActivity {
 
 	private void setList() {
 		//
-		list = new ArrayList<ShoppingItem>();
+		list = new ArrayList<SI>();
 		
 		//
 		DBUtils dbm = new DBUtils(this);
@@ -147,7 +147,7 @@ public class ItemListActv extends ListActivity {
 
 //			0									1		2		3		4			5
 //			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-			ShoppingItem item = new ShoppingItem(
+			SI item = new SI(
 					c.getInt(0),		// id store
 					c.getString(1),		// name
 					c.getString(2),		// yomi
@@ -251,7 +251,7 @@ public class ItemListActv extends ListActivity {
 		
 		super.onListItemClick(lv, v, position, id);
 		
-		ShoppingItem si = (ShoppingItem) lv.getItemAtPosition(position);
+		SI si = (SI) lv.getItemAtPosition(position);
 		
 		// Log
 		Log.d("ItemList.java" + "["

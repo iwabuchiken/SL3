@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 import org.apache.commons.lang.StringUtils;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.MainActv;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
@@ -42,14 +42,14 @@ public class ListViewCL implements OnItemClickListener {
 	Dialog dlg1;
 	Dialog dlg2;
 	
-	ShoppingItem si;
+	SI si;
 	//
 	Vibrator vib;
 	
 	//
 	Tags.ListViewTags lvTag = null;
 	
-	public ListViewCL(Activity actv, Dialog dlg, ShoppingItem si) {
+	public ListViewCL(Activity actv, Dialog dlg, SI si) {
 		// 
 		this.actv = actv;
 		this.dlg = dlg;

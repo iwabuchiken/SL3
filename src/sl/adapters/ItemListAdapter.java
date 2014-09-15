@@ -2,7 +2,7 @@ package sl.adapters;
 
 import java.util.List;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.ItemListActv;
 import sl3.main.R;
 import sl3.main.R.id;
@@ -16,13 +16,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class ItemListAdapter extends ArrayAdapter<ShoppingItem> {
+public class ItemListAdapter extends ArrayAdapter<SI> {
 
 	//
 	private int resourceId; 
 	
 	public ItemListAdapter(Context context, int textViewResourceId,
-												List<ShoppingItem> list) {
+												List<SI> list) {
 		super(context, textViewResourceId, list);
 		// TODO �����������ꂽ�R���X�g���N�^�[�E�X�^�u
 		
@@ -61,7 +61,7 @@ public class ItemListAdapter extends ArrayAdapter<ShoppingItem> {
 				(TextView) convertView.findViewById(R.id.adapteritem_tv_genre);
 
         //
-        ShoppingItem si = (ShoppingItem) getItem(position);
+        SI si = (SI) getItem(position);
         
 //        // Log
 //		Log.d("ItemListAdapter.java" + "["

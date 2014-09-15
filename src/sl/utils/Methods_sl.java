@@ -40,7 +40,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.MainActv;
 import sl3.main.R;
 import sl.tasks.Task_PostData;
@@ -1675,12 +1675,12 @@ public class Methods_sl {
 	 * Sort list => By Yomi
 	 ***************************************/
 	public static void
-	sortItemList(List<ShoppingItem> tiList) {
+	sortItemList(List<SI> tiList) {
 		
-		Collections.sort(tiList, new Comparator<ShoppingItem>(){
+		Collections.sort(tiList, new Comparator<SI>(){
 
 //			@Override
-			public int compare(ShoppingItem i1, ShoppingItem i2) {
+			public int compare(SI i1, SI i2) {
 				// TODO �����������ꂽ���\�b�h�E�X�^�u
 				
 //				return (int) (i1.getDate_added() - i2.getDate_added());
@@ -1906,7 +1906,7 @@ public class Methods_sl {
 	
 	//			0									1		2		3		4			5
 	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-				ShoppingItem item = new ShoppingItem(
+				SI item = new SI(
 						c.getInt(0),		// id store
 						c.getString(1),		// name
 						c.getString(2),		// yomi
@@ -1954,7 +1954,7 @@ public class Methods_sl {
 		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
 //			ShoppingItem si = CONS.TabActv.toBuyList.get(0);
-			ShoppingItem si = CONS.TabActv.toBuyList.get(i);
+			SI si = CONS.TabActv.toBuyList.get(i);
 			
 			sum += si.getPrice();
 			
@@ -2059,12 +2059,12 @@ public class Methods_sl {
 
 	
 	public static
-	List<ShoppingItem> getSIListFromItemList
+	List<SI> getSIListFromItemList
 	(Activity actv, String s_ItemList) {
 		// TODO Auto-generated method stub
 		String[] ary_ItemList = s_ItemList.split(" ");
 		
-		List<ShoppingItem> siList = new ArrayList<ShoppingItem>();
+		List<SI> siList = new ArrayList<SI>();
 		
 		/***************************************
 		 * Setup db
@@ -2075,7 +2075,7 @@ public class Methods_sl {
 		
 		for (int i = 0; i < ary_ItemList.length; i++) {
 			
-			ShoppingItem si = dbu.getSIFromDbId(ary_ItemList[i]);
+			SI si = dbu.getSIFromDbId(ary_ItemList[i]);
 			
 			if (si == null) {
 				
@@ -2284,15 +2284,15 @@ public class Methods_sl {
 	}
 
 	public static void
-	sortItemList_GenreItemName(List<ShoppingItem> itemList) {
+	sortItemList_GenreItemName(List<SI> itemList) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Sort: Genre
 		 ***************************************/
-		Collections.sort(itemList, new Comparator<ShoppingItem>(){
+		Collections.sort(itemList, new Comparator<SI>(){
 
 //			@Override
-			public int compare(ShoppingItem i1, ShoppingItem i2) {
+			public int compare(SI i1, SI i2) {
 
 				
 				return (int) (i1.getGenre().compareTo(i2.getGenre()));
@@ -2304,10 +2304,10 @@ public class Methods_sl {
 		/***************************************
 		 * Sort: Item name
 		 ***************************************/
-		Collections.sort(itemList, new Comparator<ShoppingItem>(){
+		Collections.sort(itemList, new Comparator<SI>(){
 
 //			@Override
-			public int compare(ShoppingItem i1, ShoppingItem i2) {
+			public int compare(SI i1, SI i2) {
 				
 //				if (!i1.getName().equals(i2.getName())) {
 				if (i1.getGenre().equals(i2.getGenre())) {
@@ -2331,7 +2331,7 @@ public class Methods_sl {
 
 	public static boolean
 	delete_item_from_database
-	(Activity actv, ShoppingItem si) {
+	(Activity actv, SI si) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Database
@@ -2365,7 +2365,7 @@ public class Methods_sl {
 
 	public static boolean
 	delete_item_from_item_list
-	(Activity actv, ShoppingItem si) {
+	(Activity actv, SI si) {
 		// TODO Auto-generated method stub
 		boolean res = true;
 		
@@ -2391,10 +2391,10 @@ public class Methods_sl {
 	 * 			2. else => List{@literal <ShoppingItem>}<br/>
 	 *********************************/
 	public static
-	List<ShoppingItem> getSIList(Activity actv) {
+	List<SI> getSIList(Activity actv) {
 		// TODO Auto-generated method stub
 		
-		List<ShoppingItem> si_list = new ArrayList<ShoppingItem>();
+		List<SI> si_list = new ArrayList<SI>();
 		
 		DBUtils dbm = new DBUtils(actv);
 		
@@ -2431,30 +2431,31 @@ public class Methods_sl {
 				*/
 		for (int i = 0; i < c.getCount(); i++) {
 
-//			0									1		2		3		4			5
-//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-			ShoppingItem item = new ShoppingItem.Builder()
-						.setId(c.getInt(5))
-						
-						.setName(c.getString(1))
-						.setPrice(c.getInt(2))
-						.setGenre(c.getString(3))
-						.setYomi(c.getString(4))
-						.setStore(c.getString(0))
-						
-						.setCreated_at(c.getString(6))
-						.setUpdated_at(c.getString(7))
-						.setPosted_at(c.getString(8))
-						.build();
+//			android.provider.BaseColumns._ID,	// 0
+//			"created_at", "modified_at",			// 1,2
+//			
+//			"store", "name", "price",			// 3,4,5
+//			"genre", "yomi", "num",				// 6,7,8
+//			
+//			"posted_at"							// 9
 			
-//					ShoppingItem item = new ShoppingItem(
-//					c.getInt(0),		// id store
-//					c.getString(1),		// name
-//					c.getString(2),		// yomi
-//					c.getString(3),		// genre
-//					c.getString(4),		//	store
-//					c.getInt(5)			// price
-//					);
+			SI item = new SI.Builder()
+			
+						.setId(c.getInt(0))
+						.setCreated_at(c.getString(1))
+						.setModified_at(c.getString(2))
+						
+						.setStore(c.getString(3))
+						.setName(c.getString(4))
+						.setPrice(c.getInt(5))
+						
+						.setGenre(c.getString(6))
+						.setYomi(c.getString(7))
+						.setNum(c.getInt(8))
+						
+						.setPosted_at(c.getString(9))
+						
+						.build();
 			
 			//
 			si_list.add(item);
@@ -2475,11 +2476,11 @@ public class Methods_sl {
 	 * getSI_FromDbId(Activity actv, int dbId)
 	 * @return null => Query exception
 	 *********************************/
-	public static ShoppingItem
+	public static SI
 	getSI_FromDbId(Activity actv, int dbId) {
 		// TODO Auto-generated method stub
 		
-		ShoppingItem si;
+		SI si;
 		
 		DBUtils dbm = new DBUtils(actv);
 		
@@ -2521,22 +2522,40 @@ public class Methods_sl {
 		//
 		c.moveToFirst();
 		
+		si = new SI.Builder()
+		
+				.setId(c.getInt(0))
+				.setCreated_at(c.getString(1))
+				.setModified_at(c.getString(2))
+				
+				.setStore(c.getString(3))
+				.setName(c.getString(4))
+				.setPrice(c.getInt(5))
+				
+				.setGenre(c.getString(6))
+				.setYomi(c.getString(7))
+				.setNum(c.getInt(8))
+				
+				.setPosted_at(c.getString(9))
+				
+				.build();
+		
 //			0									1		2		3		4			5
 //			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-		si = new ShoppingItem.Builder()
-				.setId(c.getInt(5))
-				.setName(c.getString(1))
-				.setPrice(c.getInt(2))
-				.setGenre(c.getString(3))
-				.setYomi(c.getString(4))
-				.setStore(c.getString(0))
-				.setCreated_at(c.getString(6))
-				.setUpdated_at(c.getString(7))
-				.setPosted_at(c.getString(8))
-//				.setCreated_at(c.getLong(6))
-//				.setUpdated_at(c.getLong(7))
-//				.setPosted_at(c.getLong(8))
-				.build();
+//		si = new SI.Builder()
+//				.setId(c.getInt(5))
+//				.setName(c.getString(1))
+//				.setPrice(c.getInt(2))
+//				.setGenre(c.getString(3))
+//				.setYomi(c.getString(4))
+//				.setStore(c.getString(0))
+//				.setCreated_at(c.getString(6))
+//				.setUpdated_at(c.getString(7))
+//				.setPosted_at(c.getString(8))
+////				.setCreated_at(c.getLong(6))
+////				.setUpdated_at(c.getLong(7))
+////				.setPosted_at(c.getLong(8))
+//				.build();
 		
 /*		cid   name
 		----  ------------
@@ -2569,12 +2588,12 @@ public class Methods_sl {
 	 * getSI_FromDbId(Activity actv, int dbId)
 	 * @return null => Query exception
 	 *********************************/
-	public static ShoppingItem
+	public static SI
 	getSI_FromNameAndStore
 		(Activity actv, String itemName, String storeName) {
 		// TODO Auto-generated method stub
 		
-		ShoppingItem si;
+		SI si;
 		
 		DBUtils dbm = new DBUtils(actv);
 		
@@ -2641,19 +2660,37 @@ public class Methods_sl {
 		//
 		c.moveToFirst();
 		
+		si = new SI.Builder()
+		
+					.setId(c.getInt(0))
+					.setCreated_at(c.getString(1))
+					.setModified_at(c.getString(2))
+					
+					.setStore(c.getString(3))
+					.setName(c.getString(4))
+					.setPrice(c.getInt(5))
+					
+					.setGenre(c.getString(6))
+					.setYomi(c.getString(7))
+					.setNum(c.getInt(8))
+					
+					.setPosted_at(c.getString(9))
+					
+					.build();
+		
 //			0									1		2		3		4			5
 //			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-		si = new ShoppingItem.Builder()
-		.setId(c.getInt(5))
-		.setName(c.getString(1))
-		.setPrice(c.getInt(2))
-		.setGenre(c.getString(3))
-		.setYomi(c.getString(4))
-		.setStore(c.getString(0))
-		.setCreated_at(c.getString(6))
-		.setUpdated_at(c.getString(7))
-		.setPosted_at(c.getString(8))
-		.build();
+//		si = new SI.Builder()
+//		.setId(c.getInt(5))
+//		.setName(c.getString(1))
+//		.setPrice(c.getInt(2))
+//		.setGenre(c.getString(3))
+//		.setYomi(c.getString(4))
+//		.setStore(c.getString(0))
+//		.setCreated_at(c.getString(6))
+//		.setUpdated_at(c.getString(7))
+//		.setPosted_at(c.getString(8))
+//		.build();
 		
 		/*		cid   name
 		----  ------------
@@ -2851,7 +2888,7 @@ public class Methods_sl {
 	}//JSONObject get_json_body_SI
 
 	public static boolean
-	update_SI(Activity actv, ShoppingItem si) {
+	update_SI(Activity actv, SI si) {
 		
 		DBUtils dbu = new DBUtils(actv);
 		

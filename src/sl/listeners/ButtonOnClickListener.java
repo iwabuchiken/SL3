@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sl.adapters.ItemListAdapter;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.ItemListActv;
 import sl3.main.R;
 import sl.tasks.TaskAudioTrack;
@@ -163,7 +163,7 @@ public class ButtonOnClickListener implements OnClickListener {
 			
 			ItemListActv.toBuys.addAll(ItemListActv.checkedPositions);
 			
-			List<ShoppingItem> chosen_items_list = new ArrayList<ShoppingItem>();
+			List<SI> chosen_items_list = new ArrayList<SI>();
 			
 			for (Integer num : ItemListActv.toBuys) {
 				
@@ -191,7 +191,7 @@ public class ButtonOnClickListener implements OnClickListener {
 					+ "]", "chosen_items_list.size()=" + chosen_items_list.size());
 			
 			// Log
-			ShoppingItem si = chosen_items_list.get(0);
+			SI si = chosen_items_list.get(0);
 			
 			Log.d("ButtonOnClickListener.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
@@ -326,7 +326,7 @@ public class ButtonOnClickListener implements OnClickListener {
 		 * 		Post data
 		 *********************************/
 		// Build: ShoppingItem instance
-		ShoppingItem si = Methods_sl.getSI_FromNameAndStore(
+		SI si = Methods_sl.getSI_FromNameAndStore(
 					actv,
 					et_name.getText().toString(),
 					sp_store_name.getSelectedItem().toString());

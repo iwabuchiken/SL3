@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
 import sl3.main.R;
@@ -104,13 +104,13 @@ public class MainActv extends Activity {
 	private void
 	_debug_D_44_V_3_0_11_EnterCreatedAtData() {
 		// TODO Auto-generated method stub
-		List<ShoppingItem> si_list = Methods_sl.getSIList(this);
+		List<SI> si_list = Methods_sl.getSIList(this);
 		
 		int counter = 0;
 		
 		int updated = 0;
 		
-		for (ShoppingItem si : si_list) {
+		for (SI si : si_list) {
 			
 //			// Log
 //			Log.d("["
@@ -130,7 +130,7 @@ public class MainActv extends Activity {
 				
 				si.setCreated_at(
 						Methods.getTimeLabel_V2(Methods.getMillSeconds_now(), 2));
-				si.setUpdated_at(
+				si.setModified_at(
 						Methods.getTimeLabel_V2(Methods.getMillSeconds_now(), 2));
 				
 				boolean bRes = Methods_sl.update_SI(this, si);
@@ -527,7 +527,7 @@ public class MainActv extends Activity {
 		
 		SQLiteDatabase wdb = dbu.getWritableDatabase();
 		
-		ShoppingItem si =
+		SI si =
 				Methods_sl.getSI_FromDbId(this, 203);
 //		Methods_sl.getSI_FromNameAndStore(this, "なにぬねの", "キャン・ドゥ");
 //		Methods_sl.getSI_FromNameAndStore(this, "消毒液", "クリエイト");
@@ -589,7 +589,7 @@ public class MainActv extends Activity {
 		// TODO Auto-generated method stub
 		DBUtils dbu = new DBUtils(this, CONS.DB.dbName);
 		
-		ShoppingItem si =
+		SI si =
 				Methods_sl.getSI_FromDbId(this, 203);
 //		Methods_sl.getSI_FromNameAndStore(this, "なにぬねの", "キャン・ドゥ");
 //		Methods_sl.getSI_FromNameAndStore(this, "消毒液", "クリエイト");
@@ -702,7 +702,7 @@ public class MainActv extends Activity {
 	_debug_D_44_V_3_0_3_TestMethod_getSI_FromNameAndStore() {
 		// TODO Auto-generated method stub
 		
-		ShoppingItem si =
+		SI si =
 				Methods_sl.getSI_FromNameAndStore(this, "消毒液", "クリエイト");
 		
 		if (si == null) {
@@ -740,7 +740,7 @@ public class MainActv extends Activity {
 	_debug_D_44_V_3_0_2_TestMethod_getSI_FromDbId() {
 		// TODO Auto-generated method stub
 		
-		ShoppingItem si = Methods_sl.getSI_FromDbId(this, 100);
+		SI si = Methods_sl.getSI_FromDbId(this, 100);
 		
 		// Log
 		Log.d("[" + "MainActv.java : "
@@ -954,10 +954,10 @@ public class MainActv extends Activity {
 		 * Restore db
 		 *********************************/
 		String srcFileName = Methods.getFileNameFromDir_latest(
-										this, CONS.DB.dirPath_db_backup);
+										this, CONS.DB.dirPath_dbFile_Backup_SL_1);
 		
 		String src = StringUtils.join(
-							new String[]{CONS.DB.dirPath_db_backup,
+							new String[]{CONS.DB.dirPath_dbFile_Backup_SL_1,
 									srcFileName},
 							File.separator);
 		
@@ -989,7 +989,7 @@ public class MainActv extends Activity {
 		 * memo
 		 *********************************/
 		String src = StringUtils.join(
-				new String[]{CONS.DB.dirPath_db_backup,
+				new String[]{CONS.DB.dirPath_dbFile_Backup_SL_1,
 //						"shoppinglist_backup_20121108_122426.bk"},
 						"shoppinglist_backup_20130905_004749.bk"},
 				File.separator);
@@ -1043,7 +1043,7 @@ public class MainActv extends Activity {
 		
 		String db_dst = StringUtils.join(
 							new String[]{
-								CONS.DB.dirPath_db_backup,
+								CONS.DB.dirPath_dbFile_Backup_SL_1,
 								CONS.DB.fileName_db_backup_trunk},
 							File.separator);
 		

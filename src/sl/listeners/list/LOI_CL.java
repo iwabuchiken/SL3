@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.main.MainActv;
 import sl3.main.R;
 import sl.main.RegisterItemActv;
@@ -170,7 +170,7 @@ public class LOI_CL implements OnItemClickListener {
 		
 		String itemIdString = ps.getItems();
 		
-		List<ShoppingItem> loadedSIList = Methods_sl.getSIListFromItemList(actv, itemIdString);
+		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, itemIdString);
 		
 		// Log
 		Log.d("ListOnItemClickListener.java" + "["
@@ -239,7 +239,7 @@ public class LOI_CL implements OnItemClickListener {
 		
 		for (int i = 0; i < loadedSIList.size(); i++) {
 			
-			ShoppingItem si = loadedSIList.get(i);
+			SI si = loadedSIList.get(i);
 			
 			itemNameList.add(si.getName());
 			
@@ -313,7 +313,7 @@ public class LOI_CL implements OnItemClickListener {
 		CONS.TabActv.toBuyList.clear();
 		
 //		CONS.TabActv.toBuyList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
-		List<ShoppingItem> loadedSIList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
+		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
 				
 		
 		// Sort list
@@ -354,7 +354,7 @@ public class LOI_CL implements OnItemClickListener {
 		
 		for (int i = 0; i < loadedSIList.size(); i++) {
 			
-			ShoppingItem si = loadedSIList.get(i);
+			SI si = loadedSIList.get(i);
 			
 			CONS.TabActv.tab_toBuyItemIds.add(si.getId());
 			
@@ -399,7 +399,7 @@ public class LOI_CL implements OnItemClickListener {
 		
 		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
-			ShoppingItem si = CONS.TabActv.toBuyList.get(i);
+			SI si = CONS.TabActv.toBuyList.get(i);
 			
 			sum += si.getPrice();
 			
@@ -416,7 +416,7 @@ public class LOI_CL implements OnItemClickListener {
 		/***************************************
 		 * Get item
 		 ***************************************/
-		ShoppingItem si = (ShoppingItem) parent.getItemAtPosition(position);
+		SI si = (SI) parent.getItemAtPosition(position);
 		
 		// Log
 		Log.d("ListOnItemClickListener.java" + "["
@@ -533,7 +533,7 @@ public class LOI_CL implements OnItemClickListener {
 		/***************************************
 		 * Get item
 		 ***************************************/
-		ShoppingItem si = (ShoppingItem) parent.getItemAtPosition(position);
+		SI si = (SI) parent.getItemAtPosition(position);
 		
 		// Log
 		Log.d("ListOnItemClickListener.java" + "["

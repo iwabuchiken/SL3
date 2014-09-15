@@ -7,7 +7,7 @@ import sl.adapters.Adp_ListItems;
 import sl.adapters.PSListAdapter;
 import sl.items.ListItem;
 import sl.items.PS;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 import sl.listeners.dialog.DB_CL;
 import sl.listeners.dialog.DB_OTL;
 import sl.listeners.dialog.DB_OCL;
@@ -324,7 +324,7 @@ public class Methods_dlg {
 	
 	}//public static Dialog dlg_template_okCancel()
 
-	public static void dlg_tabActv_tab2Lv(Activity actv, ShoppingItem si) {
+	public static void dlg_tabActv_tab2Lv(Activity actv, SI si) {
 		/***************************************
 		 * 1. Dialog
 		 ***************************************/
@@ -465,7 +465,7 @@ public class Methods_dlg {
 		 * 2. Get the store name from the item
 		 * 3. Use this store name as the default
 		 ***************************************/
-		ShoppingItem item = CONS.TabActv.toBuyList.get(0);
+		SI item = CONS.TabActv.toBuyList.get(0);
 		
 		if (item != null) {
 			
@@ -491,7 +491,7 @@ public class Methods_dlg {
 		 ***************************************/
 		int amount = 0;
 		
-		for (ShoppingItem i : CONS.TabActv.toBuyList) {
+		for (SI i : CONS.TabActv.toBuyList) {
 			
 			amount += i.getPrice();
 			
@@ -620,7 +620,7 @@ public class Methods_dlg {
 			int layoutId, int titleStringId,
 			int okButtonId, int cancelButtonId,
 			DialogTags okTag, DialogTags cancelTag,
-			Dialog dlg1, ShoppingItem si) {
+			Dialog dlg1, SI si) {
 		/*----------------------------
 		 * Steps
 		 * 1. Set up
@@ -678,7 +678,7 @@ public class Methods_dlg {
 			
 			Tags.DialogButtonTags okTag, Tags.DialogButtonTags cancelTag,
 			
-			Dialog dlg1, ShoppingItem si) {
+			Dialog dlg1, SI si) {
 		/*----------------------------
 		 * Steps
 		 * 1. Set up
@@ -1374,7 +1374,7 @@ public class Methods_dlg {
 			int okButtonId, int cancelButtonId,
 			
 			DialogTags okTag, DialogTags cancelTag,
-			ShoppingItem si) {
+			SI si) {
 		// TODO Auto-generated method stub
 		/*----------------------------
 		* Steps
@@ -1485,7 +1485,7 @@ public class Methods_dlg {
 
 	public static void
 	dlg_tab1_edit_item
-	(Activity actv, ShoppingItem si, Dialog dlg1) {
+	(Activity actv, SI si, Dialog dlg1) {
 
 		/***************************************
 		 * Dialog
@@ -1545,7 +1545,7 @@ public class Methods_dlg {
 	}//dlg_tab1_edit_item(AdapterView<?> parent, int position)
 
 	private static void
-	case_tab_itemList__setItemNameAndYomi(ShoppingItem si, Dialog dlg) {
+	case_tab_itemList__setItemNameAndYomi(SI si, Dialog dlg) {
 		// TODO Auto-generated method stub
 		EditText etItemName = (EditText) dlg.findViewById(R.id.dlg_edit_items_et_name);
 		etItemName.setText(si.getName());
@@ -1556,7 +1556,7 @@ public class Methods_dlg {
 	}//case_tab_itemList__setItemNameAndYomi(ShoppingItem si, Dialog dlg)
 	
 	private static void
-	case_tab_itemList__setPrice(ShoppingItem si, Dialog dlg) {
+	case_tab_itemList__setPrice(SI si, Dialog dlg) {
 		// TODO Auto-generated method stub
 
 		EditText etPrice = (EditText) dlg.findViewById(R.id.dlg_edit_items_et_price);
@@ -1569,7 +1569,7 @@ public class Methods_dlg {
 
 	private static void
 	case_tab_itemList__setStoreName
-	(ShoppingItem si, Dialog dlg, Activity actv) {
+	(SI si, Dialog dlg, Activity actv) {
 		// TODO Auto-generated method stub
 		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
 		Spinner sp_store_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_store);
@@ -1670,7 +1670,7 @@ public class Methods_dlg {
 
 	private static void
 	case_tab_itemList__setGenre
-	(Activity actv, ShoppingItem si, Dialog dlg) {
+	(Activity actv, SI si, Dialog dlg) {
 		// TODO Auto-generated method stub
 		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
 		Spinner sp_genre_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_genre);
@@ -1767,7 +1767,7 @@ public class Methods_dlg {
 
 	public static void
 	dlg_tab1_delete_item
-	(Activity actv, ShoppingItem si, Dialog dlg1) {
+	(Activity actv, SI si, Dialog dlg1) {
 		// TODO Auto-generated method stub
 		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues_SI(
 						actv,

@@ -4,7 +4,7 @@ import java.util.List;
 
 import sl.adapters.ItemListAdapter2;
 import sl.adapters.ToBuyListAdapter;
-import sl.items.ShoppingItem;
+import sl.items.SI;
 
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.view.Menu;
@@ -53,6 +53,9 @@ public class CONS {
 		 * DB
 		 *********************************/
 		public static String dbName = "sl";
+		public static String dbName_SL_1 = "sl_1";
+		
+		public static String dbName_Importing = dbName_SL_1;
 
 		/*********************************
 		 * Table names
@@ -87,7 +90,7 @@ public class CONS {
 
 		public static String fileName_db_backup_ext = ".bk";
 
-		public static String dirPath_db_backup = 
+		public static String dirPath_dbFile_Backup_SL_1 = 
 						dirName_ExternalStorage + "/ShoppingList_backup";
 		
 		public static String fname_DB_Backup_Trunk = "sl3_backup";
@@ -188,9 +191,9 @@ public class CONS {
 			"created_at", "modified_at",			// 1,2
 			
 			"store", "name", "price",			// 3,4,5
-			"genre", "yomi", "num",				// 6,7
+			"genre", "yomi", "num",				// 6,7,8
 			
-			"posted_at"							// 8
+			"posted_at"							// 9
 			
 		};
 		
@@ -200,9 +203,9 @@ public class CONS {
 			"TEXT", "TEXT",			// 1,2
 			
 			"TEXT", "TEXT", "INTEGER",			// 3,4,5
-			"TEXT", "TEXT", "INTEGER",			// 6,7
+			"TEXT", "TEXT", "INTEGER",			// 6,7,8
 			
-			"TEXT"							// 8
+			"TEXT"							// 9
 			
 		};
 		
@@ -575,8 +578,8 @@ public class CONS {
 		/***************************************
 		 * List: ShoppingItem
 		 ***************************************/
-		public static List<ShoppingItem> toBuyList;
-		public static List<ShoppingItem> itemList;
+		public static List<SI> toBuyList;
+		public static List<SI> itemList;
 
 		public static Menu menu;
 		
