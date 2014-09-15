@@ -340,8 +340,11 @@ public class DOI_CL implements OnItemClickListener {
 		if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Main__BackupDB))) {
 
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			_case_ACTV_TAB_OPT_ADMIN__BackupDB(actv);
+//			Methods.backup_DB(actv);
+			
+//			String msg = "Sorry. Under construction";
+//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
 			
 			
 		} else if (li.getText().equals(actv.getString(
@@ -361,6 +364,76 @@ public class DOI_CL implements OnItemClickListener {
 		
 		
 	}//case_ACTV_TAB_OPT_ADMIN
+
+	private void 
+	_case_ACTV_TAB_OPT_ADMIN__BackupDB
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		int res = Methods.backup_DB(actv);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res) {
+
+//		-1 Create folder => not successful
+//		-2 Create folder => Exception
+//		-3 FileNotFoundException
+//		-4 IOException
+//		1 backup => done
+		
+		case -4: 
+			
+			msg = "IOException";
+			colorID = R.color.red;
+			
+			break;
+			
+		case -3: 
+			
+			msg = "FileNotFoundException";
+			colorID = R.color.red;
+			
+			break;
+			
+		case -1: 
+			
+			msg = "Create folder => not successful";
+			colorID = R.color.gold2;
+			
+			break;
+		
+		case -2: 
+			
+			msg = "Create folder => Exception";
+			colorID = R.color.red;
+			
+			break;
+			
+		case 1: 
+			
+			msg = "Backup => done";
+			colorID = R.color.green4;
+			
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+
+		
+	}//_case_ACTV_TAB_OPT_ADMIN__BackupDB
 
 	private void
 	case_dlg_item_list_long_click(String choice) {

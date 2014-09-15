@@ -71,7 +71,7 @@ public class CONS {
 		public static String dirName_ExternalStorage = "/mnt/sdcard-ext";
 		
 		public final static String dPath_Data_Root = 
-									dirName_ExternalStorage + "/ta2_data";
+									dirName_ExternalStorage + "/sl3_data";
 //		public final static String dPath_Data_Root = "/mnt/sdcard-ext/ta2_data";
 		
 		public static String dPath_dbFile_Backup = dPath_Data_Root + "/backup";
@@ -89,6 +89,10 @@ public class CONS {
 
 		public static String dirPath_db_backup = 
 						dirName_ExternalStorage + "/ShoppingList_backup";
+		
+		public static String fname_DB_Backup_Trunk = "sl3_backup";
+		
+		public static String fname_DB_Backup_ext = ".bk";
 		
 		/*********************************
 		 * 
@@ -163,7 +167,7 @@ public class CONS {
 		public static String[] col_Names_SI = { 
 			
 					"store", "name", "price",			// 0,1,2
-					"genre", "yomi",					// 3,4
+					"genre", "yomi", "num",					// 3,4
 					
 					"posted_at"							// 5
 					
@@ -171,8 +175,8 @@ public class CONS {
 		
 		public static String[] col_Types_SI = { 
 			
-			"TEXT", "TEXT", "TEXT",			// 0,1,2
-			"TEXT", "TEXT",					// 3,4
+			"TEXT", "TEXT", "INTEGER",			// 0,1,2
+			"TEXT", "TEXT", "INTEGER",			// 3,4
 			
 			"TEXT"							// 5
 			
@@ -184,7 +188,7 @@ public class CONS {
 			"created_at", "updated_at",			// 1,2
 			
 			"store", "name", "price",			// 3,4,5
-			"genre", "yomi",					// 6,7
+			"genre", "yomi", "num",				// 6,7
 			
 			"posted_at"							// 8
 			
@@ -195,8 +199,8 @@ public class CONS {
 			"INTEGER",	// 0
 			"TEXT", "TEXT",			// 1,2
 			
-			"TEXT", "TEXT", "TEXT",			// 3,4,5
-			"TEXT", "TEXT",					// 6,7
+			"TEXT", "TEXT", "INTEGER",			// 3,4,5
+			"TEXT", "TEXT", "INTEGER",			// 6,7
 			
 			"TEXT"							// 8
 			
