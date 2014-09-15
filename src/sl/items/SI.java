@@ -4,7 +4,7 @@ package sl.items;
 public class SI {
 
 	//
-	int		id;
+	int		db_Id;
 	String	created_at;
 	String	modified_at;
 
@@ -17,7 +17,7 @@ public class SI {
 	
 	public SI(Builder builder) {
 
-		id = builder.id;
+		db_Id = builder.db_Id;
 		this.created_at	= builder.created_at;
 		this.modified_at	= builder.modified_at;
 		
@@ -56,7 +56,7 @@ public class SI {
 		this.name = name;
 		this.price = price;
 		this.genre = genre;
-		this.id = id;
+		this.db_Id = id;
 		
 	}//public ShoppingItem(String store, String name, int price, String genre)
 	
@@ -72,7 +72,7 @@ public class SI {
 		this.name = name;
 		this.price = price;
 		this.genre = genre;
-		this.id = id;
+		this.db_Id = id;
 		
 		this.created_at = created_at;
 		this.modified_at = updated_at;
@@ -84,7 +84,7 @@ public class SI {
 	SI
 	(int id, String name, String yomi, String genre, String store, int price) {
 		
-		this.id = id;
+		this.db_Id = id;
 		this.name = name;
 		this.yomi = yomi;
 		this.genre = genre;
@@ -101,7 +101,7 @@ public class SI {
 	SI
 	(int id, String store, String name, int price, String genre, String yomi) {
 
-		this.id = id;
+		this.db_Id = id;
 		this.name = name;
 		this.yomi = yomi;
 
@@ -159,7 +159,7 @@ public class SI {
 	}
 
 	public int getId() {
-		return id;
+		return db_Id;
 	}
 
 	public String getYomi() {
@@ -187,12 +187,12 @@ public class SI {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.db_Id = id;
 	}
 
 	public static class Builder {
 		
-		private int id;
+		private int db_Id;
 		private String	created_at;
 		private String	modified_at;
 		
@@ -224,8 +224,8 @@ public class SI {
 			this.created_at = created_at;	return this;
 		}
 
-		public Builder setId(int id) {
-			this.id = id;	return this;
+		public Builder setDb_id(int db_Id) {
+			this.db_Id = db_Id;	return this;
 		}
 
 		public Builder setPosted_at(String posted_at) {

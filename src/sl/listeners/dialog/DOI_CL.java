@@ -356,7 +356,7 @@ public class DOI_CL implements OnItemClickListener {
 
 			Methods_dlg.conf_ImportData_SI(
 							actv, 
-							d1, d2, d3, 
+							d1, d2,
 							Tags.DialogTags.ACTV_TAB_OPT_IMP_DATA_SI);
 			
 		} else if (li.getText().equals(actv.getString(

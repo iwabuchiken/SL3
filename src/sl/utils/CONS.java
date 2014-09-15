@@ -166,7 +166,24 @@ public class CONS {
 			//	6			7				8
 			"created_at", "updated_at", "posted_at"
 		};
+
+		public static String[] col_Names_SI_full_SL_1 = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			
+			"store", 
+			"name", "price",			// 3,4,5
+			
+			"genre", "yomi",				// 6,7,8
+			
+			"created_at", "updated_at",			// 1,2
+			
+			
+			"posted_at"							// 9
+			
+		};
 		
+
 		public static String[] col_Names_SI = { 
 			
 					"store", "name", "price",			// 0,1,2

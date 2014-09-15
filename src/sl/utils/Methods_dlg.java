@@ -2920,12 +2920,12 @@ public class Methods_dlg {
 	public static void 
 	conf_ImportData_SI
 	(Activity actv, 
-		Dialog d1, Dialog d2, Dialog d3, DialogTags tag_ButtonOK) {
+		Dialog d1, Dialog d2, DialogTags tag_ButtonOK) {
 		// TODO Auto-generated method stub
 
-		Dialog d4 = 
-				Methods_dlg.dlg_Template_OkCancel_4th_Dialog(
-						actv, d1, d2, d3,
+		Dialog d3 = 
+				Methods_dlg.dlg_Tmpl_OkCancel_3rd_Dialogue(
+						actv, d1, d2,
 						R.layout.dlg_tmpl_confirm_simple, 
 						R.string.generic_confirm, 
 						
@@ -2933,7 +2933,7 @@ public class Methods_dlg {
 						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
 						
 						tag_ButtonOK, 
-						Tags.DialogTags.GENERIC_DISMISS_4TH_DIALOG
+						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG
 //						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
 						
 						);
@@ -2944,7 +2944,7 @@ public class Methods_dlg {
 		
 		////////////////////////////////
 		TextView tv_Msg = 
-				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
 		
 		tv_Msg.setText(actv.getString(
 				R.string.opt_TabActv_Admin_ImportData_Title)
@@ -2956,7 +2956,7 @@ public class Methods_dlg {
 		
 		////////////////////////////////
 		TextView tv_ItemName = 
-				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
 //		dlg_tmpl_confirm_simple_tv_message
 		
 		String tname = null;
@@ -2988,7 +2988,7 @@ public class Methods_dlg {
 		// show
 		
 		////////////////////////////////
-		d4.show();
+		d3.show();
 
 	}//conf_ImportData_SI
 	

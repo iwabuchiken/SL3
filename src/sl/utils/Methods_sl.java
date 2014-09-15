@@ -2441,7 +2441,7 @@ public class Methods_sl {
 			
 			SI item = new SI.Builder()
 			
-						.setId(c.getInt(0))
+						.setDb_id(c.getInt(0))
 						.setCreated_at(c.getString(1))
 						.setModified_at(c.getString(2))
 						
@@ -2524,7 +2524,7 @@ public class Methods_sl {
 		
 		si = new SI.Builder()
 		
-				.setId(c.getInt(0))
+				.setDb_id(c.getInt(0))
 				.setCreated_at(c.getString(1))
 				.setModified_at(c.getString(2))
 				
@@ -2662,7 +2662,7 @@ public class Methods_sl {
 		
 		si = new SI.Builder()
 		
-					.setId(c.getInt(0))
+					.setDb_id(c.getInt(0))
 					.setCreated_at(c.getString(1))
 					.setModified_at(c.getString(2))
 					

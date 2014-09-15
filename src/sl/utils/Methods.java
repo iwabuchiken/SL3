@@ -3602,7 +3602,7 @@ public class Methods {
 	public static void 
 	import_Data_SI
 	(Activity actv, 
-		Dialog d1, Dialog d2, Dialog d3, Dialog d4) {
+		Dialog d1, Dialog d2, Dialog d3) {
 		// TODO Auto-generated method stub
 		////////////////////////////////
 
@@ -3655,14 +3655,52 @@ public class Methods {
 		// build: list
 
 		////////////////////////////////
-//		List<SI> list_SIs = DBUtils.find_ALL_SI(actv)
+		List<SI> list_SIs = DBUtils.find_ALL_SI_from_Previous(actv);
 		
+		////////////////////////////////
+
+		// insert data
+
+		////////////////////////////////
+		int res_i = DBUtils.insert_SIs(actv, list_SIs);
 		
-//		// Log
-//		String msg_Log = "import data => si";
-//		Log.d("Methods.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ "]", msg_Log);
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res_i) {
+
+		case -1: 
+			
+			msg = "Table doesn't exist => " + CONS.DB.tname_si;
+			colorID = R.color.gold2;
+			
+			d3.dismiss();
+			
+			break;
+		
+		default: 
+			
+			msg = "SIs inserted => " + res_i;
+			colorID = R.color.green4;
+
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
 //		
 	}//import_Data_SI
 
