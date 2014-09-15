@@ -43,6 +43,7 @@ DB_OCL implements OnClickListener {
 	
 	//
 	Vibrator vib;
+	private Dialog d4;
 	
 	public DB_OCL(Activity actv, Dialog dlg) {
 		//
@@ -118,6 +119,21 @@ DB_OCL implements OnClickListener {
 
 	}
 
+	public DB_OCL
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3, Dialog d4) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+		this.d3 = d3;
+		this.d4 = d4;
+		
+		//
+		vib = (Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
+
+	}
+
 	//	@Override
 	public void onClick(View v) {
 		//
@@ -161,6 +177,12 @@ DB_OCL implements OnClickListener {
 			d3.dismiss();
 			d2.dismiss();
 			d1.dismiss();
+			
+			break;
+			
+		case GENERIC_DISMISS_4TH_DIALOG:
+			
+			d4.dismiss();
 			
 			break;
 			
@@ -383,10 +405,84 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_edit_items_bt_ok
 			
+		case ACTV_TAB_OPT_DROP_TABLE_SI://------------------------------------------
+			
+			case_ACTV_TAB_OPT_DROP_TABLE_SI();
+			
+			break;// case dlg_edit_items_bt_ok
+			
 		default:
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_ACTV_TAB_OPT_DROP_TABLE_SI() {
+		// TODO Auto-generated method stub
+		
+		String tname = CONS.DB.tname_si;
+		
+		int res = Methods.dropTable(actv, tname);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+
+//		-1 table doesn't exist
+//		-2 Drop table => Failed
+//		1 Table dropped
+		
+		switch(res) {
+
+		case -1: 
+			
+			msg = "table doesn't exist => " + tname;
+			colorID = R.color.gold2;
+			
+			d4.dismiss();
+			
+			break;
+		
+		case -2: 
+			
+			msg = "Drop table => Failed: " + tname;
+			colorID = R.color.red;
+			
+			d4.dismiss();
+			
+			break;
+			
+		case 1: 
+			
+			msg = "Table dropped => " + tname;
+			colorID = R.color.green4;
+			
+			d4.dismiss();
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+
+//		// Log
+//		String msg_Log = "Drop table: SI";
+//		Log.d("DB_OCL.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		
+	}//case_ACTV_TAB_OPT_DROP_TABLE_SI
 
 	private void case_dlg_edit_items_bt_ok() {
 		/***************************************

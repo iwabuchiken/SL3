@@ -284,8 +284,17 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Tables__SI_Drop))) {
 			
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			Methods_dlg.conf_DropTable_Patterns(
+							actv, d1, d2, d3,
+							CONS.DB.tname_si, 
+							Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_SI);
+			
+//			Methods.opt_ActvTab_DropTables(
+//							actv, d1, d2, d3,
+//							CONS.DB.tname_si);
+			
+//			String msg = "Sorry. Under construction";
+//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
 			
 		} else {//if (choice.equals(actv.getString(
 			

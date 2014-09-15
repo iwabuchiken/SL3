@@ -784,6 +784,64 @@ public class Methods_dlg {
 		return dlg3;
 	
 	}//public static Dialog dlg_template_okCancel()
+	
+	public static
+	Dialog dlg_Tmpl_OkCancel_3rd_Dialogue
+	(Activity actv, Dialog dlg1, Dialog dlg2,
+			int layoutId, int titleStringId,
+			
+			int okButtonId, int cancelButtonId,
+			DialogTags okTag, DialogTags cancelTag
+			
+			) {
+		/*----------------------------
+		 * Steps
+		 * 1. Set up
+		 * 2. Add listeners => OnTouch
+		 * 3. Add listeners => OnClick
+		----------------------------*/
+		
+		// 
+		Dialog dlg3 = new Dialog(actv);
+		
+		//
+		dlg3.setContentView(layoutId);
+		
+		// Title
+		dlg3.setTitle(titleStringId);
+		
+		/*----------------------------
+		 * 2. Add listeners => OnTouch
+		----------------------------*/
+		//
+		Button btn_ok = (Button) dlg3.findViewById(okButtonId);
+		Button btn_cancel = (Button) dlg3.findViewById(cancelButtonId);
+		
+		//
+		btn_ok.setTag(okTag);
+		btn_cancel.setTag(cancelTag);
+		
+		//
+		btn_ok.setOnTouchListener(
+				new DialogButtonOnTouchListener(actv, dlg3));
+		btn_cancel.setOnTouchListener(
+				new DialogButtonOnTouchListener(actv, dlg3));
+		
+		/*----------------------------
+		 * 3. Add listeners => OnClick
+		----------------------------*/
+		//
+		btn_ok.setOnClickListener(
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
+		btn_cancel.setOnClickListener(
+				new DB_OCL(actv, dlg1, dlg2, dlg3));
+		
+		//
+		//dlg.show();
+		
+		return dlg3;
+		
+	}//public static Dialog dlg_template_okCancel()
 
 	
 	public static
@@ -1281,7 +1339,7 @@ public class Methods_dlg {
 		Dialog dlg3 = Methods_dlg.dlg_template_okCancel_3Dialogues_3Choices(
 							actv,
 							R.layout.dlg_template_3choices_tv,
-							R.string.generic_title_reconfirm,
+							R.string.generic_confirm,
 							
 							R.id.dlg_template_3choices_tv_btn_ok,
 							R.id.dlg_template_3choices_tv_btn_cancel,
@@ -1714,7 +1772,7 @@ public class Methods_dlg {
 		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues_SI(
 						actv,
 						R.layout.dlg_template_ok_cancel,
-						R.string.generic_title_reconfirm,
+						R.string.generic_confirm,
 						
 						R.id.dlg_template_ok_cancel_btn_ok,
 //						R.id.dlg_template_ok_cancel_btn_ok,
@@ -1785,7 +1843,7 @@ public class Methods_dlg {
 		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
 				actv,
 				R.layout.dlg_template_ok_cancel,
-				R.string.generic_title_reconfirm,
+				R.string.generic_confirm,
 				
 				R.id.dlg_template_ok_cancel_btn_ok,
 //				R.id.dlg_template_ok_cancel_btn_ok,
@@ -1890,7 +1948,7 @@ public class Methods_dlg {
 		
 		Dialog dlg = Methods_dlg.dlg_Template_Cancel(
 				actv, R.layout.dlg_tmpl_toast_ok, 
-				R.string.generic_title_reconfirm, 
+				R.string.generic_confirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
 				Tags.DialogTags.dlg_generic_dismiss);
@@ -2658,5 +2716,162 @@ public class Methods_dlg {
 		
 	}//public static Dialog dlg_template_okCancel()
 
+	public static void 
+	conf_DropTable_Patterns
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3, 
+		String tname, Tags.DialogTags tag_ButtonOK) {
+		// TODO Auto-generated method stub
+		
+		Dialog d4 = 
+				Methods_dlg.dlg_Template_OkCancel_4th_Dialog(
+						actv, d1, d2, d3,
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						
+						tag_ButtonOK, 
+						Tags.DialogTags.GENERIC_DISMISS_4TH_DIALOG
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+						
+						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.commons_lbl_drop_table)
+				+ "?");
+		
+		////////////////////////////////
+		
+		// view: item name
+		
+		////////////////////////////////
+		TextView tv_ItemName = 
+				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+//		dlg_tmpl_confirm_simple_tv_message
+		
+		tv_ItemName.setText(tname);
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d4.show();
+		
+	}//conf_DropTable_Patterns
+
+	public static Dialog 
+	dlg_Template_Cancel_4th_Dialog
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3,
+		int layoutId, int titleStringId,
+		int cancelButtonId, Tags.DialogTags cancelTag) {
+		/****************************
+		 * Steps
+		 * 1. Set up
+		 * 2. Add listeners => OnTouch
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		
+		// 
+		Dialog d4 = new Dialog(actv);
+		
+		//
+		d4.setContentView(layoutId);
+		
+		// Title
+		d4.setTitle(titleStringId);
+		
+		/****************************
+		 * 2. Add listeners => OnTouch
+		 ****************************/
+		//
+		Button btn_cancel = (Button) d4.findViewById(cancelButtonId);
+		
+		//
+		btn_cancel.setTag(cancelTag);
+		
+		//
+		btn_cancel.setOnTouchListener(new DB_OTL(actv, d1, d2, d3, d4));
+		
+		/****************************
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		//
+		btn_cancel.setOnClickListener(new DB_OCL(actv, d1, d2, d3, d4));
+		
+		//
+		//dlg.show();
+		
+		return d4;
+		
+	}//public static Dialog dlg_template_okCancel()
+
+	public static Dialog 
+	dlg_Template_OkCancel_4th_Dialog
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3,
+			
+			int layoutId, int titleStringId,
+			
+			int okButtonId, int cancelButtonId,
+			Tags.DialogTags okTag, Tags.DialogTags cancelTag) {
+		/****************************
+		 * Steps
+		 * 1. Set up
+		 * 2. Add listeners => OnTouch
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		
+		// 
+		Dialog d4 = new Dialog(actv);
+		
+		//
+		d4.setContentView(layoutId);
+		
+		// Title
+		d4.setTitle(titleStringId);
+		
+		////////////////////////////////
+		
+		// Button: cancel
+		
+		////////////////////////////////
+		Button btn_Ok = (Button) d4.findViewById(okButtonId);
+		
+		//
+		btn_Ok.setTag(okTag);
+		
+		//
+		btn_Ok.setOnTouchListener(new DB_OTL(actv, d1, d2, d3, d4));
+		
+		btn_Ok.setOnClickListener(new DB_OCL(actv, d1, d2, d3, d4));
+		
+		////////////////////////////////
+
+		// Button: cancel
+
+		////////////////////////////////
+		Button btn_Cancel = (Button) d4.findViewById(cancelButtonId);
+		
+		//
+		btn_Cancel.setTag(cancelTag);
+		
+		//
+		btn_Cancel.setOnTouchListener(new DB_OTL(actv, d1, d2, d3, d4));
+		
+		btn_Cancel.setOnClickListener(new DB_OCL(actv, d1, d2, d3, d4));
+		
+		return d4;
+		
+	}//dlg_Template_OkCancel_4th_Dialog
 	
 }//public class Methods_dlg

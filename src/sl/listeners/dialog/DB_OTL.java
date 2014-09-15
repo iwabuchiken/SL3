@@ -20,6 +20,7 @@ public class DB_OTL implements OnTouchListener {
 	Dialog d1;
 	private Dialog d2;
 	private Dialog d3;
+	private Dialog d4;
 	
 	public DB_OTL(Activity actv, Dialog dlg) {
 		//
@@ -53,6 +54,18 @@ public class DB_OTL implements OnTouchListener {
 
 	}
 
+	public DB_OTL
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3, Dialog d4) {
+		// TODO Auto-generated constructor stub
+		
+		this.actv = actv;
+		this.d1 = d1;
+		this.d2 = d2;
+		this.d3 = d3;
+		this.d4 = d4;
+
+	}
+
 	//	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
@@ -72,6 +85,9 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
+			case GENERIC_DISMISS_4TH_DIALOG:
+				
+			case ACTV_TAB_OPT_DROP_TABLE_SI:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -93,6 +109,9 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
+			case GENERIC_DISMISS_4TH_DIALOG:
+				
+			case ACTV_TAB_OPT_DROP_TABLE_SI:
 
 				v.setBackgroundColor(Color.WHITE);
 				

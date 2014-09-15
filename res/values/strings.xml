@@ -10,11 +10,17 @@
 	    <string name="generic_message_delete_item">Delete the item?</string>
 	    
 	    <string name="dlg_reconfirm_genre_name">ジャンル名</string>
-	    <string name="generic_title_reconfirm">確認</string>
+	    <string name="generic_confirm">確認</string>
 	    <string name="generic_label_create">作成</string>
 	    <string name="generic_label_all">すべて</string>
 	    <string name="generic_label_choice">Choice</string>
 	    <string name="generic_label_update">更新</string>
+	    
+    <!-- commmons　-->
+    	<string name="commons_import_db_name">ifm11.db</string>
+    	<string name="commons_lbl_create_table">Create table</string>
+    	<string name="commons_lbl_drop_table">Drop table</string>
+	    
     	
     <string name="hello">Hello World, ShoppingListActivity!</string>
     <string name="app_name">SL3</string>

@@ -422,7 +422,7 @@ public class Methods {
 		dlg_new.setContentView(R.layout.dlg_reconfirm_genre_name);
 		
 		// Title
-		dlg_new.setTitle(R.string.generic_title_reconfirm);
+		dlg_new.setTitle(R.string.generic_confirm);
 		
 		/*----------------------------
 		 * 2. Add listeners => OnTouch
@@ -881,7 +881,7 @@ public class Methods {
 		dlg2.setContentView(R.layout.dlg_confirm_drop_table);
 		
 		// Title
-		dlg2.setTitle(R.string.generic_title_reconfirm);
+		dlg2.setTitle(R.string.generic_confirm);
 		
 		/*----------------------------
 		 * 2. Set table name to view
@@ -980,6 +980,78 @@ public class Methods {
 
 	}//public static void dropTable(Activity actv, Dialog dlg)
 
+	/******************************
+		@return
+			-1 table doesn't exist<br>
+			-2 Drop table => Failed<br>
+			1 Table dropped<br>
+	 ******************************/
+	public static int
+	dropTable
+	(Activity actv, String tname) {
+		
+		////////////////////////////////
+
+		// validate
+
+		////////////////////////////////
+		boolean res = DBUtils.tableExists(actv, CONS.DB.dbName, tname);
+		
+		if (res == false) {
+			
+			// Log
+			String msg_Log = "table doesn't exist => " + tname;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return -1;
+			
+		}
+		
+		////////////////////////////////
+
+		// setup: db
+
+		////////////////////////////////
+		DBUtils dbm = new DBUtils(actv);
+		
+		SQLiteDatabase wdb = dbm.getWritableDatabase();
+		
+		boolean result = dbm.dropTable(actv, wdb, tname);
+		
+		if (result == true) {
+			// debug
+			Toast.makeText(actv, "Table dropped => " + tname, Toast.LENGTH_LONG).show();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Table dropped => " + tname);
+			
+			wdb.close();
+			
+			return 1;
+			
+		} else {//if (result == true)
+			// debug
+			Toast.makeText(actv, "Drop table => Failed: " + tname, Toast.LENGTH_LONG).show();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Drop table => Failed: " + tname);
+			
+			wdb.close();
+			
+			return -2;
+			
+		}//if (result == true)
+		
+//		db.close();
+		
+	}//public static void dropTable(Activity actv, Dialog dlg)
+	
 	public static void dlg_filterList(Activity actv) {
 		/*----------------------------
 		 * Steps
@@ -3356,5 +3428,15 @@ public class Methods {
 
 		
 	}//_opt_ActvTab_CreateTables__SI
+
+	public static void 
+	opt_ActvTab_DropTables
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3, String tname) {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}//opt_ActvTab_DropTables
 	
 }//public class Methods
