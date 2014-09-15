@@ -88,6 +88,7 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_4TH_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
+			case ACTV_TAB_OPT_IMP_DATA_SI:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -112,6 +113,7 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_4TH_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
+			case ACTV_TAB_OPT_IMP_DATA_SI:
 
 				v.setBackgroundColor(Color.WHITE);
 				

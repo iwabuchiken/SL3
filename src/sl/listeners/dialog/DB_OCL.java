@@ -173,6 +173,13 @@ DB_OCL implements OnClickListener {
 			
 			break;
 		
+		case GENERIC_DISMISS_ALL_2ND_DIALOG://------------------------------------------
+			
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;// case dlg_generic_dismiss_third_dialog
+			
 		case GENERIC_DISMISS_ALL_3RD_DIALOG:
 			
 			d3.dismiss();
@@ -414,10 +421,37 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_edit_items_bt_ok
 			
+		case ACTV_TAB_OPT_IMP_DATA_SI://------------------------------------------
+			
+			case_ACTV_TAB_OPT_IMP_DATA(tag_name);
+			
+			break;// case dlg_edit_items_bt_ok
+			
 		default:
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_ACTV_TAB_OPT_IMP_DATA
+	(DialogTags tag_name) {
+		// TODO Auto-generated method stub
+		
+		switch(tag_name) {
+		
+		case ACTV_TAB_OPT_IMP_DATA_SI:
+			
+			Methods.import_Data_SI(actv, d1, d2, d3);
+			
+			break;
+		
+		
+		}
+		
+//		Methods.import_Data_SI()
+		
+		
+	}//case_ACTV_TAB_OPT_IMP_DATA_SI
 
 	private void 
 	case_ACTV_TAB_OPT_DROP_TABLE(DialogTags tag_name) {

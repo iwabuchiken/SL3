@@ -3597,5 +3597,21 @@ public class Methods {
 		
 		
 	}//opt_ActvTab_DropTables
+
+	public static void 
+	import_Data_SI
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		
+		
+		
+//		// Log
+//		String msg_Log = "import data => si";
+//		Log.d("Methods.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+//		
+	}//import_Data_SI
 	
 }//public class Methods

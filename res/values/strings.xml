@@ -109,6 +109,15 @@
     	    										shopping_item => create</string>
     	<string name="opt_TabActv_Admin_Tables__SI_Drop">
     	    										shopping_item => drop</string>
+    	    										
+    	<string name="opt_TabActv_Admin_ImportData_Title">
+    	    										Import data</string>
+    	<string name="opt_TabActv_Admin_ImportData_SI">
+    	    										Import data: SI</string>
+    	<string name="opt_TabActv_Admin_ImportData_Stores">
+    	    										Import data: stores</string>
+    	<string name="opt_TabActv_Admin_ImportData_Genres">
+    	    										Import data: genres</string>
     
     	
     	

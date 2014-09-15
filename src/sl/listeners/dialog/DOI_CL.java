@@ -346,6 +346,36 @@ public class DOI_CL implements OnItemClickListener {
 			String msg = "Sorry. Under construction";
 			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
 			
+		////////////////////////////////
+
+		// import data
+
+		////////////////////////////////
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_ImportData_SI))) {
+
+			Methods_dlg.conf_ImportData_SI(
+							actv, 
+							d1, d2, d3, 
+							Tags.DialogTags.ACTV_TAB_OPT_IMP_DATA_SI);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_ImportData_Stores))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_ImportData_Genres))) {
+			
+			String msg = "Sorry. Under construction";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+		////////////////////////////////
+
+		// else
+
+		////////////////////////////////
 		} else {//if (choice.equals(actv.getString(
 			
 			String msg = "Unknown option => " + li.getText();

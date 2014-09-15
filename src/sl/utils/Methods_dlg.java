@@ -2234,10 +2234,10 @@ public class Methods_dlg {
 		////////////////////////////////
 		Dialog d2 = Methods_dlg.dlg_Template_Cancel_SecondDialog(
 						actv, d1,
-						R.layout.dlg_tmpl_cancel_lv,
+						R.layout.dlg_tmpl_cancel_lv_with_btn,
 						R.string.opt_TabActv_Admin_Main__Operations,
 						
-						R.id.dlg_tmpl_cancel_lv_bt_cancel,
+						R.id.dlg_tmpl_cancel_lv_with_btn_bt_cancel,
 						Tags.DialogTags.generic_cancel_second_dialog);
 		
 		/****************************
@@ -2271,11 +2271,39 @@ public class Methods_dlg {
 								.build());
 		
 		list.add(new ListItem.Builder()
-		.setText(actv.getString(
-				R.string.opt_TabActv_Admin_Ops__PostData))
-				.setIconID(R.drawable.menu_icon_admin_32x32_purple)
-				.setTextColor_ID(R.color.purple4)
-				.build());
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Ops__PostData))
+							.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+							.setTextColor_ID(R.color.purple4)
+							.build());
+		
+		////////////////////////////////
+
+		// import data
+
+		////////////////////////////////
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_ImportData_SI))
+							.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+							.setTextColor_ID(R.color.blue1)
+							.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_ImportData_Stores))
+							.setIconID(R.drawable.menu_icon_admin_32x32_green)
+							.setTextColor_ID(R.color.green4)
+							.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_ImportData_Genres))
+							.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+							.setTextColor_ID(R.color.purple4)
+							.build());
+		
+		
 		
 		/****************************
 		* 3. Adapter
@@ -2291,7 +2319,7 @@ public class Methods_dlg {
 		/****************************
 		* 4. Set adapter
 		****************************/
-		ListView lv = (ListView) d2.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		ListView lv = (ListView) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_lv);
 		
 		lv.setAdapter(adapter);
 		
@@ -2302,6 +2330,21 @@ public class Methods_dlg {
 		
 		lv.setOnItemClickListener(new DOI_CL(actv, d1, d2));
 		
+		////////////////////////////////
+
+		// button: all dismiss
+
+		////////////////////////////////
+		ImageButton ib_AllClear = 
+				(ImageButton) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ib);
+//		(ImageButton) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ib);
+		
+		ib_AllClear.setTag(Tags.DialogTags.GENERIC_DISMISS_ALL_2ND_DIALOG);
+		
+		ib_AllClear.setOnTouchListener(new DB_OTL(actv, d1, d2));
+		
+		ib_AllClear.setOnClickListener(new DB_OCL(actv, d1, d2));
+
 		/***************************************
 		* Modify the list view height
 		***************************************/
@@ -2315,7 +2358,7 @@ public class Methods_dlg {
 		* Modify: Button layout
 		***************************************/
 		LinearLayout llButton =
-					(LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_ll_filepath);
+					(LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ll_filepath);
 //		(LinearLayout) dlg1.findViewById(R.id.actv_imp_ll_filepath);
 		
 		LinearLayout.LayoutParams params =
@@ -2357,7 +2400,7 @@ public class Methods_dlg {
 		// linear layot: main
 
 		////////////////////////////////
-		LinearLayout ll_Main = (LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_ll_main);
+		LinearLayout ll_Main = (LinearLayout) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ll_main);
 		
 		// Log
 		msg_Log = "ll_Main => created";
@@ -2873,5 +2916,80 @@ public class Methods_dlg {
 		return d4;
 		
 	}//dlg_Template_OkCancel_4th_Dialog
+
+	public static void 
+	conf_ImportData_SI
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3, DialogTags tag_ButtonOK) {
+		// TODO Auto-generated method stub
+
+		Dialog d4 = 
+				Methods_dlg.dlg_Template_OkCancel_4th_Dialog(
+						actv, d1, d2, d3,
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						
+						tag_ButtonOK, 
+						Tags.DialogTags.GENERIC_DISMISS_4TH_DIALOG
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+						
+						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.opt_TabActv_Admin_ImportData_Title)
+				+ "?");
+		
+		////////////////////////////////
+		
+		// view: item name
+		
+		////////////////////////////////
+		TextView tv_ItemName = 
+				(TextView) d4.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+//		dlg_tmpl_confirm_simple_tv_message
+		
+		String tname = null;
+		
+		switch(tag_ButtonOK) {
+		
+		case ACTV_TAB_OPT_IMP_DATA_SI:
+			
+			tname = CONS.DB.tname_si;
+			
+			break;
+			
+		default:
+			
+			// Log
+			String msg_Log = "unknown tag => " + tag_ButtonOK.toString();
+			Log.d("Methods_dlg.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+		
+		}
+		
+		tv_ItemName.setText(tname);
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d4.show();
+
+	}//conf_ImportData_SI
 	
 }//public class Methods_dlg
