@@ -87,6 +87,7 @@
     	
     	<string name="menu_listitem_tabToBuy_clear_basket">Basket</string>
     	<string name="menu_listitem_tabToBuy_clear_checked_items">Checked items</string>
+    	<string name="menu_listitem_tabToBuy_items">Items</string>
     	
     	<string name="opt_TabActv_Admin_Main__BackupDB">Backup DB</string>
     	<string name="opt_TabActv_Admin_Main__Operations">Operations</string>

@@ -6,6 +6,7 @@ public class MI {
 	int id_Title;
 	int id_Icon;
 	
+	int order;
 	
 	
 	public MI(Builder builder) {
@@ -14,7 +15,15 @@ public class MI {
 		this.id_Item	= builder.id_Item;
 		this.id_Title	= builder.id_Title;
 		this.id_Icon	= builder.id_Icon;
+		this.order		= builder.order;
 		
+	}
+	
+	public int getOrder() {
+		return order;
+	}
+	public void setOrder(int order) {
+		this.order = order;
 	}
 	public int getId_Item() {
 		return id_Item;
@@ -40,6 +49,8 @@ public class MI {
 		int id_Item;
 		int id_Title;
 		int id_Icon;
+
+		int order;
 		
 		public MI build() {
 					
@@ -47,6 +58,10 @@ public class MI {
 					
 		}
 		
+		public Builder setOrder(int order) {
+			this.order = order; return this;
+		}
+
 		public Builder setId_Item(int id_Item) {
 			this.id_Item = id_Item; return this;
 		}
