@@ -3,6 +3,7 @@ package sl.listeners;
 import java.util.ArrayList;
 import java.util.List;
 
+import sl.items.MI;
 import sl.utils.CONS;
 import sl3.main.R;
 import android.app.Activity;
@@ -123,39 +124,71 @@ public class TCL implements OnTabChangeListener {
 		// prep: data
 
 		////////////////////////////////
-		List<Integer> list_ItemIDs = new ArrayList<Integer>();
+		List<MI> list_MIs = new ArrayList<MI>();
 		
-		list_ItemIDs.add(R.id.actv_tab_2_filter);
-		list_ItemIDs.add(R.id.actv_tab_2_clear_selections);
-		list_ItemIDs.add(R.id.actv_tab_2_admin_db);
-		list_ItemIDs.add(R.id.actv_tab_2_sort_list);
+		list_MIs.add(new MI.Builder()
+						.setId_Item(R.id.actv_tab_2_filter)
+						.setId_Title(R.string.menu_listitem_filter)
+						.setId_Icon(R.drawable.menu_listitem_filter_30x30_v3)
+						.build()
+				);
 		
-		List<Integer> list_Titles = new ArrayList<Integer>();
+		list_MIs.add(new MI.Builder()
+					.setId_Item(R.id.actv_tab_2_clear_selections)
+					.setId_Title(R.string.menu_listitem_tabToBuy_clear_selections)
+					.setId_Icon(R.drawable.general_ib_ball_purple_48x48)
+//					.setId_Icon(R.drawable.sl_basket_empty_35x35)
+					.build()
+				);
 		
-		list_Titles.add(R.string.menu_listitem_filter);
-		list_Titles.add(R.string.menu_listitem_tabToBuy_clear_selections);
-		list_Titles.add(R.string.menu_listitem_tabToBuy_admin);
-		list_Titles.add(R.string.menu_main_sort_list);
+		list_MIs.add(new MI.Builder()
+					.setId_Item(R.id.actv_tab_2_admin_db)
+					.setId_Title(R.string.menu_listitem_tabToBuy_admin)
+					.setId_Icon(R.drawable.general_ib_ball_blue_48x48)
+					.build()
+				);
 		
-		List<Integer> list_Icons = new ArrayList<Integer>();
+		list_MIs.add(new MI.Builder()
+					.setId_Item(R.id.actv_tab_2_sort_list)
+					.setId_Title(R.string.menu_main_sort_list)
+					.setId_Icon(R.drawable.general_ib_ball_brown_48x48)
+					.build()
+				);
 		
-		list_Icons.add(R.drawable.menu_listitem_filter_30x30_v3);
-		list_Icons.add(R.drawable.sl_basket_empty_35x35);
-		list_Icons.add(R.drawable.general_ib_ball_blue_48x48);
-		list_Icons.add(R.drawable.general_ib_ball_brown_48x48);
-//		list_Icons.add(android.R.drawable.ic_menu_sort_alphabetically);
+//		List<Integer> list_ItemIDs = new ArrayList<Integer>();
+//		
+//		list_ItemIDs.add(R.id.actv_tab_2_filter);
+//		list_ItemIDs.add(R.id.actv_tab_2_clear_selections);
+//		list_ItemIDs.add(R.id.actv_tab_2_admin_db);
+//		list_ItemIDs.add(R.id.actv_tab_2_sort_list);
+//		
+//		List<Integer> list_Titles = new ArrayList<Integer>();
+//		
+//		list_Titles.add(R.string.menu_listitem_filter);
+//		list_Titles.add(R.string.menu_listitem_tabToBuy_clear_selections);
+//		list_Titles.add(R.string.menu_listitem_tabToBuy_admin);
+//		list_Titles.add(R.string.menu_main_sort_list);
+//		
+//		List<Integer> list_Icons = new ArrayList<Integer>();
+//		
+//		list_Icons.add(R.drawable.menu_listitem_filter_30x30_v3);
+//		list_Icons.add(R.drawable.sl_basket_empty_35x35);
+//		list_Icons.add(R.drawable.general_ib_ball_blue_48x48);
+//		list_Icons.add(R.drawable.general_ib_ball_brown_48x48);
+////		list_Icons.add(android.R.drawable.ic_menu_sort_alphabetically);
 		
 		CONS.TabActv.menu.clear();
 
-		for (int i = 0; i < list_Icons.size(); i++) {
+		for (int i = 0; i < list_MIs.size(); i++) {
+//			for (int i = 0; i < list_Icons.size(); i++) {
 			
 			CONS.TabActv.menu
 				.add(
 					0, 
-					list_ItemIDs.get(i), 
+					list_MIs.get(i).getId_Item(), 
 					2, 
-					list_Titles.get(i))
-				.setIcon(list_Icons.get(i));
+					list_MIs.get(i).getId_Title())
+				.setIcon(list_MIs.get(i).getId_Icon());
 			
 		}
 		
