@@ -8,24 +8,26 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import sl.adapters.ItemListAdapter;
-import sl.adapters.ItemListAdapter2;
-import sl.adapters.ToBuyListAdapter;
-import sl.items.PS;
-import sl.items.SI;
-import sl.listeners.ButtonOnClickListener;
-import sl.listeners.ButtonOnTouchListener;
-import sl.listeners.ItemSelectedListener;
-import sl.listeners.TCL;
-import sl.listeners.list.LOI_CL;
-import sl.listeners.list.LOI_LCL;
-import sl.utils.CONS;
-import sl.utils.DBUtils;
-import sl.utils.Methods;
-import sl.utils.Methods_dlg;
-import sl.utils.Methods_sl;
-import sl.utils.Tags;
+import sl3.adapters.ItemListAdapter;
+import sl3.adapters.ItemListAdapter2;
+import sl3.adapters.ToBuyListAdapter;
+import sl3.items.PS;
+import sl3.items.SI;
+import sl3.listeners.ItemSelectedListener;
+import sl3.listeners.TCL;
+import sl3.listeners.button.BO_CL;
+import sl3.listeners.button.BO_TL;
+import sl3.listeners.button.ButtonOnClickListener;
+import sl3.listeners.button.ButtonOnTouchListener;
+import sl3.listeners.list.LOI_CL;
+import sl3.listeners.list.LOI_LCL;
 import sl3.main.R;
+import sl3.utils.CONS;
+import sl3.utils.DBUtils;
+import sl3.utils.Methods;
+import sl3.utils.Methods_dlg;
+import sl3.utils.Methods_sl;
+import sl3.utils.Tags;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
@@ -219,11 +221,13 @@ public class TabActv extends TabActivity
 		 ***************************************/
 		ImageButton ib_tab1Choose = (ImageButton) findViewById(R.id.itemlist_tab1_ib);
 		
-		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+//		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+		ib_tab1Choose.setTag(Tags.ButtonTags.ITEMLIST_TABS_BT_CHOOSE);
 		
-		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
+		ib_tab1Choose.setOnClickListener(new BO_CL(this));
+//		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
 		
-		ib_tab1Choose.setOnTouchListener(new ButtonOnTouchListener(this));
+		ib_tab1Choose.setOnTouchListener(new BO_TL(this));
 		
 		/***************************************
 		 * Set listener: lvTab2

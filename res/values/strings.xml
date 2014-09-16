@@ -15,7 +15,14 @@
 	    <string name="generic_label_all">すべて</string>
 	    <string name="generic_label_choice">Choice</string>
 	    <string name="generic_label_update">更新</string>
-	    
+
+	    <string name="generic_menu">メニュー</string>
+	    <string name="generic_edit">Edit</string>
+	    <string name="generic_delete">Delete</string>
+	    <string name="generic_upload">Upload</string>
+	    <string name="generic_quit_app">Quit app?</string>
+    	<string name="generic_notice">Notice</string>
+	    	    
     <!-- commmons　-->
     	<string name="commons_import_db_name">ifm11.db</string>
     	<string name="commons_lbl_create_table">Create table</string>

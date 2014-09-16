@@ -1,16 +1,16 @@
 package sl.main;
 
-import sl.items.SI;
-import sl.listeners.ButtonOnClickListener;
+import sl3.items.SI;
+import sl3.listeners.button.ButtonOnClickListener;
 import sl3.main.R;
 import sl3.main.R.id;
 import sl3.main.R.layout;
-import sl.tasks.Task_PostData;
-import sl.utils.CONS;
-import sl.utils.DBUtils;
-import sl.utils.Methods;
-import sl.utils.Methods_sl;
-import sl.utils.Tags;
+import sl3.tasks.Task_PostData;
+import sl3.utils.CONS;
+import sl3.utils.DBUtils;
+import sl3.utils.Methods;
+import sl3.utils.Methods_sl;
+import sl3.utils.Tags;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
