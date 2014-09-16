@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import sl.items.Genre;
 import sl.items.PS;
 import sl.items.SI;
+import sl.items.Store;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -2040,6 +2042,186 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//find_ALL_SI_from_Previous
 
+	/******************************
+		@return
+		null<br>
+			1. No DB file<br>
+			2. No such table<br>
+			3. Query => Exception<br>
+			4. Query => no entry<br>
+	 ******************************/
+	public static List<Store> 
+	find_ALL_Stores_from_Previous
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// validate: DB file exists?
+		
+		////////////////////////////////
+		String dbName = CONS.DB.dbName_Importing;
+		
+		File dpath_DBFile = actv.getDatabasePath(dbName);
+		
+		if (!dpath_DBFile.exists()) {
+			
+			String msg = "No DB file: " + dbName;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// DB
+		
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName_Importing);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists?
+		
+		////////////////////////////////
+		String tname = CONS.DB.tname_stores;
+		boolean res = dbu.tableExists(rdb, tname);
+		
+		if (res == false) {
+			
+			String msg = "No such table: " + tname;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			rdb.close();
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+		try {
+			
+			c = rdb.query(
+					
+					tname,			// 1
+					CONS.DB.columns_for_table_stores_with_index,	// 2
+					null, null,		// 3,4
+//					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// build list
+		
+		////////////////////////////////
+		List<Store> list_Stores = new ArrayList<Store>();
+		
+//		android.provider.BaseColumns._ID, "store_name", "memo"
+		
+		Store store = null;
+		
+		while(c.moveToNext()) {
+			
+			store = new Store.Builder()
+						
+						.setStore_name(c.getString(1))
+			
+						.build();
+			
+			list_Stores.add(store);
+			
+		}//while(c.moveToNext())
+			
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		rdb.close();
+		
+		// Log
+		msg_Log = "list_Stores.size() => " + list_Stores.size();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return list_Stores;
+		
+	}//find_ALL_Stores_from_Previous
+	
 	
 	/******************************
 		@return -1 => Table doesn't exist<br>
@@ -2149,6 +2331,114 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//insert_SIs
 
+	/******************************
+		@return -1 => Table doesn't exist<br>
+	 ******************************/
+	public static int 
+	insert_Stores
+	(Activity actv, List<Store> list_Stores) {
+		// TODO Auto-generated method stub
+		
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+		String tname = CONS.DB.tname_stores;
+		
+		////////////////////////////////
+		
+		// validate: table exists
+		
+		////////////////////////////////
+		if (!DBUtils.tableExists(
+				actv, CONS.DB.dbName, tname)) {
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Table doesn't exist => " + tname);
+			
+			return -1;
+			
+		}//if (!tableExists(SQLiteDatabase db, String tableName))
+		
+		////////////////////////////////
+		
+		// Iteration
+		
+		////////////////////////////////
+		int counter = 0;
+		
+		ContentValues val = null;
+		//	
+		for (Store si : list_Stores) {
+			
+			////////////////////////////////
+			
+			// prep: content values
+			
+			////////////////////////////////
+			val = _insert_Stores__ContentValues(si);
+			
+			try {
+				// Start transaction
+				wdb.beginTransaction();
+				
+				// Insert data
+				long res = wdb.insert(tname, null, val);
+				//			long res = wdb.insert(CONS.DB.tname_RefreshLog, null, val);
+				
+				if (res == -1) {
+					
+					// Log
+					String msg_Log = "insertion => failed: " + si.getStore_name();
+					Log.e("DBUtils.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+					
+					counter += 1;
+					
+					// Set as successful
+					wdb.setTransactionSuccessful();
+					
+				}
+				
+				// End transaction
+				wdb.endTransaction();
+				
+			} catch (Exception e) {
+				
+				// Log
+				// Log
+				String msg_Log = String.format(
+						"Exception(%s) => %s", 
+						si.getStore_name(), e.toString());
+				Log.e("DBUtils.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+			}//try
+			
+		}//for (String pattern : patterns_List)
+		
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		wdb.close();
+		
+		////////////////////////////////
+		
+		// return
+		
+		////////////////////////////////
+		return counter;
+		
+	}//insert_SIs
+	
 	private static ContentValues 
 	_insert_SIs__ContentValues
 	(SI si) {
@@ -2180,5 +2470,34 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//_insert_SIs__ContentValues
 
+	private static ContentValues 
+	_insert_Stores__ContentValues
+	(Store si) {
+		// TODO Auto-generated method stub
+		
+		ContentValues val = new ContentValues();
+
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store_name",						// 3
+//		
+//		"posted_at"							// 4
+		
+		val.put("created_at", si.getCreated_at());
+		val.put("modified_at", si.getModified_at());
+		
+		val.put(CONS.DB.col_Names_Store_full[3], si.getStore_name());
+		
+		if (si.getPosted_at() != null) {
+			
+			val.put(CONS.DB.col_Names_Store_full[4], si.getPosted_at());
+			
+		}
+		
+		return val;
+		
+	}//_insert_SIs__ContentValues
+	
 }//public class DBUtils extends SQLiteOpenHelper
 

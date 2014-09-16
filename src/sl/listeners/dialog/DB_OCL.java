@@ -162,6 +162,7 @@ DB_OCL implements OnClickListener {
 			break;
 
 		case DLG_GENERIC_DISMISS_3RD_DIALOG://------------------------------------------
+		case GENERIC_DISMISS_THIRD_DIALOG:
 			
 			d3.dismiss();
 			
@@ -181,6 +182,7 @@ DB_OCL implements OnClickListener {
 			break;// case dlg_generic_dismiss_third_dialog
 			
 		case GENERIC_DISMISS_ALL_3RD_DIALOG:
+		
 			
 			d3.dismiss();
 			d2.dismiss();
@@ -422,6 +424,7 @@ DB_OCL implements OnClickListener {
 			break;// case dlg_edit_items_bt_ok
 			
 		case ACTV_TAB_OPT_IMP_DATA_SI://------------------------------------------
+		case ACTV_TAB_OPT_IMP_DATA_Stores://------------------------------------------
 			
 			case_ACTV_TAB_OPT_IMP_DATA(tag_name);
 			
@@ -445,6 +448,12 @@ DB_OCL implements OnClickListener {
 			
 			break;
 		
+		case ACTV_TAB_OPT_IMP_DATA_Stores:
+			
+			Methods.import_Data_Stores(actv, d1, d2, d3);
+			
+			break;
+			
 		
 		}
 		

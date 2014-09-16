@@ -823,9 +823,11 @@ public class Methods_dlg {
 		
 		//
 		btn_ok.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg3));
+				new DB_OTL(actv, dlg1, dlg2, dlg3));
+//		new DialogButtonOnTouchListener(actv, dlg3));
 		btn_cancel.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg3));
+				new DB_OTL(actv, dlg1, dlg2, dlg3));
+//				new DialogButtonOnTouchListener(actv, dlg3));
 		
 		/*----------------------------
 		 * 3. Add listeners => OnClick
@@ -2966,6 +2968,12 @@ public class Methods_dlg {
 		case ACTV_TAB_OPT_IMP_DATA_SI:
 			
 			tname = CONS.DB.tname_si;
+			
+			break;
+			
+		case ACTV_TAB_OPT_IMP_DATA_Stores:
+			
+			tname = CONS.DB.tname_stores;
 			
 			break;
 			

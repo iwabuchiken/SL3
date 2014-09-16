@@ -85,10 +85,12 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
+			case GENERIC_DISMISS_THIRD_DIALOG:
 			case GENERIC_DISMISS_4TH_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_IMP_DATA_SI:
+			case ACTV_TAB_OPT_IMP_DATA_Stores:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -110,10 +112,12 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_generic_dismiss:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
+			case GENERIC_DISMISS_THIRD_DIALOG:
 			case GENERIC_DISMISS_4TH_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_IMP_DATA_SI:
+			case ACTV_TAB_OPT_IMP_DATA_Stores:
 
 				v.setBackgroundColor(Color.WHITE);
 				

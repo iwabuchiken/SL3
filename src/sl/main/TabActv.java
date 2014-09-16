@@ -917,17 +917,6 @@ public class TabActv extends TabActivity
 			//
 			CONS.TabActv.itemList.add(si);
 			
-			// Log
-			if (i % 5 == 0) {
-				
-				String msg_Log = "si.getName() => " + si.getName()
-							+ "(" + i + ")";
-				Log.d("TabActv.java" + "["
-						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-						+ "]", msg_Log);
-				
-			}
-			
 			//
 			c.moveToNext();
 			
