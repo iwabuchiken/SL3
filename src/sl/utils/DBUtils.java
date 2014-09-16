@@ -2484,8 +2484,11 @@ public class DBUtils extends SQLiteOpenHelper {
 //		
 //		"posted_at"							// 4
 		
-		val.put("created_at", si.getCreated_at());
-		val.put("modified_at", si.getModified_at());
+		val.put("created_at", 
+					Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		val.put("modified_at", 
+					Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
 		
 		val.put(CONS.DB.col_Names_Store_full[3], si.getStore_name());
 		

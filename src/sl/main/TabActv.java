@@ -546,56 +546,6 @@ public class TabActv extends TabActivity
 			
 		}
 		
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-//	              this, android.R.layout.simple_spinner_item);
-//	
-//		/***************************************
-//		 * Get store names from db
-//		 ***************************************/
-//		DBUtils dbm = new DBUtils(this);
-//		
-//		SQLiteDatabase db = dbm.getReadableDatabase();
-//		
-//		Cursor c = dbm.getAllData(db, "stores", CONS.DBAdmin.columns_for_table_stores_with_index);
-//		
-//		// Log
-//		Log.d("ListOnItemLongClickListener.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ "]", "c.getCount()" + c.getCount());
-//	
-//	//		int count = 0;
-//		
-//		while (c.moveToNext()) {
-//			
-//			adapter.add(c.getString(1));
-//			
-//		}
-//	
-//		adapter.add(this.getString(R.string.generic_label_all));
-//		
-//	//		c.moveToFirst();
-//	//		
-//	//		// Log
-//	//		for (int i = 0; i < c.getCount(); i++) {
-//	//
-//	//			adapter.add(c.getString(1));
-//	//
-//	//			c.moveToNext();
-//	//			
-//	//		}//for (int i = 0; i < c.getCount(); i++)
-//		
-//		
-//		/*----------------------------
-//		 * 3-1. setDropDownViewResource
-//			----------------------------*/
-//		adapter.setDropDownViewResource(
-//						android.R.layout.simple_spinner_dropdown_item);
-//		
-//		/*----------------------------
-//		 * 3-2. Close db
-//			----------------------------*/
-//		db.close();
-		
 		/*----------------------------
 		 * 4. Set adapter to spinner
 			----------------------------*/
@@ -609,9 +559,15 @@ public class TabActv extends TabActivity
 		
 		for (int i = 0; i < CONS.TabActv.adp_List_Store.getCount(); i++) {
 			
-			String genreName = CONS.TabActv.adp_List_Store.getItem(i);
+			String storeName = CONS.TabActv.adp_List_Store.getItem(i);
 	
-			if (genreName.equals(this.getString(R.string.generic_label_all))) {
+			// Log
+			String msg_Log = "storeName => " + storeName;
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			if (storeName.equals(this.getString(R.string.generic_label_all))) {
 				
 				num = i;
 				
@@ -620,6 +576,7 @@ public class TabActv extends TabActivity
 			}//if (si.getName() == condition)
 			
 		}//for (int i = 0; i < adapter.getCount(); i++)
+		
 		
 		CONS.TabActv.spStore.setSelection(num);
 	
@@ -645,52 +602,6 @@ public class TabActv extends TabActivity
 			
 		}
 		
-//		ArrayAdapter<String> adapterGenre = new ArrayAdapter<String>(
-//	              this, android.R.layout.simple_spinner_item);
-//	//
-//		/*----------------------------
-//		 * 2. Get genre names from db
-//			----------------------------*/
-//		dbm = new DBUtils(this);
-//		
-//		db = dbm.getReadableDatabase();
-//		
-//		c = dbm.getAllData(db, "genres", CONS.DBAdmin.columns_for_table_genres_with_index);
-//		
-//		// Log
-//		Log.d("RegisterItem.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ "]", "c.getCount()" + c.getCount());
-//	
-//		while (c.moveToNext()) {
-//			
-//			adapterGenre.add(c.getString(1));
-//			
-//		}
-//	
-//		adapterGenre.add(this.getString(R.string.generic_label_all));
-//		
-//	//		c.moveToFirst();
-//	//		
-//	//		// Log
-//	//		for (int i = 0; i < c.getCount(); i++) {
-//	//
-//	//			adapter.add(c.getString(1));
-//	//
-//	//			c.moveToNext();
-//	//		}//for (int i = 0; i < c.getCount(); i++)
-//		
-//		
-//		/*----------------------------
-//		 * 3-1. setDropDownViewResource
-//			----------------------------*/
-//		adapterGenre.setDropDownViewResource(
-//						android.R.layout.simple_spinner_dropdown_item);
-//		
-//		/*----------------------------
-//		 * 3-2. Close db
-//			----------------------------*/
-//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
@@ -702,19 +613,22 @@ public class TabActv extends TabActivity
 		 ***************************************/
 		num = 0;
 		
-		for (int i = 0; i < CONS.TabActv.adapterGenre.getCount(); i++) {
-			
-			String genreName = CONS.TabActv.adapterGenre.getItem(i);
-	
-			if (genreName.equals(this.getString(R.string.generic_label_all))) {
-				
-				num = i;
-				
-				break;
-				
-			}//if (si.getName() == condition)
-			
-		}//for (int i = 0; i < adapter.getCount(); i++)
+//		for (int i = 0; i < CONS.TabActv.adapterGenre.getCount(); i++) {
+//			
+//			String genreName = CONS.TabActv.adapterGenre.getItem(i);
+//	
+//			if (genreName.equals(this.getString(R.string.generic_label_all))) {
+//				
+//				num = i;
+//				
+//				break;
+//				
+//			}//if (si.getName() == condition)
+//			
+//		}//for (int i = 0; i < adapter.getCount(); i++)
+
+		//debug
+		num = 0;
 		
 		CONS.TabActv.spGenre.setSelection(num);
 	

@@ -45,6 +45,8 @@ public class CONS {
 		// Usage => e.g. width = screen_width * 100 / ratio_Dialog_to_Screen_W
 		public static final int ratio_Dialog_to_Screen_W = 70;
 		
+		public static final String format_Date = "yyyy/MM/dd HH:mm:ss.SSS";
+		
 	}
 	
 	public static class DB {

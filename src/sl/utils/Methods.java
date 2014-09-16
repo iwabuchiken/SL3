@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.FileChannel;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -3248,18 +3249,20 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 		
+		String tname = CONS.DB.tname_stores;
+		
 		////////////////////////////////
 
 		// validate: table exists
 
 		////////////////////////////////
 		boolean res = DBUtils.tableExists(
-							actv, CONS.DB.dbName, CONS.DB.tname_stores);
+							actv, CONS.DB.dbName, tname);
 		
 		if (res == false) {
 			
 			// Log
-			String msg_Log = "table => exist not: " + CONS.DB.tname_stores;
+			String msg_Log = "table => exist not: " + tname;
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
@@ -3272,7 +3275,7 @@ public class Methods {
 		
 		Cursor c = dbm.getAllData(
 							db, 
-							CONS.DB.tname_stores, 
+							tname, 
 							CONS.DB.col_Names_Store_full);
 //		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
 		
@@ -3285,7 +3288,14 @@ public class Methods {
 		
 		while (c.moveToNext()) {
 			
-			adapter.add(c.getString(1));
+			adapter.add(c.getString(3));
+//			adapter.add(c.getString(1));
+			
+			// Log
+			String msg_Log = "c.getString(3) => " + c.getString(3);
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
 			
 		}
 	
@@ -3313,6 +3323,12 @@ public class Methods {
 		 * 3-2. Close db
 			----------------------------*/
 		db.close();
+		
+		// Log
+		String msg_Log = "adapter.getCount() => " + adapter.getCount();
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 		return adapter;
 		
@@ -4261,5 +4277,24 @@ public class Methods {
 		}//try
 		
 	}//restore_DB
+
+	public static String
+	conv_MillSec_to_TimeLabel(long millSec)
+	{
+		//REF http://stackoverflow.com/questions/7953725/how-to-convert-milliseconds-to-date-format-in-android answered Oct 31 '11 at 12:59
+		String dateFormat = CONS.Admin.format_Date;
+//		String dateFormat = "yyyy/MM/dd hh:mm:ss.SSS";
+		
+		DateFormat formatter = new SimpleDateFormat(dateFormat, Locale.JAPAN);
+//		DateFormat formatter = new SimpleDateFormat(dateFormat);
+
+		// Create a calendar object that will convert the date and time value in milliseconds to date. 
+		Calendar calendar = Calendar.getInstance();
+		
+		calendar.setTimeInMillis(millSec);
+		
+		return formatter.format(calendar.getTime());
+		
+	}//conv_MillSec_to_TimeLabel(long millSec)
 
 }//public class Methods
