@@ -23,7 +23,19 @@ public class ItemSelectedListener implements OnItemSelectedListener {
 	onItemSelected
 	(AdapterView<?> parent, View v, int position, long id) {
 		
+		// Log
+		String msg_Log = "onItemSelected";
+		Log.d("ItemSelectedListener.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		Tags.SpinnerTag tag = (Tags.SpinnerTag) parent.getTag();
+		
+		// Log
+		msg_Log = "tag => " + tag.toString();
+		Log.d("ItemSelectedListener.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 		Spinner spStore;
 		Spinner spGenre;

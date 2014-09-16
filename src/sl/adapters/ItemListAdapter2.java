@@ -54,6 +54,19 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
         SI si = (SI) getItem(position);
 
+        //debug
+        // Log
+	     // Log
+//		if (position % 5 == 0) {
+			
+			String msg_Log = "si.getName() => " + si.getName()
+						+ "(" + position + ")";
+			Log.d("ItemListAdapter2.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+//		}        
+	     			
         getView__1_setupTextView(convertView, si);
 
 //		/*----------------------------

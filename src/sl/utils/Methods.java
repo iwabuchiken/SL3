@@ -1646,17 +1646,19 @@ public class Methods {
 		
 		SQLiteDatabase db = dbm.getReadableDatabase();
 
-		/***************************************
-		 * 3. Build query
-		 ***************************************/
-		//
-//		String query;
-		String query = filterList2__buildQuery(actv, storeName, genreName);
+//		/***************************************
+//		 * 3. Build query
+//		 ***************************************/
+//		//
+////		String query;
+//		String query = filterList2__buildQuery(actv, storeName, genreName);
 		
 		/***************************************
 		 * 4. Exec query
 		 ***************************************/
-		Cursor c = db.rawQuery(query, null);
+		Cursor c = Methods.filterList2__buildQuery_Cursor(
+									actv, db, storeName, genreName);
+//		Cursor c = db.rawQuery(query, null);
 		
 		// Log
 		Log.d("Methods.java" + "["
@@ -1683,29 +1685,38 @@ public class Methods {
 //		ItemListActv.list.clear();
 		CONS.TabActv.itemList.clear();
 		
+		SI si = null;
+		
 		while(c.moveToNext()) {
 			
-			SI item = new SI(
-					c.getInt(0),		// id
-					c.getString(1),		// store
-					c.getString(2),		// name
-					c.getInt(3),		// price
-					c.getString(4),		//	genre
-					c.getString(5)			// yomi
-					);
+			si = new SI.Builder()
+
+						.setDb_id(c.getInt(0))
+						.setCreated_at(c.getString(1))
+						.setModified_at(c.getString(2))
+						
+						.setStore(c.getString(3))
+						.setName(c.getString(4))
+						.setPrice(c.getInt(5))
+						
+						.setGenre(c.getString(6))
+						.setYomi(c.getString(7))
+						
+						.setPosted_at(c.getString(8))
+						
+						.build();
 			
-//			// Log
-//			Log.d("Methods.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", "c.getString(0) => " + c.getString(0));
-//			
-//			Log.d("Methods.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", "c.getString(1) => " + c.getString(1));
-//			
-//			//
-////			ItemListActv.list.add(item);
-			CONS.TabActv.itemList.add(item);
+//			SI item = new SI(
+//					c.getInt(0),		// id
+//					c.getString(1),		// store
+//					c.getString(2),		// name
+//					c.getInt(3),		// price
+//					c.getString(4),		//	genre
+//					c.getString(5)			// yomi
+//					);
+			
+			CONS.TabActv.itemList.add(si);
+//			CONS.TabActv.itemList.add(item);
 			
 		}
 
@@ -1801,46 +1812,100 @@ public class Methods {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "sql=" + query);
 
-//		
-//		// Both are "All"
-//		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
-//				genreName.equals(actv.getString(R.string.generic_label_all))) {
-//			query = "SELECT * FROM " + CONS.DBAdmin.tableName;
-//
-//		// Store => All, Genre => Specific
-//		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
-//						!genreName.equals(actv.getString(R.string.generic_label_all))) {
-//			
-//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
-//							" WHERE genre is '" + genreName + "'";
-//					
-//		// Store => Specific, Genre => All
-//		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
-//						genreName.equals(actv.getString(R.string.generic_label_all))) {
-//			
-//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
-//					" WHERE store is '" + storeName + "'";
-//
-//		// Store => Specific, Genre => Specific
-//		} else {
-//			
-//			query = "SELECT * FROM " + CONS.DBAdmin.tableName + 
-//					" WHERE store is '" + storeName + "'" + " AND " +
-//					"genre is '" + genreName + "'";
-//			
-//		}//if (storeName.equals(actv.getString(R.string.generic_label_all)))
-//
-//		// Log
-//		Log.d("Methods.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "sql=" + query);
-
 		return query;
 		
 	}//String filterList2__buildQuery()
 
+	private static
+	Cursor filterList2__buildQuery_Cursor
+	(Activity actv, 
+		SQLiteDatabase db, String storeName, String genreName) {
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
+
+//		String query = null;
+		
+		String where = null;
+		String[] args = null;
+		
+		
+		// Both are "All"
+		if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
+				genreName.equals(actv.getString(R.string.generic_label_all))) {
+//			query = "SELECT * FROM " + CONS.DB.tableName;
+			
+			// Store => All, Genre => Specific
+		} else if (storeName.equals(actv.getString(R.string.generic_label_all)) &&
+				!genreName.equals(actv.getString(R.string.generic_label_all))) {
+			
+//			query = "SELECT * FROM " + CONS.DB.tableName + 
+//					" WHERE genre = '" + genreName + "'";
+			
+			where = String.format(
+							Locale.JAPAN,
+							" WHERE %s = ?", 
+							CONS.DB.col_Names_SI_full[6]); 
+			
+			args = new String[]{
+					
+					genreName
+					
+			};
+			
+			// Store => Specific, Genre => All
+		} else if (!storeName.equals(actv.getString(R.string.generic_label_all)) &&
+				genreName.equals(actv.getString(R.string.generic_label_all))) {
+			
+//			query = "SELECT * FROM " + CONS.DB.tableName + 
+//					" WHERE store = '" + storeName + "'";
+			
+			where = String.format(
+					Locale.JAPAN,
+					" WHERE %s = ?", 
+					CONS.DB.col_Names_SI_full[3]); 
+			
+			args = new String[]{
+								
+								storeName
+								
+			};
+			
+		// Store => Specific, Genre => Specific
+		} else {
+
+			where = String.format(
+							Locale.JAPAN,
+							" WHERE %s = ? AND %s = ?", 
+							CONS.DB.col_Names_SI_full[6],
+							CONS.DB.col_Names_SI_full[3]); 
+			
+			args = new String[]{
+								
+							genreName,
+							storeName
+								
+			};
+
+//			query = "SELECT * FROM " + CONS.DB.tableName + 
+//					" WHERE store = '" + storeName + "'" + " AND " +
+//					"genre = '" + genreName + "'";
+			
+		}//if (storeName.equals(actv.getString(R.string.generic_label_all)))
+		
+		return db.query(
+				CONS.DB.tname_si, 
+				CONS.DB.col_Names_SI_full, 
+				where, args, 
+				null, null, null);
+		
+	}//String filterList2__buildQuery()
+	
 	/****************************************
 	 *
 	 * 

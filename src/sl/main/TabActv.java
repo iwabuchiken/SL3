@@ -244,12 +244,23 @@ public class TabActv extends TabActivity
 		CONS.TabActv.spStore.setTag(Tags.SpinnerTag.spStrore);
 		CONS.TabActv.spStore.setOnItemSelectedListener(new ItemSelectedListener(this));
 		
+		// Log
+		String msg_Log = "CONS.TabActv.spStore => listener set";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		/***************************************
 		 * Change listeners: Spinner: store
 		 ***************************************/
 		CONS.TabActv.spGenre.setTag(Tags.SpinnerTag.spGenre);
 		CONS.TabActv.spGenre.setOnItemSelectedListener(new ItemSelectedListener(this));
 		
+		// Log
+		msg_Log = "CONS.TabActv.spGenre => listener set";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 	}//private void setupListeners()
 
@@ -852,10 +863,11 @@ public class TabActv extends TabActivity
 		
 		try {
 			c = rdb.query(
-					CONS.DB.tableName, 
+					CONS.DB.tname_si, 
 //										DBManager.columns,
 //				CONS.DBAdmin.columns_with_index,
-					CONS.DB.columns_with_index2,
+					CONS.DB.col_Names_SI_full,
+//					CONS.DB.columns_with_index2,
 											null, null, null, null, null);
 		} catch (Exception e) {
 			
@@ -874,22 +886,47 @@ public class TabActv extends TabActivity
 		
 		//
 		c.moveToFirst();
+
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
 		
 		for (int i = 0; i < c.getCount(); i++) {
 
-//			0									1		2		3		4			5
-//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-			SI item = new SI(
-					c.getInt(0),		// id store
-					c.getString(1),		// name
-					c.getString(2),		// yomi
-					c.getString(3),		// genre
-					c.getString(4),		//	store
-					c.getInt(5)			// price
-					);
+			SI si = new SI.Builder()
+			
+						.setDb_id(c.getInt(0))
+						.setCreated_at(c.getString(1))
+						.setModified_at(c.getString(2))
+						
+						.setStore(c.getString(3))
+						.setName(c.getString(4))
+						.setPrice(c.getInt(5))
+						
+						.setGenre(c.getString(6))
+						.setYomi(c.getString(7))
+						
+						.setPosted_at(c.getString(8))
+						
+						.build();
 			
 			//
-			CONS.TabActv.itemList.add(item);
+			CONS.TabActv.itemList.add(si);
+			
+			// Log
+			if (i % 5 == 0) {
+				
+				String msg_Log = "si.getName() => " + si.getName()
+							+ "(" + i + ")";
+				Log.d("TabActv.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+			}
 			
 			//
 			c.moveToNext();
@@ -1217,7 +1254,19 @@ public class TabActv extends TabActivity
 		
 		_Setup_ToBuyListView();
 		
+		// Log
+		String msg_Log = "_Setup_ToBuyListView => done";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		_Setup_Listeners();
+		
+		// Log
+		msg_Log = "listeners => set";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 		//debug
 //		test_B32_v_1_2();
