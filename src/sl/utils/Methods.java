@@ -3278,41 +3278,15 @@ public class Methods {
 							db, 
 							tname, 
 							CONS.DB.col_Names_Store_full);
-//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
-		
-		// Log
-		Log.d("Methods.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-	
-	//		int count = 0;
 		
 		while (c.moveToNext()) {
 			
 			adapter.add(c.getString(3));
 //			adapter.add(c.getString(1));
 			
-			// Log
-			String msg_Log = "c.getString(3) => " + c.getString(3);
-			Log.d("Methods.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
-			
 		}
 	
 		adapter.add(actv.getString(R.string.generic_label_all));
-		
-	//		c.moveToFirst();
-	//		
-	//		// Log
-	//		for (int i = 0; i < c.getCount(); i++) {
-	//
-	//			adapter.add(c.getString(1));
-	//
-	//			c.moveToNext();
-	//			
-	//		}//for (int i = 0; i < c.getCount(); i++)
-		
 		
 		/*----------------------------
 		 * 3-1. setDropDownViewResource

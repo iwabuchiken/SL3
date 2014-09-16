@@ -602,6 +602,17 @@ public class CONS {
 
 		public static Menu menu;
 		
+		////////////////////////////////
+
+		// tab
+
+		////////////////////////////////
+		public static int tabID_Current;
+		
+		public static final int tabID_1st = 0;
+		
+		public static final int tabID_2nd = 1;
+		
 	}
 	
 	public static class HTTPData {

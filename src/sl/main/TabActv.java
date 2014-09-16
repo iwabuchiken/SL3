@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import sl.adapters.ItemListAdapter;
 import sl.adapters.ItemListAdapter2;
@@ -15,6 +16,7 @@ import sl.items.SI;
 import sl.listeners.ButtonOnClickListener;
 import sl.listeners.ButtonOnTouchListener;
 import sl.listeners.ItemSelectedListener;
+import sl.listeners.TCL;
 import sl.listeners.list.LOI_CL;
 import sl.listeners.list.LOI_LCL;
 import sl.utils.CONS;
@@ -261,6 +263,16 @@ public class TabActv extends TabActivity
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// tab changed
+
+		////////////////////////////////
+		TabHost th = this.getTabHost();
+		
+		//REF http://stackoverflow.com/questions/3583405/get-index-of-selected-tab-in-tabhost answered Aug 27 '10 at 15:31
+		th.setOnTabChangedListener(new TCL(this));
 		
 	}//private void setupListeners()
 
@@ -561,12 +573,6 @@ public class TabActv extends TabActivity
 			
 			String storeName = CONS.TabActv.adp_List_Store.getItem(i);
 	
-			// Log
-			String msg_Log = "storeName => " + storeName;
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
-			
 			if (storeName.equals(this.getString(R.string.generic_label_all))) {
 				
 				num = i;
@@ -613,22 +619,22 @@ public class TabActv extends TabActivity
 		 ***************************************/
 		num = 0;
 		
-//		for (int i = 0; i < CONS.TabActv.adapterGenre.getCount(); i++) {
-//			
-//			String genreName = CONS.TabActv.adapterGenre.getItem(i);
-//	
-//			if (genreName.equals(this.getString(R.string.generic_label_all))) {
-//				
-//				num = i;
-//				
-//				break;
-//				
-//			}//if (si.getName() == condition)
-//			
-//		}//for (int i = 0; i < adapter.getCount(); i++)
+		for (int i = 0; i < CONS.TabActv.adapterGenre.getCount(); i++) {
+			
+			String genreName = CONS.TabActv.adapterGenre.getItem(i);
+	
+			if (genreName.equals(this.getString(R.string.generic_label_all))) {
+				
+				num = i;
+				
+				break;
+				
+			}//if (si.getName() == condition)
+			
+		}//for (int i = 0; i < adapter.getCount(); i++)
 
-		//debug
-		num = 0;
+//		//debug
+//		num = 0;
 		
 		CONS.TabActv.spGenre.setSelection(num);
 	
@@ -1039,27 +1045,51 @@ public class TabActv extends TabActivity
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		
+		String msg_Log;
+		
 		String tabTag = CONS.TabActv.tabHost.getCurrentTabTag();
+		int tabID = CONS.TabActv.tabHost.getCurrentTab();
+//		String tabTag = CONS.TabActv.tabHost.getCurrentTabTag();
 
-//		/***************************************
-//		 * Switch the menu file using tab tag
-//		 ***************************************/
-//		if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first))) {
-//			
-//			MenuInflater mi = getMenuInflater();
-//			mi.inflate(R.menu.itemlist, menu);
-//			
-//		} else {//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
-//			
-//		}//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
-
+		// Log
+		msg_Log = String.format(
+							Locale.JAPAN,
+							"current tab => %s (%d)",
+							tabTag, tabID);
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+//		TabHost.
+		
+		/***************************************
+		 * Switch the menu file using tab tag
+		 ***************************************/
 		MenuInflater mi = getMenuInflater();
-		mi.inflate(R.menu.itemlist, menu);
+		
+		if (tabTag.equals(this.getString(
+							R.string.tabactv_tabtags_first))) {
+			
+			mi.inflate(R.menu.actv_tab_1, menu);
+			
+		} else if (tabTag.equals(this.getString(
+							R.string.tabactv_tabtags_second))) {//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+			
+			mi.inflate(R.menu.actv_tab_2, menu);
+			
+		} else {//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+			
+			mi.inflate(R.menu.actv_tab_1, menu);
+			
+		}//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+
+//		MenuInflater mi = getMenuInflater();
+//		mi.inflate(R.menu.actv_tab_1, menu);
 
 		CONS.TabActv.menu = menu;
 		
 		// Log
-		String msg_Log = "menu => created";
+		msg_Log = "menu => created";
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
@@ -1071,7 +1101,7 @@ public class TabActv extends TabActivity
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
-		case R.id.menu_listitem_filter:
+		case R.id.actv_tab_1_filter:
 
 			String tabTag = CONS.TabActv.tabHost.getCurrentTabTag();
 			
@@ -1095,7 +1125,7 @@ public class TabActv extends TabActivity
 			
 			break;
 
-		case R.id.menu_listitem_tabToBuy_clear_selections:
+		case R.id.actv_tab_1_clear_selections:
 
 			Methods_dlg.dlg_tabActv_clearSelections(this);
 			
@@ -1107,14 +1137,14 @@ public class TabActv extends TabActivity
 			
 			break;
 			
-		case R.id.menu_listitem_tabToBuy_admin_db:
+		case R.id.actv_tab_1_admin_db:
 			
 //			Methods_dlg.dlg_tabActv_adminDb(this);
 			Methods_dlg.dlg_OptMenu_TabActv_Admin(this);
 			
 			break;// case R.id.menu_listitem_tabToBuy_admin_db
 			
-		case R.id.menu_listitem_tabToBuy_sort_list://-------------------------------
+		case R.id.actv_tab_1_sort_list://-------------------------------
 			
 			Methods_dlg.dlg_SortList(this);
 			
@@ -1182,7 +1212,15 @@ public class TabActv extends TabActivity
 	do_test() {
 		// TODO Auto-generated method stub
 		
-//		_do_test_
+//		_do_test_D_4_V_1_0();
+		
+	}
+
+	private void 
+	_do_test_D_4_V_1_0() {
+		// TODO Auto-generated method stub
+	
+//		this.getTabHost().getCurrentTab()
 		
 	}
 

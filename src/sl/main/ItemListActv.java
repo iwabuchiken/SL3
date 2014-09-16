@@ -191,7 +191,7 @@ public class ItemListActv extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// 
 		MenuInflater mi = getMenuInflater();
-		mi.inflate(R.menu.itemlist, menu);
+		mi.inflate(R.menu.actv_tab_1, menu);
 		
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -200,7 +200,7 @@ public class ItemListActv extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		switch (item.getItemId()) {
-		case R.id.menu_listitem_filter:
+		case R.id.actv_tab_1_filter:
 
 			Methods.dlg_filterList(this);
 			
