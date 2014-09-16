@@ -35,6 +35,7 @@ import org.apache.http.util.EntityUtils;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import sl.items.Genre;
 import sl.items.SI;
 import sl.items.Store;
 import sl.listeners.ButtonOnTouchListener;
@@ -1851,7 +1852,7 @@ public class Methods {
 			
 			where = String.format(
 							Locale.JAPAN,
-							" WHERE %s = ?", 
+							"%s = ?", 
 							CONS.DB.col_Names_SI_full[6]); 
 			
 			args = new String[]{
@@ -1869,7 +1870,7 @@ public class Methods {
 			
 			where = String.format(
 					Locale.JAPAN,
-					" WHERE %s = ?", 
+					"%s = ?", 
 					CONS.DB.col_Names_SI_full[3]); 
 			
 			args = new String[]{
@@ -1883,7 +1884,7 @@ public class Methods {
 
 			where = String.format(
 							Locale.JAPAN,
-							" WHERE %s = ? AND %s = ?", 
+							"%s = ? AND %s = ?", 
 							CONS.DB.col_Names_SI_full[6],
 							CONS.DB.col_Names_SI_full[3]); 
 			
@@ -3386,7 +3387,7 @@ public class Methods {
 		
 		while (c.moveToNext()) {
 			
-			adapter.add(c.getString(1));
+			adapter.add(c.getString(3));
 			
 		}
 		
@@ -3917,6 +3918,138 @@ public class Methods {
 		
 //		
 	}//import_Data_Stores
+	
+	/******************************
+		@return
+	 ******************************/
+	public static void
+	import_Data_Genres
+	(Activity actv, 
+			Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+		
+		// validate: import db
+		
+		////////////////////////////////
+		boolean res = DBUtils.db_Exists(actv, CONS.DB.dbName_SL_1);
+		
+		if (res == true) {
+			
+			// Log
+			String msg_Log = "db exists => " + CONS.DB.dbName_SL_1;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} else {
+			
+			int res_i = Methods.import_DB(actv);
+			
+			if (res_i != 1) {
+				
+				// Log
+				String msg_Log = "import DB => not done";
+				Log.e("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				return;
+				
+			} else {
+				
+				// Log
+				String msg_Log = "DB => imported: " + CONS.DB.dbName_SL_1;
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+//				//debug
+//				d4.dismiss();
+				
+			}
+			
+		}//if (res == true)
+		
+		////////////////////////////////
+		
+		// build: list
+		
+		////////////////////////////////
+		List<Genre> list_Genres = DBUtils.find_ALL_Genres_from_Previous(actv);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list_Genres == null) {
+			
+			// Log
+			String msg_Log = "list_Genres => null";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		////////////////////////////////
+		
+		// insert data
+		
+		////////////////////////////////
+		int res_i = DBUtils.insert_Genres(actv, list_Genres);
+		
+		////////////////////////////////
+		
+		// report
+		
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res_i) {
+		
+		case -1: 
+			
+			msg = "Table doesn't exist => " + CONS.DB.tname_si;
+			colorID = R.color.gold2;
+			
+			d3.dismiss();
+			
+			break;
+			
+		case 0: 
+			
+			msg = "Insertion => not done: " + CONS.DB.tname_si;
+			colorID = R.color.gold2;
+			
+			d3.dismiss();
+			
+			break;
+			
+		default: 
+			
+			msg = "SIs inserted => " + res_i;
+			colorID = R.color.green4;
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+//		
+	}//import_Data_Genres
 	
 	public static String 
 	get_Dirname

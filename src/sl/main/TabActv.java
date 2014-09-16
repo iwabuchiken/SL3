@@ -1172,8 +1172,18 @@ public class TabActv extends TabActivity
 				+ "]", msg_Log);
 		
 		//debug
+		do_test();
+		
 //		test_B32_v_1_2();
 
 	}//onStart
+
+	private void 
+	do_test() {
+		// TODO Auto-generated method stub
+		
+//		_do_test_
+		
+	}
 
 }//public class TabActv extends TabActivity implements TabHost.TabContentFactory

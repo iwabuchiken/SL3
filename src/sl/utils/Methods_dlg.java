@@ -2977,6 +2977,12 @@ public class Methods_dlg {
 			
 			break;
 			
+		case ACTV_TAB_OPT_IMP_DATA_Genres:
+			
+			tname = CONS.DB.tname_genres;
+			
+			break;
+			
 		default:
 			
 			// Log

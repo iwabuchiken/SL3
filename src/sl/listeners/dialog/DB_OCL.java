@@ -425,6 +425,7 @@ DB_OCL implements OnClickListener {
 			
 		case ACTV_TAB_OPT_IMP_DATA_SI://------------------------------------------
 		case ACTV_TAB_OPT_IMP_DATA_Stores://------------------------------------------
+		case ACTV_TAB_OPT_IMP_DATA_Genres://------------------------------------------
 			
 			case_ACTV_TAB_OPT_IMP_DATA(tag_name);
 			
@@ -451,6 +452,12 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_IMP_DATA_Stores:
 			
 			Methods.import_Data_Stores(actv, d1, d2, d3);
+			
+			break;
+			
+		case ACTV_TAB_OPT_IMP_DATA_Genres:
+			
+			Methods.import_Data_Genres(actv, d1, d2, d3);
 			
 			break;
 			

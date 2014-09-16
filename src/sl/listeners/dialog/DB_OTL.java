@@ -91,6 +91,7 @@ public class DB_OTL implements OnTouchListener {
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_IMP_DATA_SI:
 			case ACTV_TAB_OPT_IMP_DATA_Stores:
+			case ACTV_TAB_OPT_IMP_DATA_Genres:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -118,6 +119,7 @@ public class DB_OTL implements OnTouchListener {
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_IMP_DATA_SI:
 			case ACTV_TAB_OPT_IMP_DATA_Stores:
+			case ACTV_TAB_OPT_IMP_DATA_Genres:
 
 				v.setBackgroundColor(Color.WHITE);
 				
