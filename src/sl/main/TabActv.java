@@ -1113,27 +1113,11 @@ public class TabActv extends TabActivity
 				
 			}//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
 			
-			
-//			// Log
-//			Log.d("TabActv.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ ":"
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]", "CONS.TabActv.tabHost.getCurrentTabTag()=" + CONS.TabActv.tabHost.getCurrentTabTag());
-			
-//			Methods.dlg_filterList2(this);
-			
 			break;
 
 		case R.id.actv_tab_1_clear_selections:
 
 			Methods_dlg.dlg_tabActv_clearSelections(this);
-			
-//			CONS.TabActv.toBuyList.clear();
-//			CONS.tab_toBuyItemIds.clear();
-//			
-//			CONS.TabActv.adpItems.notifyDataSetChanged();
-//			CONS.TabActv.adpToBuys.notifyDataSetChanged();
 			
 			break;
 			
@@ -1147,6 +1131,18 @@ public class TabActv extends TabActivity
 		case R.id.actv_tab_1_sort_list://-------------------------------
 			
 			Methods_dlg.dlg_SortList(this);
+			
+			break;// case R.id.menu_listitem_tabToBuy_sort_list
+			
+		case R.id.actv_tab_2_lists://-------------------------------
+			
+			Methods_dlg.dlg_OptMenu_Lists(this);
+			
+			break;// case R.id.menu_listitem_tabToBuy_sort_list
+			
+		case R.id.actv_tab_2_db://-------------------------------
+			
+			Methods_dlg.dlg_OptMenu_DB(this);
 			
 			break;// case R.id.menu_listitem_tabToBuy_sort_list
 			

@@ -149,7 +149,7 @@ DB_OCL implements OnClickListener {
 			
 			break;
 		
-		case dlg_generic_dismiss://------------------------------------------
+		case DLG_GENERIC_DISMISS://------------------------------------------
 			
 			d1.dismiss();
 			

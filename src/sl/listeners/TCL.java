@@ -28,6 +28,23 @@ public class TCL implements OnTabChangeListener {
 	(String tabTag) {
 		// TODO Auto-generated method stub
 
+		////////////////////////////////
+
+		// validate: menu => not null
+
+		////////////////////////////////
+		if (CONS.TabActv.menu == null) {
+			
+			// Log
+			String msg_Log = "CONS.TabActv.menu => null";
+			Log.d("TCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
 		String msg_Log;
 		
 		// Log
@@ -94,9 +111,16 @@ public class TCL implements OnTabChangeListener {
 				);
 		
 		list_MIs.add(new MI.Builder()
-					.setId_Item(R.id.actv_tab_2_items)
-					.setId_Title(R.string.menu_listitem_tabToBuy_items)
+					.setId_Item(R.id.actv_tab_2_lists)
+					.setId_Title(R.string.menu_listitem_tabToBuy_lists)
 					.setId_Icon(R.drawable.general_ib_ball_brown_48x48)
+					.build()
+				);
+		
+		list_MIs.add(new MI.Builder()
+					.setId_Item(R.id.actv_tab_2_db)
+					.setId_Title(R.string.menu_listitem_tabToBuy_db)
+					.setId_Icon(R.drawable.general_ib_ball_green_48x48)
 					.build()
 				);
 		

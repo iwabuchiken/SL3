@@ -4,7 +4,7 @@ public class Tags {
 
 	public static enum DialogTags {
 		// dlg_generic
-		dlg_generic_cancel, dlg_generic_dismiss,
+		dlg_generic_cancel, DLG_GENERIC_DISMISS,
 		dlg_generic_dismiss_second_dialog,
 		DLG_GENERIC_DISMISS_3RD_DIALOG,
 		
@@ -77,11 +77,17 @@ public class Tags {
 		ACTV_TAB_OPT_DROP_TABLE_GENRES, 
 		
 		GENERIC_DISMISS_ALL_SECOND_DIALOG, 
+		GENERIC_DISMISS_ALL_2ND_DIALOG, 
 		GENERIC_DISMISS_ALL_3RD_DIALOG, 
+		
 		GENERIC_DISMISS_THIRD_DIALOG, 
 		GENERIC_DISMISS_4TH_DIALOG, 
 		
-		ACTV_TAB_OPT_IMP_DATA_SI, GENERIC_DISMISS_ALL_2ND_DIALOG, ACTV_TAB_OPT_IMP_DATA_Stores, ACTV_TAB_OPT_IMP_DATA_Genres,
+		ACTV_TAB_OPT_IMP_DATA_SI, 
+		ACTV_TAB_OPT_IMP_DATA_Stores, 
+		ACTV_TAB_OPT_IMP_DATA_Genres, 
+		
+		ACTV_TAB_OPT_DB,
 		
 	}//public static enum DialogTags
 	

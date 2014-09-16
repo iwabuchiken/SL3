@@ -82,7 +82,7 @@ public class DB_OTL implements OnTouchListener {
 //			case tab2_post_items_ok:
 			
 			case dlg_generic_cancel:
-			case dlg_generic_dismiss:
+			case DLG_GENERIC_DISMISS:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
 			case GENERIC_DISMISS_THIRD_DIALOG:
@@ -110,7 +110,7 @@ public class DB_OTL implements OnTouchListener {
 //			case tab2_post_items_ok:			
 
 			case dlg_generic_cancel:
-			case dlg_generic_dismiss:
+			case DLG_GENERIC_DISMISS:
 			case dlg_generic_dismiss_second_dialog:
 			case DLG_GENERIC_DISMISS_3RD_DIALOG:
 			case GENERIC_DISMISS_THIRD_DIALOG:

@@ -57,7 +57,7 @@ public class Methods_dlg {
 									R.layout.dlg_db_admin, 
 									R.string.dlg_db_admin_title, 
 									R.id.dlg_db_admin_bt_cancel, 
-									Tags.DialogTags.dlg_generic_dismiss);
+									Tags.DialogTags.DLG_GENERIC_DISMISS);
 		
 		/*----------------------------
 		 * 2. Prep => List
@@ -126,7 +126,7 @@ public class Methods_dlg {
 									R.layout.dlg_db_admin, 
 									R.string.menu_listitem_tabToBuy_admin_db, 
 									R.id.dlg_db_admin_bt_cancel, 
-									Tags.DialogTags.dlg_generic_dismiss);
+									Tags.DialogTags.DLG_GENERIC_DISMISS);
 		
 		/*----------------------------
 		 * 2. Prep => List
@@ -333,7 +333,7 @@ public class Methods_dlg {
 				R.layout.dlg_db_admin, 
 				si.getName(), 
 				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.dlg_generic_dismiss);
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
 
 //		dlg.setTitle(si.getName());
 		
@@ -1283,7 +1283,7 @@ public class Methods_dlg {
 				R.string.menu_listitem_tabToBuy_clear_selections,
 				
 				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.dlg_generic_dismiss);
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
 
 		/*----------------------------
 		* 2. Prep => List
@@ -1433,7 +1433,7 @@ public class Methods_dlg {
 				R.layout.dlg_db_admin, 
 				R.string.dlg_sort_list_title, 
 				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.dlg_generic_dismiss);
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
 
 		/*----------------------------
 		* 2. Prep => List
@@ -1953,7 +1953,7 @@ public class Methods_dlg {
 				R.string.generic_confirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.dlg_generic_dismiss);
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
@@ -2019,7 +2019,7 @@ public class Methods_dlg {
 //				R.string.generic_tv_confirm, 
 				R.id.dlg_tmpl_toast_ok_bt_cancel, 
 //				R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.dlg_generic_dismiss);
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
 		
 		TextView tv_Message = 
 				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
@@ -2061,7 +2061,7 @@ public class Methods_dlg {
 						R.string.menu_listitem_tabToBuy_admin,
 						
 						R.id.dlg_tmpl_cancel_lv_bt_cancel,
-						Tags.DialogTags.dlg_generic_dismiss);
+						Tags.DialogTags.DLG_GENERIC_DISMISS);
 		
 		/****************************
 		* 2. Prep => List
@@ -3005,5 +3005,363 @@ public class Methods_dlg {
 		d3.show();
 
 	}//conf_ImportData_SI
+
+	public static void 
+	dlg_OptMenu_Lists
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
+		String msg_Log;
+		
+		
+		////////////////////////////////
+
+		// dlg
+
+		////////////////////////////////
+		Dialog d1 = Methods_dlg.dlg_Template_Cancel(
+						actv,
+						R.layout.dlg_tmpl_cancel_lv,
+						R.string.menu_listitem_tabToBuy_admin,
+						
+						R.id.dlg_tmpl_cancel_lv_bt_cancel,
+						Tags.DialogTags.DLG_GENERIC_DISMISS);
+		
+		////////////////////////////////
+
+		// Prep => List
+
+		////////////////////////////////
+		List<ListItem> list = new ArrayList<ListItem>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+									R.string.opt_TabActv_Admin_Main__BackupDB))
+						.setIconID(R.drawable.menu_icon_admin_32x32)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__Operations))
+						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+						.setTextColor_ID(R.color.black)
+						.build());
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.opt_TabActv_Admin_Main__SeeLog))
+								.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+								.setTextColor_ID(R.color.purple4)
+								.build());
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adapter = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);
+		
+		/****************************
+		* 4. Set adapter
+		****************************/
+		ListView lv = (ListView) d1.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		
+		lv.setAdapter(adapter);
+		
+		/****************************
+		* 5. Set listener to list
+		****************************/
+		lv.setTag(Tags.DialogTags.ACTV_TAB_OPT_ADMIN);
+		
+		lv.setOnItemClickListener(new DOI_CL(actv, d1));
+		
+		/***************************************
+		* Modify the list view height
+		***************************************/
+//		lv.setLayoutParams(
+//				new LinearLayout.LayoutParams(
+//						300,	//	Width
+//						LayoutParams.WRAP_CONTENT	//	Height
+//				));
+		
+		/***************************************
+		* Modify: Button layout
+		***************************************/
+		LinearLayout llButton =
+					(LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_filepath);
+//		(LinearLayout) dlg1.findViewById(R.id.actv_imp_ll_filepath);
+		
+		LinearLayout.LayoutParams params =
+				new LinearLayout.LayoutParams(
+								LayoutParams.WRAP_CONTENT,
+								LayoutParams.WRAP_CONTENT);
+		
+		params.gravity = Gravity.CENTER_HORIZONTAL;
+		
+		llButton.setLayoutParams(params);
+
+		////////////////////////////////
+
+		// get: screen size
+
+		////////////////////////////////
+		//REF size http://stackoverflow.com/questions/19155559/how-to-get-android-device-screen-size answered Oct 3 '13 at 10:00
+		DisplayMetrics displayMetrics = actv.getResources()
+                			.getDisplayMetrics();
+		
+		int w = displayMetrics.widthPixels;
+		
+//		// Log
+//		String msg_Log = "w => " + w;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		int dialog_Width = w * CONS.Admin.ratio_Dialog_to_Screen_W / 100;
+		
+//		// Log
+//		msg_Log = "dialog_Width => " + dialog_Width;
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// linear layot: main
+
+		////////////////////////////////
+		LinearLayout ll_Main = (LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_main);
+		
+		// Log
+		msg_Log = "ll_Main => created";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//REF parent layout http://stackoverflow.com/questions/4631966/set-relativelayout-layout-params-programmatically-throws-classcastexception answered Jan 8 '11 at 5:42
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): java.lang.ClassCastException: android.widget.LinearLayout$LayoutParams
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.widget.FrameLayout.onLayout(FrameLayout.java:293)
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.view.View.layout(View.java:7184)
+
+		FrameLayout.LayoutParams params2 =
+				new FrameLayout.LayoutParams(
+//						LinearLayout.LayoutParams params2 =
+//						new LinearLayout.LayoutParams(
+						dialog_Width,
+//						400,
+//						200,
+//						LayoutParams.WRAP_CONTENT,
+						LayoutParams.WRAP_CONTENT);
+		
+		// Log
+		msg_Log = "setting params...";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		ll_Main.setLayoutParams(params2);
+		
+		// Log
+		msg_Log = "params => set";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		/****************************
+		* 6. Show dialog
+		****************************/
+		d1.show();
+		
+	}//dlg_OptMenu_Items
+
+	public static void 
+	dlg_OptMenu_DB
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		String msg_Log;
+		
+		////////////////////////////////
+
+		// dialog
+
+		////////////////////////////////
+		Dialog d1 = Methods_dlg.dlg_Template_Cancel(
+				actv,
+				R.layout.dlg_tmpl_cancel_lv, 
+//				R.layout.dlg_db_admin, 
+				R.string.menu_listitem_tabToBuy_admin_db, 
+				R.id.dlg_tmpl_cancel_lv_bt_cancel, 
+//				R.id.dlg_db_admin_bt_cancel, 
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
+		
+		/*----------------------------
+		* 2. Prep => List
+		----------------------------*/
+		List<ListItem> list = new ArrayList<ListItem>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list))
+						.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list))
+							.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+							.setTextColor_ID(R.color.black)
+					.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list))
+							.setIconID(R.drawable.menu_icon_admin_32x32_purple)
+							.setTextColor_ID(R.color.purple4)
+							.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))
+							.setIconID(R.drawable.menu_icon_admin_32x32_green)
+							.setTextColor_ID(R.color.green4)
+							.build());
+		
+//		String[] choices = {
+//					actv.getString(
+//					R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list),
+//					actv.getString(
+//					R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list),
+//					actv.getString(
+//					R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list),
+//					actv.getString(
+//					R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list),
+//		
+//		};
+//		
+//		List<String> list = new ArrayList<String>();
+//		
+//		for (String item : choices) {
+//		
+//			list.add(item);
+//		
+//		}
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adapter = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);
+		
+		/****************************
+		* 4. Set adapter
+		****************************/
+		ListView lv = (ListView) d1.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		
+		lv.setAdapter(adapter);
+		
+		/****************************
+		* 5. Set listener to list
+		****************************/
+		lv.setTag(Tags.DialogTags.ACTV_TAB_OPT_DB);
+		
+		lv.setOnItemClickListener(new DOI_CL(actv, d1));
+		
+		/***************************************
+		* Modify the list view height
+		***************************************/
+//		lv.setLayoutParams(
+//				new LinearLayout.LayoutParams(
+//						300,	//	Width
+//						LayoutParams.WRAP_CONTENT	//	Height
+//				));
+		
+		/***************************************
+		* Modify: Button layout
+		***************************************/
+		LinearLayout llButton =
+					(LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_filepath);
+//		(LinearLayout) dlg1.findViewById(R.id.actv_imp_ll_filepath);
+		
+		LinearLayout.LayoutParams params =
+				new LinearLayout.LayoutParams(
+								LayoutParams.WRAP_CONTENT,
+								LayoutParams.WRAP_CONTENT);
+		
+		params.gravity = Gravity.CENTER_HORIZONTAL;
+		
+		llButton.setLayoutParams(params);
+
+		////////////////////////////////
+
+		// get: screen size
+
+		////////////////////////////////
+		//REF size http://stackoverflow.com/questions/19155559/how-to-get-android-device-screen-size answered Oct 3 '13 at 10:00
+		DisplayMetrics displayMetrics = actv.getResources()
+                			.getDisplayMetrics();
+		
+		int w = displayMetrics.widthPixels;
+		
+		int dialog_Width = w * CONS.Admin.ratio_Dialog_to_Screen_W / 100;
+		
+		////////////////////////////////
+
+		// linear layot: main
+
+		////////////////////////////////
+		LinearLayout ll_Main = (LinearLayout) d1.findViewById(R.id.dlg_tmpl_cancel_lv_ll_main);
+		
+		// Log
+		msg_Log = "ll_Main => created";
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//REF parent layout http://stackoverflow.com/questions/4631966/set-relativelayout-layout-params-programmatically-throws-classcastexception answered Jan 8 '11 at 5:42
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): java.lang.ClassCastException: android.widget.LinearLayout$LayoutParams
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.widget.FrameLayout.onLayout(FrameLayout.java:293)
+//		08-21 11:30:45.434: E/AndroidRuntime(20722): 	at android.view.View.layout(View.java:7184)
+
+		FrameLayout.LayoutParams params2 =
+				new FrameLayout.LayoutParams(
+						dialog_Width,
+						LayoutParams.WRAP_CONTENT);
+		
+//		// Log
+//		msg_Log = "setting params...";
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		ll_Main.setLayoutParams(params2);
+		
+//		// Log
+//		msg_Log = "params => set";
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
+		/****************************
+		* 6. Show dialog
+		****************************/
+		d1.show();
+
+		
+	}//dlg_OptMenu_DB
 	
 }//public class Methods_dlg

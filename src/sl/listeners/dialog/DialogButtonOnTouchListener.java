@@ -62,7 +62,7 @@ public class DialogButtonOnTouchListener implements OnTouchListener {
 				case dlg_generic_dismiss_second_dialog:
 				
 				case dlg_save_tobuy_list_bt_ok:
-				case dlg_generic_dismiss:
+				case DLG_GENERIC_DISMISS:
 					
 				case dlg_scheduleInDb_ok:
 				case DLG_GENERIC_DISMISS_3RD_DIALOG:
@@ -104,7 +104,7 @@ public class DialogButtonOnTouchListener implements OnTouchListener {
 				
 				case dlg_save_tobuy_list_bt_ok:
 				
-				case dlg_generic_dismiss:
+				case DLG_GENERIC_DISMISS:
 
 				case dlg_generic_cancel:
 				case dlg_generic_dismiss_second_dialog:

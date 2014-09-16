@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
     <item
-        android:id="@+id/actv_tab_2_items"
+        android:id="@+id/actv_tab_1_admin_db"
+		android:icon="@drawable/general_ib_ball_blue_48x48"
+		android:title="@string/menu_listitem_tabToBuy_admin"
+		
+		android:orderInCategory="2"
+		>
+        
+    </item>
+    
+    
+    <item
+        android:id="@+id/actv_tab_2_lists"
 		android:icon="@drawable/general_ib_ball_brown_48x48"
-		android:title="@string/menu_listitem_tabToBuy_items">
+		android:title="@string/menu_listitem_tabToBuy_lists"
+		
+		android:orderInCategory="2"
+		
+		>
+        
+    </item>
+    
+    <item
+        android:id="@+id/actv_tab_2_db"
+		android:icon="@drawable/general_ib_ball_green_48x48"
+		android:title="@string/menu_listitem_tabToBuy_db"
+		
+		android:orderInCategory="2"
+		
+		>
         
     </item>
     
