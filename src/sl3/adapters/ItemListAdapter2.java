@@ -1,6 +1,7 @@
 package sl3.adapters;
 
 import java.util.List;
+import java.util.Locale;
 
 import sl.main.ItemListActv;
 import sl3.items.SI;
@@ -64,7 +65,17 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
         SI si = (SI) getItem(position);
 
-        getView__1_setupTextView(convertView, si);
+		// Log
+		String msg_Log = String.format(
+								Locale.JAPAN,
+								"(%d) %s => num = %d",
+								position, si.getName(), si.getNum());
+		Log.d("ItemListAdapter2.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+        
+        _getView__Setup_TVs(convertView, si);
 
 //		/*----------------------------
 //		 * 5. Set background
@@ -167,17 +178,20 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
 	}//private void getView__2_setupBackground(View convertView, int position)
 
-	private void getView__1_setupTextView(View convertView, SI si) {
+	private void _getView__Setup_TVs(View v, SI si) {
 		// TODO Auto-generated method stub
         //
         TextView tv_item_name = 
-        				(TextView) convertView.findViewById(R.id.adapteritem_tv_item_name);
+        				(TextView) v.findViewById(R.id.adapteritem_tv_item_name);
         TextView tv_store = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_store);
+				(TextView) v.findViewById(R.id.adapteritem_tv_store);
         TextView tv_price = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_price);
+				(TextView) v.findViewById(R.id.adapteritem_tv_price);
         TextView tv_genre = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_genre);
+				(TextView) v.findViewById(R.id.adapteritem_tv_genre);
+        
+        TextView tv_Num = 
+        		(TextView) v.findViewById(R.id.adapteritem_tv_num);
 
 		/*----------------------------
 		 * 4. Set values
@@ -190,6 +204,8 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 		
 		tv_genre.setText("(" + si.getGenre() + ")");
 
+		tv_Num.setText(String.valueOf(si.getNum()));
+		
 //		/***************************************
 //		 * LinearLayout for item name
 //		 ***************************************/

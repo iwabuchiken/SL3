@@ -659,7 +659,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * Prepare list
 		 ***************************************/
-		int res = prepareItemList();
+		int res = _prepareItemList();
 		
 		/***************************************
 		 * List in the tab 1
@@ -681,7 +681,14 @@ public class TabActv extends TabActivity
 			/***************************************
 			 * Adapter
 			 ***************************************/
-
+			// Log
+			String msg_Log = "CONS.TabActv.itemList.get(10).getNum() => " 
+						+ CONS.TabActv.itemList.get(10).getNum();
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			
 			CONS.TabActv.adpItems = new ItemListAdapter2(
 					this,
 					R.layout.adapteritem,
@@ -773,7 +780,7 @@ public class TabActv extends TabActivity
 		
 	}//private void setupToBuyListView()
 
-	private int prepareItemList() {
+	private int _prepareItemList() {
 		/***************************************
 		 * itemList
 		 ***************************************/
@@ -835,12 +842,26 @@ public class TabActv extends TabActivity
 						.setGenre(c.getString(6))
 						.setYomi(c.getString(7))
 						
-						.setPosted_at(c.getString(8))
+						.setNum(c.getInt(8))
+						
+						.setPosted_at(c.getString(9))
 						
 						.build();
 			
 			//
 			CONS.TabActv.itemList.add(si);
+			
+//			// Log
+//			String msg_Log = "c.getInt(8) => " + c.getInt(8);
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+			
+//			// Log
+//			String msg_Log = "si.getNum() => " + si.getNum();
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
 			
 			//
 			c.moveToNext();

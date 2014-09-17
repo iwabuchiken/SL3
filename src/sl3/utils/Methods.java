@@ -1708,7 +1708,9 @@ public class Methods {
 						.setGenre(c.getString(6))
 						.setYomi(c.getString(7))
 						
-						.setPosted_at(c.getString(8))
+						.setNum(c.getInt(8))
+						
+						.setPosted_at(c.getString(9))
 						
 						.build();
 			
