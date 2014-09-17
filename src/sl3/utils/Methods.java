@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -4855,5 +4856,149 @@ public class Methods {
 		return res;
 		
 	}//private void restore_DB()
+
+	public static List<SI> 
+	conv_ToBuyList_to_SIList
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
+		List<SI> list_SIs = new ArrayList<SI>();
+		
+		String msg;
+		
+		
+		/***************************************
+		 * Setup db
+		 ***************************************/
+		DBUtils dbm = new DBUtils(actv);
+		
+		SQLiteDatabase rdb = dbm.getReadableDatabase();
+		
+		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
+		String[] args = null;
+		
+		String tname = CONS.DB.tname_si;
+		
+		SI si = null;
+		
+		Cursor c = null;
+		
+		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
+			
+			args = new String[]{String.valueOf(itemId.intValue())};
+			
+			try {
+				
+				c = rdb.query(
+						tname, 
+						CONS.DB.col_Names_SI_full,
+						where, args,
+						null, null, null);
+				
+			} catch (Exception e) {
+
+				// Log
+				String msg_Log = String.format(
+							"Exception => id = %d\n%s",
+							itemId.intValue(),
+							e.toString());
+				Log.e("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				rdb.close();
+				
+//				return CONS.PREP_LIST_FAILED;
+				continue;
+				
+			}//try
+
+			/***************************************
+			 * If the cursor is null, then move on to
+			 * 	the next id
+			 ***************************************/
+			if (c == null) {
+				
+				// Log
+				Log.d("Methods_sl.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber()
+						+ ":"
+						+ Thread.currentThread().getStackTrace()[2]
+								.getMethodName() + "]",
+						"c==null => id=" + itemId.intValue());
+				
+				continue;
+				
+			}//if (c == null)
+			
+			/***************************************
+			 * If no result, then also, move on to
+			 * 	the next
+			 ***************************************/
+			if (c.getCount() < 1) {
+				
+				// Log
+				Log.d("Methods_sl.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber()
+						+ ":"
+						+ Thread.currentThread().getStackTrace()[2]
+								.getMethodName() + "]",
+						"c.getCount() < 1 => id=" + itemId.intValue());
+				
+				continue;
+				
+			}//if (c.getCount() < 1)
+			
+			/***************************************
+			 * If has result, the add the new item
+			 * 	to the list
+			 ***************************************/
+			//
+			c.moveToFirst();
+			
+			for (int i = 0; i < c.getCount(); i++) {
+	
+				si = new SI.Builder()
+				
+							.setDb_id(c.getInt(0))
+							.setCreated_at(c.getString(1))
+							.setModified_at(c.getString(2))
+							
+							.setStore(c.getString(3))
+							.setName(c.getString(4))
+							.setPrice(c.getInt(5))
+							
+							.setGenre(c.getString(6))
+							.setYomi(c.getString(7))
+							.setNum(c.getInt(8))
+							
+							.setPosted_at(c.getString(9))
+							
+							.build();
+				//
+				list_SIs.add(si);
+				
+				//
+				c.moveToNext();
+				
+			}//for (int i = 0; i < c.getCount(); i++)
+
+		}//for (Integer itemId : CONS.TabActv.tab_toBuyItemIds)
+
+		//
+		rdb.close();
+		
+		return list_SIs;
+		
+	}//conv_ToBuyList_to_SIList
 
 }//public class Methods

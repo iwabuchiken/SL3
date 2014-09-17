@@ -1816,157 +1816,159 @@ public class Methods_sl {
 		 ***************************************/
 		CONS.TabActv.toBuyList.clear();
 		
-		/***************************************
-		 * Setup db
-		 ***************************************/
-		DBUtils dbm = new DBUtils(actv);
+		CONS.TabActv.toBuyList.addAll(Methods.conv_ToBuyList_to_SIList(actv));
 		
-		SQLiteDatabase rdb = dbm.getReadableDatabase();
-		
-		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
-		String[] args = null;
-		
-		String tname = CONS.DB.tname_si;
-		
-		SI si = null;
-		
-		Cursor c = null;
-		
-		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
-			
-			args = new String[]{String.valueOf(itemId.intValue())};
-			
-			try {
-				
-				c = rdb.query(
-						tname, 
-//						CONS.DB.tableName, 
-	//										DBManager.columns,
-	//				CONS.DBAdmin.columns_with_index,
-						CONS.DB.col_Names_SI_full,
-//						CONS.DB.columns_with_index2,
-//						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
-						where, args,
-//						String.valueOf(CONS.DB.columns_with_index2[0]) + "=?",
-//						new String[]{String.valueOf(itemId.intValue())},
-						null, null, null);
-				
-			} catch (Exception e) {
-				
-				// Log
-				Log.e("Methods_sl.java" + "["
-						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2].getMethodName()
-						+ "]", e.toString());
-				
-				rdb.close();
-				
-//				return CONS.PREP_LIST_FAILED;
-				return;
-				
-			}//try
-
-			/***************************************
-			 * If the cursor is null, then move on to
-			 * 	the next id
-			 ***************************************/
-			if (c == null) {
-				
-				// Log
-				Log.d("Methods_sl.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]",
-						"c==null => id=" + itemId.intValue());
-				
-				continue;
-				
-			}//if (c == null)
-			
-			/***************************************
-			 * If no result, then also, move on to
-			 * 	the next
-			 ***************************************/
-			if (c.getCount() < 1) {
-				
-				// Log
-				Log.d("Methods_sl.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]",
-						"c.getCount() < 1 => id=" + itemId.intValue());
-				
-				continue;
-				
-			}//if (c.getCount() < 1)
-			
-			/***************************************
-			 * If has result, the add the new item
-			 * 	to the list
-			 ***************************************/
-			//
-			c.moveToFirst();
-			
-			for (int i = 0; i < c.getCount(); i++) {
-	
-	//			0									1		2		3		4			5
-	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-//				SI item = new SI(
-//						c.getInt(0),		// id store
-//						c.getString(1),		// name
-//						c.getString(2),		// yomi
-//						c.getString(3),		// genre
-//						c.getString(4),		//	store
-//						c.getInt(5)			// price
-//						);
-				
-				si = new SI.Builder()
-				
-							.setDb_id(c.getInt(0))
-							.setCreated_at(c.getString(1))
-							.setModified_at(c.getString(2))
-							
-							.setStore(c.getString(3))
-							.setName(c.getString(4))
-							.setPrice(c.getInt(5))
-							
-							.setGenre(c.getString(6))
-							.setYomi(c.getString(7))
-							.setNum(c.getInt(8))
-							
-							.setPosted_at(c.getString(9))
-							
-							.build();
-				//
-				CONS.TabActv.toBuyList.add(si);
-//				CONS.TabActv.toBuyList.add(item);
-				
-				// Log
-				Log.d("Methods_sl.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]",
-						"Item added to toBuyList => " + si.getName());
-				
-				//
-				c.moveToNext();
-				
-			}//for (int i = 0; i < c.getCount(); i++)
-
-		}//for (Integer itemId : CONS.TabActv.tab_toBuyItemIds)
-
-		//
-		rdb.close();
+//		/***************************************
+//		 * Setup db
+//		 ***************************************/
+//		DBUtils dbm = new DBUtils(actv);
+//		
+//		SQLiteDatabase rdb = dbm.getReadableDatabase();
+//		
+//		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
+//		String[] args = null;
+//		
+//		String tname = CONS.DB.tname_si;
+//		
+//		SI si = null;
+//		
+//		Cursor c = null;
+//		
+//		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
+//			
+//			args = new String[]{String.valueOf(itemId.intValue())};
+//			
+//			try {
+//				
+//				c = rdb.query(
+//						tname, 
+////						CONS.DB.tableName, 
+//	//										DBManager.columns,
+//	//				CONS.DBAdmin.columns_with_index,
+//						CONS.DB.col_Names_SI_full,
+////						CONS.DB.columns_with_index2,
+////						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
+//						where, args,
+////						String.valueOf(CONS.DB.columns_with_index2[0]) + "=?",
+////						new String[]{String.valueOf(itemId.intValue())},
+//						null, null, null);
+//				
+//			} catch (Exception e) {
+//				
+//				// Log
+//				Log.e("Methods_sl.java" + "["
+//						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//						+ "]", e.toString());
+//				
+//				rdb.close();
+//				
+////				return CONS.PREP_LIST_FAILED;
+//				return;
+//				
+//			}//try
+//
+//			/***************************************
+//			 * If the cursor is null, then move on to
+//			 * 	the next id
+//			 ***************************************/
+//			if (c == null) {
+//				
+//				// Log
+//				Log.d("Methods_sl.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]",
+//						"c==null => id=" + itemId.intValue());
+//				
+//				continue;
+//				
+//			}//if (c == null)
+//			
+//			/***************************************
+//			 * If no result, then also, move on to
+//			 * 	the next
+//			 ***************************************/
+//			if (c.getCount() < 1) {
+//				
+//				// Log
+//				Log.d("Methods_sl.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]",
+//						"c.getCount() < 1 => id=" + itemId.intValue());
+//				
+//				continue;
+//				
+//			}//if (c.getCount() < 1)
+//			
+//			/***************************************
+//			 * If has result, the add the new item
+//			 * 	to the list
+//			 ***************************************/
+//			//
+//			c.moveToFirst();
+//			
+//			for (int i = 0; i < c.getCount(); i++) {
+//	
+//	//			0									1		2		3		4			5
+//	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
+////				SI item = new SI(
+////						c.getInt(0),		// id store
+////						c.getString(1),		// name
+////						c.getString(2),		// yomi
+////						c.getString(3),		// genre
+////						c.getString(4),		//	store
+////						c.getInt(5)			// price
+////						);
+//				
+//				si = new SI.Builder()
+//				
+//							.setDb_id(c.getInt(0))
+//							.setCreated_at(c.getString(1))
+//							.setModified_at(c.getString(2))
+//							
+//							.setStore(c.getString(3))
+//							.setName(c.getString(4))
+//							.setPrice(c.getInt(5))
+//							
+//							.setGenre(c.getString(6))
+//							.setYomi(c.getString(7))
+//							.setNum(c.getInt(8))
+//							
+//							.setPosted_at(c.getString(9))
+//							
+//							.build();
+//				//
+//				CONS.TabActv.toBuyList.add(si);
+////				CONS.TabActv.toBuyList.add(item);
+//				
+//				// Log
+//				Log.d("Methods_sl.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]",
+//						"Item added to toBuyList => " + si.getName());
+//				
+//				//
+//				c.moveToNext();
+//				
+//			}//for (int i = 0; i < c.getCount(); i++)
+//
+//		}//for (Integer itemId : CONS.TabActv.tab_toBuyItemIds)
+//
+//		//
+//		rdb.close();
 		
 		/***************************************
 		 * Sort list
@@ -1980,6 +1982,8 @@ public class Methods_sl {
 		
 		// Get sum
 		int sum = 0;
+		
+		SI si = null;
 		
 		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
