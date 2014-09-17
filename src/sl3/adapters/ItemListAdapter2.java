@@ -72,29 +72,29 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
         
         getView__2_setupBackground(convertView, si, position);
 
-        ////////////////////////////////
-
-		// edittext => clear focus
-        
-		////////////////////////////////
-		_getView__ET_ClearFocus(convertView);
+//        ////////////////////////////////
+//
+//		// edittext => clear focus
+//        
+//		////////////////////////////////
+//		_getView__ET_ClearFocus(convertView);
         
 		return convertView;
 //		return super.getView(position, convertView, parent);
 	}//public View getView(int position, View convertView, ViewGroup parent)
 
-	private void 
-	_getView__ET_ClearFocus
-	(View v) {
-		// TODO Auto-generated method stub
-	
-		EditText et = (EditText) v.findViewById(R.id.adapteritem_et);
-		
-		et.clearFocus();
-		
-		
-		
-	}//_getView__ET_ClearFocus
+//	private void 
+//	_getView__ET_ClearFocus
+//	(View v) {
+//		// TODO Auto-generated method stub
+//	
+//		EditText et = (EditText) v.findViewById(R.id.adapteritem_et);
+//		
+//		et.clearFocus();
+//		
+//		
+//		
+//	}//_getView__ET_ClearFocus
 	
 
 	private void

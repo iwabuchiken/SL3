@@ -47,6 +47,8 @@ public class CONS {
 		
 		public static final String format_Date = "yyyy/MM/dd HH:mm:ss.SSS";
 		
+		public static final int dflt_SI_Num = 1;
+		
 	}
 	
 	public static class DB {

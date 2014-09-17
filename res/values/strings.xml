@@ -127,6 +127,9 @@
     	    										Import data: stores</string>
     	<string name="opt_TabActv_Admin_ImportData_Genres">
     	    										Import data: genres</string>
+    	    										
+    	<string name="opt_TabActv_Admin_Insert_Num">
+    	    										Insert num</string>
     
     	
     	

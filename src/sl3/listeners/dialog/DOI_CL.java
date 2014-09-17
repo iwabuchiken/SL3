@@ -374,6 +374,10 @@ public class DOI_CL implements OnItemClickListener {
 		if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Ops__RestoreDB))) {
 
+			Methods_dlg.conf_Restore_DB(
+					actv, 
+					d1, d2,
+					Tags.DialogTags.ACTV_TAB_OPT_RESTORE_DB);
 			
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Ops__Tables))) {
@@ -420,6 +424,19 @@ public class DOI_CL implements OnItemClickListener {
 					actv, 
 					d1, d2,
 					Tags.DialogTags.ACTV_TAB_OPT_IMP_DATA_Genres);
+			
+		////////////////////////////////
+		
+		// insert: num
+		
+		////////////////////////////////
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Insert_Num))) {
+			
+			Methods_dlg.conf_InsertNum_SI(
+					actv, 
+					d1, d2,
+					Tags.DialogTags.ACTV_TAB_OPT_INSERT_NUM_SI);
 			
 		////////////////////////////////
 

@@ -432,9 +432,23 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_edit_items_bt_ok
 			
+		case ACTV_TAB_OPT_INSERT_NUM_SI://------------------------------------------
+			
+			case_ACTV_TAB_OPT_INSERT_NUM_SI();
+			
+			break;// case dlg_edit_items_bt_ok
+			
 		default:
 			break;
 		}//switch (tag_name)
+	}
+
+	private void 
+	case_ACTV_TAB_OPT_INSERT_NUM_SI() {
+		// TODO Auto-generated method stub
+
+		Methods.insert_Num_SI(actv, d1, d2, d3);
+		
 	}
 
 	private void 
@@ -459,6 +473,12 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_IMP_DATA_Genres:
 			
 			Methods.import_Data_Genres(actv, d1, d2, d3);
+			
+			break;
+			
+		case ACTV_TAB_OPT_RESTORE_DB:
+			
+			Methods.ACTV_TAB_OPT_RESTORE_DB(actv, d1, d2, d3);
 			
 			break;
 			

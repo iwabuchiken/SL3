@@ -8,18 +8,14 @@ import sl3.adapters.PSListAdapter;
 import sl3.items.ListItem;
 import sl3.items.PS;
 import sl3.items.SI;
-import sl3.items.Store;
-import sl3.listeners.dialog.DB_CL;
 import sl3.listeners.dialog.DB_OCL;
 import sl3.listeners.dialog.DB_OTL;
 import sl3.listeners.dialog.DOI_CL;
 import sl3.listeners.dialog.DialogButtonOnTouchListener;
 import sl3.listeners.list.LOI_CL;
 import sl3.main.R;
-import sl3.utils.Tags;
 import sl3.utils.Tags.DialogButtonTags;
 import sl3.utils.Tags.DialogTags;
-import sl.main.RegisterItemActv;
 import android.app.Activity;
 import android.app.Dialog;
 import android.database.Cursor;
@@ -29,7 +25,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -2353,6 +2348,13 @@ public class Methods_dlg {
 							.setTextColor_ID(R.color.purple4)
 							.build());
 		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Insert_Num))
+							.setIconID(R.drawable.menu_icon_admin_32x32_yellow)
+							.setTextColor_ID(R.color.black)
+							.build());
+		
 		
 		
 		/****************************
@@ -3055,6 +3057,58 @@ public class Methods_dlg {
 	}//conf_ImportData_SI
 
 	public static void 
+	conf_InsertNum_SI
+	(Activity actv, 
+			Dialog d1, Dialog d2, DialogTags tag_ButtonOK) {
+		// TODO Auto-generated method stub
+		
+		Dialog d3 = 
+				Methods_dlg.dlg_Tmpl_OkCancel_3rd_Dialogue(
+						actv, d1, d2,
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						
+						tag_ButtonOK, 
+						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+						
+						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.opt_TabActv_Admin_Insert_Num)
+				+ "?");
+		
+		////////////////////////////////
+		
+		// view: item name
+		
+		////////////////////////////////
+		TextView tv_ItemName = 
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+		
+		tv_ItemName.setText(CONS.DB.tname_si);
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d3.show();
+		
+	}//conf_InsertNum_SI
+	
+	public static void 
 	dlg_OptMenu_Lists
 	(Activity actv) {
 		// TODO Auto-generated method stub
@@ -3479,5 +3533,57 @@ public class Methods_dlg {
 		dlg3.show();
 		
 	}
+
+	public static void 
+	conf_Restore_DB
+	(Activity actv, 
+		Dialog d1, Dialog d2, DialogTags tag_ButtonOK) {
+		// TODO Auto-generated method stub
+		
+		Dialog d3 = 
+				Methods_dlg.dlg_Tmpl_OkCancel_3rd_Dialogue(
+						actv, d1, d2,
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						
+						tag_ButtonOK, 
+						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+						
+						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.opt_TabActv_Admin_Insert_Num)
+				+ "?");
+		
+		////////////////////////////////
+		
+		// view: item name
+		
+		////////////////////////////////
+		TextView tv_ItemName = 
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+		
+		tv_ItemName.setText(CONS.DB.tname_si);
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d3.show();
+		
+	}//conf_Restore_DB
 
 }//public class Methods_dlg

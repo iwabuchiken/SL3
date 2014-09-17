@@ -4393,6 +4393,168 @@ public class Methods {
 		
 	}//restore_DB
 
+	/*********************************
+	 * @return
+	 * 		1 File copied<br>
+	 * 		-1 FileNotFoundException<br>
+	 * 		-2 IOException<br>
+	 *********************************/
+	public static int
+	restore_DB_int
+	(Activity actv, String dbName, 
+			String src, String dst) {
+		/*********************************
+		 * 1. Setup db
+		 * 2. Setup: File paths
+		 * 3. Setup: File objects
+		 * 4. Copy file
+		 * 
+		 *********************************/
+		////////////////////////////////
+		
+		// Setup db => This process is necessary if the database folder
+		//				is not yet created.
+		
+		////////////////////////////////
+		
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+		wdb.close();
+		
+		/*********************************
+		 * 2. Setup: File paths
+	
+		/*********************************
+		 * 3. Setup: File objects
+		 *********************************/
+		
+		/*********************************
+		 * 4. Copy file
+		 *********************************/
+		FileChannel iChannel = null;
+		FileChannel oChannel = null;
+		
+		try {
+			iChannel = new FileInputStream(src).getChannel();
+			oChannel = new FileOutputStream(dst).getChannel();
+			iChannel.transferTo(0, iChannel.size(), oChannel);
+			
+			iChannel.close();
+			oChannel.close();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "File copied: " + src);
+			
+//			// debug
+//			Toast.makeText(actv, "DB restoration => Done", Toast.LENGTH_LONG).show();
+			
+			return 1;
+			
+		} catch (FileNotFoundException e) {
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Exception: " + e.toString());
+			if (iChannel != null) {
+				
+				try {
+					
+					iChannel.close();
+					
+				} catch (IOException e1) {
+					
+					// Log
+					Log.e("Methods.java" + "["
+							+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+							+ "]", "Exception: " + e.toString());
+					
+				}
+				
+			}
+			
+			if (iChannel != null) {
+				
+				try {
+					
+					iChannel.close();
+					
+				} catch (IOException e1) {
+					
+					// Log
+					Log.e("Methods.java" + "["
+							+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+							+ "]", "Exception: " + e.toString());
+					
+				}
+				
+			}
+			
+			if (oChannel != null) {
+				
+				try {
+					oChannel.close();
+				} catch (IOException e1) {
+					
+					// Log
+					Log.e("Methods.java" + "["
+							+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+							+ "]", "Exception: " + e.toString());
+					
+				}
+				
+			}
+			
+			return -1;
+			
+		} catch (IOException e) {
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Exception: " + e.toString());
+			
+			if (iChannel != null) {
+				
+				try {
+					
+					iChannel.close();
+					
+				} catch (IOException e1) {
+					
+					// Log
+					Log.e("Methods.java" + "["
+							+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+							+ "]", "Exception: " + e.toString());
+					
+				}
+				
+			}
+			
+			if (oChannel != null) {
+				
+				try {
+					oChannel.close();
+				} catch (IOException e1) {
+					
+					// Log
+					Log.e("Methods.java" + "["
+							+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+							+ "]", "Exception: " + e.toString());
+					
+				}
+				
+			}
+			
+			
+			return -2;
+			
+		}//try
+		
+	}//restore_DB
+	
 	public static String
 	conv_MillSec_to_TimeLabel(long millSec)
 	{
@@ -4435,5 +4597,261 @@ public class Methods {
 		}//if (keyCode==KeyEvent.KEYCODE_BACK)
 		
 	}//public static void confirm_quit(Activity actv, int keyCode)
+
+	public static void 
+	insert_Num_SI
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// get: si list
+
+		////////////////////////////////
+		List<SI> list_SIs = DBUtils.find_ALL_SIs(actv);
+		
+		////////////////////////////////
+
+		// enter num
+
+		////////////////////////////////
+		for (SI si : list_SIs) {
+
+			si.setNum(1);
+			
+		}
+		
+		////////////////////////////////
+
+		// update: SIs
+
+		////////////////////////////////
+		int res = DBUtils.update_SIs_Num(actv, list_SIs);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+//		-1 => Table doesn't exist
+				
+		switch(res) {
+
+		case -1: 
+			
+			msg = "Table doesn't exist => " + CONS.DB.tname_si;
+			colorID = R.color.red;
+			
+			d3.dismiss();
+			
+			break;
+		
+		case 0: 
+			
+			msg = "SI nums => not updated";
+			colorID = R.color.gold2;
+			
+			d3.dismiss();
+			
+			break;
+			
+		default: 
+			
+			msg = "SIs updated => " + res;
+			colorID = R.color.green4;
+
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+		// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg);
+		
+	}//insert_Num_SI
+
+	public static void 
+	ACTV_TAB_OPT_RESTORE_DB
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3) {
+		// TODO Auto-generated method stub
+		
+		int res = Methods.restore_DB(actv);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+		
+		switch(res) {
+
+//		1 File copied
+//		-1 FileNotFoundException
+//		-2 IOException
+//		-3 No files in the src dir
+
+		case 1: 
+			
+			msg = "DB file => restored";
+			colorID = R.color.green4;
+			
+			d3.dismiss();
+			d2.dismiss();
+			d1.dismiss();
+			
+			break;
+			
+		case -3: 
+			
+			msg = "No files in the src dir";
+			colorID = R.color.red;
+			
+			d3.dismiss();
+			
+			break;
+			
+		case -1: 
+			
+			msg = "src or dst file => not found";
+			colorID = R.color.red;
+			
+			d3.dismiss();
+			
+			break;
+		
+		case -2: 
+			
+			msg = "transfer file => IOException";
+			colorID = R.color.red;
+			
+			d3.dismiss();
+			
+			break;
+			
+		default: 
+			
+			msg = "unknown result => " + res;
+			colorID = R.color.gold2;
+
+			d3.dismiss();
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+	}//ACTV_TAB_OPT_RESTORE_DB
+
+	/******************************
+		@return
+			1 File copied<br>
+			-1 FileNotFoundException<br>
+			-2 IOException<br>
+			-3 No files in the src dir<br>
+	 ******************************/
+	public static int
+	restore_DB(Activity actv) {
+    	
+    	// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "Starting: restore_DB()");
+
+		/*********************************
+		 * Get the absolute path of the latest backup file
+		 *********************************/
+		// Get the most recently-created db file
+		String src_dir = CONS.DB.dPath_dbFile_Backup;
+//		String src_dir = "/mnt/sdcard-ext/IFM9_backup";
+		
+		File f_dir = new File(src_dir);
+		
+		File[] src_dir_files = f_dir.listFiles();
+		
+		// If no files in the src dir, quit the method
+		if (src_dir_files.length < 1) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread()
+						.getStackTrace()[2].getLineNumber()
+					+ "]", "No files in the dir: " + src_dir);
+			
+			return -3;
+			
+		}//if (src_dir_files.length == condition)
+		
+		// Latest file
+		File f_src_latest = src_dir_files[0];
+		
+		
+		for (File file : src_dir_files) {
+			
+			if (f_src_latest.lastModified() < file.lastModified()) {
+						
+				f_src_latest = file;
+				
+			}//if (variable == condition)
+			
+		}//for (File file : src_dir_files)
+		
+		// Show the path of the latest file
+		// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "f_src_latest=" + f_src_latest.getAbsolutePath());
+		
+		/*********************************
+		 * Restore file
+		 *********************************/
+		String src = f_src_latest.getAbsolutePath();
+		String dst = StringUtils.join(
+				new String[]{
+						//REF http://stackoverflow.com/questions/9810430/get-database-path answered Jan 23 at 11:24
+						actv.getDatabasePath(CONS.DB.dbName).getPath()
+				},
+//						actv.getFilesDir().getPath() , 
+//						CONS.DB.dbName},
+				File.separator);
+		
+		int res = Methods.restore_DB_int(
+							actv, 
+							CONS.DB.dbName, 
+							src, dst);
+		
+		// Log
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "res=" + res);
+		
+		////////////////////////////////
+
+		// return
+
+		////////////////////////////////
+		return res;
+		
+	}//private void restore_DB()
 
 }//public class Methods

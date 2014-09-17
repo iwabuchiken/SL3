@@ -1165,7 +1165,15 @@ public class TabActv extends TabActivity
 		super.onStart();
 		
 		boolean res;
-		
+	
+		//debug
+		do_test();
+
+		////////////////////////////////
+
+		// init
+
+		////////////////////////////////
 		_Setup_InitVars();
 		
 		////////////////////////////////
@@ -1203,7 +1211,7 @@ public class TabActv extends TabActivity
 				+ "]", msg_Log);
 		
 		//debug
-		do_test();
+//		do_test();
 		
 //		test_B32_v_1_2();
 
@@ -1213,7 +1221,16 @@ public class TabActv extends TabActivity
 	do_test() {
 		// TODO Auto-generated method stub
 		
+		_do_test_D_4_SEG_1_V_3_0();
 //		_do_test_D_4_V_1_0();
+		
+	}
+
+	private void 
+	_do_test_D_4_SEG_1_V_3_0() {
+		// TODO Auto-generated method stub
+	
+		Methods.restore_DB(this);
 		
 	}
 
