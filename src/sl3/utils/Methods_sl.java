@@ -1823,20 +1823,32 @@ public class Methods_sl {
 		
 		SQLiteDatabase rdb = dbm.getReadableDatabase();
 		
+		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
+		String[] args = null;
+		
+		String tname = CONS.DB.tname_si;
+		
+		SI si = null;
+		
 		Cursor c = null;
 		
 		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
 			
+			args = new String[]{String.valueOf(itemId.intValue())};
+			
 			try {
 				
 				c = rdb.query(
-						CONS.DB.tableName, 
+						tname, 
+//						CONS.DB.tableName, 
 	//										DBManager.columns,
 	//				CONS.DBAdmin.columns_with_index,
-						CONS.DB.columns_with_index2,
+						CONS.DB.col_Names_SI_full,
+//						CONS.DB.columns_with_index2,
 //						String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
-						String.valueOf(CONS.DB.columns_with_index2[0]) + "=?",
-						new String[]{String.valueOf(itemId.intValue())},
+						where, args,
+//						String.valueOf(CONS.DB.columns_with_index2[0]) + "=?",
+//						new String[]{String.valueOf(itemId.intValue())},
 						null, null, null);
 				
 			} catch (Exception e) {
@@ -1906,17 +1918,35 @@ public class Methods_sl {
 	
 	//			0									1		2		3		4			5
 	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-				SI item = new SI(
-						c.getInt(0),		// id store
-						c.getString(1),		// name
-						c.getString(2),		// yomi
-						c.getString(3),		// genre
-						c.getString(4),		//	store
-						c.getInt(5)			// price
-						);
+//				SI item = new SI(
+//						c.getInt(0),		// id store
+//						c.getString(1),		// name
+//						c.getString(2),		// yomi
+//						c.getString(3),		// genre
+//						c.getString(4),		//	store
+//						c.getInt(5)			// price
+//						);
 				
+				si = new SI.Builder()
+				
+							.setDb_id(c.getInt(0))
+							.setCreated_at(c.getString(1))
+							.setModified_at(c.getString(2))
+							
+							.setStore(c.getString(3))
+							.setName(c.getString(4))
+							.setPrice(c.getInt(5))
+							
+							.setGenre(c.getString(6))
+							.setYomi(c.getString(7))
+							.setNum(c.getInt(8))
+							
+							.setPosted_at(c.getString(9))
+							
+							.build();
 				//
-				CONS.TabActv.toBuyList.add(item);
+				CONS.TabActv.toBuyList.add(si);
+//				CONS.TabActv.toBuyList.add(item);
 				
 				// Log
 				Log.d("Methods_sl.java"
@@ -1926,7 +1956,7 @@ public class Methods_sl {
 						+ ":"
 						+ Thread.currentThread().getStackTrace()[2]
 								.getMethodName() + "]",
-						"Item added to toBuyList => " + item.getName());
+						"Item added to toBuyList => " + si.getName());
 				
 				//
 				c.moveToNext();
@@ -1954,9 +1984,10 @@ public class Methods_sl {
 		for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++) {
 			
 //			ShoppingItem si = CONS.TabActv.toBuyList.get(0);
-			SI si = CONS.TabActv.toBuyList.get(i);
+			si = CONS.TabActv.toBuyList.get(i);
 			
-			sum += si.getPrice();
+			sum += (si.getPrice() * si.getNum());
+//			sum += si.getPrice();
 			
 		}//for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++)
 		

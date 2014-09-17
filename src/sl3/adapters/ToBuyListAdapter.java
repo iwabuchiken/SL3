@@ -92,7 +92,8 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 	}//public View getView(int position, View convertView, ViewGroup parent)
 
 	private void
-	getView__2_setupBackground(View convertView, SI si, int position) {
+	getView__2_setupBackground
+	(View convertView, SI si, int position) {
 
 		// Log
 		Log.d("ToBuyListAdapter.java" + "["
@@ -154,48 +155,41 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 			
 		}//if (CONS.tab_boughtItemIds.contains(new Integer(position)))
 		
-////			convertView.setBackgroundColor(Color.BLUE);
-//		tvItemName.setBackgroundColor(Color.WHITE);
-////		tvItemName.setTextColor(Color.BLACK);
-//		tvItemName.setTextColor(((Activity)con).getResources().getColor(R.color.gray1));
-//
-//		//debug
-//		tvItemName.setWidth(Methods.getDisplaySize((Activity)con)[0]);
-//		
-//		/***************************************
-//		 * LinearLayout for item name
-//		 ***************************************/
-//		LinearLayout llName =
-//				(LinearLayout) convertView.findViewById(R.id.adapteritem_LL_item_name);
-//		
-//		llName.setBackgroundColor(Color.WHITE);
-		
-		
-
 	}//private void getView__2_setupBackground(View convertView, int position)
 
-	private void getView__1_setupTextView(View convertView, SI si) {
+	private void getView__1_setupTextView(View v, SI si) {
 		// TODO Auto-generated method stub
 
+		// Log
+		String msg_Log = "si.getNum() => " + si.getNum();
+		Log.d("ToBuyListAdapter.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
         tvItemName = 
-        				(TextView) convertView.findViewById(R.id.adapteritem_tv_item_name);
+        				(TextView) v.findViewById(R.id.adapteritem_tv_item_name);
         TextView tv_store = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_store);
+				(TextView) v.findViewById(R.id.adapteritem_tv_store);
         TextView tv_price = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_price);
+				(TextView) v.findViewById(R.id.adapteritem_tv_price);
         TextView tv_genre = 
-				(TextView) convertView.findViewById(R.id.adapteritem_tv_genre);
+				(TextView) v.findViewById(R.id.adapteritem_tv_genre);
 
-		/*----------------------------
-		 * 4. Set values
-			----------------------------*/
-		//
+        TextView tv_Num = 
+        		(TextView) v.findViewById(R.id.adapteritem_tv_num);
+        
+        ////////////////////////////////
+
+		// Set values
+
+		////////////////////////////////
 		tvItemName.setText(si.getName());
 		tv_store.setText(si.getStore());
-//		tv_price.setText(si.getPrice());
 		tv_price.setText(String.valueOf(si.getPrice()));
 		
 		tv_genre.setText("(" + si.getGenre() + ")");
+		
+		tv_Num.setText(String.valueOf(si.getNum()));
 
 	}//private void getView__1_setupTextView(View convertView)
 

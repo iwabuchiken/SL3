@@ -411,7 +411,9 @@ public class LOI_CL implements OnItemClickListener {
 	}//private void load_toBuyList(AdapterView<?> parent, int position)
 
 
-	private void tab_toBuyList(AdapterView<?> parent, int position) {
+	private void 
+	tab_toBuyList
+	(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Get item
@@ -528,7 +530,9 @@ public class LOI_CL implements OnItemClickListener {
 	}//private void tab_toBuyList(AdapterView<?> parent, int position)
 
 
-	private void tab_itemList(AdapterView<?> parent, int position) {
+	private void 
+	tab_itemList
+	(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Get item

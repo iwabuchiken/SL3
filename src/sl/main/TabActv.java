@@ -727,7 +727,13 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * List in the tab 2
 		 ***************************************/
-		int res = prepareToBuyList();
+		int res = _prep_ToBuyList();
+		
+		// Log
+		String msg_Log = "_prep_ToBuyList => done";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 		// Log
 		Log.d("TabActv.java" + "["
@@ -736,20 +742,9 @@ public class TabActv extends TabActivity
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "res=" + res);
 		
-		if (res == CONS.RV.PREP_LIST_SUCCESSFUL) {
+		if (res == 1) {
 			CONS.TabActv.lvTab2 = (ListView) findViewById(R.id.itemlist_tab2_lv);
 			
-//			List<String> listTab2 = new ArrayList<String>();
-			
-//			for (int i = 1; i < numOfEntries; i++) {
-//				
-//				listTab2.add("番号: " + i);
-//				
-//			}//for (int i = 1; i < 11; i++)
-			
-	//		ArrayAdapter<String> adpTab2 = new ArrayAdapter<String>(
-			
-//			CONS.TabActv.adpToBuys = new ItemListAdapter2(
 			CONS.TabActv.adpToBuys = new ToBuyListAdapter(
 					this,
 	//				android.R.layout.simple_list_item_1,
@@ -891,7 +886,12 @@ public class TabActv extends TabActivity
 		
 	}//private void prepareItemList()
 
-	private int prepareToBuyList() {
+	/******************************
+		@return
+			-1 query exception<br>
+			1 List => built<br>
+	 ******************************/
+	private int _prep_ToBuyList() {
 		/***************************************
 		 * itemList
 		 ***************************************/
@@ -904,19 +904,46 @@ public class TabActv extends TabActivity
 		
 		SQLiteDatabase rdb = dbm.getReadableDatabase();
 		
+		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
+		String[] args = null;
+		
+		SI si = null;
+		
 		Cursor c = null;
 		
+		// Log
+		if (CONS.TabActv.tab_toBuyItemIds != null) {
+			
+			String msg_Log = "CONS.TabActv.tab_toBuyItemIds.size() => "
+					+ CONS.TabActv.tab_toBuyItemIds.size();
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} else {
+			
+			// Log
+			String msg_Log = "CONS.TabActv.tab_toBuyItemIds.size() => Null";
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+
+		}
+		
 		for (Integer itemId : CONS.TabActv.tab_toBuyItemIds) {
+			
+			args = new String[]{String.valueOf(itemId.intValue())};
 			
 			try {
 				
 				c = rdb.query(
 						CONS.DB.tableName, 
-	//										DBManager.columns,
-	//				CONS.DBAdmin.columns_with_index,
-						CONS.DB.columns_with_index2,
-						String.valueOf(CONS.DB.columns_with_index2[0]),
-						new String[]{String.valueOf(itemId.intValue())},
+						CONS.DB.col_Names_SI_full,
+//						CONS.DB.columns_with_index2,
+						where,
+//						String.valueOf(CONS.DB.columns_with_index2[0]),
+						args,
+//						new String[]{String.valueOf(itemId.intValue())},
 						null, null, null);
 				
 			} catch (Exception e) {
@@ -930,7 +957,8 @@ public class TabActv extends TabActivity
 				
 				rdb.close();
 				
-				return CONS.RV.PREP_LIST_FAILED;
+				return -1;
+//				return CONS.RV.PREP_LIST_FAILED;
 				
 			}//try
 
@@ -978,24 +1006,53 @@ public class TabActv extends TabActivity
 			//
 			c.moveToFirst();
 			
-			for (int i = 0; i < c.getCount(); i++) {
-	
-	//			0									1		2		3		4			5
-	//			{android.provider.BaseColumns._ID, "name", "yomi", "genre", "store", "price"}
-				SI item = new SI(
-						c.getInt(0),		// id store
-						c.getString(1),		// name
-						c.getString(2),		// yomi
-						c.getString(3),		// genre
-						c.getString(4),		//	store
-						c.getInt(5)			// price
-						);
+//				android.provider.BaseColumns._ID,	// 0
+//				"store", 							// 1
+//				"name", "price",					// 2,3
+//				"genre", "yomi",					// 4,5
+//				"created_at", "updated_at",			// 6,7
+//				"posted_at"							// 8
 				
+//				android.provider.BaseColumns._ID,	// 0
+//				"created_at", "modified_at",			// 1,2
+//				"store", "name", "price",			// 3,4,5
+//				"genre", "yomi", "num",				// 6,7,8
+//				"posted_at"							// 9
+				
+				
+//				SI si = null;
+				
+				while(c.moveToNext()) {
+					
+					si = new SI.Builder()
+					
+					.setDb_id(c.getInt(0))
+					.setCreated_at(c.getString(1))
+					.setModified_at(c.getString(2))
+					
+					.setStore(c.getString(3))
+					.setName(c.getString(4))
+					.setPrice(c.getInt(5))
+					
+					.setGenre(c.getString(6))
+					.setYomi(c.getString(7))
+					.setNum(c.getInt(8))
+					
+					.setPosted_at(c.getString(9))
+					
+					.build();
 				//
-				CONS.TabActv.toBuyList.add(item);
+				CONS.TabActv.toBuyList.add(si);
 				
 				//
 				c.moveToNext();
+				
+				// Log
+				String msg_Log = "si.getNum() => " + si.getNum();
+				Log.d("TabActv.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
 				
 			}//for (int i = 0; i < c.getCount(); i++)
 
@@ -1032,7 +1089,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * Return
 		 ***************************************/
-		return CONS.RV.PREP_LIST_SUCCESSFUL;
+		return 1;
 		
 	}//private int prepareToBuyList()
 

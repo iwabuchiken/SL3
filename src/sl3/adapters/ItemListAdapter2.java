@@ -65,14 +65,14 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
         SI si = (SI) getItem(position);
 
-		// Log
-		String msg_Log = String.format(
-								Locale.JAPAN,
-								"(%d) %s => num = %d",
-								position, si.getName(), si.getNum());
-		Log.d("ItemListAdapter2.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", msg_Log);
+//		// Log
+//		String msg_Log = String.format(
+//								Locale.JAPAN,
+//								"(%d) %s => num = %d",
+//								position, si.getName(), si.getNum());
+//		Log.d("ItemListAdapter2.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
 
         
         _getView__Setup_TVs(convertView, si);
