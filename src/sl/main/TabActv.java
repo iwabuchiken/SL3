@@ -39,6 +39,7 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.text.format.Time;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -1222,6 +1223,14 @@ public class TabActv extends TabActivity
 	
 //		this.getTabHost().getCurrentTab()
 		
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		
+		Methods.confirm_quit(this, keyCode);
+		
+		return super.onKeyDown(keyCode, event);
 	}
 
 }//public class TabActv extends TabActivity implements TabHost.TabContentFactory

@@ -281,6 +281,12 @@ public class DOI_CL implements OnItemClickListener {
 			
 		}
 		
+		////////////////////////////////
+
+		// new dialog
+
+		////////////////////////////////
+		Methods_dlg.dlg_saveToBuyList(actv, d1);
 		
 		
 	}//case_ACTV_TAB_OPT_DB

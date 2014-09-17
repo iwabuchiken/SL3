@@ -41,12 +41,14 @@ import sl3.items.SI;
 import sl3.items.Store;
 import sl3.listeners.button.ButtonOnTouchListener;
 import sl3.listeners.dialog.DB_OCL;
+import sl3.listeners.dialog.DL;
 import sl3.listeners.dialog.DOI_CL;
 import sl3.listeners.dialog.DialogButtonOnTouchListener;
 import sl3.main.R;
 import sl.main.MainActv;
 import sl.main.RegisterItemActv;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
@@ -56,6 +58,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.util.Xml;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.view.ViewGroup.LayoutParams;
 
@@ -3235,6 +3238,11 @@ public class Methods {
 		
 	}//get_ColumnNames(Activity actv, String tname)
 
+	/******************************
+		@return
+			null
+			1. table => exist not<br>
+	 ******************************/
 	public static ArrayAdapter<String> 
 	get_Adp_List_Store
 	(Activity actv) {
@@ -3278,7 +3286,7 @@ public class Methods {
 							db, 
 							tname, 
 							CONS.DB.col_Names_Store_full);
-		
+
 		while (c.moveToNext()) {
 			
 			adapter.add(c.getString(3));
@@ -4403,5 +4411,29 @@ public class Methods {
 		return formatter.format(calendar.getTime());
 		
 	}//conv_MillSec_to_TimeLabel(long millSec)
+
+	public static void confirm_quit(Activity actv, int keyCode) {
+		
+		if (keyCode==KeyEvent.KEYCODE_BACK) {
+			
+			AlertDialog.Builder dialog=new AlertDialog.Builder(actv);
+			
+	        dialog.setTitle(actv.getString(R.string.generic_confirm));
+	        dialog.setMessage(actv.getString(R.string.generic_quit_app));
+	        
+	        dialog.setPositiveButton(
+	        				actv.getString(R.string.generic_ok),
+	        				new DL(actv, dialog, 0));
+	        
+	        dialog.setNegativeButton(
+	        				actv.getString(R.string.generic_cancel),
+	        				new DL(actv, dialog, 1));
+	        
+	        dialog.create();
+	        dialog.show();
+			
+		}//if (keyCode==KeyEvent.KEYCODE_BACK)
+		
+	}//public static void confirm_quit(Activity actv, int keyCode)
 
 }//public class Methods

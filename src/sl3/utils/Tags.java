@@ -5,7 +5,7 @@ public class Tags {
 	public static enum DialogTags {
 		// dlg_generic
 		dlg_generic_cancel, DLG_GENERIC_DISMISS,
-		dlg_generic_dismiss_second_dialog,
+		DLG_GENERIC_DISMISS_SECOND_DIALOG,
 		DLG_GENERIC_DISMISS_3RD_DIALOG,
 		
 		generic_cancel_second_dialog, 

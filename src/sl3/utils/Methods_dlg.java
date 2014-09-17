@@ -8,6 +8,7 @@ import sl3.adapters.PSListAdapter;
 import sl3.items.ListItem;
 import sl3.items.PS;
 import sl3.items.SI;
+import sl3.items.Store;
 import sl3.listeners.dialog.DB_CL;
 import sl3.listeners.dialog.DB_OCL;
 import sl3.listeners.dialog.DB_OTL;
@@ -383,12 +384,14 @@ public class Methods_dlg {
 		
 	}//public static void dlg_tabActv_tab2Lv(Activity actv, ShoppingItem si)
 
-	public static void dlg_saveToBuyList(Activity actv, Dialog dlg1) {
+	public static void 
+	dlg_saveToBuyList
+	(Activity actv, Dialog d1) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Setup
 		 ***************************************/
-		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
+		Dialog d2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
 				actv,
 				R.layout.dlg_save_tobuy_list, 
 				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
@@ -398,61 +401,64 @@ public class Methods_dlg {
 				
 				Tags.DialogTags.dlg_save_tobuy_list_bt_ok,
 //				Tags.DialogTags.dlg_generic_dismiss,
-				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+//				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
-				dlg1);
+				d1);
 		
 		/***************************************
 		 * Spinner
 		 ***************************************/
-		Spinner spStoreNames = (Spinner) dlg2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-	              actv, android.R.layout.simple_spinner_item);
-
+		ArrayAdapter<String> adapter = _dlg_saveToBuyList__Adapter(actv);
 		
-		/*----------------------------
-		 * 2. Get store names from db
-			----------------------------*/
-		DBUtils dbm = new DBUtils(actv);
-		
-		SQLiteDatabase db = dbm.getReadableDatabase();
-		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
-		
-		// Log
-		Log.d("RegisterItem.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-		
-		c.moveToFirst();
-		
-		// Log
-		for (int i = 0; i < c.getCount(); i++) {
-//			Log.d("RegisterItem.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", "c.getString(1) => " + c.getString(1));
-
-			/*----------------------------
-			 * 3. Set store data to adapter
-				----------------------------*/
-//			adapter.add("abc");
-			adapter.add(c.getString(1));
-
-			c.moveToNext();
-		}//for (int i = 0; i < c.getCount(); i++)
-		
-		
-		/*----------------------------
-		 * 3-1. setDropDownViewResource
-			----------------------------*/
-		adapter.setDropDownViewResource(
-						android.R.layout.simple_spinner_dropdown_item);
-		
-		/*----------------------------
-		 * 3-2. Close db
-			----------------------------*/
-		db.close();
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//	              actv, android.R.layout.simple_spinner_item);
+//
+//		
+//		/*----------------------------
+//		 * 2. Get store names from db
+//			----------------------------*/
+//		DBUtils dbm = new DBUtils(actv);
+//		
+//		SQLiteDatabase db = dbm.getReadableDatabase();
+//		
+//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
+//		
+//		// Log
+//		Log.d("RegisterItem.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", "c.getCount()" + c.getCount());
+//		
+//		c.moveToFirst();
+//		
+//		// Log
+//		for (int i = 0; i < c.getCount(); i++) {
+////			Log.d("RegisterItem.java" + "["
+////					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+////					+ "]", "c.getString(1) => " + c.getString(1));
+//
+//			/*----------------------------
+//			 * 3. Set store data to adapter
+//				----------------------------*/
+////			adapter.add("abc");
+//			adapter.add(c.getString(1));
+//
+//			c.moveToNext();
+//		}//for (int i = 0; i < c.getCount(); i++)
+//		
+//		
+//		/*----------------------------
+//		 * 3-1. setDropDownViewResource
+//			----------------------------*/
+//		adapter.setDropDownViewResource(
+//						android.R.layout.simple_spinner_dropdown_item);
+//		
+//		/*----------------------------
+//		 * 3-2. Close db
+//			----------------------------*/
+//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
@@ -497,16 +503,58 @@ public class Methods_dlg {
 			
 		}//for (ShoppingItem i : CONS.TabActv.toBuyList)
 		
-		EditText etAmount = (EditText) dlg2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
+		EditText etAmount = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
 		
 		etAmount.setText(String.valueOf(amount));
 		
 		/***************************************
 		 * Show dialog
 		 ***************************************/
-		dlg2.show();
+		d2.show();
 
 	}//public static void dlg_saveToBuyList(Activity actv, Dialog dlg1)
+
+	private static 
+	ArrayAdapter<String> 
+	_dlg_saveToBuyList__Adapter
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//        actv, android.R.layout.simple_spinner_item);
+
+
+		/*----------------------------
+		* 2. Get store names from db
+			----------------------------*/
+//		DBUtils dbm = new DBUtils(actv);
+//		
+//		SQLiteDatabase db = dbm.getReadableDatabase();
+//		
+//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
+//		
+//		c.moveToFirst();
+		
+		ArrayAdapter<String> adapter = Methods.get_Adp_List_Store(actv);
+//		List<String> list_Stores = Methods.get_Adp_List_Store(actv);
+		
+//		for (int i = 0; i < c.getCount(); i++) {
+//			
+//			adapter.add(c.getString(1));
+//		
+//			c.moveToNext();
+//			
+//		}//for (int i = 0; i < c.getCount(); i++)
+		
+		/*----------------------------
+		* 3-1. setDropDownViewResource
+			----------------------------*/
+		adapter.setDropDownViewResource(
+						android.R.layout.simple_spinner_dropdown_item);
+		
+		return adapter;
+		
+	}//_dlg_saveToBuyList__Adapter
 
 	public static Dialog dlg_template_okCancel(Activity actv, int layoutId, int titleStringId,
 			int okButtonId, int cancelButtonId, DialogTags okTag, DialogTags cancelTag) {
@@ -1131,7 +1179,7 @@ public class Methods_dlg {
 				R.id.dlg_db_admin_bt_cancel,
 //				dlg_generic_dismiss
 //				Tags.DialogTags.dlg_generic_dismiss,
-				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
 				dlg1);
 
@@ -1236,7 +1284,7 @@ public class Methods_dlg {
 				R.id.dlg_tmpl_cancel_lv_bt_cancel,
 //				dlg_generic_dismiss
 //				Tags.DialogTags.dlg_generic_dismiss,
-				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
 				dlg1);
 
@@ -1503,7 +1551,7 @@ public class Methods_dlg {
 						
 						Tags.DialogTags.dlg_edit_items_bt_ok,
 //						Tags.DialogTags.dlg_generic_cancel,
-						Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+						Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 						
 						dlg1,
 						si);
