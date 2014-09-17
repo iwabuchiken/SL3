@@ -8,6 +8,7 @@ import sl3.main.R;
 import sl3.main.R.id;
 import sl3.utils.CONS;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
@@ -15,26 +16,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ItemListAdapter2 extends ArrayAdapter<SI> {
 
 	//
-	private int resourceId; 
+	private int resourceId;
+	
+	private Context con;
+	
+	private Activity actv;
 	
 	public ItemListAdapter2(Context context, int textViewResourceId,
 												List<SI> list) {
 		super(context, textViewResourceId, list);
 		// TODO �����������ꂽ�R���X�g���N�^�[�E�X�^�u
 		
-		this.resourceId = textViewResourceId;
+		this.con		= context;
+		this.actv		= (Activity)context;
+		this.resourceId	= textViewResourceId;
 		
 		
 	}//public ItemListAdapter()
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public 
+	View getView
+	(int position, View convertView, ViewGroup parent) {
 		/*----------------------------
 		 * Steps
 		 * 1. Inflate
@@ -62,9 +72,30 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
         
         getView__2_setupBackground(convertView, si, position);
 
+        ////////////////////////////////
+
+		// edittext => clear focus
+        
+		////////////////////////////////
+		_getView__ET_ClearFocus(convertView);
+        
 		return convertView;
 //		return super.getView(position, convertView, parent);
 	}//public View getView(int position, View convertView, ViewGroup parent)
+
+	private void 
+	_getView__ET_ClearFocus
+	(View v) {
+		// TODO Auto-generated method stub
+	
+		EditText et = (EditText) v.findViewById(R.id.adapteritem_et);
+		
+		et.clearFocus();
+		
+		
+		
+	}//_getView__ET_ClearFocus
+	
 
 	private void
 	getView__2_setupBackground(View convertView, SI si, int position) {
@@ -84,7 +115,8 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 			
 //			TextView tvName = (TextView) convertView.findViewById(R.id.adapteritem_tv_item_name);
 			
-			tvName.setTextColor(Color.BLACK);
+			tvName.setTextColor(actv.getResources().getColor(R.color.white));
+			tvName.setBackgroundColor(actv.getResources().getColor(R.color.green4));
 			
 			tvStore.setTextColor(Color.BLACK);
 			tvPrice.setTextColor(Color.BLACK);
@@ -95,6 +127,8 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 			convertView.setBackgroundColor(Color.BLUE);
 			
 			tvName.setTextColor(Color.WHITE);
+			tvName.setBackgroundColor(actv.getResources().getColor(R.color.blue1));
+			
 			tvStore.setTextColor(Color.WHITE);
 			tvPrice.setTextColor(Color.WHITE);
 			tvGenre.setTextColor(Color.WHITE);
@@ -103,7 +137,10 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 			
 			convertView.setBackgroundColor(Color.BLACK);
 			
-			tvName.setTextColor(Color.WHITE);
+			tvName.setTextColor(actv.getResources().getColor(R.color.black));
+			tvName.setBackgroundColor(actv.getResources().getColor(R.color.white));
+			
+//			tvName.setTextColor(Color.WHITE);
 			tvStore.setTextColor(Color.WHITE);
 			tvPrice.setTextColor(Color.WHITE);
 			tvGenre.setTextColor(Color.WHITE);
