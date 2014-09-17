@@ -48,7 +48,7 @@ public class Tags {
 		dlg_tabactv_tab2_lv, dlg_tabActv_adminDb,
 
 		// dlg_save_tobuy_list.xml
-		dlg_save_tobuy_list_bt_ok,
+		DLG_SAVE_TOBUY_LIST_BT_OK,
 		
 		// dlg_clear_selections
 		dlg_clear_selections,
@@ -80,6 +80,7 @@ public class Tags {
 		GENERIC_DISMISS_ALL_2ND_DIALOG, 
 		GENERIC_DISMISS_ALL_3RD_DIALOG, 
 		
+		GENERIC_DISMISS_SECOND_DIALOG,
 		GENERIC_DISMISS_THIRD_DIALOG, 
 		GENERIC_DISMISS_4TH_DIALOG, 
 		
@@ -87,7 +88,10 @@ public class Tags {
 		ACTV_TAB_OPT_IMP_DATA_Stores, 
 		ACTV_TAB_OPT_IMP_DATA_Genres, 
 		
-		ACTV_TAB_OPT_DB, GENERIC_DISMISS_SECOND_DIALOG, ACTV_TAB_OPT_INSERT_NUM_SI, ACTV_TAB_OPT_RESTORE_DB,
+		ACTV_TAB_OPT_DB, 
+		ACTV_TAB_OPT_INSERT_NUM_SI, 
+		ACTV_TAB_OPT_RESTORE_DB, 
+		ACTV_TAB_OPT_DROP_TABLE_PS,
 		
 	}//public static enum DialogTags
 	

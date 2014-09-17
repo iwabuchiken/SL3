@@ -90,6 +90,8 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_SECOND_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
+			case ACTV_TAB_OPT_DROP_TABLE_PS:
+				
 			case ACTV_TAB_OPT_IMP_DATA_SI:
 			case ACTV_TAB_OPT_IMP_DATA_Stores:
 			case ACTV_TAB_OPT_IMP_DATA_Genres:
@@ -122,6 +124,8 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_SECOND_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
+			case ACTV_TAB_OPT_DROP_TABLE_PS:
+				
 			case ACTV_TAB_OPT_IMP_DATA_SI:
 			case ACTV_TAB_OPT_IMP_DATA_Stores:
 			case ACTV_TAB_OPT_IMP_DATA_Genres:

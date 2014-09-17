@@ -394,9 +394,8 @@ public class Methods_dlg {
 				R.id.dlg_save_tobuy_list_bt_ok,
 				R.id.dlg_save_tobuy_list_bt_cancel,
 				
-				Tags.DialogTags.dlg_save_tobuy_list_bt_ok,
-//				Tags.DialogTags.dlg_generic_dismiss,
-//				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+//				Tags.DialogTags.dlg_save_tobuy_list_bt_ok,
+				Tags.DialogTags.DLG_SAVE_TOBUY_LIST_BT_OK,
 				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
 				d1);
@@ -408,64 +407,21 @@ public class Methods_dlg {
 		
 		ArrayAdapter<String> adapter = _dlg_saveToBuyList__Adapter(actv);
 		
-//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-//	              actv, android.R.layout.simple_spinner_item);
-//
-//		
-//		/*----------------------------
-//		 * 2. Get store names from db
-//			----------------------------*/
-//		DBUtils dbm = new DBUtils(actv);
-//		
-//		SQLiteDatabase db = dbm.getReadableDatabase();
-//		
-//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
-//		
-//		// Log
-//		Log.d("RegisterItem.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ "]", "c.getCount()" + c.getCount());
-//		
-//		c.moveToFirst();
-//		
-//		// Log
-//		for (int i = 0; i < c.getCount(); i++) {
-////			Log.d("RegisterItem.java" + "["
-////					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-////					+ "]", "c.getString(1) => " + c.getString(1));
-//
-//			/*----------------------------
-//			 * 3. Set store data to adapter
-//				----------------------------*/
-////			adapter.add("abc");
-//			adapter.add(c.getString(1));
-//
-//			c.moveToNext();
-//		}//for (int i = 0; i < c.getCount(); i++)
-//		
-//		
-//		/*----------------------------
-//		 * 3-1. setDropDownViewResource
-//			----------------------------*/
-//		adapter.setDropDownViewResource(
-//						android.R.layout.simple_spinner_dropdown_item);
-//		
-//		/*----------------------------
-//		 * 3-2. Close db
-//			----------------------------*/
-//		db.close();
-		
-		/*----------------------------
-		 * 4. Set adapter to spinner
-			----------------------------*/
+		////////////////////////////////
+
+		// Set adapter to spinner
+
+		////////////////////////////////
 		spStoreNames.setAdapter(adapter);
 		
-		/***************************************
-		 * Set spinner default value
-		 * 1. Get the first item from CONS.TabActv.toBuyList
-		 * 2. Get the store name from the item
-		 * 3. Use this store name as the default
-		 ***************************************/
+		////////////////////////////////
+
+		// Set spinner default value
+		// 1. Get the first item from CONS.TabActv.toBuyList
+		// 2. Get the store name from the item
+		// 3. Use this store name as the default
+
+		////////////////////////////////
 		SI item = CONS.TabActv.toBuyList.get(0);
 		
 		if (item != null) {
@@ -481,20 +437,18 @@ public class Methods_dlg {
 			}//if (defaultStoreName != null)
 			
 		}//if (item != null)
-//		String defaultStoreName = item.getStore();
-//		
-//		int position = adapter.getPosition(defaultStoreName);
-//		
-//		spStoreNames.setSelection(position);
 		
-		/***************************************
-		 * Amount(Sum of items in price)
-		 ***************************************/
+		////////////////////////////////
+
+		// Amount(Sum of items in price)
+
+		////////////////////////////////
 		int amount = 0;
 		
-		for (SI i : CONS.TabActv.toBuyList) {
+		for (SI si : CONS.TabActv.toBuyList) {
 			
-			amount += i.getPrice();
+			amount += si.getPrice() * si.getNum();
+//			amount += si.getPrice();
 			
 		}//for (ShoppingItem i : CONS.TabActv.toBuyList)
 		
@@ -2564,7 +2518,7 @@ public class Methods_dlg {
 						actv, d1, d2,
 						R.layout.dlg_tmpl_cancel_lv_with_btn,
 //						R.layout.dlg_tmpl_cancel_lv,
-						R.string.opt_TabActv_Admin_Main__Operations,
+						R.string.opt_TabActv_Admin_Ops__Tables,
 						
 						R.id.dlg_tmpl_cancel_lv_with_btn_bt_cancel,
 						Tags.DialogTags.DLG_GENERIC_DISMISS_3RD_DIALOG);
@@ -2620,6 +2574,19 @@ public class Methods_dlg {
 		list.add(new ListItem.Builder()
 					.setText(actv.getString(
 							R.string.opt_TabActv_Admin_Tables__SI_Drop))
+							.setIconID(R.drawable.menu_icon_admin_32x32_red)
+							.setTextColor_ID(R.color.red)
+							.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__Create_PS))
+							.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+							.setTextColor_ID(R.color.blue1)
+							.build());
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__Drop_PS))
 							.setIconID(R.drawable.menu_icon_admin_32x32_red)
 							.setTextColor_ID(R.color.red)
 							.build());

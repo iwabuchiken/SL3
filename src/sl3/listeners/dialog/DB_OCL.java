@@ -386,9 +386,9 @@ DB_OCL implements OnClickListener {
 			
 			break;
 
-		case dlg_save_tobuy_list_bt_ok://------------------------------------------
+		case DLG_SAVE_TOBUY_LIST_BT_OK://------------------------------------------
 			
-			case_dlg_save_tobuy_list_bt_ok();
+			case_DLG_SAVE_TOBUY_LIST_BT_OK();
 			
 			break;// case dlg_save_tobuy_list_bt_ok
 		
@@ -419,6 +419,7 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_SI://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_STORES://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_GENRES://------------------------------------------
+		case ACTV_TAB_OPT_DROP_TABLE_PS://------------------------------------------
 			
 			case_ACTV_TAB_OPT_DROP_TABLE(tag_name);
 			
@@ -512,6 +513,12 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_GENRES:
 			
 			tname = CONS.DB.tname_genres;
+			
+			break;
+			
+		case ACTV_TAB_OPT_DROP_TABLE_PS:
+			
+			tname = CONS.DB.tname_PS;
 			
 			break;
 			
@@ -716,7 +723,7 @@ DB_OCL implements OnClickListener {
 		 ***************************************/
 		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
-		boolean res = dbu.deleteItem(CONS.DB.tname_purchaseSchedule, dbId);
+		boolean res = dbu.deleteItem(CONS.DB.tname_PS, dbId);
 		
 		// Log
 		Log.d("DialogButtonOnClickListener.java" + "["
@@ -895,7 +902,8 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Store data
 		 ***************************************/
-		this.case_dlg_save_tobuy_list_bt_ok_execute(spStoreNames, storeName, dueDate);
+		this._case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute(
+					spStoreNames, storeName, dueDate);
 		
 		/***************************************
 		 * Close dialog 3
@@ -904,7 +912,7 @@ DB_OCL implements OnClickListener {
 		
 	}//private void case_dlg_scheduleInDb_ok()
 
-	private void case_dlg_save_tobuy_list_bt_ok() {
+	private void case_DLG_SAVE_TOBUY_LIST_BT_OK() {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Get data: Date
@@ -964,7 +972,7 @@ DB_OCL implements OnClickListener {
 			
 		} else {//if (res == true)
 			
-			case_dlg_save_tobuy_list_bt_ok_execute(
+			_case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute(
 							spStoreNames, storeName, dueDate);
 			
 		}//if (res == true)
@@ -972,7 +980,7 @@ DB_OCL implements OnClickListener {
 	}//private void case_dlg_save_tobuy_list_bt_ok()
 
 	private void
-	case_dlg_save_tobuy_list_bt_ok_execute
+	_case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute
 	(Spinner spStoreNames, String storeName, long dueDate) {
 		// TODO Auto-generated method stub
 		/***************************************
@@ -1039,31 +1047,50 @@ DB_OCL implements OnClickListener {
 
 		boolean res = dbu.storeData_PS(
 								CONS.DB.dbName,
-								CONS.DB.tname_purchaseSchedule,
+								CONS.DB.tname_PS,
 								ps);
 		
 		/***************************************
 		 * Validate saving
 		 ***************************************/
+		String msg = null;
+		int colorID = 0;
+		
 		if (res == true) {
 			
-			// debug
-			Toast.makeText(actv, "Schedule saved", Toast.LENGTH_LONG).show();
+			msg = "Schedule saved";
+			colorID = R.color.green4;
+			
+			d2.dismiss();
+			d1.dismiss();
+			
+//			// debug
+//			Toast.makeText(actv, "Schedule saved", Toast.LENGTH_LONG).show();
 			
 		} else {
 
-			// debug
-			Toast.makeText(actv, "Saving schedule => Failed", Toast.LENGTH_LONG).show();
+			msg = "Saving schedule => Failed";
+			colorID = R.color.red;
+
+			d2.dismiss();
 			
-			return;
+//			// debug
+//			Toast.makeText(actv, "Saving schedule => Failed", Toast.LENGTH_LONG).show();
+//			
+//			return;
 			
 		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
 		
 		/***************************************
 		 * Dismiss dialog
 		 ***************************************/
-		d1.dismiss();
-		d2.dismiss();
+//		d1.dismiss();
+//		d2.dismiss();
 		
 	}//private void case_dlg_save_tobuy_list_bt_ok_execute()
 

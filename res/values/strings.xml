@@ -119,6 +119,11 @@
     	<string name="opt_TabActv_Admin_Tables__SI_Drop">
     	    										shopping_item => drop</string>
     	    										
+    	<string name="opt_TabActv_Admin_Tables__Create_PS">
+    	    										create => ps</string>
+    	<string name="opt_TabActv_Admin_Tables__Drop_PS">
+    	    										drop => ps</string>
+    	    										
     	<string name="opt_TabActv_Admin_ImportData_Title">
     	    										Import data</string>
     	<string name="opt_TabActv_Admin_ImportData_SI">

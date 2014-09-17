@@ -303,33 +303,6 @@ public class DBUtils extends SQLiteOpenHelper {
 			ContentValues cv = storeData_PS__getContentValues(ps);
 			
 			//
-//			ContentValues cv = new ContentValues();
-
-//			/***************************************
-//			 * Put values
-//			 ***************************************/
-//			cv.put(
-//					CONS.DBAdmin
-//						.col_purchaseSchedule[
-//					              Methods.getArrayIndex(
-//					            		  CONS.DBAdmin.col_purchaseSchedule,
-//					            		  "store_name")],
-//					ps.getStoreName());
-//
-//			cv.put(
-//					CONS.DBAdmin
-//						.col_purchaseSchedule[
-//					              Methods.getArrayIndex(
-//					            		  CONS.DBAdmin.col_purchaseSchedule,
-//					            		  "due_date")],
-//					ps.getDueDate());
-			
-//			// Put values
-//			for (int i = 0; i < cols.length; i++) {
-//				cv.put(cols[i], values[i]);
-//			}//for (int i = 0; i < columnNames.length; i++)
-
-			//
 			wdb.beginTransaction();
 			
 			// Insert data
@@ -375,27 +348,6 @@ public class DBUtils extends SQLiteOpenHelper {
 				
 			}//if (res != -1)
 			
-//			// Set as successful
-//			wdb.setTransactionSuccessful();
-//
-//			// End transaction
-//			wdb.endTransaction();
-			
-//			// Log
-//			StringBuilder sb = new StringBuilder();
-//			
-//			for (int i = 0; i < cols.length; i++) {
-//				//
-//				sb.append(cols[i] + " => " + values[i] + "/");
-//				
-//			}//for (int i = 0; i < cols.length; i++)
-//			
-//			Log.d("DBUtils.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", "Stored => " + sb.toString());
-			
-//			return true;
-			
 		} catch (Exception e) {
 			// Log
 			Log.e("DBUtils.java" + "["
@@ -418,41 +370,41 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 		cv.put(
 				CONS.DB
-					.col_purchaseSchedule[
+					.col_Names_PS[
 				              Methods.getArrayIndex(
-				            		  CONS.DB.col_purchaseSchedule,
+				            		  CONS.DB.col_Names_PS,
 				            		  "store_name")],
 				ps.getStoreName());
 
 		cv.put(
 				CONS.DB
-					.col_purchaseSchedule[
+					.col_Names_PS[
 				              Methods.getArrayIndex(
-				            		  CONS.DB.col_purchaseSchedule,
+				            		  CONS.DB.col_Names_PS,
 				            		  "due_date")],
 				ps.getDueDate());
 
 		cv.put(
 				CONS.DB
-					.col_purchaseSchedule[
+					.col_Names_PS[
 				              Methods.getArrayIndex(
-				            		  CONS.DB.col_purchaseSchedule,
+				            		  CONS.DB.col_Names_PS,
 				            		  "amount")],
 				ps.getAmount());
 		
 		cv.put(
 				CONS.DB
-					.col_purchaseSchedule[
+					.col_Names_PS[
 				              Methods.getArrayIndex(
-				            		  CONS.DB.col_purchaseSchedule,
+				            		  CONS.DB.col_Names_PS,
 				            		  "memo")],
 				ps.getMemo());
 
 		cv.put(
 				CONS.DB
-					.col_purchaseSchedule[
+					.col_Names_PS[
 				              Methods.getArrayIndex(
-				            		  CONS.DB.col_purchaseSchedule,
+				            		  CONS.DB.col_Names_PS,
 				            		  "items")],
 				ps.getItems());
 		
@@ -984,9 +936,9 @@ public class DBUtils extends SQLiteOpenHelper {
 		try {
 			
 			c = rdb.query(
-							CONS.DB.tname_purchaseSchedule,
+							CONS.DB.tname_PS,
 //							CONS.DBAdmin.col_purchaseSchedule,
-							CONS.DB.col_purchaseSchedule_full,
+							CONS.DB.col_Names_PS_full,
 							null, null, null, null, null);
 			
 		} catch (Exception e) {
@@ -1049,7 +1001,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			PS ps = new PS();
 			
 			ps.setDbId(c.getLong(
-							c.getColumnIndex(CONS.DB.col_purchaseSchedule_full[0])));
+							c.getColumnIndex(CONS.DB.col_Names_PS_full[0])));
 			
 			ps.setStoreName(c.getString(c.getColumnIndex("store_name")));
 //			ps.setDueDate(c.getInt(c.getColumnIndex("due_date")));
@@ -1280,12 +1232,12 @@ public class DBUtils extends SQLiteOpenHelper {
 		/***************************************
 		 * Exec updating
 		 ***************************************/
-		String tname = CONS.DB.tname_purchaseSchedule;
+		String tname = CONS.DB.tname_PS;
 //		String colName = CONS.DBAdmin.col_purchaseSchedule[4];
 		
 		String sql = "UPDATE " + tname
 					+ " SET "
-					+ CONS.DB.col_purchaseSchedule[4] + "='"	// items
+					+ CONS.DB.col_Names_PS[4] + "='"	// items
 						+ itemIdsString + "'"
 					+ " WHERE " + android.provider.BaseColumns._ID
 					+ " = '" + dbId + "'";
@@ -1342,7 +1294,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		 ***************************************/
 		SQLiteDatabase rdb = getReadableDatabase();
 		
-		String sql = "SELECT * FROM " + CONS.DB.tname_purchaseSchedule;
+		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
 		
 		Cursor c = null;
 		
@@ -1406,13 +1358,13 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			long targetDueDate = c.getLong(
 					c.getColumnIndex(
-							CONS.DB.col_purchaseSchedule[1]));
+							CONS.DB.col_Names_PS[1]));
 	
 			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
 
 			String targetStoreName = c.getString(
 					c.getColumnIndex(
-							CONS.DB.col_purchaseSchedule[0]));
+							CONS.DB.col_Names_PS[0]));
 
 			if (targetStoreName.equals(storeName)
 				&& referenceDueDateData[0] == targetDueDateData[0]

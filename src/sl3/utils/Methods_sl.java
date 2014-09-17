@@ -2161,7 +2161,7 @@ public class Methods_sl {
 		
 		SQLiteDatabase rdb = dbu.getReadableDatabase();
 
-		String sql = "SELECT * FROM " + CONS.DB.tname_purchaseSchedule;
+		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
 
 		Cursor c = null;
 
@@ -2226,14 +2226,14 @@ public class Methods_sl {
 				 ***************************************/
 				long targetDueDate = c.getLong(
 								c.getColumnIndex(
-										CONS.DB.col_purchaseSchedule[1]));
+										CONS.DB.col_Names_PS[1]));
 				
 				int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
 				
 				
 				String targetStoreName = c.getString(
 							c.getColumnIndex(
-									CONS.DB.col_purchaseSchedule[0]));
+									CONS.DB.col_Names_PS[0]));
 				
 				// Log
 				Log.d("Methods_sl.java"

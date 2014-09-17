@@ -109,15 +109,15 @@ public class CONS {
 		String[] timeStamps = {"created_at", "modified_at"};
 		
 		public static final
-		String tname_purchaseSchedule = "purchase_schedule";
+		String tname_PS = "purchase_schedule";
 
 		public static
-		String[] col_purchaseSchedule =
+		String[] col_Names_PS =
 				//	0				1			2		3		4
 				{"store_name", "due_date", "amount", "memo", "items"};
 
 		public static
-		String[] col_purchaseSchedule_full =
+		String[] col_Names_PS_full =
 				//	0				1			2		3		4
 				{android.provider.BaseColumns._ID,	// 0
 				"created_at", "modified_at",		// 1
@@ -125,8 +125,8 @@ public class CONS {
 				"store_name", "due_date", "amount", "memo", "items"};
 
 		public static
-		String[] colTypes_purchaseSchedule =
-				{"TEXT",		"INTEGER", "INTEGER", "TEXT", "TEXT"};
+		String[] col_Types_PS =
+				{"TEXT",		"TEXT", "INTEGER", "TEXT", "TEXT"};
 
 		/***************************************
 		 * Query-related constant values
@@ -339,7 +339,9 @@ public class CONS {
 
 		public static String[] column_types_for_table_genres = 
 													{"TEXT", "TEXT"};
-			
+
+		
+		
 	}
 	
 	public static class SQLs {

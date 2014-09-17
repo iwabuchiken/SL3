@@ -851,9 +851,9 @@ public class MainActv extends Activity {
 				Methods.createTable(
 							this,
 							CONS.DB.dbName,
-							CONS.DB.tname_purchaseSchedule,
-							CONS.DB.col_purchaseSchedule,
-							CONS.DB.colTypes_purchaseSchedule);
+							CONS.DB.tname_PS,
+							CONS.DB.col_Names_PS,
+							CONS.DB.col_Types_PS);
 		
 		if (res == true) {
 			
@@ -863,7 +863,7 @@ public class MainActv extends Activity {
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]",
-					"Table created => " + CONS.DB.tname_purchaseSchedule);
+					"Table created => " + CONS.DB.tname_PS);
 			
 		} else {//if (res == true)
 			
@@ -873,7 +873,7 @@ public class MainActv extends Activity {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]",
-				"Table creation failed => " + CONS.DB.tname_purchaseSchedule);
+				"Table creation failed => " + CONS.DB.tname_PS);
 			
 		}//if (res == true)
 		
