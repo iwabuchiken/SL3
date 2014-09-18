@@ -5146,4 +5146,9 @@ public class Methods {
 //		return null;
 	}//private void case_dlg_save_tobuy_list_bt_ok()
 
+	public static String get_TimeLabel() {
+		// TODO Auto-generated method stub
+		return Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now());
+	}
+
 }//public class Methods

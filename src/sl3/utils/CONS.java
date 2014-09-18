@@ -117,12 +117,12 @@ public class CONS {
 				{"store_name", "due_date", "amount", "memo", "items"};
 
 		public static
-		String[] col_Names_PS_full =
-				//	0				1			2		3		4
-				{android.provider.BaseColumns._ID,	// 0
-				"created_at", "modified_at",		// 1
-				//	2			3			4		5		6
-				"store_name", "due_date", "amount", "memo", "items"};
+		String[] col_Names_PS_full = {
+					android.provider.BaseColumns._ID,	// 0
+					"created_at", "modified_at",		// 1,2
+					"store_name", "due_date", "amount",	// 3,4,5 
+					"memo", "items"						// 6,7
+		};
 
 		public static
 		String[] col_Types_PS =

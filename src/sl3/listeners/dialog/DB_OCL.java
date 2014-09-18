@@ -912,7 +912,7 @@ DB_OCL implements OnClickListener {
 		 * Store data
 		 ***************************************/
 		this._case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute(
-					spStoreNames, storeName, dueDate);
+					spStoreNames, storeName, dueDate_str);
 		
 		/***************************************
 		 * Close dialog 3
@@ -996,7 +996,8 @@ DB_OCL implements OnClickListener {
 					+ "]", msg_Log);
 			
 			_case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute(
-							spStoreNames, storeName, dueDate);
+							spStoreNames, storeName, dueDate_str);
+//			spStoreNames, storeName, dueDate);
 			
 		}//if (res == true)
 		
@@ -1131,6 +1132,128 @@ DB_OCL implements OnClickListener {
 		
 	}//private void case_dlg_save_tobuy_list_bt_ok_execute()
 
+	private void
+	_case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute
+	(Spinner spStoreNames, String storeName, String dueDate) {
+		// TODO Auto-generated method stub
+		/***************************************
+		 * Amount
+		 ***************************************/
+		EditText etAmount = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
+		
+		/***************************************
+		 * Memo
+		 ***************************************/
+		EditText etMemo = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_memo);
+		
+		/***************************************
+		 * Items
+		 ***************************************/
+		String items = Methods.conv_IdsString_from_ToBuy_ItemIds();
+//		String items = case_dlg_save_tobuy_list_bt_ok__getItemIdsString();
+		
+		// Log
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ ":"
+				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+				+ "]", "items=" + items);
+		
+		// Log
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ ":"
+				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+				+ "]", "dueDate="+ dueDate);
+		
+		/***************************************
+		 * Store data
+		 * 1. Get dbId: Get the number of data already stored
+		 * 		=> Add 1 to the number
+		 * 2. Construct a PS instance
+		 * 3. Store date => DBUtils.
+		 ***************************************/
+		/***************************************
+		 * Construct: A PS instance
+		 ***************************************/
+		PS ps = new PS.Builder()
+		
+				.setStoreName(spStoreNames.getSelectedItem().toString())
+				.setAmount(Integer.parseInt(etAmount.getText().toString()))
+				.setMemo(etMemo.getText().toString())
+				.setItems(items)
+				
+				.setDueDate(dueDate)
+				
+				.build();
+//		PS ps = new PS();
+//		
+////		ps.setDbId(dbId);
+//		ps.setStoreName(spStoreNames.getSelectedItem().toString());
+//		ps.setAmount(Integer.parseInt(etAmount.getText().toString()));
+//		ps.setMemo(etMemo.getText().toString());
+//		ps.setItems(items);
+//		ps.setDueDate(dueDate);
+		
+		/***************************************
+		 * Store the PS instance to database
+		 ***************************************/
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+//		
+//		SQLiteDatabase wdb = dbu.getWritableDatabase();
+
+		boolean res = dbu.storeData_PS(
+								CONS.DB.dbName,
+								CONS.DB.tname_PS,
+								ps);
+		
+//		//debug
+//		boolean res = true;
+		
+		/***************************************
+		 * Validate saving
+		 ***************************************/
+		String msg = null;
+		int colorID = 0;
+		
+		if (res == true) {
+			
+			msg = "Schedule saved";
+			colorID = R.color.green4;
+			
+			d2.dismiss();
+			d1.dismiss();
+			
+//			// debug
+//			Toast.makeText(actv, "Schedule saved", Toast.LENGTH_LONG).show();
+			
+		} else {
+			
+			msg = "Saving schedule => Failed";
+			colorID = R.color.red;
+			
+			d2.dismiss();
+			
+//			// debug
+//			Toast.makeText(actv, "Saving schedule => Failed", Toast.LENGTH_LONG).show();
+//			
+//			return;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+		
+		/***************************************
+		 * Dismiss dialog
+		 ***************************************/
+//		d1.dismiss();
+//		d2.dismiss();
+		
+	}//private void case_dlg_save_tobuy_list_bt_ok_execute()
+	
 	private String case_dlg_save_tobuy_list_bt_ok__getItemIdsString() {
 		// TODO Auto-generated method stub
 		StringBuilder sb = new StringBuilder();

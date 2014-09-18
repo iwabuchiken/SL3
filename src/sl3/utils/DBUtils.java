@@ -294,7 +294,10 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//public boolean storeData(SQLiteDatabase db, String tableName, String[] cols, String[] values)
 
-	public boolean storeData_PS(String dbName, String tableName, PS ps) {
+	public boolean 
+	storeData_PS
+	(String dbName, String tableName, PS ps) {
+		
 		try {
 			
 //			getWritableDatabase();
@@ -354,6 +357,8 @@ public class DBUtils extends SQLiteOpenHelper {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", "Exception => " + e.toString());
 			
+			e.printStackTrace();
+			
 			return false;
 		}//try
 		
@@ -366,47 +371,25 @@ public class DBUtils extends SQLiteOpenHelper {
 		/***************************************
 		 * Put values
 		 ***************************************/
-//		"store_name", "due_date", "amount", "memo", "items"
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",		// 1,2
+//		"store_name", "due_date", "amount",	// 3,4,5 
+//		"memo", "items"						// 6,7		
 		
-		cv.put(
-				CONS.DB
-					.col_Names_PS[
-				              Methods.getArrayIndex(
-				            		  CONS.DB.col_Names_PS,
-				            		  "store_name")],
-				ps.getStoreName());
-
-		cv.put(
-				CONS.DB
-					.col_Names_PS[
-				              Methods.getArrayIndex(
-				            		  CONS.DB.col_Names_PS,
-				            		  "due_date")],
-				ps.getDueDate());
-
-		cv.put(
-				CONS.DB
-					.col_Names_PS[
-				              Methods.getArrayIndex(
-				            		  CONS.DB.col_Names_PS,
-				            		  "amount")],
-				ps.getAmount());
+		cv.put(CONS.DB.col_Names_PS_full[1], Methods.get_TimeLabel());
 		
-		cv.put(
-				CONS.DB
-					.col_Names_PS[
-				              Methods.getArrayIndex(
-				            		  CONS.DB.col_Names_PS,
-				            		  "memo")],
-				ps.getMemo());
+		cv.put(CONS.DB.col_Names_PS_full[2], Methods.get_TimeLabel());
+//		Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(CONS.DB.col_Names_PS_full[3], ps.getStoreName());
 
-		cv.put(
-				CONS.DB
-					.col_Names_PS[
-				              Methods.getArrayIndex(
-				            		  CONS.DB.col_Names_PS,
-				            		  "items")],
-				ps.getItems());
+		cv.put(CONS.DB.col_Names_PS_full[4], ps.getDueDate());
+
+		cv.put(CONS.DB.col_Names_PS_full[5], ps.getAmount());
+		
+		cv.put(CONS.DB.col_Names_PS_full[6], ps.getMemo());
+
+		cv.put(CONS.DB.col_Names_PS_full[7], ps.getItems());
 		
 		return cv;
 		
