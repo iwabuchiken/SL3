@@ -380,7 +380,7 @@ public class Methods_dlg {
 	}//public static void dlg_tabActv_tab2Lv(Activity actv, ShoppingItem si)
 
 	public static void 
-	dlg_saveToBuyList
+	dlg_SaveToBuyList
 	(Activity actv, Dialog d1) {
 		// TODO Auto-generated method stub
 		/***************************************

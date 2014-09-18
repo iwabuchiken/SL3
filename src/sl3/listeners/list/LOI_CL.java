@@ -224,7 +224,8 @@ public class LOI_CL implements OnItemClickListener {
 		TextView tvDueDate =
 				(TextView) dlg3.findViewById(R.id.dlg_confirm_delete_ps_item_tv_val_due_date);
 		
-		tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
+		tvDueDate.setText(ps.getDueDate());
+//		tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
 		
 		
 		/***************************************
@@ -298,7 +299,8 @@ public class LOI_CL implements OnItemClickListener {
 //		tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
 		tvDueDate.setText(
 				String.format("%s %s",
-						Methods.getTimeLabel_Japanese(ps.getDueDate()),
+						ps.getDueDate(),
+//						Methods.getTimeLabel_Japanese(ps.getDueDate()),
 						ps.getStoreName())
 				);
 

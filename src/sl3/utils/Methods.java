@@ -5079,4 +5079,71 @@ public class Methods {
 		
 	}//conv_ToBuyList_to_SIList
 
+	public static String[] 
+	conv_MillSec_to_YMD
+	(long date) {
+		// TODO Auto-generated method stub
+		
+		String date_str = Methods.conv_MillSec_to_TimeLabel(date);
+		
+		// Log
+		String msg_Log = "date_str => " + date_str;
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		String[] dates = date_str.split(" ");
+		
+		return dates[0].split("[-/]");
+
+//		return null;
+	}
+
+	public static String[] 
+	conv_MillSec_to_YMD
+	(String date) {
+		// TODO Auto-generated method stub
+		
+		String[] dates = date.split(" ");
+		
+		return dates[0].split("[-/]");
+		
+//		return null;
+	}
+
+	public static String
+	conv_IdsString_from_ToBuy_ItemIds() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		
+		for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
+			
+			sb.append(String.valueOf(id.intValue()));
+			sb.append(" ");
+			
+		}//for (Integer id : CONS.TabActv.tab_toBuyItemIds)
+
+		return sb.toString().trim();
+		
+//		String s = sb.toString();
+//
+//		// Log
+//		Log.d("DB_OCL.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]", "s=" + s + "(" + s.length() + ")");
+//
+//		s = s.trim();
+//		
+//		// Log
+//		Log.d("DB_OCL.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]", "s=" + s + "(" + s.length() + ")");
+//		
+//		return null;
+	}//private void case_dlg_save_tobuy_list_bt_ok()
+
 }//public class Methods

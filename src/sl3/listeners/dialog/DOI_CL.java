@@ -286,7 +286,7 @@ public class DOI_CL implements OnItemClickListener {
 		// new dialog
 
 		////////////////////////////////
-		Methods_dlg.dlg_saveToBuyList(actv, d1);
+		Methods_dlg.dlg_SaveToBuyList(actv, d1);
 		
 		
 	}//case_ACTV_TAB_OPT_DB
@@ -779,7 +779,7 @@ public class DOI_CL implements OnItemClickListener {
 				
 			}//if (CONS.TabActv.toBuyList.size() == condition)
 			
-			Methods_dlg.dlg_saveToBuyList(actv, d1);
+			Methods_dlg.dlg_SaveToBuyList(actv, d1);
 			
 		} else if (choice.equals(
 					actv.getString(R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list))) {

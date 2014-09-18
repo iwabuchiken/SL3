@@ -608,7 +608,7 @@ DB_OCL implements OnClickListener {
 		Spinner spGenre = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_genre);
 		
 		// Log
-		Log.d("[" + "DialogButtonOnClickListener.java : "
+		Log.d("[" + "DB_OCL.java : "
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ " : "
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -640,7 +640,7 @@ DB_OCL implements OnClickListener {
 		
 		if (result == true) {
 			// Log
-			Log.d("DialogButtonOnClickListener.java"
+			Log.d("DB_OCL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber() + "]", "Data stored");
@@ -660,7 +660,7 @@ DB_OCL implements OnClickListener {
 		} else {//if (result == true)
 			
 			// Log
-			Log.d("DialogButtonOnClickListener.java"
+			Log.d("DB_OCL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber() + "]", "Data update => Failed");
@@ -712,7 +712,7 @@ DB_OCL implements OnClickListener {
 		long dbId = ps.getDbId();
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -726,7 +726,7 @@ DB_OCL implements OnClickListener {
 		boolean res = dbu.deleteItem(CONS.DB.tname_PS, dbId);
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -767,7 +767,7 @@ DB_OCL implements OnClickListener {
 //		int month = dp.getMonth() + 1;
 		int day = dp.getDayOfMonth();
 //		// Log
-//		Log.d("DialogButtonOnClickListener.java" + "["
+//		Log.d("DB_OCL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -829,7 +829,7 @@ DB_OCL implements OnClickListener {
 		boolean res = dbu.updateData_PS_ItemIds(actv, storeName, dueDate, itemIdsString);
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -875,7 +875,7 @@ DB_OCL implements OnClickListener {
 //		int month = dp.getMonth() + 1;
 		int day = dp.getDayOfMonth();
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -892,12 +892,21 @@ DB_OCL implements OnClickListener {
 		
 		long dueDate = cal.getTimeInMillis();
 		
+		String dueDate_str = Methods.conv_MillSec_to_TimeLabel(dueDate);
+		
 		/***************************************
 		 * Store name
 		 ***************************************/
 		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
 		
 		String storeName = spStoreNames.getSelectedItem().toString();
+		
+		
+		// Log
+		String msg_Log = String.format("%s, %s", dueDate_str, storeName);
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
 		/***************************************
 		 * Store data
@@ -924,7 +933,7 @@ DB_OCL implements OnClickListener {
 //		int month = dp.getMonth() + 1;
 		int day = dp.getDayOfMonth();
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -941,6 +950,8 @@ DB_OCL implements OnClickListener {
 		
 		long dueDate = cal.getTimeInMillis();
 		
+		String dueDate_str = Methods.conv_MillSec_to_TimeLabel(dueDate);
+		
 		/***************************************
 		 * Get data: The rest
 		 ***************************************/
@@ -951,13 +962,19 @@ DB_OCL implements OnClickListener {
 		
 		String storeName = spStoreNames.getSelectedItem().toString();
 		
+		// Log
+		String msg_Log = String.format("%s, %s", dueDate_str, storeName);
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		/***************************************
 		 * Is the schedule already in db?
 		 ***************************************/
 		boolean res = Methods_sl.isInDb_PS(actv, storeName, cal);
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -971,6 +988,12 @@ DB_OCL implements OnClickListener {
 			Methods_dlg.dlg_scheduleInDb(actv, d1, d2);
 			
 		} else {//if (res == true)
+
+			// Log
+			msg_Log = "schedule => not in DB";
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
 			
 			_case_case_DLG_SAVE_TOBUY_LIST_BT_OK_execute(
 							spStoreNames, storeName, dueDate);
@@ -997,23 +1020,24 @@ DB_OCL implements OnClickListener {
 		 * Items
 		 ***************************************/
 //		// Log
-//		Log.d("DialogButtonOnClickListener.java" + "["
+//		Log.d("DB_OCL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 //				+ "]", "Calling => case_dlg_save_tobuy_list_bt_ok__convertToBuyList2String()");
 //		
-		String items = case_dlg_save_tobuy_list_bt_ok__getItemIdsString();
+		String items = Methods.conv_IdsString_from_ToBuy_ItemIds();
+//		String items = case_dlg_save_tobuy_list_bt_ok__getItemIdsString();
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "items=" + items);
 		
 		// Log
-		Log.d("DialogButtonOnClickListener.java" + "["
+		Log.d("DB_OCL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1029,26 +1053,39 @@ DB_OCL implements OnClickListener {
 		/***************************************
 		 * Construct: A PS instance
 		 ***************************************/
-		PS ps = new PS();
-		
-//		ps.setDbId(dbId);
-		ps.setStoreName(spStoreNames.getSelectedItem().toString());
-		ps.setAmount(Integer.parseInt(etAmount.getText().toString()));
-		ps.setMemo(etMemo.getText().toString());
-		ps.setItems(items);
-		ps.setDueDate(dueDate);
+		PS ps = new PS.Builder()
+
+						.setStoreName(spStoreNames.getSelectedItem().toString())
+						.setAmount(Integer.parseInt(etAmount.getText().toString()))
+						.setMemo(etMemo.getText().toString())
+						.setItems(items)
+						
+						.setDueDate(Methods.conv_MillSec_to_TimeLabel(dueDate))
+						
+						.build();
+//		PS ps = new PS();
+//		
+////		ps.setDbId(dbId);
+//		ps.setStoreName(spStoreNames.getSelectedItem().toString());
+//		ps.setAmount(Integer.parseInt(etAmount.getText().toString()));
+//		ps.setMemo(etMemo.getText().toString());
+//		ps.setItems(items);
+//		ps.setDueDate(dueDate);
 		
 		/***************************************
 		 * Store the PS instance to database
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
-//		
-//		SQLiteDatabase wdb = dbu.getWritableDatabase();
-
-		boolean res = dbu.storeData_PS(
-								CONS.DB.dbName,
-								CONS.DB.tname_PS,
-								ps);
+//		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+////		
+////		SQLiteDatabase wdb = dbu.getWritableDatabase();
+//
+//		boolean res = dbu.storeData_PS(
+//								CONS.DB.dbName,
+//								CONS.DB.tname_PS,
+//								ps);
+		
+		//debug
+		boolean res = true;
 		
 		/***************************************
 		 * Validate saving
@@ -1110,7 +1147,7 @@ DB_OCL implements OnClickListener {
 //		String s = sb.toString();
 //
 //		// Log
-//		Log.d("DialogButtonOnClickListener.java" + "["
+//		Log.d("DB_OCL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1119,7 +1156,7 @@ DB_OCL implements OnClickListener {
 //		s = s.trim();
 //		
 //		// Log
-//		Log.d("DialogButtonOnClickListener.java" + "["
+//		Log.d("DB_OCL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()

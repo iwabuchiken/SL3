@@ -2003,11 +2003,12 @@ public class Methods_sl {
 	
 	public static List<PS> getPSList(Activity actv) {
 		
-		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+//		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
-		List<PS> psList = dbu.getPSList(actv);
+		List<PS> psList = DBUtils.find_ALL_PSs(actv);
+//		List<PS> psList = dbu.getPSList(actv);
 		
-		dbu.close();
+//		dbu.close();
 		
 //		return dbu.getPSList(actv);
 		return psList;
@@ -2042,42 +2043,11 @@ public class Methods_sl {
 //				@Override
 				public int compare(PS i1, PS i2) {
 
-//					// Log
-//					Log.d("Methods_sl.java"
-//							+ "["
-//							+ Thread.currentThread().getStackTrace()[2]
-//									.getLineNumber()
-//							+ ":"
-//							+ Thread.currentThread().getStackTrace()[2]
-//									.getMethodName() + "]",
-//							"i1=" + i1.getStoreName() + "(" + String.valueOf(i1.getDueDate()) +
-//									" " + Methods.get_TimeLabel(i1.getDueDate()) + ")"
-//							+ "i2=" + i2.getStoreName() + "(" + String.valueOf(i2.getDueDate()) +
-//									" " + Methods.get_TimeLabel(i2.getDueDate()) + ")");
-//					// Log
-//					Log.d("Methods_sl.java"
-//							+ "["
-//							+ Thread.currentThread().getStackTrace()[2]
-//									.getLineNumber()
-//							+ ":"
-//							+ Thread.currentThread().getStackTrace()[2]
-//									.getMethodName() + "]",
-//							"i1-i2=" + String.valueOf(i1.getDueDate() - i2.getDueDate()));
-//					"i2-i1=" + String.valueOf(i2.getDueDate() - i1.getDueDate()));
-//					return (int) (i2.getDueDate() - i1.getDueDate());
-//					return (int) (i1.getDueDate() - i2.getDueDate());
-					
-//					if ((i1.getDueDate() - i2.getDueDate()) > 0) {
-//						return 1;
-//					} else if ((i1.getDueDate() - i2.getDueDate()) < 0) {//if ((i1.getDueDate() - i2.getDueDate()) > 0)
-//						return -1;
-//					} else {//if ((i1.getDueDate() - i2.getDueDate()) > 0)
-//						return 0;
-//					}//if ((i1.getDueDate() - i2.getDueDate()) > 0)
-					
-					return ((i2.getDueDate() - i1.getDueDate()) > 0) ? 1
-							: ((i2.getDueDate() - i1.getDueDate()) < 0) ? -1
-							: 0;
+					return i2.getDueDate().compareToIgnoreCase(i1.getDueDate());
+
+//					return ((i2.getDueDate() - i1.getDueDate()) > 0) ? 1
+//							: ((i2.getDueDate() - i1.getDueDate()) < 0) ? -1
+//							: 0;
 					
 				}//public int compare(PS i1, PS i2)
 
@@ -2152,162 +2122,226 @@ public class Methods_sl {
 //		int newMonth = cal.MONTH;
 //		
 //		int newDay = cal.DATE;
+		
+		long date = cal.getTimeInMillis();
+		
+//		String date_str = Methods.conv_MillSec_to_TimeLabel(date);
+//		
+//		String[] dates = date_str.split(" ");
+		
+//		String[] YMD = Methods.conv_MillSec_to_YMD(date);
+		
+//		String[] YMD = dates[0].split("-");
 
 		int newYear = cal.get(Calendar.YEAR);
 		int newMonth = cal.get(Calendar.MONTH);
 		int newDay = cal.get(Calendar.DATE);
 
-		DBUtils dbu = new DBUtils(actv);
-		
-		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		List<PS> list_PSs = DBUtils.find_ALL_PSs(actv);
 
-		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
-
-		Cursor c = null;
-
-		try {
+		/******************************
+			validate
+		 ******************************/
+		if (list_PSs == null) {
 			
-			c = rdb.rawQuery(sql, null);
-			
-			/*********************************
-			 * Cursor => null?
-			 *********************************/
-			if (null == c) {
-				
-				// Log
-				Log.d("DialogOnItemClickListener.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]", "Cursor => null");
-				
-				rdb.close();
-				
-				return false;
-				
-			}//if (null == c)
-			
-			/*********************************
-			 * Num of entries in the cursor => Less than 1?
-			 *********************************/
-			if (c.getCount() < 1) {
-				
-				// Log
-				Log.d("DialogOnItemClickListener.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]", "Cursor => No entry");
-				
-				rdb.close();
-				
-				return false;
-				
-			}//if (null == c)
-			
-			/*********************************
-			 * 
-			 *********************************/
-			c.moveToFirst();
-			
-			/***************************************
-			 * 1. From the cursor, get due date in millseconds (d1
-			 * 2. From d1, get integer array (d2)
-			 * 3. Compare d2 with the data in the param cal
-			 * 
-			 ***************************************/
-			for (int i = 0; i < c.getCount(); i++) {
-				/***************************************
-				 * Get target data: 1. Due date 2. Store name
-				 ***************************************/
-				long targetDueDate = c.getLong(
-								c.getColumnIndex(
-										CONS.DB.col_Names_PS[1]));
-				
-				int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
-				
-				
-				String targetStoreName = c.getString(
-							c.getColumnIndex(
-									CONS.DB.col_Names_PS[0]));
-				
-				// Log
-				Log.d("Methods_sl.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]",
-//						"cal.YEAR=" + cal.YEAR
-//						+ "/"
-//						+ "cal.MONTH=" + cal.MONTH
-//						+ "/"
-//						+ "cal.DATE=" + cal.DATE);
-						"newYear=" + newYear
-						+ "/"
-						+ "newMonth=" + newMonth
-						+ "/"
-						+ "newDay=" + newDay);
-				// Log
-				Log.d("Methods_sl.java"
-						+ "["
-						+ Thread.currentThread().getStackTrace()[2]
-								.getLineNumber()
-						+ ":"
-						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]",
-						"targetStoreName=" + targetStoreName
-						+ "/"
-						+ "targetDueDateData[0]=" + targetDueDateData[0]
-						+ "/"
-						+ "targetDueDateData[1]=" + targetDueDateData[1]
-						+ "/"
-						+ "targetDueDateData[2]=" + targetDueDateData[2]
-						);
-				
-				
-//				if (cal.YEAR == dueDateData[0]
-//						&& cal.MONTH == dueDateData[1]
-//						&& cal.DATE == dueDateData[2]) {
-				if (targetStoreName.equals(storeName)
-					&& newYear == targetDueDateData[0]
-					&& newMonth == targetDueDateData[1]
-					&& newDay == targetDueDateData[2]) {
-					
-					rdb.close();
-					
-					return true;
-					
-				}//if (cal.YEAR == dueDateData[0])
-				
-				c.moveToNext();
-				
-			}//for (int i = 0; i < c.getCount(); i++)
-			
-		} catch (Exception e) {
-
 			// Log
-			Log.e("DialogOnItemClickListener.java" + "["
+			String msg_Log = "list_PSs => null";
+			Log.e("Methods_sl.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Exception => " + e.toString());
-			
-			rdb.close();
+					+ "]", msg_Log);
 			
 			return false;
 			
-		}//try 
+		}
 		
-		/***************************************
-		 * Close db
-		 ***************************************/
-		rdb.close();
+		String due_Date = null;
+		String[] YMD = null;
+		String target_StoreName = null;
+		
+		for (PS ps : list_PSs) {
+			/***************************************
+			 * Get target data: 1. Due date 2. Store name
+			 ***************************************/
+//			long targetDueDate = c.getLong(
+//							c.getColumnIndex(
+//									CONS.DB.col_Names_PS[1]));
+			
+			due_Date = ps.getDueDate();
+			
+			YMD = Methods.conv_MillSec_to_YMD(due_Date);
+			
+//			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
+			
+			
+			target_StoreName = ps.getStoreName();
+			
+//			if (cal.YEAR == dueDateData[0]
+//					&& cal.MONTH == dueDateData[1]
+//					&& cal.DATE == dueDateData[2]) {
+			if (target_StoreName.equals(storeName)
+					&& newYear == Integer.parseInt(YMD[0])
+					&& newMonth == Integer.parseInt(YMD[1])
+					&& newDay == Integer.parseInt(YMD[2])) {
+				
+				return true;
+				
+			}//if (cal.YEAR == dueDateData[0])
+			
+		}//for (PS ps : list_PSs)
+
+		
+		
+//		DBUtils dbu = new DBUtils(actv);
+//		
+//		SQLiteDatabase rdb = dbu.getReadableDatabase();
+//
+//		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
+//
+//		Cursor c = null;
+//
+//		try {
+//			
+//			c = rdb.rawQuery(sql, null);
+//			
+//			/*********************************
+//			 * Cursor => null?
+//			 *********************************/
+//			if (null == c) {
+//				
+//				// Log
+//				Log.d("DialogOnItemClickListener.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]", "Cursor => null");
+//				
+//				rdb.close();
+//				
+//				return false;
+//				
+//			}//if (null == c)
+//			
+//			/*********************************
+//			 * Num of entries in the cursor => Less than 1?
+//			 *********************************/
+//			if (c.getCount() < 1) {
+//				
+//				// Log
+//				Log.d("DialogOnItemClickListener.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]", "Cursor => No entry");
+//				
+//				rdb.close();
+//				
+//				return false;
+//				
+//			}//if (null == c)
+//			
+//			/*********************************
+//			 * 
+//			 *********************************/
+//			c.moveToFirst();
+//			
+//			/***************************************
+//			 * 1. From the cursor, get due date in millseconds (d1
+//			 * 2. From d1, get integer array (d2)
+//			 * 3. Compare d2 with the data in the param cal
+//			 * 
+//			 ***************************************/
+//			for (int i = 0; i < c.getCount(); i++) {
+//				/***************************************
+//				 * Get target data: 1. Due date 2. Store name
+//				 ***************************************/
+//				long targetDueDate = c.getLong(
+//								c.getColumnIndex(
+//										CONS.DB.col_Names_PS[1]));
+//				
+//				int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
+//				
+//				
+//				String targetStoreName = c.getString(
+//							c.getColumnIndex(
+//									CONS.DB.col_Names_PS[0]));
+//				
+//				// Log
+//				Log.d("Methods_sl.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]",
+////						"cal.YEAR=" + cal.YEAR
+////						+ "/"
+////						+ "cal.MONTH=" + cal.MONTH
+////						+ "/"
+////						+ "cal.DATE=" + cal.DATE);
+//						"newYear=" + newYear
+//						+ "/"
+//						+ "newMonth=" + newMonth
+//						+ "/"
+//						+ "newDay=" + newDay);
+//				// Log
+//				Log.d("Methods_sl.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber()
+//						+ ":"
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getMethodName() + "]",
+//						"targetStoreName=" + targetStoreName
+//						+ "/"
+//						+ "targetDueDateData[0]=" + targetDueDateData[0]
+//						+ "/"
+//						+ "targetDueDateData[1]=" + targetDueDateData[1]
+//						+ "/"
+//						+ "targetDueDateData[2]=" + targetDueDateData[2]
+//						);
+//				
+//				
+////				if (cal.YEAR == dueDateData[0]
+////						&& cal.MONTH == dueDateData[1]
+////						&& cal.DATE == dueDateData[2]) {
+//				if (targetStoreName.equals(storeName)
+//					&& newYear == targetDueDateData[0]
+//					&& newMonth == targetDueDateData[1]
+//					&& newDay == targetDueDateData[2]) {
+//					
+//					rdb.close();
+//					
+//					return true;
+//					
+//				}//if (cal.YEAR == dueDateData[0])
+//				
+//				c.moveToNext();
+//				
+//			}//for (int i = 0; i < c.getCount(); i++)
+//			
+//		} catch (Exception e) {
+//
+//			// Log
+//			Log.e("DialogOnItemClickListener.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "Exception => " + e.toString());
+//			
+//			rdb.close();
+//			
+//			return false;
+//			
+//		}//try 
+//		
+//		/***************************************
+//		 * Close db
+//		 ***************************************/
+//		rdb.close();
 		
 		return false;
 		

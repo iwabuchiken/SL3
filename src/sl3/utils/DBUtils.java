@@ -927,112 +927,112 @@ public class DBUtils extends SQLiteOpenHelper {
 	}//public boolean createTable(SQLiteDatabase db, String tableName)
 
 	
-	public List<PS> getPSList(Activity actv) {
-		
-		SQLiteDatabase rdb = this.getReadableDatabase();
-
-		Cursor c = null;
-		
-		try {
-			
-			c = rdb.query(
-							CONS.DB.tname_PS,
-//							CONS.DBAdmin.col_purchaseSchedule,
-							CONS.DB.col_Names_PS_full,
-							null, null, null, null, null);
-			
-		} catch (Exception e) {
-
-			// Log
-			Log.e("DBUtils.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", e.toString());
-			
-			rdb.close();
-			
-			return null;
-			
-		}//try
-		
-		/***************************************
-		 * Validate
-		 * 	Cursor => Null?
-		 * 	Entry => 0?
-		 ***************************************/
-		if (c == null) {
-			
-			// Log
-			Log.e("DBUtils.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Query failed");
-			
-			rdb.close();
-			
-			return null;
-			
-		} else if (c.getCount() < 1) {//if (c == null)
-			
-			// Log
-			Log.d("DBUtils.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "No entry in the table");
-			
-			rdb.close();
-			
-			return null;
-			
-		}//if (c == null)
-		
-		/***************************************
-		 * Build list
-		 ***************************************/
-		c.moveToFirst();
-		
-		List<PS> psList = new ArrayList<PS>();
-		
-		for (int i = 0; i < c.getCount(); i++) {
-			
-			PS ps = new PS();
-			
-			ps.setDbId(c.getLong(
-							c.getColumnIndex(CONS.DB.col_Names_PS_full[0])));
-			
-			ps.setStoreName(c.getString(c.getColumnIndex("store_name")));
-//			ps.setDueDate(c.getInt(c.getColumnIndex("due_date")));
-			ps.setDueDate(c.getLong(c.getColumnIndex("due_date")));
-			ps.setAmount(c.getInt(c.getColumnIndex("amount")));
-			ps.setMemo(c.getString(c.getColumnIndex("memo")));
-			ps.setItems(c.getString(c.getColumnIndex("items")));
-			
-			psList.add(ps);
-			
+//	public List<PS> getPSList(Activity actv) {
+//		
+//		SQLiteDatabase rdb = this.getReadableDatabase();
+//
+//		Cursor c = null;
+//		
+//		try {
+//			
+//			c = rdb.query(
+//							CONS.DB.tname_PS,
+////							CONS.DBAdmin.col_purchaseSchedule,
+//							CONS.DB.col_Names_PS_full,
+//							null, null, null, null, null);
+//			
+//		} catch (Exception e) {
+//
+//			// Log
+//			Log.e("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", e.toString());
+//			
+//			rdb.close();
+//			
+//			return null;
+//			
+//		}//try
+//		
+//		/***************************************
+//		 * Validate
+//		 * 	Cursor => Null?
+//		 * 	Entry => 0?
+//		 ***************************************/
+//		if (c == null) {
+//			
+//			// Log
+//			Log.e("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "Query failed");
+//			
+//			rdb.close();
+//			
+//			return null;
+//			
+//		} else if (c.getCount() < 1) {//if (c == null)
+//			
 //			// Log
 //			Log.d("DBUtils.java" + "["
 //					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //					+ ":"
 //					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]",
-//					"ColumnIndex(\"due_date\")="
-//					+ c.getColumnIndex("due_date")
-//					+ "/"
-////					+ "c.getInt(c.getColumnIndex(\"due_date\"))="
-//					+ "c.getLong(c.getColumnIndex(\"due_date\"))="
-////					+ c.getInt(c.getColumnIndex("due_date")));
-//					+ c.getLong(c.getColumnIndex("due_date")));
-			
-			c.moveToNext();
-			
-		}//for (int i = 0; i < c.getCount(); i++)
-		
-		return psList;
-		
-	}//public List<PS> getPSList(Activity actv)
+//					+ "]", "No entry in the table");
+//			
+//			rdb.close();
+//			
+//			return null;
+//			
+//		}//if (c == null)
+//		
+//		/***************************************
+//		 * Build list
+//		 ***************************************/
+//		c.moveToFirst();
+//		
+//		List<PS> psList = new ArrayList<PS>();
+//		
+//		for (int i = 0; i < c.getCount(); i++) {
+//			
+//			PS ps = new PS();
+//			
+//			ps.setDbId(c.getLong(
+//							c.getColumnIndex(CONS.DB.col_Names_PS_full[0])));
+//			
+//			ps.setStoreName(c.getString(c.getColumnIndex("store_name")));
+////			ps.setDueDate(c.getInt(c.getColumnIndex("due_date")));
+//			ps.setDueDate(c.getLong(c.getColumnIndex("due_date")));
+//			ps.setAmount(c.getInt(c.getColumnIndex("amount")));
+//			ps.setMemo(c.getString(c.getColumnIndex("memo")));
+//			ps.setItems(c.getString(c.getColumnIndex("items")));
+//			
+//			psList.add(ps);
+//			
+////			// Log
+////			Log.d("DBUtils.java" + "["
+////					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+////					+ ":"
+////					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+////					+ "]",
+////					"ColumnIndex(\"due_date\")="
+////					+ c.getColumnIndex("due_date")
+////					+ "/"
+//////					+ "c.getInt(c.getColumnIndex(\"due_date\"))="
+////					+ "c.getLong(c.getColumnIndex(\"due_date\"))="
+//////					+ c.getInt(c.getColumnIndex("due_date")));
+////					+ c.getLong(c.getColumnIndex("due_date")));
+//			
+//			c.moveToNext();
+//			
+//		}//for (int i = 0; i < c.getCount(); i++)
+//		
+//		return psList;
+//		
+//	}//public List<PS> getPSList(Activity actv)
 
 	public SI getSIFromDbId(String dbId) {
 		// TODO Auto-generated method stub
@@ -2002,6 +2002,198 @@ public class DBUtils extends SQLiteOpenHelper {
 			3. Query => Exception<br>
 			4. Query => no entry<br>
 	 ******************************/
+	public static List<PS> 
+	find_ALL_PSs
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// validate: DB file exists?
+		
+		////////////////////////////////
+		String dbName = CONS.DB.dbName;
+		
+		File dpath_DBFile = actv.getDatabasePath(dbName);
+		
+		if (!dpath_DBFile.exists()) {
+			
+			String msg = "No DB file: " + dbName;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// DB
+		
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists?
+		
+		////////////////////////////////
+		String tname = CONS.DB.tname_PS;
+		boolean res = dbu.tableExists(rdb, tname);
+		
+		if (res == false) {
+			
+			String msg = "No such table: " + tname;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			rdb.close();
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+		try {
+			
+			c = rdb.query(
+					
+					CONS.DB.tname_PS,			// 1
+					CONS.DB.col_Names_PS_full,	// 2
+					null, null,		// 3,4
+//					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// build list
+		
+		////////////////////////////////
+		List<PS> list_PSs = new ArrayList<PS>();
+
+////		0				1			2		3		4
+//		{android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",		// 1,2
+//		"store_name", "due_date", "amount",	// 3,4,5
+//		"memo", "items"						// 6,7
+		
+		PS ps = null;
+		
+		while(c.moveToNext()) {
+			
+			ps = new PS.Builder()
+			
+						.setDbId(c.getInt(0))
+						.setCreated_at(c.getString(1))
+						.setModified_at(c.getString(2))
+						
+						.setStoreName(c.getString(3))
+						.setDueDate(c.getString(4))
+						.setAmount(c.getInt(5))
+						
+						.setMemo(c.getString(6))
+						.setItems(c.getString(7))
+						
+						.build();
+			
+			list_PSs.add(ps);
+			
+		}//while(c.moveToNext())
+			
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		rdb.close();
+		
+		msg_Log = "list_PSs.size() => " + list_PSs.size();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return list_PSs;
+		
+	}//find_ALL_PSs
+	
+	/******************************
+		@return
+		null<br>
+			1. No DB file<br>
+			2. No such table<br>
+			3. Query => Exception<br>
+			4. Query => no entry<br>
+	 ******************************/
 	public static List<SI> 
 	find_ALL_SIs
 	(Activity actv) {
@@ -2180,7 +2372,7 @@ public class DBUtils extends SQLiteOpenHelper {
 			list_SIs.add(si);
 			
 		}//while(c.moveToNext())
-			
+		
 		////////////////////////////////
 		
 		// close

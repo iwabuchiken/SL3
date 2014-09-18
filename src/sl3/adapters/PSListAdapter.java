@@ -67,7 +67,8 @@ public class PSListAdapter extends ArrayAdapter<PS> {
         tvStoreName.setText(ps.getStoreName());
         
 //        tvDueDate.setText(String.valueOf(ps.getDueDate()));
-        tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
+        tvDueDate.setText(ps.getDueDate());
+//        tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
         
 //        // Log
 //		Log.d("PSListAdapter.java" + "["

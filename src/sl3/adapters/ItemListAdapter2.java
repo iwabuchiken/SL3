@@ -101,6 +101,7 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 //	
 //		EditText et = (EditText) v.findViewById(R.id.adapteritem_et);
 //		
+//		//REF http://garnote.com/2013/02/edittext.html	
 //		et.clearFocus();
 //		
 //		
