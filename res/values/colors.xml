@@ -5,10 +5,19 @@
 	<color name="white">#ffffff</color>
 	<color name="black">#000000</color>
 	
-	<color name="blue1">#0000EE</color>
+	<!-- blues -->
+		<color name="blue1">#0000EE</color>
+		<color name="blue_pale">#BCBCFF</color>
+		<color name="blue_pale_dark">#9C9CC5</color>
 	
 	<color name="darkgreen">#006400</color>
-	<color name="green4">#008B00</color>
+	
+	<!-- greens -->
+		<color name="green4">#008B00</color>
+		<color name="green_pale">#B8FFD0</color>
+		<color name="green_paler">#E0F5E7</color>
+		<color name="green_light">#61FA94</color>
+		<color name="green_pale_dark">#A7CDB3</color>
 	
 	<color name="darkolivegreen4">#6E8B3D</color>
 	<color name="purple4">#551A8B</color>

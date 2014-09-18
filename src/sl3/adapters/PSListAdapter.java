@@ -68,7 +68,7 @@ public class PSListAdapter extends ArrayAdapter<PS> {
         tvStoreName.setText(ps.getStoreName());
         
 //        tvDueDate.setText(String.valueOf(ps.getDueDate()));
-        String[] YMD = Methods.conv_MillSec_to_YMD(ps.getDueDate());
+        String[] YMD = Methods.conv_TimeLabel_to_YMD(ps.getDueDate());
         
         String due_Date = String.format(
         					Locale.JAPAN,

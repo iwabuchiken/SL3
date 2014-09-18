@@ -1017,7 +1017,9 @@ public class DBUtils extends SQLiteOpenHelper {
 //		
 //	}//public List<PS> getPSList(Activity actv)
 
-	public SI getSIFromDbId(String dbId) {
+	public static SI
+	find_SI_from_DB_Id
+	(Activity actv, String dbId) {
 		// TODO Auto-generated method stub
 		
 		// Log
@@ -1026,83 +1028,133 @@ public class DBUtils extends SQLiteOpenHelper {
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "dbId=" + dbId);
+	
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
 		
-		SQLiteDatabase rdb = this.getReadableDatabase();
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
-//		CONS.DBAdmin.columns => "store", "name", "price", "genre", "yomi"
-//		Cursor cursor = rdb.query(
-//							CONS.DBAdmin.tableName,
-////							CONS.DBAdmin.columns,
-//							CONS.DBAdmin.columns_with_index2,
-////							android.provider.BaseColumns._ID + "=",	// where
-//							String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
-//							new String[]{dbId},	// param
-//							null, null, null);
-
-//		// From: TabActv.java
-//		Cursor cursor = rdb.query(
-//				CONS.DBAdmin.tableName, 
-////										DBManager.columns,
-////				CONS.DBAdmin.columns_with_index,
-//				CONS.DBAdmin.columns_with_index2,
-//				String.valueOf(CONS.DBAdmin.columns_with_index2[0]),
-//				new String[]{dbId},
-//				null, null, null);
+		String where = CONS.DB.col_Names_SI_full[0] + " = ?";
+		String[] args = new String[]{String.valueOf(dbId)};
 		
-//		String sql = "SELECT " + "store, name, price, genre, yomi"
-		String sql = "SELECT " + "*"
-					+ " FROM " + CONS.DB.tableName
-					+ " WHERE " + CONS.DB.columns_with_index2[0]
-					+ " = "
-					+ dbId;
+		////////////////////////////////
 		
-		Cursor cursor = null;
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
 		
 		try {
 			
-			cursor = rdb.rawQuery(sql, null);
+			c = rdb.query(
+					
+					CONS.DB.tname_si,			// 1
+					CONS.DB.col_Names_SI_full,	// 2
+//					null, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
 			
 		} catch (Exception e) {
 			
 			// Log
-			Log.d("DBUtils.java" + "["
+			Log.e("DBUtils.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
 					+ "]", e.toString());
 			
+			e.printStackTrace();
+			
 			rdb.close();
 			
 			return null;
 			
-		}
-
-		if (cursor == null) {
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
 			
 			// Log
 			Log.d("DBUtils.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "cursor => null");
+					+ "]", "No entry in the table");
+			
+			rdb.close();
 			
 			return null;
 			
-		}//if (cursor == null)
+		}//if (c == null)
 		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
 		/***************************************
 		 * Build item
 		 ***************************************/
-		cursor.moveToFirst();
+		c.moveToFirst();
 		
-		SI si = new SI();
+//		android.provider.BaseColumns._ID,	// 0
+//		"store", 							// 1
+//		"name", "price",					// 2,3
+//		"genre", "yomi",					// 4,5
+//		"created_at", "updated_at",			// 6,7
+//		"posted_at"							// 8
 		
-		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
-		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
-		si.setName(cursor.getString(cursor.getColumnIndex("name")));
-		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
-		si.setGenre(cursor.getString(cursor.getColumnIndex("genre")));
-		si.setYomi(cursor.getString(cursor.getColumnIndex("yomi")));
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		"posted_at"							// 9
+			
+		SI si = new SI.Builder()
+			
+				.setDb_id(c.getInt(0))
+				.setCreated_at(c.getString(1))
+				.setModified_at(c.getString(2))
+				
+				.setStore(c.getString(3))
+				.setName(c.getString(4))
+				.setPrice(c.getInt(5))
+				
+				.setGenre(c.getString(6))
+				.setYomi(c.getString(7))
+				.setNum(c.getInt(8))
+				
+				.setPosted_at(c.getString(9))
+				
+				.build();
+			
+//		SI si = new SI();
+//		
+//		si.setId((int)cursor.getLong(cursor.getColumnIndex(CONS.DB.columns_with_index2[0])));
+//		si.setStore(cursor.getString(cursor.getColumnIndex("store")));
+//		si.setName(cursor.getString(cursor.getColumnIndex("name")));
+//		si.setPrice(cursor.getInt(cursor.getColumnIndex("price")));
+//		si.setGenre(cursor.getString(cursor.getColumnIndex("genre")));
+//		si.setYomi(cursor.getString(cursor.getColumnIndex("yomi")));
 		
 		/***************************************
 		 * Close db

@@ -287,13 +287,15 @@ public class LOI_CL implements OnItemClickListener {
 		/***************************************
 		 * Set due date
 		 ***************************************/
-		TextView tvDueDate = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_due_date);
-
-		tvDueDate.setText(
-				String.format("%s %s",
-						ps.getDueDate(),
-						ps.getStoreName())
-				);
+		Methods.update_TV_DueDate(actv, ps);
+		
+//		TextView tvDueDate = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_due_date);
+//
+//		tvDueDate.setText(
+//				String.format("%s %s",
+//						ps.getDueDate(),
+//						ps.getStoreName())
+//				);
 
 		/***************************************
 		 * Set item list
@@ -306,7 +308,6 @@ public class LOI_CL implements OnItemClickListener {
 		CONS.TabActv.toBuyList.clear();
 		
 		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
-				
 		
 		// Sort list
 		Methods_sl.sortItemList(loadedSIList);
@@ -343,6 +344,8 @@ public class LOI_CL implements OnItemClickListener {
 			
 			CONS.TabActv.tab_toBuyItemIds.add(si.getId());
 			
+			CONS.TabActv.tab_checkedItemIds.add(si.getId());
+			
 		}//for (int i = 0; i < loadedSIList.size(); i++)
 		
 		
@@ -350,6 +353,7 @@ public class LOI_CL implements OnItemClickListener {
 		 * Set list to the tab
 		 ***************************************/
 		CONS.TabActv.adpToBuys.notifyDataSetChanged();
+		CONS.TabActv.adpItems.notifyDataSetChanged();
 		
 		/***************************************
 		 * Close dialogues

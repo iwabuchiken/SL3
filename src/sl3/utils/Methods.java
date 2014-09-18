@@ -38,6 +38,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import sl.main.ItemListActv;
 import sl3.items.Genre;
+import sl3.items.PS;
 import sl3.items.SI;
 import sl3.items.Store;
 import sl3.listeners.button.ButtonOnTouchListener;
@@ -5100,7 +5101,7 @@ public class Methods {
 	}
 
 	public static String[] 
-	conv_MillSec_to_YMD
+	conv_TimeLabel_to_YMD
 	(String date) {
 		// TODO Auto-generated method stub
 		
@@ -5150,5 +5151,87 @@ public class Methods {
 		// TODO Auto-generated method stub
 		return Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now());
 	}
+
+	public static void 
+	update_TV_DueDate
+	(Activity actv, PS ps) {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+
+		// prep: text
+
+		////////////////////////////////
+//		String[] YMD = Methods.conv_TimeLabel_to_YMD(ps.getDueDate());
+//		
+//		String due_Date = String.format(
+//					Locale.JAPAN,
+//					"%s/%s/%s", 
+//					YMD[0], YMD[1], YMD[2]);
+		
+		long millSec = Methods.conv_TimeLabel_to_MillSec(ps.getDueDate());
+		
+		String due_Date = Methods.getTimeLabel_Japanese(millSec);
+		
+		////////////////////////////////
+
+		// view
+
+		////////////////////////////////
+		TextView tvDueDate = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_due_date);
+
+		tvDueDate.setText(
+				String.format("%s / %s",
+						due_Date,
+						ps.getStoreName())
+				);
+		
+		////////////////////////////////
+
+		// bg
+
+		////////////////////////////////
+		tvDueDate.setBackgroundColor(
+						actv.getResources().getColor(R.color.green_pale));
+		
+	}//update_TV_DueDate
+
+	public static long
+	conv_TimeLabel_to_MillSec(String timeLabel)
+//	conv_MillSec_to_TimeLabel(long millSec)
+	{
+//		String input = "Sat Feb 17 2012";
+		Date date;
+		try {
+			date = new SimpleDateFormat(
+						CONS.Admin.format_Date, Locale.JAPAN).parse(timeLabel);
+			
+			return date.getTime();
+//			long milliseconds = date.getTime();
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			// Log
+			String msg_Log = "Exception: " + e.toString();
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return -1;
+			
+		} catch (java.text.ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			return -1;
+			
+		}
+		
+//		Locale.ENGLISH).parse(input);
+		
+//		Date date = new SimpleDateFormat("EEE MMM dd yyyy", Locale.ENGLISH).parse(input);
+//		long milliseconds = date.getTime();
+		
+	}//conv_TimeLabel_to_MillSec(String timeLabel)
 
 }//public class Methods

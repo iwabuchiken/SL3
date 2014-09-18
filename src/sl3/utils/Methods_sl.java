@@ -2074,13 +2074,15 @@ public class Methods_sl {
 		/***************************************
 		 * Setup db
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv);
+//		DBUtils dbu = new DBUtils(actv);
+		
+		SI si = null;
 		
 //		SQLiteDatabase rdb = dbu.getReadableDatabase();
 		
 		for (int i = 0; i < ary_ItemList.length; i++) {
 			
-			SI si = dbu.getSIFromDbId(ary_ItemList[i]);
+			si = DBUtils.find_SI_from_DB_Id(actv, ary_ItemList[i]);
 			
 			if (si == null) {
 				
@@ -2168,7 +2170,7 @@ public class Methods_sl {
 			
 			due_Date = ps.getDueDate();
 			
-			YMD = Methods.conv_MillSec_to_YMD(due_Date);
+			YMD = Methods.conv_TimeLabel_to_YMD(due_Date);
 			
 //			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
 			

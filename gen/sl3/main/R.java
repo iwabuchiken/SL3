@@ -12,25 +12,35 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f060001;
+        /**  blues 
+         */
         public static final int blue1=0x7f060002;
-        public static final int darkgreen=0x7f060003;
-        public static final int darkolivegreen4=0x7f060005;
-        public static final int gold2=0x7f060007;
-        public static final int gray1=0x7f06000a;
-        public static final int green4=0x7f060004;
-        public static final int purple4=0x7f060006;
+        public static final int blue_pale=0x7f060003;
+        public static final int blue_pale_dark=0x7f060004;
+        public static final int darkgreen=0x7f060005;
+        public static final int darkolivegreen4=0x7f06000b;
+        public static final int gold2=0x7f06000d;
+        public static final int gray1=0x7f060010;
+        /**  greens 
+         */
+        public static final int green4=0x7f060006;
+        public static final int green_light=0x7f060009;
+        public static final int green_pale=0x7f060007;
+        public static final int green_pale_dark=0x7f06000a;
+        public static final int green_paler=0x7f060008;
+        public static final int purple4=0x7f06000c;
         /**  /main.xml 
          */
-        public static final int red=0x7f060008;
+        public static final int red=0x7f06000e;
         /**  Source=http://www.somacon.com/p142.php 
  main.xml 
          */
         public static final int white=0x7f060000;
-        public static final int yello=0x7f060009;
-        public static final int yellow_bright=0x7f06000b;
-        public static final int yellow_dark=0x7f06000c;
-        public static final int yellow_pale_bright=0x7f06000e;
-        public static final int yellow_pale_dark=0x7f06000d;
+        public static final int yello=0x7f06000f;
+        public static final int yellow_bright=0x7f060011;
+        public static final int yellow_dark=0x7f060012;
+        public static final int yellow_pale_bright=0x7f060014;
+        public static final int yellow_pale_dark=0x7f060013;
     }
     public static final class drawable {
         public static final int general_ib_ball_blue_48x48=0x7f020000;
