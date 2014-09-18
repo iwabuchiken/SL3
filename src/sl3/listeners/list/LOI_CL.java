@@ -149,7 +149,8 @@ public class LOI_CL implements OnItemClickListener {
 	 * 20130313_131103
 	 * Using... dlg1
 	 ***************************************/
-	private void case_delete_toBuyList(AdapterView<?> parent, int position) {
+	private void case_delete_toBuyList
+	(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Steps
@@ -161,23 +162,16 @@ public class LOI_CL implements OnItemClickListener {
 		 ***************************************/
 		PS ps = (PS) parent.getItemAtPosition(position);
 		
-		// Log
-		Log.d("ListOnItemClickListener.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "ps.getDbId()=" + ps.getDbId());
-		
 		String itemIdString = ps.getItems();
 		
 		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, itemIdString);
 		
-		// Log
-		Log.d("ListOnItemClickListener.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "loadedSIList.size()=" + loadedSIList.size());
+//		// Log
+//		Log.d("ListOnItemClickListener.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]", "loadedSIList.size()=" + loadedSIList.size());
 		
 		Methods_sl.sortItemList(loadedSIList);
 		

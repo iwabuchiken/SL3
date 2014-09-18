@@ -1119,112 +1119,112 @@ public class Methods_dlg {
 		
 	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)
 
-	public static void
-	dlg_DeleteToBuyList(Activity actv, Dialog dlg1) {
-		// TODO Auto-generated method stub
-		/***************************************
-		 * 1. Get cursor
-		 * 2. Build a PS list
-		 * 3. Show the list in the dialog
-		 ***************************************/
-//		DBUtils dbu = new DBUtils(actv, CONS.dbName);
-		
-		List<PS> psList = Methods_sl.getPSList(actv);
-
-		//debug
-//		PS ps = psList.get(0);
-		
-		for (PS ps : psList) {
-			
-			// Log
-			Log.d("Methods_dlg.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "ps.getDbId()=" + ps.getDbId());
-			
-		}//for (PS ps : psList)
-//		// Log
-//		Log.d("Methods_dlg.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "ps.getDbId()=" + ps.getDbId());
-
-		//////////////////////////////////////////
-		if (psList == null) {
-			
-			// Log
-			Log.d("Methods_dlg.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "psList => Null");
-			
-			// debug
-			Toast.makeText(actv, "Seems no purchase list", Toast.LENGTH_LONG).show();
-			
-			return;
-			
-		}//if (psList == null)
-		
-		/***************************************
-		 * Sort list
-		 ***************************************/
-		Methods_sl.sortPSList(psList, Tags.SortTags.pslist_due_date);
-		
-		/***************************************
-		 * 3. Show the list in the dialog
-		 ***************************************/
-//		(Activity actv, int layoutId, int titleStringId,
-//				int cancelButtonId, DialogTags cancelTag, Dialog dlg1)
-		Dialog dlg2 = Methods_dlg.dlg_template_cancel_2Dialogues(
-				actv,
-				R.layout.dlg_tmpl_cancel_lv, 
-//				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
-				R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list,
-				
-				R.id.dlg_tmpl_cancel_lv_bt_cancel,
-//				dlg_generic_dismiss
-//				Tags.DialogTags.dlg_generic_dismiss,
-				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
-				
-				dlg1);
-
-		/***************************************
-		 * Set list
-		 ***************************************/
-		PSListAdapter adp = new PSListAdapter(
-				actv,
-				R.layout.listrow_load_tobuy_list,
-				psList
-				);
-		
-		ListView lv = (ListView) dlg2.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
-		
-		int lvHeight = Methods.getSmallerNumber(350, 75 * psList.size());
-		
-		lv.setLayoutParams(new LinearLayout.LayoutParams(
-										LayoutParams.WRAP_CONTENT,	// Width
-//										300));
-										lvHeight));					// Height
-		
-//		lv.setTag(Tags.ListTags.load_toBuyList);
-		lv.setTag(Tags.ListTags.delete_toBuyList);
-		
-		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
-		
-		
-		lv.setAdapter(adp);
-		
-		/***************************************
-		 * Show dialog
-		 ***************************************/
-		dlg2.show();
-		
-		
-	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)
-
+//	public static void
+//	dlg_DeleteToBuyList(Activity actv, Dialog dlg1) {
+//		// TODO Auto-generated method stub
+//		/***************************************
+//		 * 1. Get cursor
+//		 * 2. Build a PS list
+//		 * 3. Show the list in the dialog
+//		 ***************************************/
+////		DBUtils dbu = new DBUtils(actv, CONS.dbName);
+//		
+//		List<PS> psList = Methods_sl.getPSList(actv);
+//
+//		//debug
+////		PS ps = psList.get(0);
+//		
+//		for (PS ps : psList) {
+//			
+//			// Log
+//			Log.d("Methods_dlg.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "ps.getDbId()=" + ps.getDbId());
+//			
+//		}//for (PS ps : psList)
+////		// Log
+////		Log.d("Methods_dlg.java" + "["
+////				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+////				+ ":"
+////				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+////				+ "]", "ps.getDbId()=" + ps.getDbId());
+//
+//		//////////////////////////////////////////
+//		if (psList == null) {
+//			
+//			// Log
+//			Log.d("Methods_dlg.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "psList => Null");
+//			
+//			// debug
+//			Toast.makeText(actv, "Seems no purchase list", Toast.LENGTH_LONG).show();
+//			
+//			return;
+//			
+//		}//if (psList == null)
+//		
+//		/***************************************
+//		 * Sort list
+//		 ***************************************/
+//		Methods_sl.sortPSList(psList, Tags.SortTags.pslist_due_date);
+//		
+//		/***************************************
+//		 * 3. Show the list in the dialog
+//		 ***************************************/
+////		(Activity actv, int layoutId, int titleStringId,
+////				int cancelButtonId, DialogTags cancelTag, Dialog dlg1)
+//		Dialog dlg2 = Methods_dlg.dlg_template_cancel_2Dialogues(
+//				actv,
+//				R.layout.dlg_tmpl_cancel_lv, 
+////				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
+//				R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list,
+//				
+//				R.id.dlg_tmpl_cancel_lv_bt_cancel,
+////				dlg_generic_dismiss
+////				Tags.DialogTags.dlg_generic_dismiss,
+//				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
+//				
+//				dlg1);
+//
+//		/***************************************
+//		 * Set list
+//		 ***************************************/
+//		PSListAdapter adp = new PSListAdapter(
+//				actv,
+//				R.layout.listrow_load_tobuy_list,
+//				psList
+//				);
+//		
+//		ListView lv = (ListView) dlg2.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+//		
+//		int lvHeight = Methods.getSmallerNumber(350, 75 * psList.size());
+//		
+//		lv.setLayoutParams(new LinearLayout.LayoutParams(
+//										LayoutParams.WRAP_CONTENT,	// Width
+////										300));
+//										lvHeight));					// Height
+//		
+////		lv.setTag(Tags.ListTags.load_toBuyList);
+//		lv.setTag(Tags.ListTags.delete_toBuyList);
+//		
+//		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
+//		
+//		
+//		lv.setAdapter(adp);
+//		
+//		/***************************************
+//		 * Show dialog
+//		 ***************************************/
+//		dlg2.show();
+//		
+//		
+//	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)
+//
 	
 	public static void
 	dlg_tabActv_clearSelections(Activity actv) {
@@ -3506,5 +3506,93 @@ public class Methods_dlg {
 		d3.show();
 		
 	}//conf_Restore_DB
+
+	public static void
+	dlg_DeleteToBuyList
+	(Activity actv, Dialog dlg1) {
+		// TODO Auto-generated method stub
+		/***************************************
+		 * 1. Get cursor
+		 * 2. Build a PS list
+		 * 3. Show the list in the dialog
+		 ***************************************/
+		List<PS> psList = DBUtils.find_ALL_PSs(actv);
+//		List<PS> psList = Methods_sl.getPSList(actv);
+
+		//////////////////////////////////////////
+		if (psList == null) {
+			
+			// Log
+			Log.d("Methods_dlg.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "psList => Null");
+			
+			// debug
+			Toast.makeText(actv, "Seems no purchase list", Toast.LENGTH_LONG).show();
+			
+			return;
+			
+		}//if (psList == null)
+		
+		/***************************************
+		 * Sort list
+		 ***************************************/
+		Methods_sl.sortPSList(psList, Tags.SortTags.pslist_due_date);
+		
+		/***************************************
+		 * 3. Show the list in the dialog
+		 ***************************************/
+//		(Activity actv, int layoutId, int titleStringId,
+//				int cancelButtonId, DialogTags cancelTag, Dialog dlg1)
+		Dialog dlg2 = Methods_dlg.dlg_template_cancel_2Dialogues(
+				actv,
+				R.layout.dlg_tmpl_cancel_lv, 
+//				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
+				R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list,
+				
+				R.id.dlg_tmpl_cancel_lv_bt_cancel,
+//				dlg_generic_dismiss
+//				Tags.DialogTags.dlg_generic_dismiss,
+//				Tags.DialogTags.dlg_generic_dismiss_second_dialog,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
+				
+				dlg1);
+
+		/***************************************
+		 * Set list
+		 ***************************************/
+		PSListAdapter adp = new PSListAdapter(
+				actv,
+				R.layout.listrow_load_tobuy_list,
+				psList
+				);
+		
+		ListView lv = (ListView) dlg2.findViewById(R.id.dlg_tmpl_cancel_lv_lv);
+		
+		int lvHeight = Methods.getSmallerNumber(350, 75 * psList.size());
+		
+		lv.setLayoutParams(new LinearLayout.LayoutParams(
+										LayoutParams.WRAP_CONTENT,	// Width
+//										300));
+										lvHeight));					// Height
+		
+//		lv.setTag(Tags.ListTags.load_toBuyList);
+		lv.setTag(Tags.ListTags.delete_toBuyList);
+		
+		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
+//		lv.setOnItemClickListener(new ListOnItemClickListener(actv, dlg1, dlg2));
+		
+		
+		lv.setAdapter(adp);
+		
+		/***************************************
+		 * Show dialog
+		 ***************************************/
+		dlg2.show();
+		
+		
+	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)
 
 }//public class Methods_dlg

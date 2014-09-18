@@ -304,6 +304,8 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list))) {
 			
+			Methods_dlg.dlg_DeleteToBuyList(actv, d1);
+			
 		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))) {
 			
