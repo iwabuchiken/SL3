@@ -793,5 +793,20 @@ public class CONS {
 		};
 		
 	}
+
+	public static class Pref {
+
+		////////////////////////////////
+
+		// TabActv
+
+		////////////////////////////////
+		public static String pname_TabActv = "pname_TabActv";
+		
+		public static String pkey_TabActv_CheckedIds = "pkey_TabActv_CheckedIds";
+		
+		public static String pkey_TabActv_ToBuyIds = "pkey_TabActv_ToBuyIds";
+		
+	}
 	
 }//public class CONS

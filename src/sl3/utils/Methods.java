@@ -53,6 +53,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -5233,5 +5234,40 @@ public class Methods {
 //		long milliseconds = date.getTime();
 		
 	}//conv_TimeLabel_to_MillSec(String timeLabel)
+
+	public static String 
+	get_Pref_String
+	(Activity actv, String pref_name,
+			String pref_key, String defValue) {
+		
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(
+						pref_name, Context.MODE_PRIVATE);
+
+		/****************************
+		 * Return
+			****************************/
+		return prefs.getString(pref_key, defValue);
+
+	}//public static String get_Pref_String
+
+	public static List<Integer> 
+	conv_ItemIdString_to_IdsList
+	(Activity actv, String pref_CheckedIds) {
+		// TODO Auto-generated method stub
+		
+		String[] ids = pref_CheckedIds.split(" ");
+		
+		List<Integer> list = new ArrayList<Integer>();
+		
+		for (String id : ids) {
+			
+			list.add(Integer.parseInt(id));
+			
+		}
+		
+		return list;
+		
+	}//conv_ItemIdString_to_IdsList
 
 }//public class Methods

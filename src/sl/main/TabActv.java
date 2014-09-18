@@ -57,156 +57,16 @@ import android.widget.TextView;
 public class TabActv extends TabActivity 
 					implements TabHost.TabContentFactory {
 	
-//	public static TabHost CONS.TabActv.tabHost;
-//	TabSpec CONS.TabActv.firstTab;
-//	TabSpec CONS.TabActv.secondTab;
-
-//	ListView lvTab1;
-//	ListView lvTab2;
-
-//	Spinner spStore;
-//	Spinner spGenre;
-	
-//	ArrayAdapter<String> adpTab1;
-//	ArrayAdapter<String> adpTab2;
-
-//	ItemListAdapter2 adpItems;
-	
-//	List<ShoppingItem> itemList;
-	
-	
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.itemlist_tabs);
+//        setContentView(R.layout.itemlist_tabs);
         
         setTitle(this.getClass().getName());
         
     }//public void onCreate(Bundle savedInstanceState)
 
-    private void test_B32_v_1_2() {
-		// TODO Auto-generated method stub
-    	/***************************************
-		 * Build: List
-		 ***************************************/
-    	List<SI> itemList = new ArrayList<SI>();
-    	
-		itemList.add(new SI.Builder().setName("B").setPrice(1).build());
-		itemList.add(new SI.Builder().setName("C").setPrice(1).build());
-		itemList.add(new SI.Builder().setName("A").setPrice(2).build());
-		itemList.add(new SI.Builder().setName("B").setPrice(3).build());
-		itemList.add(new SI.Builder().setName("B").setPrice(2).build());
-		itemList.add(new SI.Builder().setName("A").setPrice(1).build());
-		
-		// Log
-		Log.d("TabActv.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "<Original>");
-		
-		for (int i = 0; i < itemList.size(); i++) {
-			
-			// Log
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]",
-					"Name=" + itemList.get(i).getName()
-					+ "/"
-					+ "Price=" + itemList.get(i).getPrice());
-			
-		}//for (int i = 0; i < itemList.size(); i++)
-    	
-		/***************************************
-		 * Sort: Name
-		 ***************************************/
-		Collections.sort(itemList, new Comparator<SI>(){
-
-//			@Override
-			public int compare(SI i1, SI i2) {
-
-				
-				return (int) (i1.getName().compareTo(i2.getName()));
-				
-			}//public int compare(PS i1, PS i2)
-
-		});//Collections.sort()
-
-		// Log
-		Log.d("TabActv.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "<Sorted: Name>");
-		
-		for (int i = 0; i < itemList.size(); i++) {
-			
-			// Log
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]",
-					"Name=" + itemList.get(i).getName()
-					+ "/"
-					+ "Price=" + itemList.get(i).getPrice());
-			
-		}//for (int i = 0; i < itemList.size(); i++)
-    	
-		/***************************************
-		 * Sort: Price
-		 ***************************************/
-		Collections.sort(itemList, new Comparator<SI>(){
-
-//			@Override
-			public int compare(SI i1, SI i2) {
-				
-//				if (!i1.getName().equals(i2.getName())) {
-				if (i1.getName().equals(i2.getName())) {
-					
-					return (i1.getPrice() - i2.getPrice());
-					
-				} else {//if (i1.getName().equals(i2.getName()) == condition)
-					
-					return 0;
-					
-				}//if (i1.getName().equals(i2.getName()) == condition)
-				
-				
-//				return (int) (i1.getName().compareTo(i2.getName()));
-				
-			}//public int compare(PS i1, PS i2)
-
-		});//Collections.sort()
-
-		// Log
-		Log.d("TabActv.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "<Sorted: Price>");
-		
-		for (int i = 0; i < itemList.size(); i++) {
-			
-			// Log
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]",
-					"Name=" + itemList.get(i).getName()
-					+ "/"
-					+ "Price=" + itemList.get(i).getPrice());
-			
-		}//for (int i = 0; i < itemList.size(); i++)
-
-		
-	}//private void test_B32_v_1_2()
-
-	private void _Setup_Listeners() {
+    private void _Setup_Listeners() {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Set listener: CONS.TabActv.lvTab1
@@ -317,8 +177,28 @@ public class TabActv extends TabActivity
 		 ***************************************/
         //TabHostクラスのインスタンス生成
 //        TabHost CONS.TabActv.tabHost = getTabHost();
-        CONS.TabActv.tabHost = getTabHost();
+//		if (CONS.TabActv.tabHost == null) {
+//			
+//			CONS.TabActv.tabHost = getTabHost();
+//			
+//			// Log
+//			String msg_Log = "tabHost => created";
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//			
+//		} else {
+//			
+//			// Log
+//			String msg_Log = "tabHost => not null";
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//
+//		}
         
+		CONS.TabActv.tabHost = getTabHost();
+		
         /***************************************
 		 * First tab
 		 ***************************************/
@@ -337,25 +217,6 @@ public class TabActv extends TabActivity
 		 * Second tab
 		 ***************************************/
         setupTabs__second();
-////        TabSpec CONS.TabActv.secondTab = CONS.TabActv.tabHost.newTabSpec("Second");
-////        CONS.TabActv.secondTab = CONS.TabActv.tabHost.newTabSpec("Second");
-////        CONS.TabActv.secondTab.setIndicator("CONS.TabActv.secondTab", getResources().getDrawable(android.R.drawable.ic_media_next));
-//        
-//        CONS.TabActv.secondTab = CONS.TabActv.tabHost.newTabSpec(this.getString(R.string.tabactv_tabtags_second));
-//        
-//        CONS.TabActv.secondTab.setIndicator(
-//        		"",
-//        		getResources().getDrawable(R.drawable.sl_basket));
-//
-//        CONS.TabActv.secondTab.setContent(R.id.second_content);
-//        
-//        CONS.TabActv.tabHost.addTab(CONS.TabActv.secondTab);
-//        
-//        //３つ目のタブを生成
-//        TabSpec thirdTab = CONS.TabActv.tabHost.newTabSpec("Third");
-//        thirdTab.setIndicator("thirdTab", getResources().getDrawable(android.R.drawable.ic_menu_add));
-//        thirdTab.setContent(this);
-//        CONS.TabActv.tabHost.addTab(thirdTab);
 
         /***************************************
 		 * Set size to views: Tab2
@@ -369,29 +230,6 @@ public class TabActv extends TabActivity
         
         // TextView height
         int tvTab2DueDate_Height = tvTab2DueDate.getHeight();
-//        
-//        lvTab2ToBuyList.setLayoutParams(new LinearLayout.LayoutParams(
-//				LayoutParams.MATCH_PARENT,	// Width
-////				300));
-//				windowHeight - tvTab2DueDate_Height));		// Height
-//        
-//        // Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"windowHeight=" + windowHeight
-//				+ "/"
-//				+ "tvTab2DueDate_Height=" + tvTab2DueDate_Height);
-
-//		// Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"tvTab2DueDate=" + tvTab2DueDate.getLineCount());
 		
 		/***************************************
 		 * Get text view height
@@ -404,85 +242,16 @@ public class TabActv extends TabActivity
 		TextPaint p = tvTab2DueDate.getPaint();
 		p.getTextBounds(s, 0, s.length(), bounds);
 //		
-//		// Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "bounds.height()=" + bounds.height());
-//		
 		int textHeight = bounds.height();
 
-//		lvTab2ToBuyList.setLayoutParams(new LinearLayout.LayoutParams(
-//					LayoutParams.MATCH_PARENT,	// Width
-//		//				300));
-//					windowHeight - (textHeight + 300)));		// Height
-
-//      // Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"windowHeight=" + windowHeight
-//				+ "/"
-//				+ "windowHeight - (textHeight + 10)="
-//				+ (windowHeight - (textHeight + 300)));
-		
-//		// Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"CONS.TabActv.tabHost.getTabWidget().getMeasuredHeight()="
-//				+ CONS.TabActv.tabHost.getTabWidget().getMeasuredHeight()
-//				+ "/"
-//				+ "CONS.TabActv.tabHost.getTabWidget().getHeight()="
-//				+ CONS.TabActv.tabHost.getTabWidget().getHeight()
-//				+ "/"
-//				+ "CONS.TabActv.tabHost.getTabWidget().getChildAt(1).getBottom()="
-//				+ CONS.TabActv.tabHost.getTabWidget().getChildAt(1).getBottom()
-//				//REF=> http://stackoverflow.com/questions/2502800/tabwidget-height	(answered Jun 15 '11 at 15:16)
-//				+ "CONS.TabActv.tabHost.getTabWidget().getChildAt(1).getLayoutParams().height="
-//				+ CONS.TabActv.tabHost.getTabWidget().getChildAt(1).getLayoutParams().height);
-		
 		// Log
 		int widgetHeight = CONS.TabActv.tabHost.getTabWidget().getChildAt(1).getLayoutParams().height;
 
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"(windowHeight - (textHeight + widgetHeight))="
-//				+ (windowHeight - (textHeight + widgetHeight)));
-
 		lvTab2ToBuyList.setLayoutParams(new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT,	// Width
-	//				300));
-//				(windowHeight - (textHeight + widgetHeight + 150))));		// Height
-//				(windowHeight - (textHeight + widgetHeight				// Due date
 				(windowHeight - (textHeight * 2 + widgetHeight			// Due date and sum
 									+ CONS.MagicConstants.MODIFY_TAB2_LV_HEIGHT))));		// Height
 
-		
-//		// Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "CONS.TabActv.tabHost.getTabContentView().getHeight()="
-//				+ CONS.TabActv.tabHost.getTabContentView().getHeight());
-//		
-//		// Log
-//		Log.d("TabActv.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "CONS.TabActv.tabHost.getTabContentView().getLayoutParams().height="
-//				+ CONS.TabActv.tabHost.getTabContentView().getLayoutParams().height);
-		
 		/***************************************
 		 * Set default due date
 		 ***************************************/
@@ -509,7 +278,8 @@ public class TabActv extends TabActivity
 //      CONS.TabActv.secondTab = CONS.TabActv.tabHost.newTabSpec("Second");
 //      CONS.TabActv.secondTab.setIndicator("CONS.TabActv.secondTab", getResources().getDrawable(android.R.drawable.ic_media_next));
       
-      CONS.TabActv.secondTab = CONS.TabActv.tabHost.newTabSpec(this.getString(R.string.tabactv_tabtags_second));
+      CONS.TabActv.secondTab = CONS.TabActv.tabHost
+	  					.newTabSpec(this.getString(R.string.tabactv_tabtags_second));
       
       CONS.TabActv.secondTab.setIndicator(
       		"",
@@ -529,7 +299,6 @@ public class TabActv extends TabActivity
     		  					this.getString(R.string.tabactv_tabtags_first));
       
       // タブ部分に表示するテキストおよびアイコンのセット
-//      CONS.TabActv.firstTab.setIndicator("CONS.TabActv.firstTab", getResources().getDrawable(android.R.drawable.ic_menu_agenda));
 		CONS.TabActv.firstTab.setIndicator(
 				"",
 				getResources().getDrawable(R.drawable.sl_tab_itemlist));
@@ -1093,29 +862,7 @@ public class TabActv extends TabActivity
 		
 	}//private int prepareToBuyList()
 
-	private void setupListView_B22_v_1_1_b() {
-		// TODO Auto-generated method stub
-		ListView lv = (ListView) findViewById(R.id.itemlist_tab2_lv);
-		
-		List<String> list = new ArrayList<String>();
-		
-		for (int i = 1; i < 11; i++) {
-			
-			list.add("Number: " + i);
-			
-		}//for (int i = 1; i < 11; i++)
-		
-		ArrayAdapter<String> adp = new ArrayAdapter<String>(
-				this,
-				android.R.layout.simple_list_item_1,
-				list
-				);
-		
-		lv.setAdapter(adp);
-		
-	}//private void setupListView_B22_v_1_1_b()
-
-		//		@Override
+	//		@Override
 	public View createTabContent(String tag) {
 			Time time = new Time("Asia/Tokyo");
 			time.setToNow();
@@ -1242,10 +989,63 @@ public class TabActv extends TabActivity
 		// TODO Auto-generated method stub
 		super.onStart();
 		
+		// Log
+		String msg_Log = "onStart";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// set: content view
+
+		////////////////////////////////
+		setContentView(R.layout.itemlist_tabs);
+		
+		////////////////////////////////
+
+		// get pref: ItemIds
+
+		////////////////////////////////
+		String pref_CheckedIds = Methods.get_Pref_String(
+							this, 
+							CONS.Pref.pname_TabActv, 
+							CONS.Pref.pkey_TabActv_CheckedIds, 
+							null);
+		
+		if (pref_CheckedIds != null) {
+			
+			if (CONS.TabActv.tab_checkedItemIds == null) {
+				
+				CONS.TabActv.tab_checkedItemIds = 
+						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds);
+				
+			} else {
+				
+				CONS.TabActv.tab_checkedItemIds.addAll(
+						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds));
+
+			}
+			
+		} else {
+			
+			// Log
+			msg_Log = "pref_CheckedIds => null";
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
 		boolean res;
 	
 		//debug
-		do_test();
+//		do_test();
 
 		////////////////////////////////
 
@@ -1275,7 +1075,7 @@ public class TabActv extends TabActivity
 		_Setup_ToBuyListView();
 		
 		// Log
-		String msg_Log = "_Setup_ToBuyListView => done";
+		msg_Log = "_Setup_ToBuyListView => done";
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
@@ -1326,6 +1126,47 @@ public class TabActv extends TabActivity
 		Methods.confirm_quit(this, keyCode);
 		
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void onStop() {
+		
+		String msg_Log;
+		
+		// Log
+		msg_Log = "onStop";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+//		CONS.TabActv.tabHost = null;
+		
+//		CONS.TabActv.tabHost.clearAllTabs();
+//		
+//		// Log
+//		msg_Log = "CONS.TabActv.tabHost => cleared";
+////		msg_Log = "CONS.TabActv.tabHost => nullified";
+//		Log.d("TabActv.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+
+		super.onStop();
+		
+	}
+
+	@Override
+	protected void onDestroy() {
+		// TODO �����������ꂽ���\�b�h�E�X�^�u
+		super.onDestroy();
+		
+//		CONS.TabActv.tabHost = null;
+//		
+//		// Log
+//		String msg_Log = "CONS.TabActv.tabHost => nullified";
+//		Log.d("TabActv.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+		
 	}
 
 }//public class TabActv extends TabActivity implements TabHost.TabContentFactory
