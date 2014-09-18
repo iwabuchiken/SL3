@@ -1139,6 +1139,31 @@ public class TabActv extends TabActivity
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
 
+		////////////////////////////////
+
+		// save item ids
+
+		////////////////////////////////
+		if (CONS.TabActv.tab_checkedItemIds != null) {
+			
+			String ids = Methods.conv_IdsList_to_IdsString(
+							this, 
+							CONS.TabActv.tab_checkedItemIds);
+			
+			// Log
+			msg_Log = "item id string => " + ids;
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+//			boolean res = Methods.set_Pref_String(
+//							this,
+//							CONS.Pref.pname_TabActv, 
+//							CONS.Pref.pkey_TabActv_CheckedIds, 
+//							ids);
+			
+		}
+		
 //		CONS.TabActv.tabHost = null;
 		
 //		CONS.TabActv.tabHost.clearAllTabs();

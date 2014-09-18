@@ -5270,4 +5270,127 @@ public class Methods {
 		
 	}//conv_ItemIdString_to_IdsList
 
+	public static boolean
+	set_Pref_String
+	(Activity actv, String pName, String pKey, boolean value) {
+		
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(pName, Context.MODE_PRIVATE);
+		
+		/****************************
+		 * 2. Get editor
+		 ****************************/
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		/****************************
+		 * 3. Set value
+		 ****************************/
+		editor.putBoolean(pKey, value);
+		
+		try {
+			
+			editor.commit();
+			
+			return true;
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Excption: " + e.toString());
+			
+			return false;
+			
+		}
+		
+	}//public static boolean setPref_long(Activity actv, String pref_name, String pref_key, long value)
+
+	public static boolean
+	set_Pref_String
+	(Activity actv, String pName, String pKey, String value) {
+		
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(pName, Context.MODE_PRIVATE);
+		
+		/****************************
+		 * 2. Get editor
+		 ****************************/
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		/****************************
+		 * 3. Set value
+		 ****************************/
+		editor.putString(pKey, value);
+		
+		try {
+			
+			editor.commit();
+			
+			return true;
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Excption: " + e.toString());
+			
+			return false;
+			
+		}
+		
+	}//public static boolean setPref_long(Activity actv, String pref_name, String pref_key, long value)
+
+	public static String 
+	conv_IdsList_to_IdsString
+	(Activity actv, List<Integer> checkedItemIds) {
+		// TODO Auto-generated method stub
+
+		////////////////////////////////
+
+		// dispatch
+
+		////////////////////////////////
+		int size = checkedItemIds.size();
+		
+		if (size == 0) {
+			
+			// Log
+			String msg_Log = "size => 0";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return null;
+			
+		} else if (size == 1) {
+			
+			return String.valueOf(checkedItemIds.get(0));
+			
+		}
+		
+		////////////////////////////////
+
+		// size > 1
+
+		////////////////////////////////
+		StringBuilder sb = new StringBuilder();
+		
+		int i = 0;
+		
+		for (; i < checkedItemIds.size() - 1; i++) {
+			
+			sb.append(String.valueOf(checkedItemIds.get(i)));
+			
+			sb.append(" ");
+			
+		}
+		
+		sb.append(String.valueOf(checkedItemIds.get(i)));
+		
+		return sb.toString();
+		
+	}//conv_IdsList_to_IdsString
+
 }//public class Methods
