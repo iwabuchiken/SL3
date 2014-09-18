@@ -125,9 +125,9 @@ public class LOI_CL implements OnItemClickListener {
 			
 			break;// case tab_toBuyList
 
-		case load_toBuyList:
+		case LOAD_TOBUY_LIST:
 
-			load_toBuyList(parent, position);
+			case_LOAD_TOBUY_LIST(parent, position);
 			
 			break;// case load_toBuyList
 
@@ -275,32 +275,23 @@ public class LOI_CL implements OnItemClickListener {
 	}//private void case_delete_toBuyList(AdapterView<?> parent, int position)
 
 
-	private void load_toBuyList(AdapterView<?> parent, int position) {
+	private void 
+	case_LOAD_TOBUY_LIST
+	(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Get PS item
 		 ***************************************/
 		PS ps = (PS) parent.getItemAtPosition(position);
 		
-//		// Log
-//		Log.d("ListOnItemClickListener.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]",
-//				"Due date=" + Methods.getTimeLabel_Japanese(ps.getDueDate()));
-		
 		/***************************************
 		 * Set due date
 		 ***************************************/
-//		TextView tvDueDate = (TextView) parent.findViewById(R.id.tab2_tv_due_date);
 		TextView tvDueDate = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_due_date);
 
-//		tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
 		tvDueDate.setText(
 				String.format("%s %s",
 						ps.getDueDate(),
-//						Methods.getTimeLabel_Japanese(ps.getDueDate()),
 						ps.getStoreName())
 				);
 
@@ -314,14 +305,12 @@ public class LOI_CL implements OnItemClickListener {
 
 		CONS.TabActv.toBuyList.clear();
 		
-//		CONS.TabActv.toBuyList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
 		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, s_ItemList);
 				
 		
 		// Sort list
 		Methods_sl.sortItemList(loadedSIList);
 		
-//		CONS.TabActv.toBuyList.addAll(Methods_sl.getSIListFromItemList(actv, s_ItemList));
 		CONS.TabActv.toBuyList.addAll(loadedSIList);
 		
 		// Log
@@ -340,12 +329,6 @@ public class LOI_CL implements OnItemClickListener {
 			return;
 
 		}//if (CONS.TabActv.toBuyList == null)
-		
-//		Log.d("ListOnItemClickListener.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "CONS.TabActv.toBuyList.size()=" + CONS.TabActv.toBuyList.size());
 		
 		/***************************************
 		 * Add new item ids to CONS.TabActv.tab_toBuyItemIds
@@ -368,23 +351,6 @@ public class LOI_CL implements OnItemClickListener {
 		 ***************************************/
 		CONS.TabActv.adpToBuys.notifyDataSetChanged();
 		
-		
-		
-//		String[] ary_ItemList = s_ItemList.split(" ");
-//		
-//		//debug
-//		for (String s_Item : ary_ItemList) {
-//			
-//			// Log
-//			Log.d("ListOnItemClickListener.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ ":"
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]", "item=" + s_Item);
-//			
-//		}//for (String s_Item : ary_ItemList)
-
-		
 		/***************************************
 		 * Close dialogues
 		 ***************************************/
@@ -403,7 +369,7 @@ public class LOI_CL implements OnItemClickListener {
 			
 			SI si = CONS.TabActv.toBuyList.get(i);
 			
-			sum += si.getPrice();
+			sum += si.getPrice() * si.getNum();
 			
 		}//for (int i = 0; i < CONS.TabActv.toBuyList.size(); i++)
 		

@@ -7,9 +7,10 @@
     android:orientation="vertical" >
 
     <!-- REF height http://stackoverflow.com/questions/13401562/set-max-height-for-listview answered Nov 15 '12 at 16:21 -->
+
     <ListView
         android:id="@+id/dlg_tmpl_cancel_lv_with_btn_lv"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" >
 
@@ -19,6 +20,9 @@
         android:id="@+id/dlg_tmpl_cancel_lv_with_btn_ll_filepath"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="3dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button

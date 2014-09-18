@@ -120,7 +120,7 @@ public class Tags {
 	public static enum ListTags {
 		// TabActv.java
 		tab_itemList, tab_toBuyList,
-		load_toBuyList, delete_toBuyList,
+		LOAD_TOBUY_LIST, delete_toBuyList,
 	}
 	
 	public static enum SortTags {

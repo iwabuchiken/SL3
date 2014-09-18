@@ -81,102 +81,78 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 //		 * 5. Set background
 //			----------------------------*/
         
-        getView__2_setupBackground(convertView, si, position);
+        _getView__SetBackground(convertView, si, position);
 
-//        ////////////////////////////////
-//
-//		// edittext => clear focus
-//        
-//		////////////////////////////////
-//		_getView__ET_ClearFocus(convertView);
-        
 		return convertView;
-//		return super.getView(position, convertView, parent);
+		
 	}//public View getView(int position, View convertView, ViewGroup parent)
 
-//	private void 
-//	_getView__ET_ClearFocus
-//	(View v) {
-//		// TODO Auto-generated method stub
-//	
+	private void 
+	_getView__ET_ClearFocus
+	(View v) {
+		// TODO Auto-generated method stub
+	
 //		EditText et = (EditText) v.findViewById(R.id.adapteritem_et);
 //		
 //		//REF http://garnote.com/2013/02/edittext.html	
 //		et.clearFocus();
-//		
-//		
-//		
-//	}//_getView__ET_ClearFocus
+		
+		
+		
+	}//_getView__ET_ClearFocus
 	
 
 	private void
-	getView__2_setupBackground(View convertView, SI si, int position) {
+	_getView__SetBackground
+	(View v, SI si, int position) {
 
 		/***************************************
 		 * Checked items
 		 ***************************************/
-		TextView tvName = (TextView) convertView.findViewById(R.id.adapteritem_tv_item_name);
-		TextView tvStore = (TextView) convertView.findViewById(R.id.adapteritem_tv_store);
-		TextView tvPrice = (TextView) convertView.findViewById(R.id.adapteritem_tv_price);
-		TextView tvGenre = (TextView) convertView.findViewById(R.id.adapteritem_tv_genre);
+		TextView tvName = (TextView) v.findViewById(R.id.adapteritem_tv_item_name);
+		TextView tvStore = (TextView) v.findViewById(R.id.adapteritem_tv_store);
+		TextView tvPrice = (TextView) v.findViewById(R.id.adapteritem_tv_price);
+		TextView tvGenre = (TextView) v.findViewById(R.id.adapteritem_tv_genre);
 		
 		
 		if (CONS.TabActv.tab_toBuyItemIds.contains(new Integer(si.getId()))) {
 		
-			convertView.setBackgroundColor(Color.GREEN);
+//			v.setBackgroundColor(Color.GREEN);
 			
 //			TextView tvName = (TextView) convertView.findViewById(R.id.adapteritem_tv_item_name);
 			
 			tvName.setTextColor(actv.getResources().getColor(R.color.white));
 			tvName.setBackgroundColor(actv.getResources().getColor(R.color.green4));
 			
-			tvStore.setTextColor(Color.BLACK);
-			tvPrice.setTextColor(Color.BLACK);
-			tvGenre.setTextColor(Color.BLACK);
+//			tvStore.setTextColor(Color.BLACK);
+//			tvPrice.setTextColor(Color.BLACK);
+//			tvGenre.setTextColor(Color.BLACK);
 			
 		} else if (CONS.TabActv.tab_checkedItemIds.contains(new Integer(si.getId()))) {
 			
-			convertView.setBackgroundColor(Color.BLUE);
+//			v.setBackgroundColor(Color.BLUE);
 			
 			tvName.setTextColor(Color.WHITE);
 			tvName.setBackgroundColor(actv.getResources().getColor(R.color.blue1));
 			
-			tvStore.setTextColor(Color.WHITE);
-			tvPrice.setTextColor(Color.WHITE);
-			tvGenre.setTextColor(Color.WHITE);
+//			tvStore.setTextColor(Color.WHITE);
+//			tvPrice.setTextColor(Color.WHITE);
+//			tvGenre.setTextColor(Color.WHITE);
 			
 		} else {//if (CONS.)
 			
-			convertView.setBackgroundColor(Color.BLACK);
+//			v.setBackgroundColor(Color.BLACK);
 			
 			tvName.setTextColor(actv.getResources().getColor(R.color.black));
 			tvName.setBackgroundColor(actv.getResources().getColor(R.color.white));
 			
 //			tvName.setTextColor(Color.WHITE);
-			tvStore.setTextColor(Color.WHITE);
-			tvPrice.setTextColor(Color.WHITE);
-			tvGenre.setTextColor(Color.WHITE);
+//			tvStore.setTextColor(Color.WHITE);
+//			tvPrice.setTextColor(Color.WHITE);
+//			tvGenre.setTextColor(Color.WHITE);
 			
 		}//if (CONS.)
 		
-		/***************************************
-		 * toBuy list
-		 ***************************************/
-		
-//		if (ItemListActv.toBuys.contains((Integer) position)) {
-//		
-//			convertView.setBackgroundColor(Color.GREEN);
-//			
-//		} else if (ItemListActv.checkedPositions.contains((Integer) position)) {
-//			
-//			convertView.setBackgroundColor(Color.BLUE);
-//			
-//		} else {//if (ItemList.checkedPositions.contains((Integer) position))
-//			
-//			convertView.setBackgroundColor(Color.BLACK);
-//			
-//		}//if (ItemList.checkedPositions.contains((Integer) position))
-
 	}//private void getView__2_setupBackground(View convertView, int position)
 
 	private void _getView__Setup_TVs(View v, SI si) {
@@ -206,14 +182,6 @@ public class ItemListAdapter2 extends ArrayAdapter<SI> {
 		tv_genre.setText("(" + si.getGenre() + ")");
 
 		tv_Num.setText(String.valueOf(si.getNum()));
-		
-//		/***************************************
-//		 * LinearLayout for item name
-//		 ***************************************/
-//		LinearLayout llName =
-//				(LinearLayout) convertView.findViewById(R.id.adapteritem_LL_item_name);
-//		
-//		llName.setBackgroundColor(Color.WHITE);
 		
 	}//private void getView__1_setupTextView(View convertView)
 

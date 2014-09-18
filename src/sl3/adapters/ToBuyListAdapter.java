@@ -56,8 +56,13 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        	
+            LayoutInflater inflater = 
+            		(LayoutInflater) getContext()
+            						.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            
             convertView = inflater.inflate(resourceId, null);
+            
         }
 
         SI si = (SI) getItem(position);
@@ -93,14 +98,14 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 
 	private void
 	getView__2_setupBackground
-	(View convertView, SI si, int position) {
+	(View v, SI si, int position) {
 
-		// Log
-		Log.d("ToBuyListAdapter.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "postion=" + position);
+//		// Log
+//		Log.d("ToBuyListAdapter.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]", "postion=" + position);
 		
 //		if (CONS.tab_toBuyItemIds.contains(new Integer(position))) {
 		if (CONS.TabActv.tab_boughtItemIds.contains(Integer.valueOf(si.getId()))) {
@@ -120,13 +125,13 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 			//debug
 			tvItemName.setWidth(Methods.getDisplaySize((Activity)con)[0]);
 			
-			/***************************************
-			 * LinearLayout for item name
-			 ***************************************/
-			LinearLayout llName =
-					(LinearLayout) convertView.findViewById(R.id.adapteritem_LL_item_name);
-			
-			llName.setBackgroundColor(Color.BLUE);
+//			/***************************************
+//			 * LinearLayout for item name
+//			 ***************************************/
+//			LinearLayout llName =
+//					(LinearLayout) v.findViewById(R.id.adapteritem_LL_item_name);
+//			
+//			llName.setBackgroundColor(Color.BLUE);
 			
 		} else {//if (CONS.tab_boughtItemIds.contains(new Integer(position)))
 			
@@ -145,13 +150,13 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 			//debug
 			tvItemName.setWidth(Methods.getDisplaySize((Activity)con)[0]);
 			
-			/***************************************
-			 * LinearLayout for item name
-			 ***************************************/
-			LinearLayout llName =
-					(LinearLayout) convertView.findViewById(R.id.adapteritem_LL_item_name);
-			
-			llName.setBackgroundColor(Color.WHITE);
+//			/***************************************
+//			 * LinearLayout for item name
+//			 ***************************************/
+//			LinearLayout llName =
+//					(LinearLayout) v.findViewById(R.id.adapteritem_LL_item_name);
+//			
+//			llName.setBackgroundColor(Color.WHITE);
 			
 		}//if (CONS.tab_boughtItemIds.contains(new Integer(position)))
 		

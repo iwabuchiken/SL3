@@ -1,6 +1,7 @@
 package sl3.adapters;
 
 import java.util.List;
+import java.util.Locale;
 
 import sl.main.ItemListActv;
 import sl3.items.PS;
@@ -67,7 +68,15 @@ public class PSListAdapter extends ArrayAdapter<PS> {
         tvStoreName.setText(ps.getStoreName());
         
 //        tvDueDate.setText(String.valueOf(ps.getDueDate()));
-        tvDueDate.setText(ps.getDueDate());
+        String[] YMD = Methods.conv_MillSec_to_YMD(ps.getDueDate());
+        
+        String due_Date = String.format(
+        					Locale.JAPAN,
+        					"%s/%s/%s", 
+        					YMD[0], YMD[1], YMD[2]);
+        
+        tvDueDate.setText(due_Date);
+//        tvDueDate.setText(ps.getDueDate());
 //        tvDueDate.setText(Methods.getTimeLabel_Japanese(ps.getDueDate()));
         
 //        // Log

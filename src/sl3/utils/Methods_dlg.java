@@ -1026,15 +1026,14 @@ public class Methods_dlg {
 	}//public static Dialog dlg_template_okCancel()
 
 	public static void
-	dlg_LoadToBuyList(Activity actv, Dialog dlg1) {
+	dlg_LoadToBuyList
+	(Activity actv, Dialog d1) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * 1. Get cursor
 		 * 2. Build a PS list
 		 * 3. Show the list in the dialog
 		 ***************************************/
-//		DBUtils dbu = new DBUtils(actv, CONS.dbName);
-		
 		List<PS> psList = Methods_sl.getPSList(actv);
 
 		if (psList == null) {
@@ -1053,84 +1052,24 @@ public class Methods_dlg {
 			
 		}//if (psList == null)
 		
-//		// Log
-//		for (int i = 0; i < psList.size(); i++) {
-//			
-//			Log.d("Methods_dlg.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ ":"
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]",
-//					"Store=" + psList.get(i).getStoreName()
-//					+ "/"
-//					+ "Due date=" + psList.get(i).getDueDate()
-//					+ "(" + Methods.get_TimeLabel(psList.get(i).getDueDate()) + ")");
-//			
-//			
-//		}//for (int i = 0; i < psList.size(); i++)
-		
-		
 		/***************************************
 		 * Sort list
 		 ***************************************/
 		Methods_sl.sortPSList(psList, Tags.SortTags.pslist_due_date);
 		
-//		// Log
-//		Log.d("Methods_dlg.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "<Sort done>");
-//		
-//		// Log
-//		for (int i = 0; i < psList.size(); i++) {
-//			
-//			Log.d("Methods_dlg.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ ":"
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]",
-//					"Store=" + psList.get(i).getStoreName()
-//					+ "/"
-//					+ "Due date=" + psList.get(i).getDueDate()
-//					+ "(" + Methods.get_TimeLabel(psList.get(i).getDueDate()) + ")");
-//			
-//			
-//		}//for (int i = 0; i < psList.size(); i++)
-//		for (PS item : psList) {
-//			
-//			// Log
-//			Log.d("Methods_dlg.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ ":"
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]", "item.getDueDate()=" + item.getDueDate());
-//			
-//		}//for (PS item : psList)
-//		// Log
-//		Log.d("Methods_dlg.java" + "["
-//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//				+ ":"
-//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//				+ "]", "psList.size()=" + psList.size());
-		
 		/***************************************
 		 * 3. Show the list in the dialog
 		 ***************************************/
-//		(Activity actv, int layoutId, int titleStringId,
-//				int cancelButtonId, DialogTags cancelTag, Dialog dlg1)
-		Dialog dlg2 = Methods_dlg.dlg_template_cancel_2Dialogues(
+		Dialog d2 = Methods_dlg.dlg_template_cancel_2Dialogues(
 				actv,
-				R.layout.dlg_db_admin, 
-//				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
+				R.layout.dlg_tmpl_cancel_lv_with_btn, 
+//				R.layout.dlg_db_admin, 
 				R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list,
 				
-				R.id.dlg_db_admin_bt_cancel,
-//				dlg_generic_dismiss
-//				Tags.DialogTags.dlg_generic_dismiss,
+				R.id.dlg_tmpl_cancel_lv_with_btn_bt_cancel,
 				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
-				dlg1);
+				d1);
 
 		/***************************************
 		 * Set list
@@ -1141,26 +1080,41 @@ public class Methods_dlg {
 				psList
 				);
 		
-		ListView lv = (ListView) dlg2.findViewById(R.id.dlg_db_admin_lv);
+		ListView lv = (ListView) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_lv);
 		
-		int lvHeight = Methods.getSmallerNumber(350, 75 * psList.size());
+//		int lvHeight = Methods.getSmallerNumber(350, 75 * psList.size());
+//		
+//		lv.setLayoutParams(new LinearLayout.LayoutParams(
+//										LayoutParams.WRAP_CONTENT,	// Width
+////										300));
+//										lvHeight));					// Height
 		
-		lv.setLayoutParams(new LinearLayout.LayoutParams(
-										LayoutParams.WRAP_CONTENT,	// Width
-//										300));
-										lvHeight));					// Height
+		lv.setTag(Tags.ListTags.LOAD_TOBUY_LIST);
 		
-		lv.setTag(Tags.ListTags.load_toBuyList);
-		
-		lv.setOnItemClickListener(new LOI_CL(actv, dlg1, dlg2));
+		lv.setOnItemClickListener(new LOI_CL(actv, d1, d2));
 		
 		
 		lv.setAdapter(adp);
+
+		////////////////////////////////
+
+		// button: all dismiss
+
+		////////////////////////////////
+		ImageButton ib_AllClear = 
+				(ImageButton) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ib);
+//		(ImageButton) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ib);
 		
+		ib_AllClear.setTag(Tags.DialogTags.GENERIC_DISMISS_ALL_2ND_DIALOG);
+		
+		ib_AllClear.setOnTouchListener(new DB_OTL(actv, d1, d2));
+		
+		ib_AllClear.setOnClickListener(new DB_OCL(actv, d1, d2));
+
 		/***************************************
 		 * Show dialog
 		 ***************************************/
-		dlg2.show();
+		d2.show();
 		
 		
 	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)

@@ -257,37 +257,58 @@ public class DOI_CL implements OnItemClickListener {
 	case_ACTV_TAB_OPT_DB
 	(ListItem li) {
 		// TODO Auto-generated method stub
-		
-		////////////////////////////////
-
-		// validate
 
 		////////////////////////////////
-		if (CONS.TabActv.tab_toBuyItemIds == null) {
+
+		// dispatch
+
+		////////////////////////////////
+		if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list))) {
+
+			////////////////////////////////
+
+			// validate
+
+			////////////////////////////////
+			if (CONS.TabActv.tab_toBuyItemIds == null) {
+				
+				String message = "to-buy list => null";
+				Methods_dlg.dlg_ShowMessage_SecondDialog(
+									actv, d1, message, R.color.red);
+				
+				return;
+				
+			} else if (CONS.TabActv.tab_toBuyItemIds.size() < 1) {
+				
+				String message = "to-buy list => no item chosen";
+				Methods_dlg.dlg_ShowMessage_SecondDialog(
+									actv, d1, message, R.color.gold2);
+				
+				return;
+				
+			}
 			
-			String message = "to-buy list => null";
-			Methods_dlg.dlg_ShowMessage_SecondDialog(
-								actv, d1, message, R.color.red);
+			////////////////////////////////
+
+			// new dialog
+
+			////////////////////////////////
+			Methods_dlg.dlg_SaveToBuyList(actv, d1);
+					
+		} else if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list))) {
+
+			Methods_dlg.dlg_LoadToBuyList(actv, d1);
 			
-			return;
+		} else if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list))) {
 			
-		} else if (CONS.TabActv.tab_toBuyItemIds.size() < 1) {
+		} else if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))) {
 			
-			String message = "to-buy list => no item chosen";
-			Methods_dlg.dlg_ShowMessage_SecondDialog(
-								actv, d1, message, R.color.gold2);
-			
-			return;
 			
 		}
-		
-		////////////////////////////////
-
-		// new dialog
-
-		////////////////////////////////
-		Methods_dlg.dlg_SaveToBuyList(actv, d1);
-		
 		
 	}//case_ACTV_TAB_OPT_DB
 
