@@ -821,6 +821,12 @@ DB_OCL implements OnClickListener {
 
 		String itemIdsString = sb.toString();		
 		
+		// Log
+		String msg_Log = "itemIdsString => " + itemIdsString;
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		/***************************************
 		 * Update
 		 ***************************************/

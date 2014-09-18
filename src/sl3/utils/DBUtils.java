@@ -1253,6 +1253,7 @@ public class DBUtils extends SQLiteOpenHelper {
 	(Activity actv, 
 		String storeName, long dueDate, String itemIdsString) {
 		// TODO Auto-generated method stub
+
 		/***************************************
 		 * Get db id
 		 ***************************************/
@@ -1272,8 +1273,9 @@ public class DBUtils extends SQLiteOpenHelper {
 		////////////////////////////////
 		ContentValues cv = new ContentValues();
 		
-//		0			1		2		3		4
-//		"store", "name", "price", "genre", "yomi"
+//		0			1				2		3		4
+//		"store_name", "due_date", "amount", "memo", "items"
+		
 		cv.put(CONS.DB.col_Names_PS[4], itemIdsString);
 		
 		////////////////////////////////
@@ -1413,6 +1415,12 @@ public class DBUtils extends SQLiteOpenHelper {
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
 		
+		// Log
+		msg_Log = "storeName => " + storeName;
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		////////////////////////////////
 
 		// iteration
@@ -1426,9 +1434,9 @@ public class DBUtils extends SQLiteOpenHelper {
 			
 			// Log
 			msg_Log = String.format(
-							"YMD_tmp => %s, %s, %s (id = %d)", 
+							"YMD_tmp => %s, %s, %s (id = %d, store = %s)", 
 							YMD_tmp[0], YMD_tmp[1], YMD_tmp[2],
-							ps.getDbId());
+							ps.getDbId(), ps.getStoreName());
 			
 			Log.d("DBUtils.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
@@ -1439,7 +1447,8 @@ public class DBUtils extends SQLiteOpenHelper {
 			// judge
 
 			////////////////////////////////
-			if (YMD[0].equals(YMD_tmp[0]) 
+			if (storeName.equals(ps.getStoreName())
+					&& YMD[0].equals(YMD_tmp[0]) 
 					&& YMD[1].equals(YMD_tmp[1])
 					&& YMD[2].equals(YMD_tmp[2])) {
 //				if (YMD[0] == YMD_tmp[0] && YMD[1] == YMD_tmp[1] && YMD[2] == YMD_tmp[2]) {
