@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -2177,12 +2178,27 @@ public class Methods_sl {
 			
 			target_StoreName = ps.getStoreName();
 			
+//			// Log
+//			String msg_Log = String.format(
+//						Locale.JAPAN,
+//						"target = %s / current = %s " +
+//						"(newMonth = %d, target = %d) " +
+//						"(newDay = %d, target = %d", 
+//						target_StoreName, storeName,
+//						newMonth, Integer.parseInt(YMD[1]),
+//						newDay, Integer.parseInt(YMD[2])
+//						);
+			
+//			Log.d("Methods_sl.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+			
 //			if (cal.YEAR == dueDateData[0]
 //					&& cal.MONTH == dueDateData[1]
 //					&& cal.DATE == dueDateData[2]) {
 			if (target_StoreName.equals(storeName)
 					&& newYear == Integer.parseInt(YMD[0])
-					&& newMonth == Integer.parseInt(YMD[1])
+					&& (newMonth + 1) == Integer.parseInt(YMD[1])
 					&& newDay == Integer.parseInt(YMD[2])) {
 				
 				return true;

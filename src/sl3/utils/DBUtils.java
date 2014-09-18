@@ -1250,12 +1250,13 @@ public class DBUtils extends SQLiteOpenHelper {
 	
 	public boolean
 	updateData_PS_ItemIds
-	(Activity actv2, String storeName, long dueDate, String itemIdsString) {
+	(Activity actv, 
+		String storeName, long dueDate, String itemIdsString) {
 		// TODO Auto-generated method stub
 		/***************************************
 		 * Get db id
 		 ***************************************/
-		long dbId = this.getDbId_PS(storeName, dueDate);
+		long dbId = this.getDbId_PS(actv, storeName, dueDate);
 
 		// Log
 		Log.d("DBUtils.java" + "["
@@ -1264,175 +1265,312 @@ public class DBUtils extends SQLiteOpenHelper {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "dbId=" + dbId);
 		
-		/***************************************
-		 * Exec updating
-		 ***************************************/
-		String tname = CONS.DB.tname_PS;
-//		String colName = CONS.DBAdmin.col_purchaseSchedule[4];
+		////////////////////////////////
+
+		// cv
+
+		////////////////////////////////
+		ContentValues cv = new ContentValues();
 		
-		String sql = "UPDATE " + tname
-					+ " SET "
-					+ CONS.DB.col_Names_PS[4] + "='"	// items
-						+ itemIdsString + "'"
-					+ " WHERE " + android.provider.BaseColumns._ID
-					+ " = '" + dbId + "'";
-	
+//		0			1		2		3		4
+//		"store", "name", "price", "genre", "yomi"
+		cv.put(CONS.DB.col_Names_PS[4], itemIdsString);
+		
+		////////////////////////////////
+
+		// Setup db
+
+		////////////////////////////////
 		SQLiteDatabase wdb = this.getWritableDatabase();
 		
 		try {
+			//
+			wdb.beginTransaction();
 			
-			wdb.execSQL(sql);
+			// Insert data
+			long res = wdb.update(
+							CONS.DB.tname_PS,
+							cv,
+							android.provider.BaseColumns._ID + " = ?",
+							new String[]{ String.valueOf(dbId) });
 			
+			if (res < 1) {
+				
+				// Log
+				Log.d("DBUtils.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber()
+						+ ":"
+						+ Thread.currentThread().getStackTrace()[2]
+								.getMethodName() + "]", "Update => Returned less than 1");
+				
+				wdb.close();
+				
+				return false;
+				
+			}	
+			
+			// Set as successful
+			wdb.setTransactionSuccessful();
+
+			// End transaction
+			wdb.endTransaction();
+
 			// Log
 			Log.d("DBUtils.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "sql => Done: " + sql);
+					+ "]", "Update => Successful");
 			
-			//Methods.toastAndLog(actv, "Data updated", 2000);
+			wdb.close();
 			
 			return true;
 			
-			
-		} catch (SQLException e) {
-	
+		} catch (Exception e) {
 			// Log
-			Log.d("DBUtils.java" + "["
+			Log.e("DBUtils.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]",
-					"Exception => " + e.toString() + " / " + "sql: " + sql);
+					+ "]", "Exception => " + e.toString());
+			
+			wdb.close();
 			
 			return false;
 			
 		}//try
 
+		
+//		String tname = CONS.DB.tname_PS;
+////		String colName = CONS.DBAdmin.col_purchaseSchedule[4];
+//		
+//		String sql = "UPDATE " + tname
+//					+ " SET "
+//					+ CONS.DB.col_Names_PS[4] + "='"	// items
+//						+ itemIdsString + "'"
+//					+ " WHERE " + android.provider.BaseColumns._ID
+//					+ " = '" + dbId + "'";
+//	
+//		SQLiteDatabase wdb = this.getWritableDatabase();
+//		
+//		try {
+//			
+//			wdb.execSQL(sql);
+//			
+//			// Log
+//			Log.d("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "sql => Done: " + sql);
+//			
+//			//Methods.toastAndLog(actv, "Data updated", 2000);
+//			
+//			return true;
+//			
+//			
+//		} catch (SQLException e) {
+//	
+//			// Log
+//			Log.d("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]",
+//					"Exception => " + e.toString() + " / " + "sql: " + sql);
+//			
+//			return false;
+//			
+//		}//try
+
 	}//updateData_PS_ItemIds
 
 	/***************************************
 	 * 20130312_170156
-	 * @return CONS.DBAdmin.DB_QUERY_FAILED<br>
-	 * 			CONS.DBAdmin.DB_QUERY_NO_ENTRY<br>
-	 * 			Database id (long)
+	 * 
+	 * If the table has more than one record, the method
+	 * 		returns the earliest-saved one.
+	 * @param actv 
+	 * 
+	 * @return
+	 * 		-1 No ps found<br>
+	 * 		1< ps id 
 	 ***************************************/
-	private long getDbId_PS(String storeName, long dueDate) {
+	private long 
+	getDbId_PS
+	(Activity actv, String storeName, long dueDate) {
 		// TODO Auto-generated method stub
-		/***************************************
-		 * Prepare reference data
-		 ***************************************/
-		int[] referenceDueDateData = Methods.getDateArrayFromLongData(dueDate);
 		
-		/***************************************
-		 * Database
-		 ***************************************/
-		SQLiteDatabase rdb = getReadableDatabase();
+		List<PS> list_PSs = DBUtils.find_ALL_PSs(actv);
 		
-		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
+		String time_Label = Methods.conv_MillSec_to_TimeLabel(dueDate);
 		
-		Cursor c = null;
-		
-		//
-		try {
-
-			c = rdb.rawQuery(sql, null);
-
-		} catch (SQLException e) {
-			
-			// Log
-			Log.d("MemoDBHelper.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "Exception => " + e.toString());
-			
-			rdb.close();
-			
-			return CONS.DB.DB_QUERY_FAILED;
-			
-		}//try
-
-		/***************************************
-		 * Validate
-		 * 	Cursor => Null?
-		 * 	Entry => 0?
-		 ***************************************/
-		if (c == null) {
-			
-			// Log
-			Log.e("DBUtils.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Query failed");
-			
-			rdb.close();
-			
-			return CONS.DB.DB_QUERY_FAILED;
-			
-		} else if (c.getCount() < 1) {//if (c == null)
-			
-			// Log
-			Log.d("DBUtils.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "No entry in the table");
-			
-			rdb.close();
-			
-			return CONS.DB.DB_QUERY_NO_ENTRY;
-			
-		}//if (c == null)
-
-		/***************************************
-		 * Search for the target item
-		 ***************************************/
-		c.moveToFirst();
-		
-		for (int i = 0; i < c.getCount(); i++) {
-			
-			long targetDueDate = c.getLong(
-					c.getColumnIndex(
-							CONS.DB.col_Names_PS[1]));
-	
-			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
-
-			String targetStoreName = c.getString(
-					c.getColumnIndex(
-							CONS.DB.col_Names_PS[0]));
-
-			if (targetStoreName.equals(storeName)
-				&& referenceDueDateData[0] == targetDueDateData[0]
-				&& referenceDueDateData[1] == targetDueDateData[1]
-				&& referenceDueDateData[2] == targetDueDateData[2]) {
-				
-				rdb.close();
-				
-				return c.getLong(0);	// Return database id
-				
-			}//if (cal.YEAR == dueDateData[0])
-				
-			c.moveToNext();
-
-			
-		}//for (int i = 0; i < c.getCount(); i++)
+		String[] YMD = Methods.conv_TimeLabel_to_YMD(time_Label);
 		
 		// Log
+		String msg_Log = String.format("YMD => %s, %s, %s", YMD[0], YMD[1], YMD[2]);
 		Log.d("DBUtils.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ ":"
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]",
-				"No matching entry: Given params => "
-				+ "Store name=" + storeName + "/"
-				+ "Due date=" + Methods.getTimeLabel_Japanese(dueDate));
-
-		/***************************************
-		 * Close db
-		 ***************************************/
-		rdb.close();
+				+ "]", msg_Log);
 		
-		return CONS.DB.DB_QUERY_NO_ENTRY;
+		////////////////////////////////
+
+		// iteration
+
+		////////////////////////////////
+		String[] YMD_tmp = null;
+		
+		for (PS ps : list_PSs) {
+			
+			YMD_tmp = Methods.conv_TimeLabel_to_YMD(ps.getDueDate());
+			
+			// Log
+			msg_Log = String.format(
+							"YMD_tmp => %s, %s, %s (id = %d)", 
+							YMD_tmp[0], YMD_tmp[1], YMD_tmp[2],
+							ps.getDbId());
+			
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			////////////////////////////////
+
+			// judge
+
+			////////////////////////////////
+			if (YMD[0].equals(YMD_tmp[0]) 
+					&& YMD[1].equals(YMD_tmp[1])
+					&& YMD[2].equals(YMD_tmp[2])) {
+//				if (YMD[0] == YMD_tmp[0] && YMD[1] == YMD_tmp[1] && YMD[2] == YMD_tmp[2]) {
+				
+				return ps.getDbId();
+				
+			}
+			
+		}
+		
+		////////////////////////////////
+
+		// no ps found
+
+		////////////////////////////////
+		return -1;
+		
+//		/***************************************
+//		 * Prepare reference data
+//		 ***************************************/
+//		int[] referenceDueDateData = Methods.getDateArrayFromLongData(dueDate);
+//		
+//		/***************************************
+//		 * Database
+//		 ***************************************/
+//		SQLiteDatabase rdb = getReadableDatabase();
+//		
+//		String sql = "SELECT * FROM " + CONS.DB.tname_PS;
+//		
+//		Cursor c = null;
+//		
+//		//
+//		try {
+//
+//			c = rdb.rawQuery(sql, null);
+//
+//		} catch (SQLException e) {
+//			
+//			// Log
+//			Log.d("MemoDBHelper.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", "Exception => " + e.toString());
+//			
+//			rdb.close();
+//			
+//			return CONS.DB.DB_QUERY_FAILED;
+//			
+//		}//try
+//
+//		/***************************************
+//		 * Validate
+//		 * 	Cursor => Null?
+//		 * 	Entry => 0?
+//		 ***************************************/
+//		if (c == null) {
+//			
+//			// Log
+//			Log.e("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "Query failed");
+//			
+//			rdb.close();
+//			
+//			return CONS.DB.DB_QUERY_FAILED;
+//			
+//		} else if (c.getCount() < 1) {//if (c == null)
+//			
+//			// Log
+//			Log.d("DBUtils.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "No entry in the table");
+//			
+//			rdb.close();
+//			
+//			return CONS.DB.DB_QUERY_NO_ENTRY;
+//			
+//		}//if (c == null)
+//
+//		/***************************************
+//		 * Search for the target item
+//		 ***************************************/
+//		c.moveToFirst();
+//		
+//		for (int i = 0; i < c.getCount(); i++) {
+//			
+//			long targetDueDate = c.getLong(
+//					c.getColumnIndex(
+//							CONS.DB.col_Names_PS[1]));
+//	
+//			int[] targetDueDateData = Methods.getDateArrayFromLongData(targetDueDate);
+//
+//			String targetStoreName = c.getString(
+//					c.getColumnIndex(
+//							CONS.DB.col_Names_PS[0]));
+//
+//			if (targetStoreName.equals(storeName)
+//				&& referenceDueDateData[0] == targetDueDateData[0]
+//				&& referenceDueDateData[1] == targetDueDateData[1]
+//				&& referenceDueDateData[2] == targetDueDateData[2]) {
+//				
+//				rdb.close();
+//				
+//				return c.getLong(0);	// Return database id
+//				
+//			}//if (cal.YEAR == dueDateData[0])
+//				
+//			c.moveToNext();
+//
+//			
+//		}//for (int i = 0; i < c.getCount(); i++)
+//		
+//		// Log
+//		Log.d("DBUtils.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ ":"
+//				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//				+ "]",
+//				"No matching entry: Given params => "
+//				+ "Store name=" + storeName + "/"
+//				+ "Due date=" + Methods.getTimeLabel_Japanese(dueDate));
+//
+//		/***************************************
+//		 * Close db
+//		 ***************************************/
+//		rdb.close();
+//		
+//		return CONS.DB.DB_QUERY_NO_ENTRY;
 		
 	}//private long getDbId_PS(String storeName, long dueDate)
 

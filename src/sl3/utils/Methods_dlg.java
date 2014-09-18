@@ -1286,10 +1286,10 @@ public class Methods_dlg {
 
 	
 	public static void
-	dlg_scheduleInDb(Activity actv, Dialog dlg1, Dialog dlg2) {
+	dlg_scheduleInDb(Activity actv, Dialog d1, Dialog d2) {
 		// TODO Auto-generated method stub
 //		Methods_dlg.dlg_template_okCancel_3Dialogues_3Choices(actv, layoutId, titleStringId, okButtonId, cancelButtonId, thirdButtonId, okTag, cancelTag, thirdChoiceTag, dlg1, dlg2)
-		Dialog dlg3 = Methods_dlg.dlg_template_okCancel_3Dialogues_3Choices(
+		Dialog d3 = Methods_dlg.dlg_template_okCancel_3Dialogues_3Choices(
 							actv,
 							R.layout.dlg_template_3choices_tv,
 							R.string.generic_confirm,
@@ -1302,19 +1302,19 @@ public class Methods_dlg {
 							Tags.DialogTags.DLG_GENERIC_DISMISS_3RD_DIALOG,
 							Tags.DialogTags.dlg_scheduleInDb_update,
 							
-							dlg1, dlg2);
+							d1, d2);
 		
 		/***************************************
 		 * Set text to the third button
 		 ***************************************/
-		Button btChoice = (Button) dlg3.findViewById(R.id.dlg_template_3choices_tv_btn_choice);
+		Button btChoice = (Button) d3.findViewById(R.id.dlg_template_3choices_tv_btn_choice);
 		
 		btChoice.setText(actv.getString(R.string.generic_label_update));
 		
 		/***************************************
 		 * Set message
 		 ***************************************/
-		dlg3.show();
+		d3.show();
 		
 	}//dlg_scheduleInDb(Activity actv, Dialog dlg1, Dialog dlg2)
 
