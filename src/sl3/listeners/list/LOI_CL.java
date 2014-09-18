@@ -105,7 +105,7 @@ public class LOI_CL implements OnItemClickListener {
 		Tags.ListTags tag = (Tags.ListTags) parent.getTag();
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -167,7 +167,7 @@ public class LOI_CL implements OnItemClickListener {
 		List<SI> loadedSIList = Methods_sl.getSIListFromItemList(actv, itemIdString);
 		
 //		// Log
-//		Log.d("ListOnItemClickListener.java" + "["
+//		Log.d("LOI_CL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -244,7 +244,7 @@ public class LOI_CL implements OnItemClickListener {
 		}//for (int i = 0; i < loadedSIList.size(); i++)
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -318,7 +318,7 @@ public class LOI_CL implements OnItemClickListener {
 			Toast.makeText(actv, "Couldn't get the list", Toast.LENGTH_LONG).show();
 			
 			// Log
-			Log.d("ListOnItemClickListener.java" + "["
+			Log.d("LOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -390,14 +390,14 @@ public class LOI_CL implements OnItemClickListener {
 		SI si = (SI) parent.getItemAtPosition(position);
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "si.getName()=" + si.getName());
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -411,7 +411,7 @@ public class LOI_CL implements OnItemClickListener {
 		if (CONS.TabActv.tab_boughtItemIds.contains(itemId)) {
 			
 			// Log
-			Log.d("ListOnItemClickListener.java" + "["
+			Log.d("LOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -437,7 +437,7 @@ public class LOI_CL implements OnItemClickListener {
 		} else if (!CONS.TabActv.tab_boughtItemIds.contains(itemId)) {//if (CONS.TabActv.tab_checkedPositions.contains(itemId))
 
 			// Log
-			Log.d("ListOnItemClickListener.java" + "["
+			Log.d("LOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -446,7 +446,7 @@ public class LOI_CL implements OnItemClickListener {
 			CONS.TabActv.tab_boughtItemIds.add(itemId);
 			
 			// Log
-			Log.d("ListOnItemClickListener.java" + "["
+			Log.d("LOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -479,7 +479,7 @@ public class LOI_CL implements OnItemClickListener {
 //		}//for (int i = 0; i < CONS.TabActv.tab_checkedPositions.size(); i++)
 //		
 //		// Log
-//		Log.d("ListOnItemClickListener.java" + "["
+//		Log.d("LOI_CL.java" + "["
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ ":"
 //				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -509,7 +509,7 @@ public class LOI_CL implements OnItemClickListener {
 		SI si = (SI) parent.getItemAtPosition(position);
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -548,7 +548,7 @@ public class LOI_CL implements OnItemClickListener {
 			CONS.TabActv.tab_checkedItemIds.add(itemId);
 			
 			// Log
-			Log.d("ListOnItemClickListener.java" + "["
+			Log.d("LOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -578,7 +578,7 @@ public class LOI_CL implements OnItemClickListener {
 			sb.append(CONS.TabActv.tab_checkedItemIds.get(i));
 			sb.append(",");
 //			// Log
-//			Log.d("ListOnItemClickListener.java" + "["
+//			Log.d("LOI_CL.java" + "["
 //					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //					+ ":"
 //					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -587,7 +587,7 @@ public class LOI_CL implements OnItemClickListener {
 		}//for (int i = 0; i < CONS.TabActv.tab_checkedPositions.size(); i++)
 		
 		// Log
-		Log.d("ListOnItemClickListener.java" + "["
+		Log.d("LOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()

@@ -50,6 +50,7 @@ import sl3.main.R;
 import sl.main.MainActv;
 import sl.main.RegisterItemActv;
 import android.app.Activity;
+import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -5342,6 +5343,46 @@ public class Methods {
 		
 	}//public static boolean setPref_long(Activity actv, String pref_name, String pref_key, long value)
 
+	public static boolean
+	set_Pref_Clear
+	(Activity actv, String pName, String pKey) {
+		
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(pName, Context.MODE_PRIVATE);
+		
+		/****************************
+		 * 2. Get editor
+		 ****************************/
+		SharedPreferences.Editor editor = prefs.edit();
+		
+		/****************************
+		 * 3. Set value
+		 ****************************/
+		editor.clear();
+		
+		return editor.commit();
+		
+//		editor.putString(pKey, value);
+//		
+//		try {
+//			
+//			editor.commit();
+//			
+//			return true;
+//			
+//		} catch (Exception e) {
+//			
+//			// Log
+//			Log.e("Methods.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", "Excption: " + e.toString());
+//			
+//			return false;
+//			
+//		}
+		
+	}//public static boolean setPref_long(Activity actv, String pref_name, String pref_key, long value)
+	
 	public static String 
 	conv_IdsList_to_IdsString
 	(Activity actv, List<Integer> checkedItemIds) {
@@ -5393,4 +5434,393 @@ public class Methods {
 		
 	}//conv_IdsList_to_IdsString
 
+	public static void 
+	save_ItemIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		////////////////////////////////
+
+		// checked ids
+
+		////////////////////////////////
+		_save_ItemIds__CheckedIds(actv);
+		
+		////////////////////////////////
+		
+		// to-buy ids
+		
+		////////////////////////////////
+		Methods._save_ItemIds__ToBuyIds(actv);
+		
+	}//save_ItemIds
+
+	private static void 
+	_save_ItemIds__CheckedIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		if (CONS.TabActv.tab_checkedItemIds != null) {
+			
+			String ids = Methods.conv_IdsList_to_IdsString(
+							actv, 
+							CONS.TabActv.tab_checkedItemIds);
+			
+			// Log
+			msg_Log = "item id string => " + ids;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			if (ids != null) {
+				
+				boolean res = Methods.set_Pref_String(
+							actv,
+							CONS.Pref.pname_TabActv, 
+							CONS.Pref.pkey_TabActv_CheckedIds, 
+							ids);
+
+				if (res == true) {
+					
+					// Log
+					msg_Log = "ids => stored: " + ids;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+					
+					// Log
+					msg_Log = "ids => not stored: " + ids;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+
+				}
+				
+			} else {
+				
+				// Log
+				msg_Log = "ids => null";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				boolean res = Methods.set_Pref_String(
+								actv, 
+								CONS.Pref.pname_TabActv, 
+								CONS.Pref.pkey_TabActv_CheckedIds,
+								null);
+//				boolean res = Methods.set_Pref_Clear(
+//						actv, 
+//						CONS.Pref.pname_TabActv, 
+//						CONS.Pref.pkey_TabActv_CheckedIds);
+				
+				if (res == true) {
+					
+					// Log
+					msg_Log = "pref => set null";
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+
+					// Log
+					msg_Log = "pref => not set null";
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				}
+			}
+			
+		}//if (CONS.TabActv.tab_checkedItemIds != null)
+		
+	}
+
+	
+	private static void 
+	_save_ItemIds__ToBuyIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		if (CONS.TabActv.tab_toBuyItemIds != null) {
+			
+			String ids = Methods.conv_IdsList_to_IdsString(
+					actv, 
+					CONS.TabActv.tab_toBuyItemIds);
+			
+			// Log
+			msg_Log = "item id string => " + ids;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			if (ids != null) {
+				
+				boolean res = Methods.set_Pref_String(
+						actv,
+						CONS.Pref.pname_TabActv, 
+						CONS.Pref.pkey_TabActv_ToBuyIds, 
+						ids);
+				
+				if (res == true) {
+					
+					// Log
+					msg_Log = "ids => stored: " + ids;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+					
+					// Log
+					msg_Log = "ids => not stored: " + ids;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				}
+				
+			} else {
+				
+				// Log
+				msg_Log = "ids => null";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				boolean res = Methods.set_Pref_String(
+						actv, 
+						CONS.Pref.pname_TabActv, 
+						CONS.Pref.pkey_TabActv_ToBuyIds,
+						null);
+				
+				if (res == true) {
+					
+					// Log
+					msg_Log = "pref => set null";
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+					
+					// Log
+					msg_Log = "pref => not set null";
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				}
+			}
+			
+		}//if (CONS.TabActv.tab_checkedItemIds != null)
+		
+	}//_save_ItemIds__ToBuyIds
+	
+	
+	
+	public static void 
+	restore_ItemIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		////////////////////////////////
+
+		// checked item ids
+
+		////////////////////////////////
+		_restore_ItemIds__CheckedIds(actv);
+		
+		////////////////////////////////
+		
+		// to-buy item ids
+		
+		////////////////////////////////
+		Methods._restore_ItemIds__ToBuyIds(actv);
+		
+	}//restore_ItemIds
+
+	private static void 
+	_restore_ItemIds__CheckedIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		String pref_CheckedIds = Methods.get_Pref_String(
+				actv, 
+				CONS.Pref.pname_TabActv, 
+				CONS.Pref.pkey_TabActv_CheckedIds, 
+				null);
+
+		if (pref_CheckedIds != null) {
+		
+			// Log
+			msg_Log = "pref_CheckedIds => not null";
+			Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+			
+			if (CONS.TabActv.tab_checkedItemIds == null) {
+			
+				CONS.TabActv.tab_checkedItemIds = 
+					Methods.conv_ItemIdString_to_IdsList(actv, pref_CheckedIds);
+			
+			} else {
+			
+				CONS.TabActv.tab_checkedItemIds.addAll(
+					Methods.conv_ItemIdString_to_IdsList(actv, pref_CheckedIds));
+			
+			}
+			
+			////////////////////////////////
+			
+			// notify
+			
+			////////////////////////////////
+			if (CONS.TabActv.adpItems != null) {
+			
+				CONS.TabActv.adpItems.notifyDataSetChanged();
+				
+				// Log
+				msg_Log = "CONS.TabActv.adpItems => notified";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				// Log
+				for (Integer id : CONS.TabActv.tab_checkedItemIds) {
+					
+					// Log
+					msg_Log = "tab_checkedItemIds => " + id;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				}
+			
+			} else {//if (CONS.TabActv.adpItems != null)
+				
+				// Log
+				msg_Log = "CONS.TabActv.adpItems => null";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}//if (CONS.TabActv.adpItems != null)
+		
+		} else {
+		
+			// Log
+			msg_Log = "pref_CheckedIds => null";
+			Log.d("Methods.java" + "["
+			+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+			+ "]", msg_Log);
+		
+		}//if (pref_CheckedIds != null)
+		
+	}//_restore_ItemIds__CheckedIds
+		
+	private static void 
+	_restore_ItemIds__ToBuyIds
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		String msg_Log;
+		
+		String pref_ToBuyIds = Methods.get_Pref_String(
+				actv, 
+				CONS.Pref.pname_TabActv, 
+				CONS.Pref.pkey_TabActv_ToBuyIds, 
+				null);
+		
+		if (pref_ToBuyIds != null) {
+			
+			// Log
+			msg_Log = "pref_ToBuyIds => not null";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			if (CONS.TabActv.tab_toBuyItemIds == null) {
+				
+				CONS.TabActv.tab_toBuyItemIds = 
+						Methods.conv_ItemIdString_to_IdsList(actv, pref_ToBuyIds);
+				
+			} else {
+				
+				CONS.TabActv.tab_toBuyItemIds.addAll(
+						Methods.conv_ItemIdString_to_IdsList(actv, pref_ToBuyIds));
+				
+			}
+			
+			////////////////////////////////
+			
+			// notify
+			
+			////////////////////////////////
+			if (CONS.TabActv.adpToBuys != null) {
+				
+				CONS.TabActv.adpToBuys.notifyDataSetChanged();
+				
+				// Log
+				msg_Log = "CONS.TabActv.adpToBuys => notified";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				// Log
+				for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
+					
+					// Log
+					msg_Log = "tab_checkedItemIds => " + id;
+					Log.d("Methods.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				}
+				
+			} else {//if (CONS.TabActv.adpToBuys != null)
+				
+				// Log
+				msg_Log = "CONS.TabActv.adpToBuys => null";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}//if (CONS.TabActv.adpToBuys != null)
+			
+		} else {
+			
+			// Log
+			msg_Log = "pref_ToBuyIds => null";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}//if (pref_ToBuyIds != null)
+		
+	}//_restore_ItemIds__ToBuyIds
+	
 }//public class Methods

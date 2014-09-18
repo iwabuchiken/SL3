@@ -1002,40 +1002,42 @@ public class TabActv extends TabActivity
 		////////////////////////////////
 		setContentView(R.layout.itemlist_tabs);
 		
-		////////////////////////////////
-
-		// get pref: ItemIds
-
-		////////////////////////////////
-		String pref_CheckedIds = Methods.get_Pref_String(
-							this, 
-							CONS.Pref.pname_TabActv, 
-							CONS.Pref.pkey_TabActv_CheckedIds, 
-							null);
+//		////////////////////////////////
+//
+//		// get pref: ItemIds
+//
+//		////////////////////////////////
+//		Methods.restore_ItemIds(this);
 		
-		if (pref_CheckedIds != null) {
-			
-			if (CONS.TabActv.tab_checkedItemIds == null) {
-				
-				CONS.TabActv.tab_checkedItemIds = 
-						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds);
-				
-			} else {
-				
-				CONS.TabActv.tab_checkedItemIds.addAll(
-						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds));
-
-			}
-			
-		} else {
-			
-			// Log
-			msg_Log = "pref_CheckedIds => null";
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
-			
-		}
+//		String pref_CheckedIds = Methods.get_Pref_String(
+//							this, 
+//							CONS.Pref.pname_TabActv, 
+//							CONS.Pref.pkey_TabActv_CheckedIds, 
+//							null);
+//		
+//		if (pref_CheckedIds != null) {
+//			
+//			if (CONS.TabActv.tab_checkedItemIds == null) {
+//				
+//				CONS.TabActv.tab_checkedItemIds = 
+//						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds);
+//				
+//			} else {
+//				
+//				CONS.TabActv.tab_checkedItemIds.addAll(
+//						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds));
+//
+//			}
+//			
+//		} else {
+//			
+//			// Log
+//			msg_Log = "pref_CheckedIds => null";
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//			
+//		}
 
 		////////////////////////////////
 
@@ -1087,7 +1089,14 @@ public class TabActv extends TabActivity
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
-		
+
+		////////////////////////////////
+
+		// get pref: ItemIds
+
+		////////////////////////////////
+		Methods.restore_ItemIds(this);
+
 		//debug
 //		do_test();
 		
@@ -1144,25 +1153,27 @@ public class TabActv extends TabActivity
 		// save item ids
 
 		////////////////////////////////
-		if (CONS.TabActv.tab_checkedItemIds != null) {
-			
-			String ids = Methods.conv_IdsList_to_IdsString(
-							this, 
-							CONS.TabActv.tab_checkedItemIds);
-			
-			// Log
-			msg_Log = "item id string => " + ids;
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
-			
-//			boolean res = Methods.set_Pref_String(
-//							this,
-//							CONS.Pref.pname_TabActv, 
-//							CONS.Pref.pkey_TabActv_CheckedIds, 
-//							ids);
-			
-		}
+		Methods.save_ItemIds(this);
+		
+//		if (CONS.TabActv.tab_checkedItemIds != null) {
+//			
+//			String ids = Methods.conv_IdsList_to_IdsString(
+//							this, 
+//							CONS.TabActv.tab_checkedItemIds);
+//			
+//			// Log
+//			msg_Log = "item id string => " + ids;
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//			
+////			boolean res = Methods.set_Pref_String(
+////							this,
+////							CONS.Pref.pname_TabActv, 
+////							CONS.Pref.pkey_TabActv_CheckedIds, 
+////							ids);
+//			
+//		}
 		
 //		CONS.TabActv.tabHost = null;
 		
