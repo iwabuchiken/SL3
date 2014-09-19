@@ -450,12 +450,12 @@ public class TabActv extends TabActivity
 			/***************************************
 			 * Adapter
 			 ***************************************/
-			// Log
-			String msg_Log = "CONS.TabActv.itemList.get(10).getNum() => " 
-						+ CONS.TabActv.itemList.get(10).getNum();
-			Log.d("TabActv.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
+//			// Log
+//			String msg_Log = "CONS.TabActv.itemList.get(10).getNum() => " 
+//						+ CONS.TabActv.itemList.get(10).getNum();
+//			Log.d("TabActv.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
 			
 			
 			CONS.TabActv.adpItems = new ItemListAdapter2(
@@ -499,7 +499,8 @@ public class TabActv extends TabActivity
 		int res = _prep_ToBuyList();
 		
 		// Log
-		String msg_Log = "_prep_ToBuyList => done";
+		String msg_Log = "_prep_ToBuyList => done"
+					+ " (num = " + CONS.TabActv.toBuyList.size() + ")";
 		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
@@ -540,7 +541,9 @@ public class TabActv extends TabActivity
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "CONS.TabActv.adpToBuys => Set");
+				+ "]", 
+				"CONS.TabActv.adpToBuys => Set (num = " 
+				+ CONS.TabActv.adpToBuys.getCount() + ")");
 		
 	}//private void setupToBuyListView()
 
@@ -770,7 +773,6 @@ public class TabActv extends TabActivity
 				continue;
 				
 			}//if (c.getCount() < 1)
-			
 			
 			//
 			c.moveToFirst();
@@ -1064,7 +1066,7 @@ public class TabActv extends TabActivity
 		res = _SetupTabs();
 
 		if (res == false) return;
-		
+
 		////////////////////////////////
 
 		// Item list
@@ -1073,7 +1075,17 @@ public class TabActv extends TabActivity
 		res = _Setup_ItemListView();
 		
 		if (res == false) return;
+
 		
+//		//test
+//		Methods.restore_ItemIds(this);
+
+		
+		////////////////////////////////
+
+		// to-buy list
+
+		////////////////////////////////
 		_Setup_ToBuyListView();
 		
 		// Log
@@ -1093,10 +1105,25 @@ public class TabActv extends TabActivity
 		////////////////////////////////
 
 		// get pref: ItemIds
+		//	=> the execution of this code needs to be
+		//	=> 	after the setups of the 2 list views
+		//	=> 	b/c the method notifies the two adapters,
+		//	=> 	yet before the setups regarding the listviews,
+		//	=> 	the adapters are not yet instantiated
 
 		////////////////////////////////
 		Methods.restore_ItemIds(this);
 
+		Methods_sl.updateListView_ToBuyList(this);
+		
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
+		
+		// Log
+		msg_Log = "adpToBuys => notified";
+		Log.d("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		//debug
 //		do_test();
 		

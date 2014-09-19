@@ -5646,7 +5646,7 @@ public class Methods {
 		// checked item ids
 
 		////////////////////////////////
-		_restore_ItemIds__CheckedIds(actv);
+		Methods._restore_ItemIds__CheckedIds(actv);
 		
 		////////////////////////////////
 		
@@ -5755,7 +5755,8 @@ public class Methods {
 		if (pref_ToBuyIds != null) {
 			
 			// Log
-			msg_Log = "pref_ToBuyIds => not null";
+			msg_Log = "pref_ToBuyIds => not null"
+					+ "(" + pref_ToBuyIds + ")";
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
