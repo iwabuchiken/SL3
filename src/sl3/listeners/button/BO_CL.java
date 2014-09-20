@@ -252,9 +252,66 @@ public class BO_CL implements OnClickListener {
 			
 			break;// case itemlist_tabs_bt_choose
 			
+		case ITEMLIST_TABS_IB_UP://-----------------------------------
+			
+			case_ITEMLIST_TABS_IB_UP();
+			
+			break;// case itemlist_tabs_bt_choose
+			
+		case ITEMLIST_TABS_IB_DOWN://-----------------------------------
+			
+			case_ITEMLIST_TABS_IB_DOWN();
+			
+			break;// case itemlist_tabs_bt_choose
+			
 		default:
 			break;
 		}//switch (tag_name)
+	}
+
+	private void 
+	case_ITEMLIST_TABS_IB_DOWN() {
+		// TODO Auto-generated method stub
+		
+		ListView lv = (ListView) actv.findViewById(R.id.itemlist_tab1_lv);
+		
+		int new_Position = lv.getLastVisiblePosition();
+		
+		if((new_Position + lv.getChildCount()) 
+				> CONS.TabActv.itemList.size()) {
+			
+			new_Position = CONS.TabActv.itemList.size() - lv.getChildCount();
+			
+		}
+		
+		lv.setSelection(new_Position);
+		
+	}
+
+	private void 
+	case_ITEMLIST_TABS_IB_UP() {
+		// TODO Auto-generated method stub
+		
+		ListView lv = (ListView) actv.findViewById(R.id.itemlist_tab1_lv);
+		
+		int lastPos = lv.getLastVisiblePosition();
+		
+		int childCount = lv.getChildCount();
+		
+		int new_Position;
+		
+		if (lastPos - (childCount * 2) + 2 > 0) {
+			
+			new_Position = lastPos - (childCount * 2) + 2;
+			
+		} else {
+			
+			new_Position = 0;
+	
+		}
+		
+		lv.setSelection(new_Position);		
+
 	}
 
 	private void 

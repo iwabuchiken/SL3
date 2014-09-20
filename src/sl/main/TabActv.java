@@ -1144,7 +1144,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * IB: Top
 		 ***************************************/
-		ImageButton ib_Top = (ImageButton) findViewById(R.id.itemlist_tab1_ib_top);
+		ImageButton ib_Top = (ImageButton) findViewById(R.id.itemlist_tab1_IB_Top);
 		
 //		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
 		ib_Top.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_TOP);
@@ -1157,7 +1157,7 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * IB: Bottom
 		 ***************************************/
-		ImageButton ib_Bottom = (ImageButton) findViewById(R.id.itemlist_tab1_ib_bottom);
+		ImageButton ib_Bottom = (ImageButton) findViewById(R.id.itemlist_tab1_IB_Bottom);
 		
 //		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
 		ib_Bottom.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_BOTTOM);
@@ -1166,6 +1166,32 @@ public class TabActv extends TabActivity
 //		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
 		
 		ib_Bottom.setOnTouchListener(new BO_TL(this));
+		
+		/***************************************
+		 * IB: Up
+		 ***************************************/
+		ImageButton ib_Up = (ImageButton) findViewById(R.id.itemlist_tab1_IB_Up);
+		
+//		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+		ib_Up.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_UP);
+		
+		ib_Up.setOnClickListener(new BO_CL(this));
+//		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
+		
+		ib_Up.setOnTouchListener(new BO_TL(this));
+		
+		/***************************************
+		 * IB: Down
+		 ***************************************/
+		ImageButton ib_Down = (ImageButton) findViewById(R.id.itemlist_tab1_IB_Down);
+		
+//		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+		ib_Down.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_DOWN);
+		
+		ib_Down.setOnClickListener(new BO_CL(this));
+//		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
+		
+		ib_Down.setOnTouchListener(new BO_TL(this));
 		
 	}//_Setup_Listeners_Navigations
 

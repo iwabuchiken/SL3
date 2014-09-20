@@ -233,11 +233,11 @@ public final class R {
         public static final int first_content=0x7f0a008d;
         public static final int itemlist_LL_list=0x7f0a008b;
         public static final int itemlist_bt_choose=0x7f0a008c;
+        public static final int itemlist_tab1_IB_Bottom=0x7f0a0097;
+        public static final int itemlist_tab1_IB_Down=0x7f0a0096;
+        public static final int itemlist_tab1_IB_Top=0x7f0a0093;
+        public static final int itemlist_tab1_IB_Up=0x7f0a0094;
         public static final int itemlist_tab1_ib=0x7f0a0095;
-        public static final int itemlist_tab1_ib_bottom=0x7f0a0097;
-        public static final int itemlist_tab1_ib_down=0x7f0a0096;
-        public static final int itemlist_tab1_ib_top=0x7f0a0093;
-        public static final int itemlist_tab1_ib_up=0x7f0a0094;
         public static final int itemlist_tab1_lv=0x7f0a008e;
         public static final int itemlist_tab1_sp_genre=0x7f0a0092;
         public static final int itemlist_tab1_sp_store_name=0x7f0a0090;

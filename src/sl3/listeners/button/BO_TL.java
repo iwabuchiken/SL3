@@ -73,7 +73,7 @@ public class BO_TL implements OnTouchListener {
 				
 			case ITEMLIST_TABS_IB_TOP:
 				
-				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_top);
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Top);
 				
 				ib.setImageResource(R.drawable.actv_showlist_bt_top_45x45_disabled);
 				
@@ -81,9 +81,25 @@ public class BO_TL implements OnTouchListener {
 				
 			case ITEMLIST_TABS_IB_BOTTOM:
 				
-				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_bottom);
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Bottom);
 				
 				ib.setImageResource(R.drawable.actv_showlist_bt_bottom_45x45_disabled);
+				
+				break;// case itemlist_tabs_bt_choose
+				
+			case ITEMLIST_TABS_IB_UP:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Up);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_up_50x50_disabled);
+				
+				break;// case itemlist_tabs_bt_choose
+				
+			case ITEMLIST_TABS_IB_DOWN:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Down);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_down_50x50_disabled);
 				
 				break;// case itemlist_tabs_bt_choose
 				
@@ -132,7 +148,7 @@ public class BO_TL implements OnTouchListener {
 				
 			case ITEMLIST_TABS_IB_TOP:
 				
-				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_top);
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Top);
 				
 				ib.setImageResource(R.drawable.actv_showlist_bt_top_45x45);
 				
@@ -140,12 +156,28 @@ public class BO_TL implements OnTouchListener {
 
 			case ITEMLIST_TABS_IB_BOTTOM:
 				
-				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_bottom);
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Bottom);
 				
 				ib.setImageResource(R.drawable.actv_showlist_bt_bottom_45x45);
 				
 				break;// case itemlist_tabs_bt_choose
 				
+			case ITEMLIST_TABS_IB_UP:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Up);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_up_50x50);
+				
+				break;// case itemlist_tabs_bt_choose
+
+			case ITEMLIST_TABS_IB_DOWN:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_IB_Down);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_down_50x50);
+				
+				break;// case itemlist_tabs_bt_choose
+
 			default:
 				break;
 
