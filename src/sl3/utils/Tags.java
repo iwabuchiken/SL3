@@ -91,7 +91,7 @@ public class Tags {
 		ACTV_TAB_OPT_DB, 
 		ACTV_TAB_OPT_INSERT_NUM_SI, 
 		ACTV_TAB_OPT_RESTORE_DB, 
-		ACTV_TAB_OPT_DROP_TABLE_PS,
+		ACTV_TAB_OPT_DROP_TABLE_PS, ACTV_TAB_SEARCH_OK,
 		
 	}//public static enum DialogTags
 	

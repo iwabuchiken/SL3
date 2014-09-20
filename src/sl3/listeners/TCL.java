@@ -154,12 +154,12 @@ public class TCL implements OnTabChangeListener {
 		////////////////////////////////
 		List<MI> list_MIs = new ArrayList<MI>();
 		
-		list_MIs.add(new MI.Builder()
-					.setId_Item(R.id.actv_tab_1_filter)
-					.setId_Title(R.string.menu_listitem_filter)
-					.setId_Icon(R.drawable.menu_listitem_filter_30x30_v3)
-					.build()
-				);
+//		list_MIs.add(new MI.Builder()
+//					.setId_Item(R.id.actv_tab_1_filter)
+//					.setId_Title(R.string.menu_listitem_filter)
+//					.setId_Icon(R.drawable.menu_listitem_filter_30x30_v3)
+//					.build()
+//				);
 		
 		list_MIs.add(new MI.Builder()
 					.setId_Item(R.id.actv_tab_1_clear_selections)

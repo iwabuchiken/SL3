@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
     <item
-        android:id="@+id/actv_tab_1_filter"
-		android:icon="@drawable/menu_listitem_filter_30x30_v3"
-		android:title="@string/menu_listitem_filter"
+        android:id="@+id/actv_tab_1_search"
+		android:icon="@drawable/general_ib_ball_yellow_48x48"
+		android:title="@string/commons_lbl_search"
 		
 		android:orderInCategory="2"
-		
 		>
         
     </item>
-    
+
     <item
         android:id="@+id/actv_tab_1_clear_selections"
 		android:icon="@drawable/sl_basket_empty_35x35"

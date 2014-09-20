@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/dlg_search_items_tl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+        
+		<TableRow android:layout_width="fill_parent" >
+
+	        <TextView
+	            android:id="@+id/dlg_search_items_tv_store"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginLeft="5dp"
+	            android:layout_marginRight="8dp"
+	            android:layout_weight="1"
+	            android:text="@string/v1_tv_store"
+	            android:textSize="25sp" />
+	
+	        <Spinner
+	            android:id="@+id/dlg_search_items_sp_store"
+	            android:layout_width="0dip"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginRight="5dp"
+	            android:textSize="25sp" />
+
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent" >
+
+	        <TextView
+	            android:id="@+id/dlg_search_items_tv_yomi"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginLeft="5dp"
+	            android:layout_marginRight="8dp"
+	            android:layout_weight="1"
+	            android:text="@string/v1_tv_yomi"
+	            android:textSize="25sp" />
+	
+	        <EditText
+	            android:id="@+id/dlg_search_items_et_yomi"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginRight="5dp"
+	            android:inputType="text"
+	            android:minWidth="200dp"
+	            android:textSize="25sp" />
+
+	    </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp" >
+
+        <Button
+            android:id="@+id/dlg_search_items_btn_ok"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/generic_ok"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/dlg_search_items_btn_cancel"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/generic_cancel"
+            android:textColor="@color/red"
+            android:textSize="25sp" />
+
+    </LinearLayout>    
+</LinearLayout>

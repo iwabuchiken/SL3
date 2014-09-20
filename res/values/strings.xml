@@ -2,19 +2,19 @@
 <resources>
 
     <!-- generic -->
-	    <string name="generic_register">登録</string>
+	    <string name="generic_register">Register</string>
 	    <string name="generic_ok">OK</string>
-	    <string name="generic_cancel">キャンセル</string>
-	    <string name="generic_message_register">登録してよろしいですか？</string>
+	    <string name="generic_cancel">Cancel</string>
+	    <string name="generic_message_register">Register?</string>
 	    
 	    <string name="generic_message_delete_item">Delete the item?</string>
 	    
-	    <string name="dlg_reconfirm_genre_name">ジャンル名</string>
-	    <string name="generic_confirm">確認</string>
-	    <string name="generic_label_create">作成</string>
-	    <string name="generic_label_all">すべて</string>
+	    <string name="dlg_reconfirm_genre_name">Genre</string>
+	    <string name="generic_confirm">Confirm</string>
+	    <string name="generic_label_create">Create</string>
+	    <string name="generic_label_all">All</string>
 	    <string name="generic_label_choice">Choice</string>
-	    <string name="generic_label_update">更新</string>
+	    <string name="generic_label_update">Update</string>
 
 	    <string name="generic_menu">メニュー</string>
 	    <string name="generic_edit">Edit</string>
@@ -27,6 +27,7 @@
     	<string name="commons_import_db_name">ifm11.db</string>
     	<string name="commons_lbl_create_table">Create table</string>
     	<string name="commons_lbl_drop_table">Drop table</string>
+    	<string name="commons_lbl_search">Search items</string>
 	    
     	
     <string name="hello">Hello World, ShoppingListActivity!</string>
@@ -36,11 +37,11 @@
     
     <!-- registeritem.xml -->
 	    <string name="v1_tv_item">品名</string>
-	    <string name="v1_tv_store">お店</string>
+	    <string name="v1_tv_store">Store</string>
 	    <string name="v1_tv_price">価格</string>
 	    <string name="v1_tv_genre">ジャンル</string>
-	    <string name="v1_tv_yomi">よみ</string>
-	    <string name="v1_btn_register">登録</string>
+	    <string name="v1_tv_yomi">Yomi</string>
+	    <string name="v1_btn_register">Register</string>
     
     <string name="v1_menu_item_list">品物リスト</string>
     

@@ -200,11 +200,11 @@ public class ItemListActv extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		switch (item.getItemId()) {
-		case R.id.actv_tab_1_filter:
-
-			Methods.dlg_filterList(this);
-			
-			break;
+//		case R.id.actv_tab_1_filter:
+//
+//			Methods.dlg_filterList(this);
+//			
+//			break;
 		
 		}//switch (item.getItemId())
 		return super.onOptionsItemSelected(item);

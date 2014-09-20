@@ -579,14 +579,16 @@ public class CONS {
 		
 		public static Spinner spStore;
 		public static Spinner spGenre;
+		public static Spinner spStore_SearchDlg;
 		
 		public static TabHost tabHost;
 		public static TabSpec firstTab;
 		public static TabSpec secondTab;
 		
 		public static ArrayAdapter<String> adp_List_Store;
-		
 		public static ArrayAdapter<String> adapterGenre;
+		
+		public static ArrayAdapter<String> adp_List_Store_SearchDlg;
 		
 		public static List<Integer> tab_checkedItemIds;
 		public static List<Integer> tab_toBuyItemIds;

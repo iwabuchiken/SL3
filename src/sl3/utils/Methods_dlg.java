@@ -505,8 +505,12 @@ public class Methods_dlg {
 		
 	}//_dlg_saveToBuyList__Adapter
 
-	public static Dialog dlg_template_okCancel(Activity actv, int layoutId, int titleStringId,
-			int okButtonId, int cancelButtonId, DialogTags okTag, DialogTags cancelTag) {
+	public static Dialog 
+	dlg_Tmpl_OkCancel
+	(Activity actv, 
+		int layoutId, int titleStringId,
+		int okButtonId, int cancelButtonId, 
+		DialogTags okTag, DialogTags cancelTag) {
 		/*----------------------------
 		* Steps
 		* 1. Set up
@@ -1227,7 +1231,7 @@ public class Methods_dlg {
 //
 	
 	public static void
-	dlg_tabActv_clearSelections(Activity actv) {
+	dlg_TabActv_ClearSelections(Activity actv) {
 		Dialog dlg = Methods_dlg.dlg_template_cancel(
 				actv,
 				R.layout.dlg_db_admin, 
@@ -3594,5 +3598,63 @@ public class Methods_dlg {
 		
 		
 	}//dlg_LoadToBuyList(Activity actv, Dialog dlg)
+
+	public static void 
+	dlg_TabActv_SearchItems
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		Dialog d1 = Methods_dlg.dlg_Tmpl_OkCancel(
+						actv, 
+						R.layout.dlg_search_items, R.string.commons_lbl_search, 
+						
+						R.id.dlg_search_items_btn_ok, 
+						R.id.dlg_search_items_btn_cancel, 
+						
+						Tags.DialogTags.ACTV_TAB_SEARCH_OK, 
+						Tags.DialogTags.DLG_GENERIC_DISMISS);
+		
+		////////////////////////////////
+
+		// spinner: store
+
+		////////////////////////////////
+		CONS.TabActv.spStore_SearchDlg = 
+						(Spinner) d1.findViewById(R.id.dlg_search_items_sp_store);
+		
+		CONS.TabActv.adp_List_Store_SearchDlg = Methods.get_Adp_List_Store(actv);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.TabActv.spStore_SearchDlg == null) {
+			
+			// Log
+			String msg_Log = "CONS.TabActv.spStore_SearchDlg => null";
+			Log.e("Methods_dlg.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		/*----------------------------
+		 * 4. Set adapter to spinner
+			----------------------------*/
+		CONS.TabActv.spStore_SearchDlg.setAdapter(CONS.TabActv.adp_List_Store_SearchDlg);
+		
+		// selection
+		CONS.TabActv.spStore_SearchDlg.setSelection(
+								CONS.TabActv.adp_List_Store_SearchDlg.getCount() - 1);
+		
+		////////////////////////////////
+
+		// show
+
+		////////////////////////////////
+		d1.show();
+		
+	}//dlg_TabActv_SearchItems
 
 }//public class Methods_dlg

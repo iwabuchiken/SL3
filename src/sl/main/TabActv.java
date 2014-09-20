@@ -933,23 +933,29 @@ public class TabActv extends TabActivity
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
-		case R.id.actv_tab_1_filter:
+//		case R.id.actv_tab_1_filter:
+//
+//			String tabTag = CONS.TabActv.tabHost.getCurrentTabTag();
+//			
+//			if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first))) {
+//				
+//				Methods.dlg_filterList2(this);
+//				
+//			} else {//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+//				
+//			}//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+//			
+//			break;
 
-			String tabTag = CONS.TabActv.tabHost.getCurrentTabTag();
+		case R.id.actv_tab_1_search:
 			
-			if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first))) {
-				
-				Methods.dlg_filterList2(this);
-				
-			} else {//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
-				
-			}//if (tabTag.equals(this.getString(R.string.tabactv_tabtags_first)))
+			Methods_dlg.dlg_TabActv_SearchItems(this);
 			
 			break;
-
+			
 		case R.id.actv_tab_1_clear_selections:
 
-			Methods_dlg.dlg_tabActv_clearSelections(this);
+			Methods_dlg.dlg_TabActv_ClearSelections(this);
 			
 			break;
 			
