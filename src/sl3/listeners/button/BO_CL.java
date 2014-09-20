@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -239,9 +240,46 @@ public class BO_CL implements OnClickListener {
 			
 			break;// case itemlist_tabs_bt_choose
 			
+		case ITEMLIST_TABS_IB_TOP://-----------------------------------
+			
+			case_ITEMLIST_TABS_IB_TOP();
+			
+			break;// case itemlist_tabs_bt_choose
+			
+		case ITEMLIST_TABS_IB_BOTTOM://-----------------------------------
+			
+			case_ITEMLIST_TABS_IB_BOTTOM();
+			
+			break;// case itemlist_tabs_bt_choose
+			
 		default:
 			break;
 		}//switch (tag_name)
+	}
+
+	private void 
+	case_ITEMLIST_TABS_IB_BOTTOM() {
+		// TODO Auto-generated method stub
+		
+//		ListView lv = ((ListActivity) actv).getListView();
+		ListView lv = (ListView) actv.findViewById(R.id.itemlist_tab1_lv);
+		
+		int numOfGroups = CONS.TabActv.itemList.size() / lv.getChildCount();
+		
+		int indexOfLastChild = lv.getChildCount() * numOfGroups;
+		
+		lv.setSelection(indexOfLastChild);
+
+		
+	}
+
+	private void case_ITEMLIST_TABS_IB_TOP() {
+		// TODO Auto-generated method stub
+//		ListView lv = ((ListActivity) actv).getListView();
+		ListView lv = (ListView) actv.findViewById(R.id.itemlist_tab1_lv);
+		
+		lv.setSelection(0);
+		
 	}
 
 	private void case_register(View v) {

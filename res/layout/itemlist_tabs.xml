@@ -91,14 +91,51 @@
 				    android:gravity="center_horizontal"
 				    android:paddingBottom="5dp"
 				    android:paddingTop="5dp" >
+
+					<ImageButton
+					    android:id="@+id/itemlist_tab1_ib_top"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:background="@color/darkgreen"
+					    android:layout_weight="1"
+					    android:contentDescription="@string/cd_actv_tab_ib_top"
+					    android:src="@drawable/actv_showlist_bt_top_45x45" />
+								
+					<ImageButton
+					    android:id="@+id/itemlist_tab1_ib_up"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:background="@color/darkgreen"
+					    android:layout_weight="1"
+					    android:contentDescription="@string/cd_actv_tab_ib_up"
+					    android:src="@drawable/actv_showlist_bt_up_50x50" />
 								
 					<ImageButton
 					    android:id="@+id/itemlist_tab1_ib"
-					    android:layout_width="wrap_content"
+					    android:layout_width="100dp"
 					    android:layout_height="35dp"
 					    android:layout_gravity="center_vertical"
 					    android:background="@color/darkgreen"
+					    android:layout_weight="1"
 					    android:src="@drawable/sl_add_item_bar_150x150" />
+
+					<ImageButton
+					    android:id="@+id/itemlist_tab1_ib_down"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:background="@color/darkgreen"
+					    android:layout_weight="1"
+					    android:contentDescription="@string/cd_actv_tab_ib_down"
+					    android:src="@drawable/actv_showlist_bt_down_50x50" />
+				
+					<ImageButton
+					    android:id="@+id/itemlist_tab1_ib_bottom"
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:background="@color/darkgreen"
+					    android:layout_weight="1"
+					    android:contentDescription="@string/cd_actv_tab_ib_bottom"
+					    android:src="@drawable/actv_showlist_bt_bottom_45x45" />
 				
 				</LinearLayout>
 

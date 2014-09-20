@@ -224,4 +224,10 @@
 	<!-- Dialog: Upload boutght items -->
 		<string name="dlg_post_bought_items_message">Upload bought items?</string>
 		
+	<!-- contentDescription -->
+		<string name="cd_actv_tab_ib_down">scroll down the list</string>
+		<string name="cd_actv_tab_ib_up">scroll up the list</string>
+		<string name="cd_actv_tab_ib_top">scroll up to the top of the list</string>
+		<string name="cd_actv_tab_ib_bottom">scroll down to the bottom of the list</string>
+	
 </resources>

@@ -109,7 +109,7 @@ public class Tags {
 		ITEMLIST_TABS_BT_CHOOSE,
 		
 		//
-		register,
+		register, ITEMLIST_TABS_IB_TOP, ITEMLIST_TABS_IB_BOTTOM,
 		
 	}//public static enum ButtonTags
 

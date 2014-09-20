@@ -36,6 +36,7 @@ public class BO_TL implements OnTouchListener {
 //				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //				+ "]", "tag_name => " + tag.name());
 		
+		ImageButton ib;
 		
 		switch (event.getActionMasked()) {
 		case MotionEvent.ACTION_DOWN:
@@ -67,6 +68,22 @@ public class BO_TL implements OnTouchListener {
 				
 //				ibAdd.setImageResource(R.drawable.sl_add_item_touched_150x150);
 				ibAdd.setImageResource(R.drawable.sl_add_item_bar_touched_150x150);
+				
+				break;// case itemlist_tabs_bt_choose
+				
+			case ITEMLIST_TABS_IB_TOP:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_top);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_top_45x45_disabled);
+				
+				break;// case itemlist_tabs_bt_choose
+				
+			case ITEMLIST_TABS_IB_BOTTOM:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_bottom);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_bottom_45x45_disabled);
 				
 				break;// case itemlist_tabs_bt_choose
 				
@@ -110,6 +127,22 @@ public class BO_TL implements OnTouchListener {
 //				ibAdd.setImageResource(R.drawable.sl_add_item);
 //				ibAdd.setImageResource(R.drawable.sl_add_item_150x150);
 				ibAdd.setImageResource(R.drawable.sl_add_item_bar_150x150);
+				
+				break;// case itemlist_tabs_bt_choose
+				
+			case ITEMLIST_TABS_IB_TOP:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_top);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_top_45x45);
+				
+				break;// case itemlist_tabs_bt_choose
+
+			case ITEMLIST_TABS_IB_BOTTOM:
+				
+				ib = (ImageButton) v.findViewById(R.id.itemlist_tab1_ib_bottom);
+				
+				ib.setImageResource(R.drawable.actv_showlist_bt_bottom_45x45);
 				
 				break;// case itemlist_tabs_bt_choose
 				

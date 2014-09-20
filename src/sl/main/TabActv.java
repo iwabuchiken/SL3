@@ -1094,7 +1094,14 @@ public class TabActv extends TabActivity
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
 		
+		////////////////////////////////
+
+		// listeners
+
+		////////////////////////////////
 		_Setup_Listeners();
+		
+		_Setup_Listeners_Navigations();
 		
 		// Log
 		msg_Log = "listeners => set";
@@ -1130,6 +1137,37 @@ public class TabActv extends TabActivity
 //		test_B32_v_1_2();
 
 	}//onStart
+
+	private void 
+	_Setup_Listeners_Navigations() {
+		// TODO Auto-generated method stub
+		/***************************************
+		 * IB: Top
+		 ***************************************/
+		ImageButton ib_Top = (ImageButton) findViewById(R.id.itemlist_tab1_ib_top);
+		
+//		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+		ib_Top.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_TOP);
+		
+		ib_Top.setOnClickListener(new BO_CL(this));
+//		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
+		
+		ib_Top.setOnTouchListener(new BO_TL(this));
+
+		/***************************************
+		 * IB: Bottom
+		 ***************************************/
+		ImageButton ib_Bottom = (ImageButton) findViewById(R.id.itemlist_tab1_ib_bottom);
+		
+//		ib_tab1Choose.setTag(Tags.ButtonTags.itemlist_tabs_bt_choose);
+		ib_Bottom.setTag(Tags.ButtonTags.ITEMLIST_TABS_IB_BOTTOM);
+		
+		ib_Bottom.setOnClickListener(new BO_CL(this));
+//		ib_tab1Choose.setOnClickListener(new ButtonOnClickListener(this));
+		
+		ib_Bottom.setOnTouchListener(new BO_TL(this));
+		
+	}//_Setup_Listeners_Navigations
 
 	private void 
 	do_test() {
