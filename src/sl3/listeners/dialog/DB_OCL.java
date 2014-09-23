@@ -439,10 +439,108 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_edit_items_bt_ok
 			
+		case ACTV_TAB_SEARCH_OK://------------------------------------------
+			
+			case_ACTV_TAB_SEARCH_OK();
+			
+			break;// case dlg_edit_items_bt_ok
+			
 		default:
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_ACTV_TAB_SEARCH_OK() {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// validate: any input
+
+		////////////////////////////////
+		EditText et = (EditText) d1.findViewById(R.id.dlg_search_items_et_yomi);
+		
+		String yomi = et.getText().toString();
+		
+		if (yomi == null || yomi.equals("")) {
+			
+			Methods_dlg.dlg_IsEmpty(actv, d1);
+			
+			return;
+				
+		}
+		
+		////////////////////////////////
+
+		// get inputs
+
+		////////////////////////////////
+		// Log
+		String msg_Log = "inputs are... => " + yomi;
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// spinner
+
+		////////////////////////////////
+		Spinner sp = (Spinner) d1.findViewById(R.id.dlg_search_items_sp_store);
+		
+		String store = (String) sp.getSelectedItem();
+		
+		// Log
+		msg_Log = "store is => " + store;
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// call method
+
+		////////////////////////////////
+		int res = Methods.search_Items(actv, d1, store, yomi);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+
+//		-1 table doesn't exist
+//		-2 Drop table => Failed
+//		1 Table dropped
+		
+		switch(res) {
+
+		case -1: 
+			
+			msg = "Can't build list";
+			colorID = R.color.red;
+			
+			break;
+		
+		default: 
+			
+			msg = "Unknown result => " + res;
+			colorID = R.color.gold2;
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
+
+		
+	}//case_ACTV_TAB_SEARCH_OK
 
 	private void 
 	case_ACTV_TAB_OPT_INSERT_NUM_SI() {

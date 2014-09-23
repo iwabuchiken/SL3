@@ -162,6 +162,13 @@ public class TCL implements OnTabChangeListener {
 //				);
 		
 		list_MIs.add(new MI.Builder()
+					.setId_Item(R.id.actv_tab_1_search)
+					.setId_Title(R.string.commons_lbl_search)
+					.setId_Icon(R.drawable.general_ib_ball_yellow_48x48)
+					.build()
+				);
+		
+		list_MIs.add(new MI.Builder()
 					.setId_Item(R.id.actv_tab_1_clear_selections)
 					.setId_Title(R.string.menu_listitem_tabToBuy_clear_selections)
 					.setId_Icon(R.drawable.sl_basket_empty_35x35)

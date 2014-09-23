@@ -1,5 +1,6 @@
 package sl3.utils;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -539,8 +540,10 @@ public class Methods_dlg {
 		btn_cancel.setTag(cancelTag);
 		
 		//
-		btn_ok.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg));
-		btn_cancel.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg));
+		btn_ok.setOnTouchListener(new DB_OTL(actv, dlg));
+		btn_cancel.setOnTouchListener(new DB_OTL(actv, dlg));
+//		btn_ok.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg));
+//		btn_cancel.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg));
 		
 		/*----------------------------
 		* 3. Add listeners => OnClick
@@ -3656,5 +3659,45 @@ public class Methods_dlg {
 		d1.show();
 		
 	}//dlg_TabActv_SearchItems
+
+	public static void 
+	dlg_IsEmpty
+	(Activity actv, Dialog d1) {
+
+		Dialog d2 = new Dialog(actv);
+		
+		//
+		d2.setContentView(R.layout.dlg_input_empty);
+		
+		// Title
+		d2.setTitle(R.string.generic_notice);
+		
+		/*----------------------------
+		 * 2. Add listeners => OnTouch
+			----------------------------*/
+		//
+		Button btn_ok = (Button) d2.findViewById(R.id.dlg_input_empty_btn_ok);
+//		Button btn_cancel = (Button) dlg2.findViewById(R.id.dlg_input_empty_btn_cancel);
+		
+		//
+//		btn_ok.setTag(DialogTags.dlg_input_empty_reenter);
+		btn_ok.setTag(DialogTags.GENERIC_DISMISS_SECOND_DIALOG);
+//		btn_cancel.setTag(DialogTags.dlg_input_empty_cancel);
+		
+		//
+		btn_ok.setOnTouchListener(new DB_OTL(actv, d1,d2));
+//		btn_cancel.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg2));
+		
+		/*----------------------------
+		 * 3. Add listeners => OnClick
+			----------------------------*/
+		//
+		btn_ok.setOnClickListener(new DB_OCL(actv, d1, d2));
+//		btn_cancel.setOnClickListener(new DialogButtonOnClickListener(actv, dlg, dlg2));
+		
+		//
+		d2.show();
+		
+	}//dlg_IsEmpty
 
 }//public class Methods_dlg

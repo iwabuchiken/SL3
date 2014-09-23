@@ -54,8 +54,8 @@
     <string name="dlg_register_store_message">店舗の名前をどうぞ</string>
     <string name="dlg_register_store_title">店舗登録</string>
     
-    <string name="dlg_input_empty_title">注意！</string>
-    <string name="dlg_input_empty_message">入力がありません</string>
+    <string name="dlg_input_empty_title">Notice</string>
+    <string name="dlg_input_empty_message">No input</string>
     <string name="dlg_input_empty_reenter">もう一度入力</string>
     <string name="dlg_input_empty_cancel">取りやめ</string>
     

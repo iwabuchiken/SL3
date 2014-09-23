@@ -152,23 +152,23 @@ public class Methods {
 		 * 2. Add listeners => OnTouch
 			----------------------------*/
 		//
-		Button btn_ok = (Button) dlg_new.findViewById(R.id.dlg_input_empty_btn_reenter);
-		Button btn_cancel = (Button) dlg_new.findViewById(R.id.dlg_input_empty_btn_cancel);
+		Button btn_ok = (Button) dlg_new.findViewById(R.id.dlg_input_empty_btn_ok);
+//		Button btn_cancel = (Button) dlg_new.findViewById(R.id.dlg_input_empty_btn_cancel);
 		
 		//
 		btn_ok.setTag(Tags.DialogTags.dlg_input_empty_btn_reenter);
-		btn_cancel.setTag(Tags.DialogTags.dlg_input_empty_btn_cancel);
+//		btn_cancel.setTag(Tags.DialogTags.dlg_input_empty_btn_cancel);
 		
 		//
 		btn_ok.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg_new));
-		btn_cancel.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg_new));
+//		btn_cancel.setOnTouchListener(new DialogButtonOnTouchListener(actv, dlg_new));
 		
 		/*----------------------------
 		 * 3. Add listeners => OnClick
 			----------------------------*/
 		//
 		btn_ok.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
-		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
+//		btn_cancel.setOnClickListener(new DB_OCL(actv, dlg, dlg_new));
 		
 		//
 		dlg_new.show();
@@ -5823,5 +5823,42 @@ public class Methods {
 		}//if (pref_ToBuyIds != null)
 		
 	}//_restore_ItemIds__ToBuyIds
-	
+
+	/******************************
+		@return
+			-1 Can't build list<br>
+	 ******************************/
+	public static int 
+	search_Items
+	(Activity actv, Dialog d1, String store, String yomi) {
+		// TODO Auto-generated method stub
+		
+		List<SI> list_Found = DBUtils.search_Items(actv, store, yomi);
+		
+		////////////////////////////////
+
+		// validate: list obtained?
+
+		////////////////////////////////
+		if (list_Found == null) {
+			
+//			String message = "Can't build list";
+//			int colorID = R.color.red;
+//			
+//			Methods_dlg.dlg_ShowMessage_SecondDialog(actv, d1, message, colorID);
+			
+			return -1;
+			
+		}
+
+		// Log
+		String msg_Log = "list_Found.size() => " + list_Found.size();
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return 0;
+		
+	}//search_Items
+
 }//public class Methods
