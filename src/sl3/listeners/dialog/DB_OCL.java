@@ -525,6 +525,15 @@ DB_OCL implements OnClickListener {
 			
 			break;
 		
+		case 1: 
+			
+			msg = "items found";
+			colorID = R.color.green4;
+		
+			d1.dismiss();
+			
+			break;
+			
 		default: 
 			
 			msg = "Unknown result => " + res;

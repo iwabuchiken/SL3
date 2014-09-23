@@ -618,7 +618,25 @@ public class LOI_CL implements OnItemClickListener {
 		/***************************************
 		 * Notify adapter
 		 ***************************************/
-		CONS.TabActv.adpItems.notifyDataSetChanged();
+		if (CONS.TabActv.adpItems != null) {
+			
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			
+		} else {
+			
+			// Log
+			String msg_Log = "CONS.TabActv.adpItems => null";
+			Log.e("LOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		if (CONS.TabActv.adpItems_Found != null) {
+			
+			CONS.TabActv.adpItems_Found.notifyDataSetChanged();
+			
+		}
 		
 	}//private void tab_itemList(AdapterView<?> parent, int position)
 

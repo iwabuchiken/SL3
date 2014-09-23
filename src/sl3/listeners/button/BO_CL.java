@@ -545,7 +545,27 @@ public class BO_CL implements OnClickListener {
 		 * Notify adapter: adpItems
 		 * 	=> The background of the items go green 
 		 ***************************************/
-		CONS.TabActv.adpItems.notifyDataSetChanged();
+//		CONS.TabActv.adpItems.notifyDataSetChanged();
+		if (CONS.TabActv.adpItems != null) {
+			
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			
+		} else {
+			
+			// Log
+			String msg_Log = "CONS.TabActv.adpItems => null";
+			Log.e("LOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		if (CONS.TabActv.adpItems_Found != null) {
+			
+			CONS.TabActv.adpItems_Found.notifyDataSetChanged();
+			
+		}
+
 		
 		/***************************************
 		 * Update: toBuyList

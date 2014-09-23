@@ -600,6 +600,8 @@ public class CONS {
 		public static ItemListAdapter2 adpItems;
 		public static ToBuyListAdapter adpToBuys;
 		
+		public static ItemListAdapter2 adpItems_Found;
+		
 		/***************************************
 		 * List: ShoppingItem
 		 ***************************************/

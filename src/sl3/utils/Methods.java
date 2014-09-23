@@ -37,6 +37,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import sl.main.ItemListActv;
+import sl3.adapters.ItemListAdapter2;
 import sl3.items.Genre;
 import sl3.items.PS;
 import sl3.items.SI;
@@ -5827,6 +5828,7 @@ public class Methods {
 	/******************************
 		@return
 			-1 Can't build list<br>
+			1 list set to adapter<br>
 	 ******************************/
 	public static int 
 	search_Items
@@ -5857,7 +5859,21 @@ public class Methods {
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
 		
-		return 0;
+		////////////////////////////////
+
+		// set list
+
+		////////////////////////////////
+		CONS.TabActv.adpItems_Found = new ItemListAdapter2(
+				actv,
+				R.layout.adapteritem,
+				list_Found
+				);
+		
+//		CONS.TabActv.lvTab1.setAdapter(adpTab1);
+		CONS.TabActv.lvTab1.setAdapter(CONS.TabActv.adpItems_Found);
+		
+		return 1;
 		
 	}//search_Items
 
