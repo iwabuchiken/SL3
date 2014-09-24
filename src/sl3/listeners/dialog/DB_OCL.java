@@ -714,6 +714,8 @@ DB_OCL implements OnClickListener {
 		Spinner spStoreName = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_store);
 		Spinner spGenre = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_genre);
 		
+		EditText etNum = (EditText) d2.findViewById(R.id.dlg_edit_items_et_num);
+		
 		// Log
 		Log.d("[" + "DB_OCL.java : "
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
@@ -738,6 +740,9 @@ DB_OCL implements OnClickListener {
 					.setYomi(etYomi.getText().toString())
 					.setPrice(Integer.parseInt(etPrice.getText().toString()))
 					.setGenre(spGenre.getSelectedItem().toString())
+					
+					.setNum(Integer.parseInt(etNum.getText().toString()))
+					
 					.build();
 		
 		
@@ -798,6 +803,19 @@ DB_OCL implements OnClickListener {
 		
 			d2.dismiss();
 			d1.dismiss();
+			
+			////////////////////////////////
+
+			// notify
+
+			////////////////////////////////
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			
+			if (CONS.TabActv.adpItems_Found != null) {
+				
+				CONS.TabActv.adpItems_Found.notifyDataSetChanged();
+				
+			}
 			
 			break;
 			
