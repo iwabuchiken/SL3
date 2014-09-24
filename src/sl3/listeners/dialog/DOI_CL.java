@@ -246,12 +246,41 @@ public class DOI_CL implements OnItemClickListener {
 			case_ACTV_TAB_OPT_DB(li);
 			
 			break;// case dlg_sort_list_lv
+
+		case TAB1_LONG_CLICK://----------------------------
+			
+			li = (ListItem) parent.getItemAtPosition(position);
+			
+			case_TAB1_LONG_CLICK(li);
 			
 		default:
 			break;
 		}//switch (tag)
 			
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+	
+	private void 
+	case_TAB1_LONG_CLICK
+	(ListItem li) {
+//		(AdapterView<?> parent, int position) {
+		// TODO Auto-generated method stub
+//		String choice = (String) parent.getItemAtPosition(position);
+
+		if (li.getText().equals(actv.getString(
+						R.string.dlg_item_list_long_click_edit))) {
+			
+			Methods_dlg.dlg_Tab1_Edit_Item(actv, si, d1);
+			
+		} else if (li.getText().equals(actv.getString(
+						R.string.dlg_item_list_long_click_delete))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+//			Methods_dlg.dlg_tab1_delete_item(actv, si, dlg);
+			
+		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+		}//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+		
+	}//private void case_tab1_long_click(AdapterView<?> parent, int position) {
 
 	private void 
 	case_ACTV_TAB_OPT_DB
@@ -611,7 +640,7 @@ public class DOI_CL implements OnItemClickListener {
 		if (choice.equals(actv.getString(
 				R.string.dlg_item_list_long_click_edit))) {
 			
-			Methods_dlg.dlg_tab1_edit_item(actv, si, d1);
+			Methods_dlg.dlg_Tab1_Edit_Item(actv, si, d1);
 			
 			
 		} else if (choice.equals(actv.getString(

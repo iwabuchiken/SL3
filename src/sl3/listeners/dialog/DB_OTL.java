@@ -100,6 +100,8 @@ public class DB_OTL implements OnTouchListener {
 			case ACTV_TAB_OPT_RESTORE_DB:
 			case ACTV_TAB_SEARCH_OK:
 				
+			case DLG_EDIT_ITEMS_BT_OK:
+				
 				//
 				v.setBackgroundColor(Color.GRAY);
 				
@@ -134,6 +136,8 @@ public class DB_OTL implements OnTouchListener {
 				
 			case ACTV_TAB_OPT_RESTORE_DB:
 			case ACTV_TAB_SEARCH_OK:
+				
+			case DLG_EDIT_ITEMS_BT_OK:
 
 				v.setBackgroundColor(Color.WHITE);
 				

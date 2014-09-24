@@ -3314,6 +3314,44 @@ public class DBUtils extends SQLiteOpenHelper {
 	}//_insert_SIs__ContentValues
 	
 	private static ContentValues 
+	_update_SIs_All__CV
+	(SI si) {
+		// TODO Auto-generated method stub
+		
+		ContentValues val = new ContentValues();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
+		
+		val.put(CONS.DB.col_Names_SI_full[2], 
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		val.put(CONS.DB.col_Names_SI_full[3], si.getStore());
+		
+		val.put(CONS.DB.col_Names_SI_full[4], si.getName());
+		
+		val.put(CONS.DB.col_Names_SI_full[5], si.getPrice());
+		
+		val.put(CONS.DB.col_Names_SI_full[6], si.getGenre());
+		
+		val.put(CONS.DB.col_Names_SI_full[7], si.getYomi());
+		
+		val.put(CONS.DB.col_Names_SI_full[8], si.getNum());
+		
+		val.put(CONS.DB.col_Names_SI_full[9], si.getPosted_at());
+		
+//		val.put(CONS.DB.col_Names_SI_full[8], CONS.Admin.dflt_SI_Num);
+		
+		return val;
+		
+	}//_update_SIs_All__CV
+	
+	private static ContentValues 
 	_insert_Stores__ContentValues
 	(Store si) {
 		// TODO Auto-generated method stub
@@ -3496,6 +3534,234 @@ public class DBUtils extends SQLiteOpenHelper {
 		return counter;		
 	}//update_SIs
 
+	/******************************
+		@return -1 => Table doesn't exist<br>
+	 ******************************/
+	public static int 
+	update_SIs_All
+	(Activity actv, List<SI> list_SIs) {
+		// TODO Auto-generated method stub
+		
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+		String tname = CONS.DB.tname_si;
+		
+		////////////////////////////////
+		
+		// validate: table exists
+		
+		////////////////////////////////
+		if (!DBUtils.tableExists(
+				actv, CONS.DB.dbName, tname)) {
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Table doesn't exist => " + tname);
+			
+			return -1;
+			
+		}//if (!tableExists(SQLiteDatabase db, String tableName))
+		
+		////////////////////////////////
+		
+		// Iteration
+		
+		////////////////////////////////
+		int counter = 0;
+		
+		ContentValues val = null;
+		//	
+		String where = null;
+		String[] args = null;
+		
+		for (SI si : list_SIs) {
+			
+			////////////////////////////////
+			
+			// prep: content values
+			
+			////////////////////////////////
+			val = _update_SIs_All__CV(si);
+			
+			where = CONS.DB.col_Names_SI_full[0] + " = ?";
+			
+			args = new String[]{String.valueOf(si.getId())};
+			
+			try {
+				// Start transaction
+				wdb.beginTransaction();
+				
+				long res = wdb.update(CONS.DB.tname_si, val, where, args);
+				
+				if (res == -1) {
+					
+					// Log
+					String msg_Log = "insertion => failed: " + si.getName();
+					Log.e("DBUtils.java"
+							+ "["
+							+ Thread.currentThread().getStackTrace()[2]
+									.getLineNumber() + "]", msg_Log);
+					
+				} else {
+					
+					counter += 1;
+					
+					// Set as successful
+					wdb.setTransactionSuccessful();
+					
+				}
+				
+				// End transaction
+				wdb.endTransaction();
+				
+			} catch (Exception e) {
+				
+				// Log
+				String msg_Log = String.format(
+						"Exception(%s) => %s", 
+						si.getName(), e.toString());
+				Log.e("DBUtils.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+			}//try
+			
+		}//for (String pattern : patterns_List)
+		
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		wdb.close();
+		
+		////////////////////////////////
+		
+		// return
+		
+		////////////////////////////////
+		return counter;		
+		
+	}//update_SIs_All
+	
+	/******************************
+		@return 
+			-1 => Table doesn't exist<br>
+			-2 => insertion => failed<br>
+			-3 => update => Exception<br>
+			1 => update => done<br>
+	 ******************************/
+	public static int 
+	update_SI_All
+	(Activity actv, SI si) {
+		// TODO Auto-generated method stub
+		
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+		String tname = CONS.DB.tname_si;
+		
+		////////////////////////////////
+		
+		// validate: table exists
+		
+		////////////////////////////////
+		if (!DBUtils.tableExists(
+				actv, CONS.DB.dbName, tname)) {
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Table doesn't exist => " + tname);
+			
+			return -1;
+			
+		}//if (!tableExists(SQLiteDatabase db, String tableName))
+		
+		////////////////////////////////
+		
+		// Iteration
+		
+		////////////////////////////////
+		ContentValues val = null;
+		//	
+		String where = null;
+		String[] args = null;
+		
+		////////////////////////////////
+		
+		// prep: content values
+		
+		////////////////////////////////
+		val = _update_SIs_All__CV(si);
+		
+		where = CONS.DB.col_Names_SI_full[0] + " = ?";
+		
+		args = new String[]{String.valueOf(si.getId())};
+		
+		try {
+			// Start transaction
+			wdb.beginTransaction();
+			
+			long res = wdb.update(CONS.DB.tname_si, val, where, args);
+			
+			if (res == -1) {
+				
+				// Log
+				String msg_Log = "insertion => failed: " + si.getName();
+				Log.e("DBUtils.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+			
+				wdb.close();
+				
+				return -2;
+				
+			} else {
+				
+				// Set as successful
+				wdb.setTransactionSuccessful();
+				
+			}
+			
+			// End transaction
+			wdb.endTransaction();
+			
+		} catch (Exception e) {
+			
+			// Log
+			String msg_Log = String.format(
+					"Exception(%s) => %s", 
+					si.getName(), e.toString());
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			wdb.close();
+			
+			return -3;
+			
+		}//try
+		
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		wdb.close();
+		
+		////////////////////////////////
+		
+		// return
+		
+		////////////////////////////////
+		return 1;		
+		
+	}//update_SI_All
+	
 	/******************************
 		@return
 			null

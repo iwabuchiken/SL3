@@ -12,10 +12,8 @@
 		<TableRow >
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_store"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
+	            style="@style/tv_basic_1" 
 	            android:text="@string/v1_tv_store"
-	            android:textSize="25sp" 
 	            />
 	
 	        <Spinner
@@ -33,10 +31,9 @@
 		<TableRow >
 			<TextView
 	            android:id="@+id/dlg_edit_items_tv_name"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
+	            style="@style/tv_basic_1" 
 	            android:text="@string/v1_tv_item"
-	            android:textSize="25sp" />
+	            />
 	
 	        <EditText
 	            android:id="@+id/dlg_edit_items_et_name"
@@ -53,10 +50,9 @@
 		<TableRow >	
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_yomi"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
+	            style="@style/tv_basic_1" 
 	            android:text="@string/v1_tv_yomi"
-	            android:textSize="25sp" />
+	            />
 	
 	        <EditText
 	            android:id="@+id/dlg_edit_items_et_yomi"
@@ -73,10 +69,9 @@
 	    <TableRow >	
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_price"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
+	            style="@style/tv_basic_1" 
 	            android:text="@string/v1_tv_price"
-	            android:textSize="25sp" />
+	            />
 	
 	        <EditText
 	            android:id="@+id/dlg_edit_items_et_price"
@@ -90,25 +85,42 @@
 	            />
 	    </TableRow>
 
-	    <TableRow >	
+	    <TableRow>
+
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_genre"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="@string/v1_tv_genre"
-	            android:textSize="25sp" />
-	
-			<Spinner
+	            style="@style/tv_basic_1"
+	            android:text="@string/v1_tv_genre" />
+
+	        <Spinner
 	            android:id="@+id/dlg_edit_items_sp_genre"
-	            
 	            android:layout_width="0dip"
 	            android:layout_height="wrap_content"
-	            
-	            android:textSize="25sp"
-	            
-	            android:layout_weight="1" 
-	            />
-	
+	            android:layout_weight="1"
+	            android:textSize="25sp" />
+	    </TableRow>
+
+	    <TableRow
+	        android:id="@+id/tableRow1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" >
+
+	        <TextView
+	            android:id="@+id/dlg_edit_items_tv_num"
+	            style="@style/tv_basic_1"
+	            android:text="@string/v1_tv_num" />
+
+	        <EditText
+	            android:id="@+id/dlg_edit_items_et_num"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:ems="10"
+	            android:textSize="25sp" >
+
+	            <requestFocus />
+	        </EditText>
+
 	    </TableRow>
     </TableLayout>
 

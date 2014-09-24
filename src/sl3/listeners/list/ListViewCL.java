@@ -7,6 +7,7 @@ import java.util.Comparator;
 import org.apache.commons.lang.StringUtils;
 
 import sl.main.MainActv;
+import sl3.items.ListItem;
 import sl3.items.SI;
 import sl3.main.R;
 import sl3.tasks.Task_GetYomi;
@@ -78,6 +79,8 @@ public class ListViewCL implements OnItemClickListener {
 		 *********************************/
 		Tags.ListViewTags tag = (Tags.ListViewTags) parent.getTag();
 		
+		ListItem li;
+		
 		// Log
 		Log.d("[" + "DOICL_2.java : "
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
@@ -96,7 +99,9 @@ public class ListViewCL implements OnItemClickListener {
 			
 			case TAB1_LONG_CLICK:
 				
-				case_tab1_long_click(parent, position);
+				li = (ListItem) parent.getItemAtPosition(position);
+				
+				case_TAB1_LONG_CLICK(li);
 			
 			default:
 				break;
@@ -108,19 +113,22 @@ public class ListViewCL implements OnItemClickListener {
 		
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 
-	private void case_tab1_long_click(AdapterView<?> parent, int position) {
+	private void 
+	case_TAB1_LONG_CLICK
+	(ListItem li) {
+//		(AdapterView<?> parent, int position) {
 		// TODO Auto-generated method stub
-		String choice = (String) parent.getItemAtPosition(position);
+//		String choice = (String) parent.getItemAtPosition(position);
 
-		if (choice.equals(actv.getString(
+		if (li.getText().equals(actv.getString(
 						R.string.dlg_item_list_long_click_edit))) {
 			
-			Methods_dlg.dlg_tab1_edit_item(actv, si, dlg);
+			Methods_dlg.dlg_Tab1_Edit_Item(actv, si, dlg);
 			
-		} else if (choice.equals(actv.getString(
+		} else if (li.getText().equals(actv.getString(
 						R.string.dlg_item_list_long_click_delete))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
 			
-			Methods_dlg.dlg_tab1_delete_item(actv, si, dlg);
+//			Methods_dlg.dlg_tab1_delete_item(actv, si, dlg);
 			
 		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
 			

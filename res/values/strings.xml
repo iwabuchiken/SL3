@@ -41,6 +41,8 @@
 	    <string name="v1_tv_price">価格</string>
 	    <string name="v1_tv_genre">ジャンル</string>
 	    <string name="v1_tv_yomi">Yomi</string>
+	    <string name="v1_tv_num">Num</string>
+	    
 	    <string name="v1_btn_register">Register</string>
     
     <string name="v1_menu_item_list">品物リスト</string>

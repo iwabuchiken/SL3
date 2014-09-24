@@ -1445,14 +1445,14 @@ public class Methods_dlg {
 	}//public static void dlg_SortList(Activity actv)
 
 	public static void
-	dlg_tab1_edit_item
+	dlg_Tab1_Edit_Item
 	(Activity actv, SI si, Dialog dlg1) {
 
 		/***************************************
 		 * Dialog
 		 ***************************************/
 //		Dialog dlg2 = Methods_dlg.dlg_template_okCancel(
-		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues_SI(
+		Dialog d2 = Methods_dlg.dlg_template_okCancel_2Dialogues_SI(
 						actv,
 						R.layout.dlg_edit_items,
 						R.string.dlg_edit_items_title,
@@ -1460,8 +1460,8 @@ public class Methods_dlg {
 						R.id.dlg_edit_items_btn_ok,
 						R.id.dlg_edit_items_btn_cancel,
 						
-						Tags.DialogTags.dlg_edit_items_bt_ok,
-//						Tags.DialogTags.dlg_generic_cancel,
+//						Tags.DialogTags.dlg_edit_items_bt_ok,
+						Tags.DialogTags.DLG_EDIT_ITEMS_BT_OK,
 						Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 						
 						dlg1,
@@ -1470,10 +1470,10 @@ public class Methods_dlg {
 		/***************************************
 		 * Set store name
 		 ***************************************/
-		case_tab_itemList__setStoreName(si, dlg2, actv);
+		case_tab_itemList__setStoreName(si, d2, actv);
 		
 		// Log
-		Log.d("ListOnItemLongClickListener.java" + "["
+		Log.d("Methods_dlg.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1482,10 +1482,10 @@ public class Methods_dlg {
 		/***************************************
 		 * Set: Item name
 		 ***************************************/
-		case_tab_itemList__setItemNameAndYomi(si, dlg2);
+		case_tab_itemList__setItemNameAndYomi(si, d2);
 		
 		// Log
-		Log.d("ListOnItemLongClickListener.java" + "["
+		Log.d("Methods_dlg.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1494,14 +1494,49 @@ public class Methods_dlg {
 		/***************************************
 		 * Set: Price and genre
 		 ***************************************/
-		case_tab_itemList__setPrice(si, dlg2);
+		case_tab_itemList__setPrice(si, d2);
 
 		/***************************************
 		 * Set: Genre
 		 ***************************************/
-		case_tab_itemList__setGenre(actv, si, dlg2);
+		case_tab_itemList__setGenre(actv, si, d2);
 
-		dlg2.show();
+		////////////////////////////////
+
+		// set: num
+
+		////////////////////////////////
+		// Log
+		String msg_Log = "si.getNum() => " + si.getNum();
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		EditText et_Num = (EditText) d2.findViewById(R.id.dlg_edit_items_et_num);
+		
+		if (et_Num != null) {
+			
+			et_Num.setText(String.valueOf(si.getNum()));
+//			et_Num.setText(si.getNum());
+			
+			et_Num.setSelection(String.valueOf(si.getNum()).length());
+			
+		} else {
+			
+			// Log
+			msg_Log = "et_Num => null";
+			Log.e("Methods_dlg.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+
+		}
+
+		////////////////////////////////
+
+		// show
+
+		////////////////////////////////
+		d2.show();
 		
 	}//dlg_tab1_edit_item(AdapterView<?> parent, int position)
 
@@ -1535,34 +1570,35 @@ public class Methods_dlg {
 		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
 		Spinner sp_store_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_store);
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-	              actv, android.R.layout.simple_spinner_item);
+		ArrayAdapter<String> adapter = Methods.get_Adp_List_Store(actv);
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//	              actv, android.R.layout.simple_spinner_item);
 
-		/***************************************
-		 * Get store names from db
-		 ***************************************/
-		DBUtils dbm = new DBUtils(actv);
-		
-		SQLiteDatabase db = dbm.getReadableDatabase();
-		
-		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
-		
-		// Log
-		Log.d("ListOnItemLongClickListener.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-		
-		c.moveToFirst();
-		
-		// Log
-		for (int i = 0; i < c.getCount(); i++) {
-
-			adapter.add(c.getString(1));
-
-			c.moveToNext();
-			
-		}//for (int i = 0; i < c.getCount(); i++)
-		
+//		/***************************************
+//		 * Get store names from db
+//		 ***************************************/
+//		DBUtils dbm = new DBUtils(actv);
+//		
+//		SQLiteDatabase db = dbm.getReadableDatabase();
+//		
+//		Cursor c = dbm.getAllData(db, "stores", CONS.DB.columns_for_table_stores_with_index);
+//		
+//		// Log
+//		Log.d("Methods_dlg.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", "c.getCount()" + c.getCount());
+//		
+//		c.moveToFirst();
+//		
+//		// Log
+//		for (int i = 0; i < c.getCount(); i++) {
+//
+//			adapter.add(c.getString(1));
+//
+//			c.moveToNext();
+//			
+//		}//for (int i = 0; i < c.getCount(); i++)
+//		
 		
 		/*----------------------------
 		 * 3-1. setDropDownViewResource
@@ -1570,10 +1606,10 @@ public class Methods_dlg {
 		adapter.setDropDownViewResource(
 						android.R.layout.simple_spinner_dropdown_item);
 		
-		/*----------------------------
-		 * 3-2. Close db
-			----------------------------*/
-		db.close();
+//		/*----------------------------
+//		 * 3-2. Close db
+//			----------------------------*/
+//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
@@ -1595,7 +1631,7 @@ public class Methods_dlg {
 			String storeName = adapter.getItem(i);
 			
 			// Log
-			Log.d("ListOnItemLongClickListener.java" + "["
+			Log.d("Methods_dlg.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1609,7 +1645,7 @@ public class Methods_dlg {
 			if (si.getStore().equals(storeName)) {
 				
 				// Log
-				Log.d("ListOnItemLongClickListener.java"
+				Log.d("Methods_dlg.java"
 						+ "["
 						+ Thread.currentThread().getStackTrace()[2]
 								.getLineNumber()
@@ -1636,32 +1672,34 @@ public class Methods_dlg {
 		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
 		Spinner sp_genre_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_genre);
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-	              actv, android.R.layout.simple_spinner_item);
+		ArrayAdapter<String> adapter = Methods.get_Adp_List_Genre(actv);
+				
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//	              actv, android.R.layout.simple_spinner_item);
+////
+//		/*----------------------------
+//		 * 2. Get genre names from db
+//			----------------------------*/
+//		DBUtils dbm = new DBUtils(actv);
+//		
+//		SQLiteDatabase db = dbm.getReadableDatabase();
+//		
+//		Cursor c = dbm.getAllData(db, "genres", CONS.DB.columns_for_table_genres_with_index);
+//		
+//		// Log
+//		Log.d("RegisterItem.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", "c.getCount()" + c.getCount());
+//		
+//		c.moveToFirst();
+//		
+//		// Log
+//		for (int i = 0; i < c.getCount(); i++) {
 //
-		/*----------------------------
-		 * 2. Get genre names from db
-			----------------------------*/
-		DBUtils dbm = new DBUtils(actv);
-		
-		SQLiteDatabase db = dbm.getReadableDatabase();
-		
-		Cursor c = dbm.getAllData(db, "genres", CONS.DB.columns_for_table_genres_with_index);
-		
-		// Log
-		Log.d("RegisterItem.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", "c.getCount()" + c.getCount());
-		
-		c.moveToFirst();
-		
-		// Log
-		for (int i = 0; i < c.getCount(); i++) {
-
-			adapter.add(c.getString(1));
-
-			c.moveToNext();
-		}//for (int i = 0; i < c.getCount(); i++)
+//			adapter.add(c.getString(1));
+//
+//			c.moveToNext();
+//		}//for (int i = 0; i < c.getCount(); i++)
 		
 		
 		/*----------------------------
@@ -1670,10 +1708,10 @@ public class Methods_dlg {
 		adapter.setDropDownViewResource(
 						android.R.layout.simple_spinner_dropdown_item);
 		
-		/*----------------------------
-		 * 3-2. Close db
-			----------------------------*/
-		db.close();
+//		/*----------------------------
+//		 * 3-2. Close db
+//			----------------------------*/
+//		db.close();
 		
 		/*----------------------------
 		 * 4. Set adapter to spinner
@@ -1690,7 +1728,7 @@ public class Methods_dlg {
 			String genreName = adapter.getItem(i);
 			
 			// Log
-			Log.d("ListOnItemLongClickListener.java" + "["
+			Log.d("Methods_dlg.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ ":"
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1704,7 +1742,7 @@ public class Methods_dlg {
 			if (si.getGenre().equals(genreName)) {
 				
 				// Log
-				Log.d("ListOnItemLongClickListener.java"
+				Log.d("Methods_dlg.java"
 						+ "["
 						+ Thread.currentThread().getStackTrace()[2]
 								.getLineNumber()
@@ -3782,13 +3820,14 @@ public class Methods_dlg {
 		 * Set: tag
 		 *********************************/
 //		lv.setTag(Tags.ListViewTags.tab1_long_click);
-		lv.setTag(Tags.ListViewTags.TAB1_LONG_CLICK);
+		lv.setTag(Tags.DialogTags.TAB1_LONG_CLICK);
+//		lv.setTag(Tags.ListViewTags.TAB1_LONG_CLICK);
 
 		/*----------------------------
 		 * 3. Set listener => list
 			----------------------------*/
 		lv.setOnItemClickListener(
-				new ListViewCL(
+				new DOI_CL(
 						actv, 
 						d1, 
 //						Tags.DialogTags.dlg_item_list_long_click,

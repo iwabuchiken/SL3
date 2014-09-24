@@ -410,9 +410,9 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_confirm_delete_ps_item_bt_ok
 			
-		case dlg_edit_items_bt_ok://------------------------------------------
+		case DLG_EDIT_ITEMS_BT_OK://------------------------------------------
 			
-			case_dlg_edit_items_bt_ok();
+			case_DLG_EDIT_ITEMS_BT_OK();
 			
 			break;// case dlg_edit_items_bt_ok
 			
@@ -703,7 +703,7 @@ DB_OCL implements OnClickListener {
 		
 	}//case_ACTV_TAB_OPT_DROP_TABLE_SI
 
-	private void case_dlg_edit_items_bt_ok() {
+	private void case_DLG_EDIT_ITEMS_BT_OK() {
 		/***************************************
 		 * Get views
 		 ***************************************/
@@ -721,61 +721,132 @@ DB_OCL implements OnClickListener {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "spStoreName => " + spStoreName.toString());
 		
+		// Log
+		String msg_Log = "etYomi => " + etYomi.getText().toString();
+		Log.d("DB_OCL.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		/***************************************
 		 * Build a new si
 		 ***************************************/
-		SI newSI = new SI();
+		SI newSI = new SI.Builder()
+					
+					.setDb_id(si.getId())
+					.setStore(spStoreName.getSelectedItem().toString())
+					.setName(etItemName.getText().toString())
+					.setYomi(etYomi.getText().toString())
+					.setPrice(Integer.parseInt(etPrice.getText().toString()))
+					.setGenre(spGenre.getSelectedItem().toString())
+					.build();
 		
-		newSI.setId(si.getId());
-		newSI.setStore(spStoreName.getSelectedItem().toString());
-		newSI.setName(etItemName.getText().toString());
-		newSI.setYomi(etYomi.getText().toString());
-		newSI.setPrice(Integer.parseInt(etPrice.getText().toString()));
-		newSI.setGenre(spGenre.getSelectedItem().toString());
 		
 		/***************************************
 		 * Database
 		 ***************************************/
-		DBUtils dbu = new DBUtils(actv);
+//		DBUtils dbu = new DBUtils(actv);
 		
 //		SQLiteDatabase db = dbm.getWritableDatabase();
 		
 //		columns => {"store", "name", "price", "genre", "yomi"};
 //		boolean result = dbm.storeData(
 //		boolean result = dbu.updateData_SI_all(si);
-		boolean result = dbu.updateData_SI_all(newSI);
+//		boolean result = dbu.updateData_SI_all(newSI);
+//		int res = DBUtils.update_SI_All(actv, si);
+		int res = DBUtils.update_SI_All(actv, newSI);
+
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+
+//		-1 => Table doesn't exist
+//		-2 => insertion => failed
+//		-3 => update => Exception
+//		1 => update => done		
 		
-		if (result == true) {
-			// Log
-			Log.d("DB_OCL.java"
-					+ "["
-					+ Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + "]", "Data stored");
-			// debug
-			Toast.makeText(actv, "Data updated", Toast.LENGTH_LONG)
-					.show();
+		switch(res) {
+
+		case -1: 
 			
-			// Close dialogues
-			d1.dismiss();
+			msg = "Table doesn't exist";
+			colorID = R.color.red;
+			
+			break;
+		
+		case -2: 
+			
+			msg = "insertion => failed";
+			colorID = R.color.red;
+			
+			break;
+			
+		case -3: 
+			
+			msg = "update => Exception";
+			colorID = R.color.red;
+			
+			break;
+			
+		case 1: 
+			
+			msg = "update => done";
+			colorID = R.color.green4;
+		
 			d2.dismiss();
-
-			/***************************************
-			 * Update the item list
-			 ***************************************/
-			case_dlg_edit_items_bt_ok__updateItemList(newSI);
+			d1.dismiss();
 			
-		} else {//if (result == true)
+			break;
 			
-			// Log
-			Log.d("DB_OCL.java"
-					+ "["
-					+ Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + "]", "Data update => Failed");
-			// debug
-			Toast.makeText(actv, "Data update => Failed", Toast.LENGTH_LONG)
-					.show();
+		default: 
+			
+			msg = "Unknown result => " + res;
+			colorID = R.color.gold2;
+			
+			break;
+			
+		}
+		
+		Methods_dlg.dlg_ShowMessage(
+				actv, 
+				msg,
+				colorID);
 
-		}//if (result == true)
+		
+//		if (result == true) {
+//			// Log
+//			Log.d("DB_OCL.java"
+//					+ "["
+//					+ Thread.currentThread().getStackTrace()[2]
+//							.getLineNumber() + "]", "Data stored");
+//			// debug
+//			Toast.makeText(actv, "Data updated", Toast.LENGTH_LONG)
+//					.show();
+//			
+//			// Close dialogues
+//			d1.dismiss();
+//			d2.dismiss();
+//
+//			/***************************************
+//			 * Update the item list
+//			 ***************************************/
+//			case_dlg_edit_items_bt_ok__updateItemList(newSI);
+//			
+//		} else {//if (result == true)
+//			
+//			// Log
+//			Log.d("DB_OCL.java"
+//					+ "["
+//					+ Thread.currentThread().getStackTrace()[2]
+//							.getLineNumber() + "]", "Data update => Failed");
+//			// debug
+//			Toast.makeText(actv, "Data update => Failed", Toast.LENGTH_LONG)
+//					.show();
+//
+//		}//if (result == true)
 		
 //		db.close();
 

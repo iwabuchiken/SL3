@@ -60,7 +60,7 @@ public class Tags {
 		dlg_confirm_delete_ps_item_bt_ok,
 		
 		// dlg_edit_items.xml
-		dlg_edit_items_bt_ok,
+		DLG_EDIT_ITEMS_BT_OK,
 		
 		// dlg_sort_list.xml
 		dlg_sort_list_lv,
@@ -91,7 +91,7 @@ public class Tags {
 		ACTV_TAB_OPT_DB, 
 		ACTV_TAB_OPT_INSERT_NUM_SI, 
 		ACTV_TAB_OPT_RESTORE_DB, 
-		ACTV_TAB_OPT_DROP_TABLE_PS, ACTV_TAB_SEARCH_OK,
+		ACTV_TAB_OPT_DROP_TABLE_PS, ACTV_TAB_SEARCH_OK, TAB1_LONG_CLICK,
 		
 	}//public static enum DialogTags
 	
