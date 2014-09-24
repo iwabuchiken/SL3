@@ -113,7 +113,7 @@ public class LOI_CL implements OnItemClickListener {
 		
 		
 		switch (tag) {
-		case tab_itemList:
+		case TAB_ITEM_LIST:
 
 			tab_itemList(parent, position);
 			

@@ -4,7 +4,7 @@ public class Tags {
 
 	public static enum DialogTags {
 		// dlg_generic
-		dlg_generic_cancel, DLG_GENERIC_DISMISS,
+		DLG_GENERIC_CANCEL, DLG_GENERIC_DISMISS,
 		DLG_GENERIC_DISMISS_SECOND_DIALOG,
 		DLG_GENERIC_DISMISS_3RD_DIALOG,
 		
@@ -124,7 +124,7 @@ public class Tags {
 	
 	public static enum ListTags {
 		// TabActv.java
-		tab_itemList, tab_toBuyList,
+		TAB_ITEM_LIST, tab_toBuyList,
 		LOAD_TOBUY_LIST, delete_toBuyList,
 	}
 	
@@ -154,7 +154,7 @@ public class Tags {
 	 * List tags
 	 *********************************/
 	public static enum ListViewTags {
-		tab1_long_click,
+		TAB1_LONG_CLICK,
 	};
 	
 }//public class Tags

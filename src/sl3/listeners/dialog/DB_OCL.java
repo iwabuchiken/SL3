@@ -143,7 +143,7 @@ DB_OCL implements OnClickListener {
 		//
 		switch (tag_name) {
 		
-		case dlg_generic_cancel://------------------------------------------
+		case DLG_GENERIC_CANCEL://------------------------------------------
 			
 			d1.dismiss();
 			

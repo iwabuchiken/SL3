@@ -14,6 +14,7 @@ import sl3.listeners.dialog.DB_OTL;
 import sl3.listeners.dialog.DOI_CL;
 import sl3.listeners.dialog.DialogButtonOnTouchListener;
 import sl3.listeners.list.LOI_CL;
+import sl3.listeners.list.ListViewCL;
 import sl3.main.R;
 import sl3.utils.Tags.DialogButtonTags;
 import sl3.utils.Tags.DialogTags;
@@ -133,8 +134,8 @@ public class Methods_dlg {
 					R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list),
 				actv.getString(
 					R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list),
-				actv.getString(
-					R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list),
+//				actv.getString(
+//					R.string.menu__tabToBuy_admin_db_delete_tobuy_list),
 				actv.getString(
 					R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list),
 				
@@ -3699,5 +3700,103 @@ public class Methods_dlg {
 		d2.show();
 		
 	}//dlg_IsEmpty
+
+	public static void 
+	dlg_Admin_ShoppingItem
+	(Activity actv, SI si) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// setup: d1
+
+		////////////////////////////////
+		String title = actv.getString(R.string.generic_edit);
+//		String title = si.getName() + "/" + si.getStore();
+		
+		Dialog d1 = Methods_dlg.dlg_template_cancel(actv, 
+				R.layout.dlg_register_main, title,
+//				R.id.dlg_register_main_btn_cancel, Tags.DialogTags.dlg_generic_cancel);
+				R.id.dlg_register_main_btn_cancel, Tags.DialogTags.DLG_GENERIC_CANCEL);
+
+		////////////////////////////////
+
+		// label
+
+		////////////////////////////////
+		TextView tv = (TextView) d1.findViewById(R.id.dlg_register_main_tv);
+		
+		String label = String.format(
+							"%s (%s)", 
+							si.getName(), si.getStore());
+		
+		tv.setText(label);
+		
+		////////////////////////////////
+
+		// build: list
+
+		////////////////////////////////
+		List<ListItem> list = new ArrayList<ListItem>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+							R.string.dlg_item_list_long_click_edit))
+						.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.dlg_item_list_long_click_delete))
+							.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+							.setTextColor_ID(R.color.brown)
+					.build());
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adp = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);
+
+		////////////////////////////////
+
+		// listview
+
+		////////////////////////////////
+		ListView lv = (ListView) d1.findViewById(R.id.dlg_register_main_lv_list);
+		
+//		List<String> menuItem = new ArrayList<String>();
+		
+		/*----------------------------
+		 * 2.4. Set adapter
+		----------------------------*/
+		lv.setAdapter(adp);
+		
+		/*********************************
+		 * Set: tag
+		 *********************************/
+//		lv.setTag(Tags.ListViewTags.tab1_long_click);
+		lv.setTag(Tags.ListViewTags.TAB1_LONG_CLICK);
+
+		/*----------------------------
+		 * 3. Set listener => list
+			----------------------------*/
+		lv.setOnItemClickListener(
+				new ListViewCL(
+						actv, 
+						d1, 
+//						Tags.DialogTags.dlg_item_list_long_click,
+						si));
+
+		
+		d1.show();
+		
+	}//dlg_Admin_Item
 
 }//public class Methods_dlg

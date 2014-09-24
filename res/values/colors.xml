@@ -35,4 +35,7 @@
 	<color name="yellow_pale_dark">#E9E779</color>
 	<color name="yellow_pale_bright">#ffffb0</color>
 	
+<!-- browns -->
+	<color name="brown">#61380B</color>
+	
 </resources>

@@ -43,6 +43,8 @@ public class LOI_LCL implements OnItemLongClickListener {
 		// TODO Auto-generated method stub
 		Tags.ListTags tag = (Tags.ListTags) parent.getTag();
 		
+		SI si;
+		
 		switch (tag) {
 
 		case tab_toBuyList://-------------------------------------------
@@ -51,9 +53,11 @@ public class LOI_LCL implements OnItemLongClickListener {
 			
 			break;// case tab_toBuyList
 
-		case tab_itemList://-------------------------------------------
+		case TAB_ITEM_LIST://-------------------------------------------
 			
-			case_tab_itemList(parent, position);
+			si = (SI) parent.getItemAtPosition(position);
+			
+			case_TAB_ITEM_LIST(si);
 			
 			break;// case tab_itemList
 			
@@ -69,68 +73,71 @@ public class LOI_LCL implements OnItemLongClickListener {
 	 * case_tab_itemList(AdapterView<?> parent, int position)<br>
 	 * Tab 1: Edit item
 	 ***************************************/
-	private void case_tab_itemList(AdapterView<?> parent, int position) {
+//	private void case_TAB_ITEM_LIST(AdapterView<?> parent, int position) {
+	private void case_TAB_ITEM_LIST(SI si) {
 		// TODO Auto-generated method stub
-		SI si = (SI) parent.getItemAtPosition(position);
+//		SI si = (SI) parent.getItemAtPosition(position);
 		
-		String title = si.getName() + "/" + si.getStore();
+		Methods_dlg.dlg_Admin_ShoppingItem(actv, si);
 		
-		Dialog dlg = Methods_dlg.dlg_template_cancel(actv, 
-				R.layout.dlg_register_main, title,
-				R.id.dlg_register_main_btn_cancel, Tags.DialogTags.dlg_generic_cancel);
-		
-		/*----------------------------
-		 * 2. List view
-		 * 		1. Get view
-		 * 		2. Prepare list data
-		 * 		3. Prepare adapter
-		 * 		4. Set adapter
-			----------------------------*/
-		ListView lv = (ListView) dlg.findViewById(R.id.dlg_register_main_lv_list);
-		
-		List<String> menuItem = new ArrayList<String>();
-		
-		menuItem.add(actv.getString(R.string.dlg_item_list_long_click_edit));
-		menuItem.add(actv.getString(R.string.dlg_item_list_long_click_delete));
-
-		ArrayAdapter<String> adp = 
-				new ArrayAdapter<String>(
-						actv,
-						android.R.layout.simple_list_item_1,
-						menuItem
-						);
-				
-		/*----------------------------
-		 * 2.4. Set adapter
-		----------------------------*/
-		lv.setAdapter(adp);
-		
-		/*********************************
-		 * Set: tag
-		 *********************************/
-		lv.setTag(Tags.ListViewTags.tab1_long_click);
-
-		
-		/*----------------------------
-		 * 3. Set listener => list
-			----------------------------*/
-		lv.setOnItemClickListener(
-				new ListViewCL(
-						actv, 
-						dlg, 
-//						Tags.DialogTags.dlg_item_list_long_click,
-						si));
+//		String title = si.getName() + "/" + si.getStore();
+//		
+//		Dialog dlg = Methods_dlg.dlg_template_cancel(actv, 
+//				R.layout.dlg_register_main, title,
+//				R.id.dlg_register_main_btn_cancel, Tags.DialogTags.DLG_GENERIC_CANCEL);
+//		
+//		/*----------------------------
+//		 * 2. List view
+//		 * 		1. Get view
+//		 * 		2. Prepare list data
+//		 * 		3. Prepare adapter
+//		 * 		4. Set adapter
+//			----------------------------*/
+//		ListView lv = (ListView) dlg.findViewById(R.id.dlg_register_main_lv_list);
+//		
+//		List<String> menuItem = new ArrayList<String>();
+//		
+//		menuItem.add(actv.getString(R.string.dlg_item_list_long_click_edit));
+//		menuItem.add(actv.getString(R.string.dlg_item_list_long_click_delete));
+//
+//		ArrayAdapter<String> adp = 
+//				new ArrayAdapter<String>(
+//						actv,
+//						android.R.layout.simple_list_item_1,
+//						menuItem
+//						);
+//				
+//		/*----------------------------
+//		 * 2.4. Set adapter
+//		----------------------------*/
+//		lv.setAdapter(adp);
+//		
+//		/*********************************
+//		 * Set: tag
+//		 *********************************/
+//		lv.setTag(Tags.ListViewTags.TAB1_LONG_CLICK);
+//
+//		
+//		/*----------------------------
+//		 * 3. Set listener => list
+//			----------------------------*/
 //		lv.setOnItemClickListener(
-//				new DialogOnItemClickListener(
+//				new ListViewCL(
 //						actv, 
 //						dlg, 
-//						Tags.DialogTags.dlg_item_list_long_click,
+////						Tags.DialogTags.dlg_item_list_long_click,
 //						si));
-		
-		/*----------------------------
-		 * 9. Show dialog
-			----------------------------*/
-		dlg.show();
+////		lv.setOnItemClickListener(
+////				new DialogOnItemClickListener(
+////						actv, 
+////						dlg, 
+////						Tags.DialogTags.dlg_item_list_long_click,
+////						si));
+//		
+//		/*----------------------------
+//		 * 9. Show dialog
+//			----------------------------*/
+//		dlg.show();
 
 		
 	}//private void case_tab_itemList(AdapterView<?> parent, int position)

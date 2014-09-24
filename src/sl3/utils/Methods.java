@@ -1990,7 +1990,7 @@ public class Methods {
 		Dialog dlg = Methods_dlg.dlg_template_cancel(actv, 
 				R.layout.dlg_register_main, R.string.generic_register,
 				R.id.dlg_register_main_btn_cancel,
-				Tags.DialogTags.dlg_generic_cancel);
+				Tags.DialogTags.DLG_GENERIC_CANCEL);
 		
 		/*----------------------------
 		 * 2. List view

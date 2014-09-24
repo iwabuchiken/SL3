@@ -71,7 +71,8 @@ public class TabActv extends TabActivity
 		/***************************************
 		 * Set listener: CONS.TabActv.lvTab1
 		 ***************************************/
-		CONS.TabActv.lvTab1.setTag(Tags.ListTags.tab_itemList);
+//    	CONS.TabActv.lvTab1.setTag(Tags.ListTags.tab_itemList);
+		CONS.TabActv.lvTab1.setTag(Tags.ListTags.TAB_ITEM_LIST);
 		
 		CONS.TabActv.lvTab1.setOnItemClickListener(new LOI_CL(this));
 

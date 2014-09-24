@@ -94,7 +94,7 @@ public class ListViewCL implements OnItemClickListener {
 			
 			switch (tag) {
 			
-			case tab1_long_click:
+			case TAB1_LONG_CLICK:
 				
 				case_tab1_long_click(parent, position);
 			
