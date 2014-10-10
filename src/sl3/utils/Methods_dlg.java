@@ -654,9 +654,11 @@ public class Methods_dlg {
 		
 		//
 		btn_ok.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg2));
+				new DB_OTL(actv, dlg2));
+//		new DialogButtonOnTouchListener(actv, dlg2));
 		btn_cancel.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg2));
+				new DB_OTL(actv, dlg2));
+//		new DialogButtonOnTouchListener(actv, dlg2));
 		
 		/*----------------------------
 		 * 3. Add listeners => OnClick
@@ -3074,6 +3076,69 @@ public class Methods_dlg {
 		d3.show();
 		
 	}//conf_InsertNum_SI
+	
+	public static void 
+	conf_Delete_SI
+	(Activity actv, Dialog d1, SI si) {
+		// TODO Auto-generated method stub
+		
+		Dialog d2 = 
+				Methods_dlg.dlg_template_okCancel_2Dialogues_SI(
+						actv, 
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						Tags.DialogTags.DLG_CONFIRM_DELETE_SI_OK, 
+//						Tags.DialogTags.dlg_confirm_delete_SI_OK, 
+						Tags.DialogTags.GENERIC_DISMISS_SECOND_DIALOG, 
+						d1, si);
+		
+////						Methods_dlg.dlg_Tmpl_OkCancel_3rd_Dialogue(
+//						actv, d1, d2,
+//						R.layout.dlg_tmpl_confirm_simple, 
+//						R.string.generic_confirm, 
+//						
+//						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+//						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+//						
+//						tag_ButtonOK, 
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG
+////						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+//						
+//						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d2.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.commons_lbl_Delete)
+				+ "?");
+		
+		////////////////////////////////
+		
+		// view: item name
+		
+		////////////////////////////////
+		TextView tv_ItemName = 
+				(TextView) d2.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+		
+		tv_ItemName.setText(si.getName());
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d2.show();
+		
+	}//conf_Delete_SI
 	
 	public static void 
 	dlg_OptMenu_Lists

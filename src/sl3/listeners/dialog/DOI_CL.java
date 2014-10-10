@@ -274,6 +274,8 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 						R.string.dlg_item_list_long_click_delete))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
 			
+			Methods_dlg.conf_Delete_SI(actv, d1, si);
+			
 //			Methods_dlg.dlg_tab1_delete_item(actv, si, dlg);
 			
 		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))

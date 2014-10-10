@@ -102,6 +102,29 @@ public class DB_OTL implements OnTouchListener {
 				
 			case DLG_EDIT_ITEMS_BT_OK:
 				
+			case dlg_register_store_ok:
+			case dlg_register_store_cancel:
+			case dlg_input_empty_btn_reenter:
+			case dlg_input_empty_btn_cancel:
+			case dlg_reconfirm_store_name_btn_yes:
+			case dlg_reconfirm_store_name_btn_cancel:
+			case dlg_register_genre_register:
+			case dlg_register_genre_cancel:
+
+			case dlg_reconfirm_genre_name_btn_register:
+			case dlg_reconfirm_genre_name_btn_cancel:
+			case dlg_create_table_create:
+			case dlg_create_table_cancel:
+			case dlg_drop_table_btn_cancel:
+			case dlg_confirm_drop_table_btn_ok:
+			case dlg_confirm_drop_table_btn_cancel:
+			case dlg_filter_list_ok:
+			case dlg_filter_list_ok2:
+			case dlg_filter_list_cancel:
+			
+			case DLG_SAVE_TOBUY_LIST_BT_OK:
+			case dlg_scheduleInDb_ok:
+			case dlg_scheduleInDb_update:
 				//
 				v.setBackgroundColor(Color.GRAY);
 				
@@ -139,6 +162,35 @@ public class DB_OTL implements OnTouchListener {
 				
 			case DLG_EDIT_ITEMS_BT_OK:
 
+			case dlg_register_store_ok:
+			case dlg_register_store_cancel:
+			case dlg_input_empty_btn_reenter:
+			case dlg_input_empty_btn_cancel:
+			case dlg_reconfirm_store_name_btn_yes:
+			case dlg_reconfirm_store_name_btn_cancel:
+			case dlg_register_genre_register:
+			case dlg_register_genre_cancel:
+
+			case dlg_reconfirm_genre_name_btn_register:
+			case dlg_reconfirm_genre_name_btn_cancel:	
+
+			case dlg_create_table_create:
+			case dlg_create_table_cancel:
+			
+			case dlg_drop_table_btn_cancel:
+			
+			case dlg_confirm_drop_table_btn_ok:
+			case dlg_confirm_drop_table_btn_cancel:
+			
+			case dlg_filter_list_ok:
+			case dlg_filter_list_ok2:
+			case dlg_filter_list_cancel:
+			
+			case DLG_SAVE_TOBUY_LIST_BT_OK:
+			
+			case dlg_scheduleInDb_ok:
+			case dlg_scheduleInDb_update:
+				
 				v.setBackgroundColor(Color.WHITE);
 				
 				break;

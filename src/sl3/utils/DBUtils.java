@@ -1627,6 +1627,53 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//public boolean deleteItem(String tname, long dbId)
 
+	public static boolean 
+	delete_Item_static
+	(Activity actv, String tname, long dbId) {
+		// TODO Auto-generated method stub
+		/***************************************
+		 * Get db
+		 ***************************************/
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+		int res = -1;
+		
+		try {
+			
+			res = wdb.delete(
+					tname,
+					android.provider.BaseColumns._ID + " = ?",
+					new String[]{String.valueOf(dbId)});
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			wdb.close();
+			
+			return false;
+		}
+		
+		// Log
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ ":"
+				+ Thread.currentThread().getStackTrace()[2].getMethodName()
+				+ "]", "res=" + res);
+		
+		wdb.close();
+		
+		return true;
+		
+	}//deleteItem_static
+	
 	public boolean updateData_SI_all(SI si) {
 		// TODO Auto-generated method stub
 		/***************************************
@@ -3913,6 +3960,11 @@ public class DBUtils extends SQLiteOpenHelper {
 		return list_Found;
 		
 	}//search_Items
+
+	public static boolean delete_SI(Activity actv, SI si) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }//public class DBUtils extends SQLiteOpenHelper
 

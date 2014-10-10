@@ -445,10 +445,190 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_edit_items_bt_ok
 			
+		case DLG_CONFIRM_DELETE_SI_OK://------------------------------------------
+			
+			case_DLG_CONFIRM_DELETE_SI_OK();
+			
+			break;// case dlg_edit_items_bt_ok
+			
 		default:
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_DLG_CONFIRM_DELETE_SI_OK() {
+		// TODO Auto-generated method stub
+		
+		boolean res = DBUtils.delete_Item_static(actv, CONS.DB.tname_si, si.getId());
+		
+		String msg = null;
+		int colorID = 0;
+
+		if (res == true) {
+
+			msg = "items => deleted: " + si.getName();
+			colorID = R.color.green4;
+		
+			d2.dismiss();
+			d1.dismiss();
+			
+			Methods_dlg.dlg_ShowMessage(
+					actv, 
+					msg,
+					colorID);
+			
+			////////////////////////////////
+
+			// refresh list
+
+			////////////////////////////////
+//			// item list
+			if (CONS.TabActv.itemList.contains(si)) {
+				
+				CONS.TabActv.itemList.remove(si);
+				
+				// Log
+				String msg_Log = "removed from item list => " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			} else {
+			
+				// Log
+				String msg_Log = "CONS.TabActv.itemList => not contain: " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}
+			
+//			for (SI si_inTab : CONS.TabActv.itemList) {
+//				
+//				if (si_inTab.getId() == si.getId()) {
+//					
+//					CONS.TabActv.itemList.remove(si_inTab);
+//					
+//				}
+//				
+//			}
+
+			// to-buy list
+//			// item list
+			if (CONS.TabActv.toBuyList.contains(si)) {
+				
+				CONS.TabActv.toBuyList.remove(si);
+				
+				// Log
+				String msg_Log = "removed from to-buy list => " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			} else {
+			
+				// Log
+				String msg_Log = "CONS.TabActv.toBuyList => not contain: " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}
+
+			
+			// checked item ids
+			if (CONS.TabActv.tab_checkedItemIds.contains(Integer.valueOf(si.getId()))) {
+				
+				CONS.TabActv.tab_checkedItemIds.remove(Integer.valueOf(si.getId()));
+				
+				// Log
+				String msg_Log = "removed from item id list => " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			} else {
+			
+				// Log
+				String msg_Log = "CONS.TabActv.tab_checkedItemIds => not contain: " 
+							+ si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}
+
+//			for (Integer id : CONS.TabActv.tab_checkedItemIds) {
+//				
+//				if (id.intValue() == si.getId()) {
+//					
+//					CONS.TabActv.tab_checkedItemIds.remove(id);
+//					
+//				}
+//				
+//			}
+			
+			// to-buy item ids
+			if (CONS.TabActv.tab_toBuyItemIds.contains(Integer.valueOf(si.getId()))) {
+				
+				CONS.TabActv.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
+				
+				// Log
+				String msg_Log = "removed from to-buy id list => " + si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			} else {
+			
+				// Log
+				String msg_Log = "CONS.TabActv.tab_toBuyItemIds => not contain: " 
+							+ si.getName();
+				Log.d("DB_OCL.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			}
+
+//			for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
+//				
+//				if (id.intValue() == si.getId()) {
+//					
+//					CONS.TabActv.tab_toBuyItemIds.remove(id);
+//					
+//				}
+//				
+//			}
+			
+			// notify
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
+
+		} else {
+
+			msg = "Can't delete item: " + si.getName();
+			colorID = R.color.red;
+			
+			d2.dismiss();
+			
+			Methods_dlg.dlg_ShowMessage(
+					actv, 
+					msg,
+					colorID);
+			
+		}
+			
+	}//case_DLG_CONFIRM_DELETE_SI_OK
 
 	private void 
 	case_ACTV_TAB_SEARCH_OK() {

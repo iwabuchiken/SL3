@@ -2094,7 +2094,11 @@ public class Methods_sl {
 								.getLineNumber()
 						+ ":"
 						+ Thread.currentThread().getStackTrace()[2]
-								.getMethodName() + "]", "si => null");
+								.getMethodName() + "]", 
+						"si => null"
+						+ "(id = "
+						+ ary_ItemList[i] + ")"
+					);
 				
 				continue;
 				

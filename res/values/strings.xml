@@ -28,6 +28,7 @@
     	<string name="commons_lbl_create_table">Create table</string>
     	<string name="commons_lbl_drop_table">Drop table</string>
     	<string name="commons_lbl_search">Search items</string>
+    	<string name="commons_lbl_Delete">Delete</string>
 	    
     	
     <string name="hello">Hello World, ShoppingListActivity!</string>
