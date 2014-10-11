@@ -104,6 +104,7 @@
     	<string name="opt_TabActv_Admin_Main__BackupDB">Backup DB</string>
     	<string name="opt_TabActv_Admin_Main__Operations">Operations</string>
     	<string name="opt_TabActv_Admin_Main__SeeLog">See log</string>
+    	<string name="opt_TabActv_Admin_Main__Register_Item">Register item</string>
     
     	<string name="opt_TabActv_Admin_Ops__RestoreDB">Restore DB</string>
     	<string name="opt_TabActv_Admin_Ops__Tables">Tables</string>

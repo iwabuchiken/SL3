@@ -169,7 +169,7 @@ DB_OCL implements OnClickListener {
 			
 			break;// case dlg_generic_dismiss_third_dialog
 			
-		case generic_cancel_second_dialog:
+		case GENERIC_CANCEL_SECOND_DIALOG:
 			
 			d2.dismiss();
 			

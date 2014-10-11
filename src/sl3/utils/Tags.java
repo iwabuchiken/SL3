@@ -8,7 +8,7 @@ public class Tags {
 		DLG_GENERIC_DISMISS_SECOND_DIALOG,
 		DLG_GENERIC_DISMISS_3RD_DIALOG,
 		
-		generic_cancel_second_dialog, 
+		GENERIC_CANCEL_SECOND_DIALOG, 
 		
 		// dlg_register_store.xml
 		dlg_register_store_ok, dlg_register_store_cancel,
@@ -91,7 +91,7 @@ public class Tags {
 		ACTV_TAB_OPT_DB, 
 		ACTV_TAB_OPT_INSERT_NUM_SI, 
 		ACTV_TAB_OPT_RESTORE_DB, 
-		ACTV_TAB_OPT_DROP_TABLE_PS, ACTV_TAB_SEARCH_OK, TAB1_LONG_CLICK, DLG_CONFIRM_DELETE_SI_OK,
+		ACTV_TAB_OPT_DROP_TABLE_PS, ACTV_TAB_SEARCH_OK, TAB1_LONG_CLICK, DLG_CONFIRM_DELETE_SI_OK, REGISTER_ITEM_OK,
 		
 	}//public static enum DialogTags
 	
@@ -146,7 +146,7 @@ public class Tags {
 		
 		generic_cancel_second_dialog,
 		
-		tab2_post_items_ok, dlg_generic_dismiss,
+		tab2_post_items_ok, dlg_generic_dismiss, REGISTER_ITEM_OK,
 		
 	};
 

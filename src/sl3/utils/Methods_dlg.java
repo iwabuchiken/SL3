@@ -1668,6 +1668,40 @@ public class Methods_dlg {
 	}//case_tab_itemList__setStoreName(ShoppingItem si, Dialog dlg)
 
 	private static void
+	_dlg_Register_Item__setStoreName
+	(Activity actv, Dialog dlg) {
+		// TODO Auto-generated method stub
+		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
+		Spinner sp_store_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_store);
+		
+		ArrayAdapter<String> adapter = Methods.get_Adp_List_Store(actv);
+		
+		/*----------------------------
+		 * 3-1. setDropDownViewResource
+			----------------------------*/
+		adapter.setDropDownViewResource(
+				android.R.layout.simple_spinner_dropdown_item);
+		
+		/*----------------------------
+		 * 4. Set adapter to spinner
+			----------------------------*/
+		sp_store_name.setAdapter(adapter);
+		
+		/***************************************
+		 * Set the initial store name
+		 * 1. Get the position number
+		 * 2. Set the selection
+		 ***************************************/
+		/***************************************
+		 * 1. Get the position number
+		 ***************************************/
+		int num = 0;
+		
+		sp_store_name.setSelection(num);
+		
+	}//case_tab_itemList__setStoreName(ShoppingItem si, Dialog dlg)
+	
+	private static void
 	case_tab_itemList__setGenre
 	(Activity actv, SI si, Dialog dlg) {
 		// TODO Auto-generated method stub
@@ -1766,6 +1800,35 @@ public class Methods_dlg {
 	
 	}//case_tab_itemList__setGenre(ShoppingItem si, Dialog dlg)
 
+	private static void
+	_dlg_Register_Item__setGenre
+	(Activity actv, Dialog dlg) {
+		// TODO Auto-generated method stub
+		// Resource => http://www.java2s.com/Open-Source/Android/Samples/techbooster/org/jpn/techbooster/sample/spinner/SpinnerActivity.java.htm
+		Spinner sp_genre_name = (Spinner) dlg.findViewById(R.id.dlg_edit_items_sp_genre);
+		
+		ArrayAdapter<String> adapter = Methods.get_Adp_List_Genre(actv);
+		
+		/*----------------------------
+		 * 3-1. setDropDownViewResource
+			----------------------------*/
+		adapter.setDropDownViewResource(
+				android.R.layout.simple_spinner_dropdown_item);
+		
+		/*----------------------------
+		 * 4. Set adapter to spinner
+			----------------------------*/
+		sp_genre_name.setAdapter(adapter);
+		
+		/***************************************
+		 * Set initial value
+		 ***************************************/
+		int num = 0;
+		
+		sp_genre_name.setSelection(num);
+		
+	}//case_tab_itemList__setGenre(ShoppingItem si, Dialog dlg)
+	
 	public static void
 	dlg_tab1_delete_item
 	(Activity actv, SI si, Dialog dlg1) {
@@ -2091,6 +2154,13 @@ public class Methods_dlg {
 								.setTextColor_ID(R.color.purple4)
 								.build());
 		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Main__Register_Item))
+							.setIconID(R.drawable.menu_icon_admin_32x32_green)
+							.setTextColor_ID(R.color.darkgreen)
+							.build());
+		
 		/****************************
 		* 3. Adapter
 		****************************/
@@ -2239,7 +2309,7 @@ public class Methods_dlg {
 						R.string.opt_TabActv_Admin_Main__Operations,
 						
 						R.id.dlg_tmpl_cancel_lv_with_btn_bt_cancel,
-						Tags.DialogTags.generic_cancel_second_dialog);
+						Tags.DialogTags.GENERIC_CANCEL_SECOND_DIALOG);
 		
 		/****************************
 		* 2. Prep => List
@@ -3902,5 +3972,93 @@ public class Methods_dlg {
 		d1.show();
 		
 	}//dlg_Admin_Item
+
+	public static void 
+	dlg_Register_item
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+
+		boolean res;
+		
+		String msg_Log;
+		
+		////////////////////////////////
+
+		// dialog
+
+		////////////////////////////////
+		Dialog d2 = new Dialog(actv);
+		
+		//
+		d2.setContentView(R.layout.dlg_edit_items);
+		
+		// Title
+		d2.setTitle(R.string.generic_register);
+		
+		/*----------------------------
+		 * 2. Add listeners => OnTouch
+		----------------------------*/
+		//
+		Button btn_ok = (Button) d2.findViewById(R.id.dlg_edit_items_btn_ok);
+		Button btn_cancel = (Button) d2.findViewById(R.id.dlg_edit_items_btn_cancel);
+		
+		//
+		btn_ok.setTag(Tags.DialogTags.REGISTER_ITEM_OK);
+		btn_cancel.setTag(Tags.DialogTags.GENERIC_CANCEL_SECOND_DIALOG);
+		
+		//
+		btn_ok.setOnTouchListener(
+				new DB_OTL(actv, d1, d2));
+//		new DialogButtonOnTouchListener(actv, dlg2));
+		btn_cancel.setOnTouchListener(
+				new DB_OTL(actv, d1, d2));
+//		new DialogButtonOnTouchListener(actv, dlg2));
+		
+		/*----------------------------
+		 * 3. Add listeners => OnClick
+		----------------------------*/
+		//
+		btn_ok.setOnClickListener(
+				new DB_OCL(actv, d1, d2));
+		btn_cancel.setOnClickListener(
+				new DB_OCL(actv, d1, d2));
+
+		////////////////////////////////
+
+		// store names
+
+		////////////////////////////////
+		Methods_dlg._dlg_Register_Item__setStoreName(actv, d2);
+		
+		////////////////////////////////
+
+		// genre names
+
+		////////////////////////////////
+		Methods_dlg._dlg_Register_Item__setGenre(actv, d2);
+		
+		////////////////////////////////
+
+		// focus
+
+		////////////////////////////////
+		EditText et_Name = (EditText) d2.findViewById(R.id.dlg_edit_items_et_name);
+		
+		res = et_Name.requestFocus();
+		
+		// Log
+		msg_Log = "focus => " + res;
+		Log.d("Methods_dlg.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// show
+
+		////////////////////////////////
+		d2.show();
+		
+	}//dlg_Register_item
 
 }//public class Methods_dlg

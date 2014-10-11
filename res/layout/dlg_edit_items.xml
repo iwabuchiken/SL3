@@ -7,9 +7,12 @@
     <TableLayout
         android:id="@+id/dlg_edit_items_tl"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp" >
         
-		<TableRow >
+		<TableRow android:layout_marginBottom="3dp" >
+
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_store"
 	            style="@style/tv_basic_1" 
@@ -28,7 +31,8 @@
 	            />
 		</TableRow>
 
-		<TableRow >
+		<TableRow android:layout_marginBottom="3dp" >
+
 			<TextView
 	            android:id="@+id/dlg_edit_items_tv_name"
 	            style="@style/tv_basic_1" 
@@ -47,7 +51,8 @@
 	            />
 		</TableRow>
 
-		<TableRow >	
+		<TableRow android:layout_marginBottom="3dp" >
+	
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_yomi"
 	            style="@style/tv_basic_1" 
@@ -66,7 +71,8 @@
 	            />
 	    </TableRow>
 
-	    <TableRow >	
+	    <TableRow android:layout_marginBottom="3dp" >
+	
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_price"
 	            style="@style/tv_basic_1" 
@@ -85,7 +91,7 @@
 	            />
 	    </TableRow>
 
-	    <TableRow>
+	    <TableRow android:layout_marginBottom="3dp" >
 
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_genre"
@@ -103,7 +109,8 @@
 	    <TableRow
 	        android:id="@+id/tableRow1"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="3dp" >
 
 	        <TextView
 	            android:id="@+id/dlg_edit_items_tv_num"
@@ -126,7 +133,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="4dp" >
 
         <Button
             android:id="@+id/dlg_edit_items_btn_ok"

@@ -88,6 +88,7 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_THIRD_DIALOG:
 			case GENERIC_DISMISS_4TH_DIALOG:
 			case GENERIC_DISMISS_SECOND_DIALOG:
+			case GENERIC_CANCEL_SECOND_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_DROP_TABLE_PS:
@@ -125,6 +126,8 @@ public class DB_OTL implements OnTouchListener {
 			case DLG_SAVE_TOBUY_LIST_BT_OK:
 			case dlg_scheduleInDb_ok:
 			case dlg_scheduleInDb_update:
+				
+			case REGISTER_ITEM_OK:
 				//
 				v.setBackgroundColor(Color.GRAY);
 				
@@ -148,6 +151,8 @@ public class DB_OTL implements OnTouchListener {
 			case GENERIC_DISMISS_THIRD_DIALOG:
 			case GENERIC_DISMISS_4TH_DIALOG:
 			case GENERIC_DISMISS_SECOND_DIALOG:
+//			case generic_cancel_second_dialog:
+			case GENERIC_CANCEL_SECOND_DIALOG:
 				
 			case ACTV_TAB_OPT_DROP_TABLE_SI:
 			case ACTV_TAB_OPT_DROP_TABLE_PS:
@@ -190,6 +195,8 @@ public class DB_OTL implements OnTouchListener {
 			
 			case dlg_scheduleInDb_ok:
 			case dlg_scheduleInDb_update:
+				
+			case REGISTER_ITEM_OK:
 				
 				v.setBackgroundColor(Color.WHITE);
 				
