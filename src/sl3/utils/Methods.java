@@ -4640,6 +4640,9 @@ public class Methods {
 		
 	}//restore_DB
 	
+	/******************************
+		format => "yyyy/MM/dd HH:mm:ss.SSS"
+	 ******************************/
 	public static String
 	conv_MillSec_to_TimeLabel(long millSec)
 	{

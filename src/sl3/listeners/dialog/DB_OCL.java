@@ -15,6 +15,7 @@ import sl3.utils.Tags.DialogTags;
 import sl.main.RegisterItemActv;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Vibrator;
@@ -136,19 +137,26 @@ DB_OCL implements OnClickListener {
 	}
 
 	//	@Override
-	public void onClick(View v) {
+	public void 
+	onClick(View v) {
 		//
 		Tags.DialogTags tag_name = (Tags.DialogTags) v.getTag();
 
 		//
 		switch (tag_name) {
 		
+		case REGISTER_ITEM_OK://------------------------------------------
+			
+			case_REGISTER_ITEM_OK();
+			
+			break;
+		
 		case DLG_GENERIC_CANCEL://------------------------------------------
 			
 			d1.dismiss();
 			
 			break;
-		
+			
 		case DLG_GENERIC_DISMISS://------------------------------------------
 			
 			d1.dismiss();
@@ -455,6 +463,144 @@ DB_OCL implements OnClickListener {
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_REGISTER_ITEM_OK() {
+		// TODO Auto-generated method stub
+
+		/***************************************
+		 * Get views
+		 ***************************************/
+		EditText et_Name = (EditText) d2.findViewById(R.id.dlg_edit_items_et_name);
+		EditText et_Yomi = (EditText) d2.findViewById(R.id.dlg_edit_items_et_yomi);
+		EditText et_Price = (EditText) d2.findViewById(R.id.dlg_edit_items_et_price);	
+		
+		EditText et_Num = (EditText) d2.findViewById(R.id.dlg_edit_items_et_num);
+		
+		Spinner sp_Store = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_store);
+		Spinner sp_Genre = (Spinner) d2.findViewById(R.id.dlg_edit_items_sp_genre);
+
+		////////////////////////////////
+		
+		// validate: any input
+		
+		////////////////////////////////
+		String tmp = et_Name.getText().toString();
+		
+		if (tmp == null || tmp.equals("")) {
+			
+			String msg = "No input!";
+			int colorID = R.color.red;
+			
+			Methods_dlg.dlg_ShowMessage_ThirdDialog(actv, msg, d1, d2, colorID);
+			
+			return;
+			
+		}
+		
+
+		////////////////////////////////
+
+		// build: content values
+
+		////////////////////////////////
+		ContentValues cv = new ContentValues();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
+
+		cv.put(
+				CONS.DB.col_Names_SI_full[1], 
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(
+				CONS.DB.col_Names_SI_full[2], 
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(
+				CONS.DB.col_Names_SI_full[3], 
+				sp_Store.getSelectedItem().toString());
+		
+		cv.put(CONS.DB.col_Names_SI_full[4], et_Name.getText().toString());
+		
+		cv.put(CONS.DB.col_Names_SI_full[5], et_Price.getText().toString());
+		
+		cv.put(CONS.DB.col_Names_SI_full[6], sp_Genre.getSelectedItem().toString());
+		
+		cv.put(CONS.DB.col_Names_SI_full[7], et_Yomi.getText().toString());
+		
+		cv.put(CONS.DB.col_Names_SI_full[8], et_Num.getText().toString());
+
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
+		
+		////////////////////////////////
+
+		// save item
+
+		////////////////////////////////
+		boolean res = DBUtils.insert_Data(actv, CONS.DB.tname_si, cv);
+		
+
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+
+		if (res == true) {
+			
+			msg = "insert => done: " + et_Name.getText().toString();
+			colorID = R.color.green4;
+
+			////////////////////////////////
+
+			// update list
+
+			////////////////////////////////
+			
+			
+			////////////////////////////////
+
+			// dismiss
+
+			////////////////////////////////
+			d2.dismiss();
+			d1.dismiss();
+			
+			Methods_dlg.dlg_ShowMessage(
+					actv, 
+					msg,
+					colorID);
+
+		} else {
+
+			msg = "insert => failed: " + et_Name.getText().toString();
+			colorID = R.color.red;
+			
+			Methods_dlg.dlg_ShowMessage_ThirdDialog(actv, msg, d1, d2);
+			
+		}
+			
+//		Methods_dlg.dlg_ShowMessage(
+//				actv, 
+//				msg,
+//				colorID);
+		
+	}//case_REGISTER_ITEM_OK
+	
 
 	private void 
 	case_DLG_CONFIRM_DELETE_SI_OK() {

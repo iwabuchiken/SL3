@@ -3636,6 +3636,30 @@ public class Methods_dlg {
 		
 	}
 
+	public static void
+	dlg_ShowMessage_ThirdDialog
+	(Activity actv, 
+		String message, Dialog dlg1, Dialog dlg2, int colorID) {
+		
+		Dialog dlg3 = Methods_dlg.dlg_Template_Cancel_ThirdDialog(
+				actv, dlg1, dlg2,
+				R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_confirm, 
+				
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+				Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG);
+		
+		TextView tv_Message = 
+				(TextView) dlg3.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		tv_Message.setBackgroundColor(actv.getResources().getColor(colorID));
+		
+		dlg3.show();
+		
+	}
+	
 	public static void 
 	conf_Restore_DB
 	(Activity actv, 

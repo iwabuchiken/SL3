@@ -246,6 +246,92 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//public boolean createTable_generic(SQLiteDatabase db, String tableName)
 
+	public static boolean
+	insert_Data
+	(Activity actv, String tableName, ContentValues cv) {
+		
+		long new_id;
+		
+		boolean res;
+		
+		////////////////////////////////
+
+		// db
+
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+
+		////////////////////////////////
+
+		// insertion
+
+		////////////////////////////////
+		try {
+			//
+			wdb.beginTransaction();
+			
+			//
+//			ContentValues cv = new ContentValues();
+//			
+//			// Put values
+//			for (int i = 0; i < cols.length; i++) {
+//				cv.put(cols[i], values[i]);
+//			}//for (int i = 0; i < columnNames.length; i++)
+
+			// Insert data
+			new_id = wdb.insert(tableName, null, cv);
+			
+			if (new_id > 0) {
+				
+				// Set as successful
+				wdb.setTransactionSuccessful();
+				
+				Log.d("DBUtils.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", "data => inserted: id = " + new_id);
+				
+//				// End transaction
+//				wdb.endTransaction();
+				
+				
+				res = true;
+//				return true;
+				
+			} else {
+				
+				Log.d("DBUtils.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", "data => not inserted: return = " + new_id);
+				
+//				// End transaction
+//				wdb.endTransaction();
+				
+				res = false;
+//				return false;
+				
+			}
+			
+		} catch (Exception e) {
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Exception => " + e.toString());
+			
+			res = false;
+//			return false;
+		} finally {//try
+
+			// End transaction
+			wdb.endTransaction();
+
+		}//try
+		
+		return res;
+		
+	}//insert_Data
+
 	public boolean storeData(SQLiteDatabase db, String tableName, String[] cols, String[] values) {
 		try {
 			//
@@ -258,13 +344,13 @@ public class DBUtils extends SQLiteOpenHelper {
 			for (int i = 0; i < cols.length; i++) {
 				cv.put(cols[i], values[i]);
 			}//for (int i = 0; i < columnNames.length; i++)
-
+			
 			// Insert data
 			db.insert(tableName, null, cv);
 			
 			// Set as successful
 			db.setTransactionSuccessful();
-
+			
 			// End transaction
 			db.endTransaction();
 			
@@ -293,7 +379,7 @@ public class DBUtils extends SQLiteOpenHelper {
 		}//try
 		
 	}//public boolean storeData(SQLiteDatabase db, String tableName, String[] cols, String[] values)
-
+	
 	public boolean 
 	storeData_PS
 	(String dbName, String tableName, PS ps) {

@@ -9,7 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp" >
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="8dp" >
         
 		<TableRow android:layout_marginBottom="3dp" >
 
@@ -141,6 +143,8 @@
             android:id="@+id/dlg_edit_items_btn_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1.0"
             android:text="@string/v1_btn_register"
             android:textSize="25sp" />
@@ -149,6 +153,8 @@
             android:id="@+id/dlg_edit_items_btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1.0"
             android:text="@string/generic_cancel"
             android:textColor="@color/red"
