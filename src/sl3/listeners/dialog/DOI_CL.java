@@ -340,7 +340,18 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))) {
 			
+		} else if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_save_hist))) {
+
+			Methods_dlg.conf_Save_PurHistory(actv, d1);
 			
+		} else {
+			
+			// Log
+			String msg_Log = "unknown item => " + li.getText();
+			Log.d("DOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
 		}
 		
 	}//case_ACTV_TAB_OPT_DB

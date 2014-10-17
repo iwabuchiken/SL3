@@ -23,7 +23,7 @@
 
     <item
         android:id="@+id/actv_tab_1_admin_db"
-		android:icon="@drawable/sl_db_item_35x35"
+		android:icon="@drawable/general_ib_ball_blue_48x48"
 		android:title="@string/menu_listitem_tabToBuy_admin"
 		
 		android:orderInCategory="2"

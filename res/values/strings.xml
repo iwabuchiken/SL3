@@ -29,6 +29,7 @@
     	<string name="commons_lbl_drop_table">Drop table</string>
     	<string name="commons_lbl_search">Search items</string>
     	<string name="commons_lbl_Delete">Delete</string>
+    	<string name="commons_lbl_Sum">Sum</string>
 	    
     	
     <string name="hello">Hello World, ShoppingListActivity!</string>
@@ -203,6 +204,8 @@
 		    		Delete to-buy list</string>
 		<string name="menu_listitem_tabToBuy_admin_db_post_tobuy_list">
 		    		Post to-buylist</string>
+		<string name="menu_listitem_tabToBuy_admin_db_save_hist">
+		    		Save pur history</string>
 		
 	<!-- dlg_save_tobuy_list.xml -->
 		<string name="dlg_save_tobuy_list_scheduled_date">予定日</string>	

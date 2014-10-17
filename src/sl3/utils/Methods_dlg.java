@@ -3453,25 +3453,12 @@ public class Methods_dlg {
 							.setTextColor_ID(R.color.green4)
 							.build());
 		
-//		String[] choices = {
-//					actv.getString(
-//					R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list),
-//					actv.getString(
-//					R.string.menu_listitem_tabToBuy_admin_db_load_tobuy_list),
-//					actv.getString(
-//					R.string.menu_listitem_tabToBuy_admin_db_delete_tobuy_list),
-//					actv.getString(
-//					R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list),
-//		
-//		};
-//		
-//		List<String> list = new ArrayList<String>();
-//		
-//		for (String item : choices) {
-//		
-//			list.add(item);
-//		
-//		}
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_save_hist))
+							.setIconID(R.drawable.menu_icon_admin_32x32_yellow)
+							.setTextColor_ID(R.color.yellow_dark)
+							.build());
 		
 		/****************************
 		* 3. Adapter
@@ -4097,5 +4084,86 @@ public class Methods_dlg {
 		d2.show();
 		
 	}//dlg_Register_item
+
+	public static void 
+	conf_Save_PurHistory
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+		Dialog d2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
+				actv,
+				R.layout.dlg_save_tobuy_list, 
+				R.string.menu_listitem_tabToBuy_admin_db_save_tobuy_list,
+				
+				R.id.dlg_save_tobuy_list_bt_ok,
+				R.id.dlg_save_tobuy_list_bt_cancel,
+				
+//				Tags.DialogTags.dlg_save_tobuy_list_bt_ok,
+				Tags.DialogTags.DLG_SAVE_TOBUY_LIST_BT_OK,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
+				
+				d1);
+		
+		/***************************************
+		 * Spinner
+		 ***************************************/
+		Spinner spStoreNames = (Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		
+		ArrayAdapter<String> adapter = _dlg_saveToBuyList__Adapter(actv);
+		
+		////////////////////////////////
+
+		// Set adapter to spinner
+
+		////////////////////////////////
+		spStoreNames.setAdapter(adapter);
+		
+		////////////////////////////////
+
+		// Set spinner default value
+		// 1. Get the first item from CONS.TabActv.toBuyList
+		// 2. Get the store name from the item
+		// 3. Use this store name as the default
+
+		////////////////////////////////
+		SI item = CONS.TabActv.toBuyList.get(0);
+		
+		if (item != null) {
+			
+			String defaultStoreName = item.getStore();
+
+			if (defaultStoreName != null) {
+
+				int position = adapter.getPosition(defaultStoreName);
+				
+				spStoreNames.setSelection(position);
+
+			}//if (defaultStoreName != null)
+			
+		}//if (item != null)
+		
+		////////////////////////////////
+
+		// Amount(Sum of items in price)
+
+		////////////////////////////////
+		int amount = 0;
+		
+		for (SI si : CONS.TabActv.toBuyList) {
+			
+			amount += si.getPrice() * si.getNum();
+//			amount += si.getPrice();
+			
+		}//for (ShoppingItem i : CONS.TabActv.toBuyList)
+		
+		EditText etAmount = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
+		
+		etAmount.setText(String.valueOf(amount));
+		
+//		/***************************************
+//		 * Show dialog
+//		 ***************************************/
+//		d2.show();
+
+	}//conf_Save_PurHistory
 
 }//public class Methods_dlg
