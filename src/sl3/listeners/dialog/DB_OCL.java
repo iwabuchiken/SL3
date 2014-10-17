@@ -428,6 +428,7 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_STORES://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_GENRES://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_PS://------------------------------------------
+		case ACTV_TAB_OPT_DROP_TABLE_PH://------------------------------------------
 			
 			case_ACTV_TAB_OPT_DROP_TABLE(tag_name);
 			
@@ -952,6 +953,12 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_PS:
 			
 			tname = CONS.DB.tname_PS;
+			
+			break;
+			
+		case ACTV_TAB_OPT_DROP_TABLE_PH:
+			
+			tname = CONS.DB.tname_ph;
 			
 			break;
 			

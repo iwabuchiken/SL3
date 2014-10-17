@@ -241,6 +241,43 @@ public class CONS {
 		};
 
 		////////////////////////////////
+		
+		// pur_history
+		
+		////////////////////////////////
+		public static final String tname_ph	= "pur_history";
+		
+		public static String[]
+				col_Names_PH_full = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			"created_at", "modified_at",		// 1,2
+			
+			"store_name", "pur_date",			// 3,4
+			"items",							// 5
+			"memo",								// 6
+			"posted_at"							// 7
+		};
+		
+		public static String[] col_Names_PH = { 
+			
+			"store_name", "pur_date",		// 0,1
+			"items",						// 2
+			"memo",							// 3
+			"posted_at"						// 4
+			
+		};
+		
+		public static String[] col_Types_PH = { 
+			
+			"TEXT", "TEXT",				// 0,1
+			"TEXT", 					// 2
+			"TEXT", 					// 3
+			"TEXT"						// 4
+			
+		};
+		
+		////////////////////////////////
 
 		// stores
 

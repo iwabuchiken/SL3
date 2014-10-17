@@ -150,7 +150,7 @@ public class DOI_CL implements OnItemClickListener {
 		
 		// Log
 		Log.d("["
-				+ "DialogOnItemClickListener.java : "
+				+ "DOI_CL.java : "
 				+ +Thread.currentThread().getStackTrace()[2]
 						.getLineNumber() + " : "
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -173,7 +173,7 @@ public class DOI_CL implements OnItemClickListener {
 			dlg_tabactv_tab2_lv(choice);
 			
 //				// Log
-//				Log.d("DialogOnItemClickListener.java"
+//				Log.d("DOI_CL.java"
 //						+ "["
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getLineNumber()
@@ -430,6 +430,26 @@ public class DOI_CL implements OnItemClickListener {
 					CONS.DB.tname_PS, 
 					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_PS);
 			
+		////////////////////////////////
+					
+		// ph
+		
+		////////////////////////////////
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__PH_Create))) {
+			
+			Methods.opt_ActvTab_CreateTables(
+					actv, d1, d2, d3,
+					CONS.DB.tname_ph);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__PH_Drop))) {
+			
+			Methods_dlg.conf_DropTable(
+					actv, d1, d2, d3,
+					CONS.DB.tname_ph, 
+					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_PH);
+			
 		} else {//if (choice.equals(actv.getString(
 			
 			String msg = "Unknown option => " + li.getText();
@@ -638,7 +658,7 @@ public class DOI_CL implements OnItemClickListener {
 	case_dlg_item_list_long_click(String choice) {
 		
 		// Log
-		Log.d("[" + "DialogOnItemClickListener.java : "
+		Log.d("[" + "DOI_CL.java : "
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ " : "
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -716,7 +736,7 @@ public class DOI_CL implements OnItemClickListener {
 		String currrentTabTag = CONS.TabActv.tabHost.getCurrentTabTag();
 		
 		// Log
-		Log.d("DialogOnItemClickListener.java" + "["
+		Log.d("DOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -862,7 +882,7 @@ public class DOI_CL implements OnItemClickListener {
 	private void dlg_tabactv_tab2_lv(String choice) {
 		// TODO Auto-generated method stub
 		// Log
-		Log.d("[" + "DialogOnItemClickListener.java : "
+		Log.d("[" + "DOI_CL.java : "
 				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ " : "
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -961,7 +981,7 @@ public class DOI_CL implements OnItemClickListener {
 		if (src_dir_files.length < 1) {
 			
 			// Log
-			Log.d("DialogOnItemClickListener.java" + "["
+			Log.d("DOI_CL.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", "No files in the dir: " + src_dir);
 			
@@ -1008,7 +1028,7 @@ public class DOI_CL implements OnItemClickListener {
 						File.separator);
 
 		// Log
-		Log.d("DialogOnItemClickListener.java" + "["
+		Log.d("DOI_CL.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1065,7 +1085,7 @@ public class DOI_CL implements OnItemClickListener {
 //			if (null == c) {
 //				
 //				// Log
-//				Log.d("DialogOnItemClickListener.java"
+//				Log.d("DOI_CL.java"
 //						+ "["
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getLineNumber()
@@ -1085,7 +1105,7 @@ public class DOI_CL implements OnItemClickListener {
 //			if (c.getCount() < 1) {
 //				
 //				// Log
-//				Log.d("DialogOnItemClickListener.java"
+//				Log.d("DOI_CL.java"
 //						+ "["
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getLineNumber()
@@ -1103,7 +1123,7 @@ public class DOI_CL implements OnItemClickListener {
 //			 * Start refactoring data
 //			 *********************************/
 //			// Log
-//			Log.d("DialogOnItemClickListener.java" + "["
+//			Log.d("DOI_CL.java" + "["
 //					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //					+ ":"
 //					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1115,7 +1135,7 @@ public class DOI_CL implements OnItemClickListener {
 //			if (res == true) {
 //			
 //				// Log
-//				Log.d("DialogOnItemClickListener.java"
+//				Log.d("DOI_CL.java"
 //						+ "["
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getLineNumber()
@@ -1126,7 +1146,7 @@ public class DOI_CL implements OnItemClickListener {
 //			} else {//if (res == true)
 //
 //				// Log
-//				Log.d("DialogOnItemClickListener.java"
+//				Log.d("DOI_CL.java"
 //						+ "["
 //						+ Thread.currentThread().getStackTrace()[2]
 //								.getLineNumber()
@@ -1149,7 +1169,7 @@ public class DOI_CL implements OnItemClickListener {
 //		} catch (Exception e) {
 //
 //			// Log
-//			Log.d("DialogOnItemClickListener.java" + "["
+//			Log.d("DOI_CL.java" + "["
 //					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 //					+ ":"
 //					+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1170,7 +1190,7 @@ public class DOI_CL implements OnItemClickListener {
 		if (res == CONS.RV.DB_DOESNT_EXIST) {
 			
 			// Log
-			Log.d("DialogOnItemClickListener.java"
+			Log.d("DOI_CL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber()
@@ -1181,7 +1201,7 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (res == CONS.RV.DB_FILE_COPY_EXCEPTION) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
-			Log.d("DialogOnItemClickListener.java"
+			Log.d("DOI_CL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber()
@@ -1193,7 +1213,7 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (res == CONS.RV.DB_CANT_CREATE_FOLDER) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
-			Log.d("DialogOnItemClickListener.java"
+			Log.d("DOI_CL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber()
@@ -1205,7 +1225,7 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (res == CONS.RV.DB_BACKUP_SUCCESSFUL) {//if (res == CONS.RV.DB_DOESNT_EXIST)
 		
 			// Log
-			Log.d("DialogOnItemClickListener.java"
+			Log.d("DOI_CL.java"
 					+ "["
 					+ Thread.currentThread().getStackTrace()[2]
 							.getLineNumber()

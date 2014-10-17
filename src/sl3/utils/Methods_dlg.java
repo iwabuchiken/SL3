@@ -2663,6 +2663,19 @@ public class Methods_dlg {
 							.setTextColor_ID(R.color.red)
 							.build());
 		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__PH_Create))
+							.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+							.setTextColor_ID(R.color.blue1)
+							.build());
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__PH_Drop))
+							.setIconID(R.drawable.menu_icon_admin_32x32_red)
+							.setTextColor_ID(R.color.red)
+							.build());
+		
 		/****************************
 		* 3. Adapter
 		****************************/
