@@ -328,6 +328,8 @@ public class DBUtils extends SQLiteOpenHelper {
 
 		}//try
 		
+		wdb.close();
+		
 		return res;
 		
 	}//insert_Data

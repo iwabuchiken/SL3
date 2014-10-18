@@ -255,16 +255,18 @@ public class CONS {
 			
 			"store_name", "pur_date",			// 3,4
 			"items",							// 5
-			"memo",								// 6
-			"posted_at"							// 7
+			"amount",							// 6
+			"memo",								// 7
+			"posted_at"							// 8
 		};
 		
 		public static String[] col_Names_PH = { 
 			
 			"store_name", "pur_date",		// 0,1
 			"items",						// 2
-			"memo",							// 3
-			"posted_at"						// 4
+			"amount",							// 3
+			"memo",							// 4
+			"posted_at"						// 5
 			
 		};
 		
@@ -272,8 +274,9 @@ public class CONS {
 			
 			"TEXT", "TEXT",				// 0,1
 			"TEXT", 					// 2
-			"TEXT", 					// 3
-			"TEXT"						// 4
+			"INTEGER", 					// 3
+			"TEXT", 					// 4
+			"TEXT"						// 5
 			
 		};
 		

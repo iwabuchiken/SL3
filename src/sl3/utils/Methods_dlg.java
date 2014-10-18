@@ -4098,7 +4098,7 @@ public class Methods_dlg {
 				R.id.dlg_save_tobuy_list_bt_cancel,
 				
 //				Tags.DialogTags.dlg_save_tobuy_list_bt_ok,
-				Tags.DialogTags.DLG_SAVE_TOBUY_LIST_BT_OK,
+				Tags.DialogTags.DLG_SAVE_PUR_HISTORY_OK,
 				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
 				
 				d1);
@@ -4159,10 +4159,10 @@ public class Methods_dlg {
 		
 		etAmount.setText(String.valueOf(amount));
 		
-//		/***************************************
-//		 * Show dialog
-//		 ***************************************/
-//		d2.show();
+		/***************************************
+		 * Show dialog
+		 ***************************************/
+		d2.show();
 
 	}//conf_Save_PurHistory
 

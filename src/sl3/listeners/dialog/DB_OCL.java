@@ -145,6 +145,12 @@ DB_OCL implements OnClickListener {
 		//
 		switch (tag_name) {
 		
+		case DLG_SAVE_PUR_HISTORY_OK://------------------------------------------
+			
+			case_DLG_SAVE_PUR_HISTORY_OK();
+			
+			break;
+			
 		case REGISTER_ITEM_OK://------------------------------------------
 			
 			case_REGISTER_ITEM_OK();
@@ -466,6 +472,56 @@ DB_OCL implements OnClickListener {
 	}
 
 	private void 
+	case_DLG_SAVE_PUR_HISTORY_OK() {
+		// TODO Auto-generated method stub
+		
+		boolean res = Methods.save_Pur_History(actv, d1, d2);
+		
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		String msg = null;
+		int colorID = 0;
+
+		if (res == true) {
+			
+			msg = "Pur history => saved";
+			colorID = R.color.green4;
+
+			////////////////////////////////
+
+			// update list
+
+			////////////////////////////////
+			
+			
+			////////////////////////////////
+
+			// dismiss
+
+			////////////////////////////////
+			d2.dismiss();
+			d1.dismiss();
+			
+			Methods_dlg.dlg_ShowMessage(
+					actv, 
+					msg,
+					colorID);
+
+		} else {
+
+			msg = "Save pur history => failed";
+			colorID = R.color.red;
+			
+			Methods_dlg.dlg_ShowMessage_ThirdDialog(actv, msg, d1, d2);
+			
+		}
+		
+	}//case_DLG_SAVE_PUR_HISTORY_OK
+
+	private void 
 	case_REGISTER_ITEM_OK() {
 		// TODO Auto-generated method stub
 
@@ -552,7 +608,6 @@ DB_OCL implements OnClickListener {
 		////////////////////////////////
 		boolean res = DBUtils.insert_Data(actv, CONS.DB.tname_si, cv);
 		
-
 		////////////////////////////////
 
 		// report

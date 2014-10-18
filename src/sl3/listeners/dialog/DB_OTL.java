@@ -128,6 +128,8 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_scheduleInDb_update:
 				
 			case REGISTER_ITEM_OK:
+				
+			case DLG_SAVE_PUR_HISTORY_OK:
 				//
 				v.setBackgroundColor(Color.GRAY);
 				
@@ -197,6 +199,8 @@ public class DB_OTL implements OnTouchListener {
 			case dlg_scheduleInDb_update:
 				
 			case REGISTER_ITEM_OK:
+				
+			case DLG_SAVE_PUR_HISTORY_OK:
 				
 				v.setBackgroundColor(Color.WHITE);
 				

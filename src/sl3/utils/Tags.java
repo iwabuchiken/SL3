@@ -103,7 +103,7 @@ public class Tags {
 		REGISTER_ITEM_OK, 
 		
 		ACTV_TAB_OPT_CREATE_TABLE_PH, 
-		ACTV_TAB_OPT_DROP_TABLE_PH,
+		ACTV_TAB_OPT_DROP_TABLE_PH, DLG_SAVE_PUR_HISTORY_OK,
 		
 	}//public static enum DialogTags
 	

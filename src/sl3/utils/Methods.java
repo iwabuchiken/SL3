@@ -54,6 +54,7 @@ import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -5970,5 +5971,122 @@ public class Methods {
 		return 1;
 		
 	}//search_Items
+
+	public static boolean 
+	save_Pur_History
+	(Activity actv, Dialog d1, Dialog d2) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// content: store name
+		
+		////////////////////////////////
+		Spinner sp_Store = 
+				(Spinner) d2.findViewById(R.id.dlg_save_tobuy_list_sp_store_name);
+		
+		////////////////////////////////
+		
+		// content: memo
+		
+		////////////////////////////////
+		EditText et_Memo = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_memo);
+		
+		String memo = et_Memo.getText().toString();
+		
+		////////////////////////////////
+		
+		// content: amount
+		
+		////////////////////////////////
+		EditText et_Amount = (EditText) d2.findViewById(R.id.dlg_save_tobuy_list_et_amount);
+		
+		String amount = et_Amount.getText().toString();
+		
+		////////////////////////////////
+
+		// content: items
+
+		////////////////////////////////
+		SI si = CONS.TabActv.toBuyList.get(0);
+		
+		// items
+		StringBuilder sb = new StringBuilder();
+
+		int size = CONS.TabActv.toBuyList.size();
+		
+		// 1 item
+		if (size == 1) {
+			
+			sb.append(CONS.TabActv.toBuyList.get(0).getId() 
+						+ "," 
+						+ CONS.TabActv.toBuyList.get(0).getNum());
+			
+		} else if (size > 1) {
+			
+			int i = 0;
+			
+			for (; i < CONS.TabActv.toBuyList.size() - 1; i++) {
+				
+				sb.append(CONS.TabActv.toBuyList.get(i).getId() 
+						+ "," 
+						+ CONS.TabActv.toBuyList.get(i).getNum());
+				
+				sb.append(" ");
+				
+			}
+			
+			sb.append(CONS.TabActv.toBuyList.get(i).getId() 
+					+ "," 
+					+ CONS.TabActv.toBuyList.get(i).getNum());
+			
+		}//if (size == 1)
+
+		////////////////////////////////
+
+		// build: cv
+
+		////////////////////////////////
+		ContentValues cv = new ContentValues();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",		// 1,2
+//		
+//		"store_name", "pur_date",			// 3,4
+//		"items",							// 5
+//		"amount",							// 6
+//		"memo",								// 7
+//		"posted_at"							// 8
+		
+		cv.put(CONS.DB.col_Names_PH_full[1], 
+					Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(CONS.DB.col_Names_PH_full[2], 
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(CONS.DB.col_Names_PH_full[3], 
+					sp_Store.getSelectedItem().toString());
+//		cv.put(CONS.DB.col_Names_PH_full[3], si.getStore());
+		
+		cv.put(CONS.DB.col_Names_PH_full[4], 
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now()));
+		
+		cv.put(CONS.DB.col_Names_PH_full[5], sb.toString());
+		
+		cv.put(CONS.DB.col_Names_PH_full[6], amount);
+		
+		cv.put(CONS.DB.col_Names_PH_full[7], memo);
+		
+//		amount
+		////////////////////////////////
+
+		// insert
+
+		////////////////////////////////
+		boolean res = DBUtils.insert_Data(actv, CONS.DB.tname_ph, cv);
+		
+		return res;
+		
+	}//save_Pur_History
 
 }//public class Methods
