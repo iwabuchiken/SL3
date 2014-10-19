@@ -25,7 +25,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
-public class Task_PostData extends AsyncTask<String, Integer, Integer> {
+public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 
 	static Activity actv;
 	
@@ -33,13 +33,11 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	Dialog dlg1;
 	Dialog dlg2;
 
-	SI si;
-	
 	public static Vibrator vib;
 	
 	public static String instanceParam[];
 	
-	public Task_PostData(Activity actv) {
+	public Task_Post_History(Activity actv) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
 		
@@ -47,7 +45,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		
 	}
 
-	public Task_PostData(Activity actv, Dialog dlg) {
+	public Task_Post_History(Activity actv, Dialog dlg) {
 		// TODO Auto-generated constructor stub
 		this.actv = actv;
 		
@@ -57,19 +55,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		
 	}
 
-	public Task_PostData(Activity actv, SI si) {
-		// TODO Auto-generated constructor stub
-		
-		this.actv	= actv;
-		
-		this.si		= si;
-		
-		vib			=
-				(Vibrator) actv.getSystemService(Context.VIBRATOR_SERVICE);
-		
-	}
-
-	public Task_PostData
+	public Task_Post_History
 	(Activity actv, Dialog dlg1, Dialog dlg2) {
 		// TODO Auto-generated constructor stub
 		this.actv	= actv;
@@ -86,8 +72,15 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	/*********************************
 	 * doInBackground(String... params)
 	 * 
-	 * @return PostSI_NoSIList	=> -1<br>
-	 *  
+	 * @return
+	 * 	-1	=> JsonBody ==> null<br>
+	 * 	-2	=> httpPost => null<br>
+	 * 	-3 ClientProtocolException<br>
+	 * 	-4 execute post => IOException<br>
+	 * 	-5 execute post => null returned<br>
+	 * 	-6 execute post => ServerError<br>
+	 * 	-7 execute post => ClientError<br>
+	 * 	1 execute post => success<br>
 	 *********************************/
 	@Override
 	protected Integer doInBackground(String... params) {
@@ -95,72 +88,59 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		/*********************************
 		 * Set: Instance param
 		 *********************************/
-		Task_PostData.instanceParam = params;
+		Task_Post_History.instanceParam = params;
 		
-		/*********************************
-		 * Post => single item when registering
-		 *********************************/
-		if (params[0].equals(
-				CONS.HTTPData.registerChoice.single_item.toString())) {
-			
-			int count = 0;
-			
-			int result = _exec_post(si);
-			
-			if (result == CONS.ReturnValues.OK) {
-				
-				count += 1;
-				
-			}
-			
-			return count + CONS.ReturnValues.MAGINITUDE_ONE;
-//			return count;
-		/*********************************
-		 * Post => Purchase history
-		 *********************************/
-		} else if (params[0].equals(
-					CONS.HTTPData.registerChoice.pur_history.toString())) {
-			
-			int result = _doInBackground__PurHistory();
-			
-			return result;
-			
-		}//if (params[0].equals(
+		////////////////////////////////
+
+		// get: json
+
+		////////////////////////////////
+		JSONObject joBody = _getJSONBody();
 		
-		/*********************************
-		 * Build: JSONObject
-		 *********************************/
-		List<SI> si_list = Methods_sl.getSIList(actv);
-		
-		if (si_list == null) {
+		/******************************
+			validate
+		 ******************************/
+		if (joBody == null) {
 			
-			return CONS.ReturnValues.FAILED;
-		}
-		
-//		int num = si_list.size();
-		int num = 180;
-		int num2 = si_list.size();
-//		int num = 30;
-//		int num2 = 60;
-		
-		
-		int count = 0;
-		int result;
-		
-		for (int i = num; i < num2; i++) {
-//			for (int i = 0; i < num; i++) {
+			return -1;
 			
-			result = _exec_post(si_list.get(i));
+		}//if (joBody == null)
+
+		////////////////////////////////
+
+		// get: http post
+
+		////////////////////////////////
+		String url = CONS.HTTPData.UrlPostSI;
+		
+	    //url with the post data
+		HttpPost httpPost = _getHttpPost(url, joBody);
+		
+		if (httpPost == null) {
 			
-			if (result == CONS.ReturnValues.OK) {
-				
-				count += 1;
-				
-			}
+			// Log
+			Log.d("["
+					+ "Task_PostData.java : "
+					+ +Thread.currentThread().getStackTrace()[2]
+							.getLineNumber() + " : "
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "httpPost => null");
+			
+			return -2;
 			
 		}
+
+		////////////////////////////////
+
+		// post
+
+		////////////////////////////////
+		return _PostData(httpPost);
+//		int iRes = _doInBackground__4_PostData(httpPost);
 		
-		return count + CONS.ReturnValues.MAGINITUDE_ONE;
+//		int result = _doInBackground__PurHistory();
+//			
+//		return result;
 		
 	}//doInBackground(String... params)
 
@@ -171,7 +151,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		 * Build: JSONBody
 		 *********************************/
 		JSONObject joBody =
-				_doInBackground__getJSONBody_PurHistory();
+				_getJSONBody();
 		
 		// Log
 		Log.d("[" + "Task_PostData.java : "
@@ -192,7 +172,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		String url = CONS.HTTPData.UrlPostSI;
 		
 	    //url with the post data
-		HttpPost httpPost = _doInBackground__2_getHttpPost(url, joBody);
+		HttpPost httpPost = _getHttpPost(url, joBody);
 		
 		if (httpPost == null) {
 			
@@ -221,7 +201,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	    /***************************************
 		 * Post
 		 ***************************************/
-		int iRes = _doInBackground__4_PostData(httpPost);
+		int iRes = _PostData(httpPost);
 		
 		if (iRes != CONS.ReturnValues.OK) {
 			
@@ -249,7 +229,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	 * @return null => Building failed
 	 *********************************/
 	private JSONObject
-	_doInBackground__getJSONBody_PurHistory() {
+	_getJSONBody() {
 		
 		// Log
 		Log.d("[" + "Task_PostData.java : "
@@ -452,7 +432,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		String url = CONS.HTTPData.UrlPostSI;
 		
 	    //url with the post data
-		HttpPost httpPost = _doInBackground__2_getHttpPost(url, joBody);
+		HttpPost httpPost = _getHttpPost(url, joBody);
 		
 		if (httpPost == null) {
 			
@@ -481,7 +461,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	    /***************************************
 		 * Post
 		 ***************************************/
-		int iRes = _doInBackground__4_PostData(httpPost);
+		int iRes = _PostData(httpPost);
 		
 		if (iRes != CONS.ReturnValues.OK) {
 			
@@ -505,8 +485,17 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 
 	}//private int _exec_post()
 
+	/******************************
+		@return
+			-3	ClientProtocolException<br>
+			-4	execute post => IOException<br>
+			-5	execute post => null returned<br>
+			-6	execute post => ServerError<br>
+			-7	execute post => ClientError<br>
+			1	execute post => success<br>
+	 ******************************/
 	private int
-	_doInBackground__4_PostData(HttpPost httpPost) {
+	_PostData(HttpPost httpPost) {
 		// TODO Auto-generated method stub
 	    DefaultHttpClient dhc = new DefaultHttpClient();
 	    
@@ -523,7 +512,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", e.toString());
 			
-			return CONS.ReturnValues.HttpPostFailed;
+			return -3;
 			
 		} catch (IOException e) {
 			
@@ -532,7 +521,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", e.toString());
 			
-			return CONS.ReturnValues.HttpPostFailed;
+			return -4;
 			
 		}
 		
@@ -543,7 +532,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", "hr => null");
 			
-			return CONS.ReturnValues.HttpPostFailed;
+			return -5;
 			
 		}//if (hr == null)
 	
@@ -554,18 +543,53 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "hr => " + hr.getStatusLine().getStatusCode());
 		
-		/*********************************
-		 * Check: HTTP return code
-		 *********************************/
-		int iRes = _doInBackground__3_CheckHTTPCodes(hr);
+		////////////////////////////////
+
+		// Check: HTTP return code
+
+		////////////////////////////////
+		int status = hr.getStatusLine().getStatusCode();
 		
-		if (iRes != CONS.ReturnValues.OK) {
-			
-			return iRes;
-			
-		}
+		if (status >= CONS.HTTPResponse.ServerError) {
 		
-		return CONS.ReturnValues.OK;
+			// Log
+			Log.d("Task_GetYomi.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+		
+			return -6;
+		//	return CONS.HTTP_Response.CREATED;
+			
+		} else if (status < CONS.HTTPResponse.ServerError
+					&& status >= CONS.HTTPResponse.BadRequest){//if (status == CONS.HTTP_Response.CREATED)
+			
+			// Log
+			Log.d("Task_GetYomi.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+		
+			return -7;
+//			return CONS.ReturnValues.ClientError;
+			
+		} else {//if (status == CONS.HTTP_Response.CREATED)
+			
+			// Log
+			Log.d("Task_GetTexts.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+			
+//			return CONS.HTTP_Response.NOT_CREATED;
+			
+		}//if (status == CONS.HTTP_Response.CREATED)
+
+		return 1;
+//		return CONS.ReturnValues.OK;
 		
 	}//_doInBackground__4_PostData(HttpPost httpPost)
 
@@ -616,7 +640,7 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 	}//_doInBackground__3_CheckHTTPCodes(HttpResponse hr)
 
 	private HttpPost
-	_doInBackground__2_getHttpPost(String url, JSONObject joBody) {
+	_getHttpPost(String url, JSONObject joBody) {
 		// TODO Auto-generated method stub
 		StringEntity se;
 		
@@ -800,71 +824,40 @@ public class Task_PostData extends AsyncTask<String, Integer, Integer> {
 		
 		String message;
 		
-		if (res.intValue() == CONS.ReturnValues.FAILED) {
-			
-			message = "Posting => Failed";
-			
-		} else if (res.intValue() == 
-						CONS.ReturnValues.PostedButNotUpdated) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-			message = "Posted but device data => not updated";
-			
-		} else if (res.intValue() == 
-				CONS.ReturnValues.ServerError) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-			message = "Remote => Server error";
-			
-		} else if (res.intValue() == 
-				CONS.ReturnValues.ClientError) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-			message = "Remote => Client error";
-			
-		} else if (res.intValue() >= CONS.ReturnValues.MAGINITUDE_ONE) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-			message = "Posting => Done(" 
-					+ String.valueOf(
-							res.intValue() - CONS.ReturnValues.MAGINITUDE_ONE)
-					+ " items)";
-			
-		} else if (res.intValue() >= CONS.ReturnValues.MAGINITUDE_ONE) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-				
-			message = "Posting => Done(" 
-					+ String.valueOf(
-							res.intValue() - CONS.ReturnValues.MAGINITUDE_ONE)
-							+ " items)";
-			
-		} else {//if (res.intValue() == CONS.ReturnValues.FAILED)
-			
-			message = "Posting => Done(Unknown result => " 
-					+ String.valueOf(res.intValue()) + ")";
-			
-		}//if (res.intValue() == CONS.ReturnValues.FAILED)
-		
-		// debug
-		Toast.makeText(actv,
-				message,
-				Toast.LENGTH_SHORT).show();
-		
 		// Log
-		Log.d("[" + "Task_PostData.java : "
-				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ " : "
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", message);
+		String msg_Log = "res => " + res.intValue();
+		Log.d("Task_Post_History.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
-		/*********************************
-		 * Dismiss: Dialogues
-		 *********************************/
-		if (dlg1 != null) {
-			
-			dlg1.dismiss();
-		}
+//		if (res.intValue() == CONS.ReturnValues.FAILED) {
+//			
+//			message = "Posting => Failed";
+//			
+//		} else if (res.intValue() == 
+//						CONS.ReturnValues.PostedButNotUpdated) {//if (res.intValue() == CONS.ReturnValues.FAILED)
+//			
+//			message = "Posted but device data => not updated";
+//			
+//		} else {//if (res.intValue() == CONS.ReturnValues.FAILED)
+//			
+//			message = "Posting => Done(Unknown result => " 
+//					+ String.valueOf(res.intValue()) + ")";
+//			
+//		}//if (res.intValue() == CONS.ReturnValues.FAILED)
 		
-		if (dlg2 != null) {
-			
-			dlg2.dismiss();
-		}
+//		/*********************************
+//		 * Dismiss: Dialogues
+//		 *********************************/
+//		if (dlg1 != null) {
+//			
+//			dlg1.dismiss();
+//		}
+//		
+//		if (dlg2 != null) {
+//			
+//			dlg2.dismiss();
+//		}
 		
 	}//protected void onPostExecute(Integer res)
 

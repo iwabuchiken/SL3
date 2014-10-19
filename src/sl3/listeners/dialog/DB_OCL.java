@@ -5,6 +5,7 @@ import java.util.Calendar;
 import sl3.items.PS;
 import sl3.items.SI;
 import sl3.main.R;
+import sl3.tasks.Task_Post_History;
 import sl3.utils.CONS;
 import sl3.utils.DBUtils;
 import sl3.utils.Methods;
@@ -145,6 +146,12 @@ DB_OCL implements OnClickListener {
 		//
 		switch (tag_name) {
 		
+		case DLG_POST_ITEMS_OK://------------------------------------------
+			
+			case_DLG_POST_ITEMS_OK();
+			
+			break;
+			
 		case DLG_SAVE_PUR_HISTORY_OK://------------------------------------------
 			
 			case_DLG_SAVE_PUR_HISTORY_OK();
@@ -435,6 +442,7 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_GENRES://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_PS://------------------------------------------
 		case ACTV_TAB_OPT_DROP_TABLE_PH://------------------------------------------
+		case ACTV_TAB_OPT_DROP_TABLE_ADMIN://------------------------------------------
 			
 			case_ACTV_TAB_OPT_DROP_TABLE(tag_name);
 			
@@ -470,6 +478,30 @@ DB_OCL implements OnClickListener {
 			break;
 		}//switch (tag_name)
 	}
+
+	private void 
+	case_DLG_POST_ITEMS_OK() {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+
+		// start: task
+
+		////////////////////////////////
+		Task_Post_History task = new Task_Post_History(actv);
+		
+		task.execute(CONS.HTTPData.registerChoice.pur_history.toString());
+
+		////////////////////////////////
+
+		// dismiss
+
+		////////////////////////////////
+		d2.dismiss();
+		d1.dismiss();
+		
+	}//case_DLG_POST_ITEMS_OK
+	
 
 	private void 
 	case_DLG_SAVE_PUR_HISTORY_OK() {
@@ -1014,6 +1046,12 @@ DB_OCL implements OnClickListener {
 		case ACTV_TAB_OPT_DROP_TABLE_PH:
 			
 			tname = CONS.DB.tname_ph;
+			
+			break;
+			
+		case ACTV_TAB_OPT_DROP_TABLE_ADMIN:
+			
+			tname = CONS.DB.tname_admin;
 			
 			break;
 			

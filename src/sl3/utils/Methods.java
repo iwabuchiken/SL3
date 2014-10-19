@@ -60,6 +60,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Vibrator;
 import android.util.Log;
 import android.util.Xml;
@@ -3445,6 +3447,14 @@ public class Methods {
 						CONS.DB.col_Names_PH, 
 						CONS.DB.col_Types_PH);
 			
+		} else if (tname.equals(CONS.DB.tname_admin)) {
+			
+			Methods._opt_ActvTab_CreateTables__generic(
+					actv, d1, d2, d3, 
+					CONS.DB.tname_admin, 
+					CONS.DB.col_Names_Admin, 
+					CONS.DB.col_Types_Admin);
+			
 		} else {
 
 			// Log
@@ -6088,5 +6098,22 @@ public class Methods {
 		return res;
 		
 	}//save_Pur_History
+
+	//REF http://stackoverflow.com/questions/1560788/how-to-check-internet-access-on-android-inetaddress-never-timeouts answered Oct 24 '10 at 16:28
+	public static boolean isOnline(Activity actv) {
+	    ConnectivityManager cm =
+	        (ConnectivityManager) actv.getSystemService(Context.CONNECTIVITY_SERVICE);
+	    
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	    	
+	        return true;
+	        
+	    }
+	    
+	    return false;
+	    
+	}
 
 }//public class Methods

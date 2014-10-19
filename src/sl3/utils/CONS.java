@@ -281,6 +281,37 @@ public class CONS {
 		};
 		
 		////////////////////////////////
+		
+		// admin
+		
+		////////////////////////////////
+		public static final String tname_admin	= "admin";
+		
+		public static String[]
+				col_Names_Admin_full = { 
+			
+			android.provider.BaseColumns._ID,	// 0
+			"created_at", "modified_at",		// 1,2
+			
+			"name", "value"						// 3,4
+			
+		};
+		
+		public static String[] col_Names_Admin = { 
+			
+			"name", "value"			// 0,1
+			
+		};
+		
+		public static String[] col_Types_Admin = { 
+			
+			"TEXT", "TEXT",				// 0,1
+			
+		};
+
+		public static String table_Admin_LastUploaded = "last_uploaded";
+		
+		////////////////////////////////
 
 		// stores
 

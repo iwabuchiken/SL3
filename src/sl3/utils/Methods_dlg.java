@@ -1,6 +1,5 @@
 package sl3.utils;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -599,9 +598,10 @@ public class Methods_dlg {
 		
 		//
 		btn_ok.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg2));
+				new DB_OTL(actv, dlg2));
+//		new DialogButtonOnTouchListener(actv, dlg2));
 		btn_cancel.setOnTouchListener(
-				new DialogButtonOnTouchListener(actv, dlg2));
+				new DB_OTL(actv, dlg2));
 		
 		/*----------------------------
 		* 3. Add listeners => OnClick
@@ -2676,6 +2676,19 @@ public class Methods_dlg {
 							.setTextColor_ID(R.color.red)
 							.build());
 		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__Create_Admin))
+							.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+							.setTextColor_ID(R.color.blue1)
+							.build());
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
+							R.string.opt_TabActv_Admin_Tables__Drop_Admin))
+							.setIconID(R.drawable.menu_icon_admin_32x32_red)
+							.setTextColor_ID(R.color.red)
+							.build());
+		
 		/****************************
 		* 3. Adapter
 		****************************/
@@ -4166,4 +4179,108 @@ public class Methods_dlg {
 
 	}//conf_Save_PurHistory
 
+	public static void 
+	conf_Post_ToBuy_List
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+//		/*********************************
+//		 * Validation
+//		 *********************************/
+//		if (CONS.tab_toBuyItemIds == null) {
+//			
+//			// debug
+//			Toast.makeText(actv,
+//					"To-buy list => Null", Toast.LENGTH_LONG).show();
+//			
+//			return;
+//			
+//		}
+//		
+//		if (CONS.tab_toBuyItemIds.size() < 1) {
+//			
+//			// debug
+//			Toast.makeText(actv,
+//					"To-buy list => No entry", Toast.LENGTH_LONG).show();
+//			
+//			return;
+//			
+//		}
+
+		////////////////////////////////
+
+		// validate: network ready
+
+		////////////////////////////////
+		////////////////////////////////
+
+		// validate: network status
+
+		////////////////////////////////
+		boolean res = Methods.isOnline(actv);
+		
+		if (res == false) {
+			
+			String msg = "Sorry. Network is not ready";
+			Methods_dlg.dlg_ShowMessage_SecondDialog(actv, d1, msg, R.color.gold2);
+//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+			return;
+			
+		} else {
+			
+			// Log
+			String msg_Log = "Network is ready";
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+
+		
+		/*********************************
+		 * Build: Dialog 2
+		 *********************************/
+		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
+				actv,
+				R.layout.dlg_template_ok_cancel,
+				R.string.generic_confirm,
+				
+				R.id.dlg_template_ok_cancel_btn_ok,
+//				R.id.dlg_template_ok_cancel_btn_ok,
+				R.id.dlg_template_ok_cancel_btn_cancel,
+				
+				Tags.DialogTags.DLG_POST_ITEMS_OK,
+//				Tags.DialogTags.tab2_post_items_ok,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
+//				Tags.DialogTags.generic_cancel_second_dialog,
+		
+				d1);
+		
+		/*********************************
+		 * Get: Views
+		 *********************************/
+		TextView tv_Message = (TextView) dlg2.findViewById(
+				R.id.dlg_template_ok_cancel_tv_message);
+		
+//		TextView tv_Value = (TextView) dlg2.findViewById(
+//				R.id.dlg_template_ok_cancel_tv_item_name);
+		
+		/*********************************
+		 * Modify: Views
+		 *********************************/
+		//REF http://stackoverflow.com/questions/4602902/how-to-set-text-color-of-textview-in-code answered Jan 5 '11 at 10:17
+		tv_Message.setTextColor(Color.WHITE);
+		
+		/*********************************
+		 * Add: Message
+		 *********************************/
+		tv_Message.setText(actv.getString(
+						R.string.dlg_post_bought_items_message));
+		
+//		tv_Value.setText(String.valueOf(CONS.tab_toBuyItemIds.size()) + " items");
+		
+		dlg2.show();
+		
+	}//conf_Post_ToBuy_List
+	
 }//public class Methods_dlg

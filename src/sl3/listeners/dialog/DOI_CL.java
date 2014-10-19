@@ -340,6 +340,8 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_post_tobuy_list))) {
 			
+			Methods_dlg.conf_Post_ToBuy_List(actv, d1);
+			
 		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_save_hist))) {
 
@@ -460,6 +462,26 @@ public class DOI_CL implements OnItemClickListener {
 					actv, d1, d2, d3,
 					CONS.DB.tname_ph, 
 					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_PH);
+			
+			////////////////////////////////
+			
+			// admin
+			
+			////////////////////////////////
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Create_Admin))) {
+			
+			Methods.opt_ActvTab_CreateTables(
+					actv, d1, d2, d3,
+					CONS.DB.tname_admin);
+			
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Tables__Drop_Admin))) {
+			
+			Methods_dlg.conf_DropTable(
+					actv, d1, d2, d3,
+					CONS.DB.tname_admin, 
+					Tags.DialogTags.ACTV_TAB_OPT_DROP_TABLE_ADMIN);
 			
 		} else {//if (choice.equals(actv.getString(
 			
