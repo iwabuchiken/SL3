@@ -721,12 +721,32 @@ public class CONS {
 						};
 		
 		public static String[] Keys_PurHistory = {
+//			private long dbId;
+//			String created_at;
+//			String modified_at;
+//			
+//			String store_name;
+//			String pur_date;
+//			String items;
+//			
+//			int amount;
+//			
+//			String memo;
+//			
+//			String posted_at;
+
+			"sl_local_db_id",
+			"sl_local_created_at",
+			"sl_local_modified_at",
 			
-			"sl_BoughtItemIds",
+			"sl_local_store_name",
+			"sl_local_pur_date",
+			"sl_local_items",
 			
-			"sl_PurHistory_Time",
+			"sl_local_amount",
+			"sl_local_memo",
 			
-			"sl_PurHistory_Store"
+			"sl_local_posted_at",
 			
 		};
 		

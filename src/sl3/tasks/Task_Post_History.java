@@ -13,8 +13,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import sl3.items.PH;
 import sl3.items.SI;
 import sl3.utils.CONS;
+import sl3.utils.DBUtils;
 import sl3.utils.Methods;
 import sl3.utils.Methods_sl;
 import android.app.Activity;
@@ -76,47 +78,262 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 	 * 	-1	=> JsonBody ==> null<br>
 	 * 	-2	=> httpPost => null<br>
 	 * 	-3 ClientProtocolException<br>
+	 * 
 	 * 	-4 execute post => IOException<br>
 	 * 	-5 execute post => null returned<br>
 	 * 	-6 execute post => ServerError<br>
+	 * 
 	 * 	-7 execute post => ClientError<br>
+	 * 	-8 No unposted pur history, or can't build pur history list<br>
+	 * 
 	 * 	1 execute post => success<br>
 	 *********************************/
 	@Override
-	protected Integer doInBackground(String... params) {
+	protected Integer 
+	doInBackground(String... params) {
 		
 		/*********************************
 		 * Set: Instance param
 		 *********************************/
 		Task_Post_History.instanceParam = params;
+
+		////////////////////////////////
+
+		// vars
+
+		////////////////////////////////
+		int counter = 0;	// count the number of items posted
 		
 		////////////////////////////////
 
-		// get: json
+		// get: PH list
 
 		////////////////////////////////
-		JSONObject joBody = _getJSONBody();
-		
+		List<PH> list_PHs = DBUtils.find_ALL_PHs__Unposted(actv);
+
 		/******************************
 			validate
 		 ******************************/
-		if (joBody == null) {
+		if (list_PHs == null) {
 			
-			return -1;
+			return -8;
+		}
+		
+		////////////////////////////////
+
+		// post each history
+
+		////////////////////////////////
+		JSONObject joBody = null;
+		
+		for (PH ph : list_PHs) {
 			
-		}//if (joBody == null)
+			////////////////////////////////
+			
+			// get: json
+	
+			////////////////////////////////
+			joBody = _getJSONBody(ph);
+			
+			// Log
+			String msg_Log = "joBody => " + joBody.toString();
+			Log.d("Task_Post_History.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+
+			////////////////////////////////
+			
+			// get: http post
+	
+			////////////////////////////////
+			String url = CONS.HTTPData.UrlPostSI;
+			
+		    //url with the post data
+			HttpPost httpPost = _getHttpPost(url, joBody);
+			
+			if (httpPost == null) {
+				
+				String msg = String.format(
+							"httpPost => null: %s, %s", 
+							ph.getStore_name(),
+							ph.getPur_date());
+				// Log
+				Log.d("["
+						+ "Task_PostData.java : "
+						+ +Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + " : "
+						+ Thread.currentThread().getStackTrace()[2].getMethodName()
+						+ "]", msg);
+				
+				continue;
+//				return -2;
+				
+			}
+
+			////////////////////////////////
+			
+			// post
+	
+			////////////////////////////////
+			int res = _PostData(httpPost);
+			
+			////////////////////////////////
+
+			// count
+
+			////////////////////////////////
+			if (res == 1) {
+				
+				String msg = String.format(
+						"post => successful: %s, %s", 
+						ph.getStore_name(),
+						ph.getPur_date());
+				// Log
+				Log.d("["
+						+ "Task_PostData.java : "
+						+ +Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + " : "
+						+ Thread.currentThread().getStackTrace()[2].getMethodName()
+						+ "]", msg);
+				
+				////////////////////////////////
+
+				// update: pur history: "posted_at"
+
+				////////////////////////////////
+				
+				
+				////////////////////////////////
+
+				// count
+
+				////////////////////////////////
+				counter += 1;
+				
+			}
+			
+		}//for (PH ph : list_PHs)
 
 		////////////////////////////////
 
-		// get: http post
+		// return
 
 		////////////////////////////////
-		String url = CONS.HTTPData.UrlPostSI;
+		return counter;
 		
-	    //url with the post data
-		HttpPost httpPost = _getHttpPost(url, joBody);
+//		//test
+//		return -1;
 		
-		if (httpPost == null) {
+//		////////////////////////////////
+//
+//		// get: json
+//
+//		////////////////////////////////
+//		JSONObject joBody = _getJSONBody();
+//		
+//		/******************************
+//			validate
+//		 ******************************/
+//		if (joBody == null) {
+//			
+//			return -1;
+//			
+//		}//if (joBody == null)
+//
+//		////////////////////////////////
+//
+//		// get: http post
+//
+//		////////////////////////////////
+//		String url = CONS.HTTPData.UrlPostSI;
+//		
+//	    //url with the post data
+//		HttpPost httpPost = _getHttpPost(url, joBody);
+//		
+//		if (httpPost == null) {
+//			
+//			// Log
+//			Log.d("["
+//					+ "Task_PostData.java : "
+//					+ +Thread.currentThread().getStackTrace()[2]
+//							.getLineNumber() + " : "
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "httpPost => null");
+//			
+//			return -2;
+//			
+//		}
+//
+//		////////////////////////////////
+//
+//		// post
+//
+//		////////////////////////////////
+//		return _PostData(httpPost);
+////		int iRes = _doInBackground__4_PostData(httpPost);
+//		
+////		int result = _doInBackground__PurHistory();
+////			
+////		return result;
+		
+	}//doInBackground(String... params)
+
+	/******************************
+		@return
+			null => JSONException
+	 ******************************/
+	private JSONObject 
+	_getJSONBody
+	(PH ph) {
+		// TODO Auto-generated method stub
+
+		////////////////////////////////
+
+		// keys, values
+
+		////////////////////////////////
+		Object[] values = new Object[]{
+				
+				ph.getDbId(),
+				ph.getCreated_at(),
+				ph.getModified_at(),
+				
+				ph.getStoreName(),
+				ph.getPur_date(),
+				ph.getItems(),
+				
+				ph.getAmount(),
+				
+				ph.getMemo(),
+				
+				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now())
+				
+		};
+		
+		String[] keys = CONS.HTTPData.Keys_PurHistory;
+
+		////////////////////////////////
+
+		// build
+
+		////////////////////////////////
+		//REF json object: http://stackoverflow.com/questions/8706046/create-json-in-android answered Jan 2 '12 at 22:42
+		JSONObject joBody = Methods.get_JsonBody_Generic(actv, keys, values);
+
+		////////////////////////////////
+
+		// add: password
+
+		////////////////////////////////
+		// Add password parameter
+		try {
+			
+			joBody.put(
+					CONS.HTTPData.passwdKey_SL,
+					CONS.HTTPData.passwdSL_PurHistory);
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
 			
 			// Log
 			Log.d("["
@@ -124,25 +341,18 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 					+ +Thread.currentThread().getStackTrace()[2]
 							.getLineNumber() + " : "
 					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "httpPost => null");
-			
-			return -2;
-			
+					+ "]",
+					
+					"add password param => Failed"
+					+ "(" + e.getMessage() + ")");
+		
+			return null;
 		}
 
-		////////////////////////////////
-
-		// post
-
-		////////////////////////////////
-		return _PostData(httpPost);
-//		int iRes = _doInBackground__4_PostData(httpPost);
+		return joBody;
 		
-//		int result = _doInBackground__PurHistory();
-//			
-//		return result;
-		
-	}//doInBackground(String... params)
+	}//_getJSONBody
+	
 
 	@SuppressWarnings("unused")
 	private int _doInBackground__PurHistory() {
@@ -281,7 +491,7 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 		
 		//REF json object: http://stackoverflow.com/questions/8706046/create-json-in-android answered Jan 2 '12 at 22:42
 		
-		JSONObject joBody = Methods_sl.get_JsonBody_Generic(keys, values);
+		JSONObject joBody = Methods.get_JsonBody_Generic(actv, keys, values);
 		
 		// Add password parameter
 		try {
