@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sl3.items.Genre;
+import sl3.items.PH;
 import sl3.items.PS;
 import sl3.items.SI;
 import sl3.items.Store;
@@ -4053,6 +4054,357 @@ public class DBUtils extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	/******************************
+		@return
+		null<br>
+			1. No DB file<br>
+			2. No such table<br>
+			3. Query => Exception<br>
+			4. Query => no entry<br>
+	 ******************************/
+	public static List<PH> 
+	find_ALL_PHs__Unposted
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// validate: DB file exists?
+		
+		////////////////////////////////
+		String dbName = CONS.DB.dbName;
+		
+		File dpath_DBFile = actv.getDatabasePath(dbName);
+		
+		if (!dpath_DBFile.exists()) {
+			
+			String msg = "No DB file: " + dbName;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// DB
+		
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists?
+		
+		////////////////////////////////
+		String tname = CONS.DB.tname_ph;
+		boolean res = dbu.tableExists(rdb, tname);
+		
+		if (res == false) {
+			
+			String msg = "No such table: " + tname;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			rdb.close();
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",		// 1,2
+//		
+//		"store_name", "pur_date",			// 3,4
+//		"items",							// 5
+//		"amount",							// 6
+//		"memo",								// 7
+//		"posted_at"							// 8
+
+		//REF http://stackoverflow.com/questions/10465083/android-sqlite-select-records-where-field-is-null-or-empty answered May 5 '12 at 19:10
+		String where = CONS.DB.col_Names_PH_full[8] + " is null or "
+						+ CONS.DB.col_Names_PH_full[8] + " = ?";
+		
+		String[] args = new String[]{ "" };
+		
+//		String where = CONS.DB.col_Names_PH_full[8] + " = ?";
+//		String[] args = new String[]{ "NULL" };
+//		String[] args = new String[]{ null };	//=> java.lang.IllegalArgumentException: the bind value at index 1 is null
+
+//		String[] args = new String[]{ "" };	//=> no entry
+
+		try {
+			
+			c = rdb.query(
+					
+					CONS.DB.tname_ph,			// 1
+					CONS.DB.col_Names_PH_full,	// 2
+//					null, null,		// 3,4
+//					where, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// build list
+		
+		////////////////////////////////
+		List<PH> list_PHs = new ArrayList<PH>();
+
+		PH ps = null;
+
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",		// 1,2
+//		
+//		"store_name", "pur_date",			// 3,4
+//		"items",							// 5
+//		"amount",							// 6
+//		"memo",								// 7
+//		"posted_at"							// 8
+
+		while(c.moveToNext()) {
+			
+			ps = new PH.Builder()
+			
+						.setDbId(c.getInt(0))
+						.setCreated_at(c.getString(1))
+						.setModified_at(c.getString(2))
+
+						.setStore_name(c.getString(3))
+						.setPur_date(c.getString(4))
+						.setItems(c.getString(5))
+						
+						.setAmount(c.getInt(6))
+						.setMemo(c.getString(7))
+						.setPosted_at(c.getString(8))
+						
+						.build();
+			
+			list_PHs.add(ps);
+			
+		}//while(c.moveToNext())
+			
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		rdb.close();
+		
+		msg_Log = "list_PHs.size() => " + list_PHs.size();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return list_PHs;
+		
+	}//find_ALL_PHs__Unposted
+
+	public static Store 
+	find_Store_from_Name
+	(Activity actv, String store_name) {
+		// TODO Auto-generated method stub
+		
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store_name",						// 3
+//		
+//		"posted_at"							// 4
+
+		String where = CONS.DB.col_Names_Store_full[3] + " = ?";
+		String[] args = new String[]{
+				
+				store_name
+				
+		};
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+		try {
+			
+			c = rdb.query(
+					
+					CONS.DB.tname_stores,			// 1
+					CONS.DB.col_Names_Store_full,	// 2
+//					null, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			e.printStackTrace();
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		/***************************************
+		 * Build item
+		 ***************************************/
+		c.moveToFirst();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store_name",						// 3
+//		
+//		"posted_at"							// 4
+			
+		Store st = new Store.Builder()
+			
+				.setDb_Id((int)c.getLong(0))
+				.setCreated_at(c.getString(1))
+				.setModified_at(c.getString(2))
+
+				.setStore_name(c.getString(3))
+				.setPosted_at(c.getString(4))
+				
+				.build();
+			
+		/***************************************
+		 * Close db
+		 ***************************************/
+		rdb.close();
+		
+		/***************************************
+		 * Return
+		 ***************************************/
+		return st;
+		
+	}//find_Store_from_Name
 
 }//public class DBUtils extends SQLiteOpenHelper
 

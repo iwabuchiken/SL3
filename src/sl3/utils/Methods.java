@@ -33,6 +33,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -6100,7 +6102,9 @@ public class Methods {
 	}//save_Pur_History
 
 	//REF http://stackoverflow.com/questions/1560788/how-to-check-internet-access-on-android-inetaddress-never-timeouts answered Oct 24 '10 at 16:28
-	public static boolean isOnline(Activity actv) {
+	public static boolean 
+	isOnline
+	(Activity actv) {
 	    ConnectivityManager cm =
 	        (ConnectivityManager) actv.getSystemService(Context.CONNECTIVITY_SERVICE);
 	    
@@ -6114,6 +6118,36 @@ public class Methods {
 	    
 	    return false;
 	    
-	}
+	}//isOnline
+
+	public static JSONObject
+	get_JsonBody_Generic
+	(Activity actv, String[] keys, Object[] values) {
+		
+		JSONObject joBody = new JSONObject();
+		
+		try {
+			
+			for(int i = 0; i < keys.length; i++) {
+				
+				joBody.put(keys[i], values[i]);
+				
+			}
+			
+		} catch (JSONException e) {
+			
+			// Log
+			Log.d("Methods_sl.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			return null;
+			
+		}
+
+		return joBody;
+	}//get_JsonBody_Generic
 
 }//public class Methods
