@@ -2,11 +2,16 @@ package sl3.utils;
 
 import java.util.List;
 
+import sl3.adapters.Adp_LogFileList;
+import sl3.adapters.Adp_ShowLogFile_List;
 import sl3.adapters.ItemListAdapter2;
 import sl3.adapters.ToBuyListAdapter;
+import sl3.items.LogItem;
 import sl3.items.SI;
 
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -40,6 +45,19 @@ public class CONS {
 	public static boolean bgm;
 	
 	public static class Admin {
+		
+		////////////////////////////////
+		
+		// Utilities
+		
+		////////////////////////////////
+		public static Vibrator vib;
+		
+		public static final int vibLength_click = 35;
+		
+		public static final String format_Date_AudioFile = "yyyy-MM-dd_HH-mm-ss-SSS";
+		
+		public static final String format_Clock = "%02d:%02d";
 		
 		// X out of 100
 		// Usage => e.g. width = screen_width * 100 / ratio_Dialog_to_Screen_W
@@ -86,6 +104,8 @@ public class CONS {
 		public final static String dPath_Data = dPath_Data_Root + "/data";
 		
 		public final static String dPath_Log = dPath_Data_Root + "/log";
+		
+		public final static String fname_Log = "log.txt";
 
 //		public static String dirPath_db = "/data/data/shoppinglist.main/databases";
 		public static String dirPath_db = "/data/data/sl.main/databases";
@@ -695,7 +715,25 @@ public class CONS {
 	}
 	
 	public static class HTTPData {
+
+		////////////////////////////////
+
+		// commons
+
+		////////////////////////////////
+		/*********************************
+		 * Passwords
+		 *********************************/
+		public static final String passwdKey_SL		= "passwd_sl";
 		
+		////////////////////////////////
+
+		// SI
+
+		////////////////////////////////
+		public static final String passwdSL_NewItem
+		= "sl_NewItem";
+
 		public static String UrlPostSI
 //				= "http://cosmos-jqm-1.herokuapp.com/items/new";
 		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new";
@@ -720,6 +758,18 @@ public class CONS {
 //						"item[yomi]",		"item[mobile_id]",
 						};
 		
+		////////////////////////////////
+
+		// PH
+
+		////////////////////////////////
+		public static String UrlPost_PH
+					= "http://benfranklin.chips.jp/cake_apps/Cake_SL3"
+						+ "/purhistorys/add_from_remote";
+		
+		public static final String passwdSL_PurHistory
+		= "sl_PurHist";
+
 		public static String[] Keys_PurHistory = {
 //			private long dbId;
 //			String created_at;
@@ -750,7 +800,7 @@ public class CONS {
 			"sl_local_posted_at",
 			
 		};
-		
+
 		/*********************************
 		 * Posting data => Types
 		 *********************************/
@@ -759,17 +809,6 @@ public class CONS {
 			
 			pur_history,
 		};
-		
-		/*********************************
-		 * Passwords
-		 *********************************/
-		public static final String passwdKey_SL		= "passwd_sl";
-		
-		public static final String passwdSL_NewItem
-												= "sl_NewItem";
-		
-		public static final String passwdSL_PurHistory
-												= "sl_PurHist";
 		
 		/*********************************
 		 * Others
@@ -829,6 +868,10 @@ public class CONS {
 		 *********************************/
 		public static final int ServiceReady	= 220;
 		
+		public static final int status_Created	= 201;
+		
+		public static final int status_OK		= 200;
+		
 		/*********************************
 		 * 4xx
 		 *********************************/
@@ -840,6 +883,13 @@ public class CONS {
 		 * 5xx
 		 *********************************/
 		public static final int ServerError	= 500;
+		
+		/******************************
+			negatives
+		 ******************************/
+		public static final int status_NOT_CREATED	= -201;
+		
+		
 	}
 
 	/******************************
@@ -893,6 +943,15 @@ public class CONS {
 	public static class Pref {
 
 		////////////////////////////////
+		
+		// Commons
+		
+		////////////////////////////////
+		public static long dflt_LongExtra_value = -1;
+		
+		public static int dflt_IntExtra_value = -1;
+
+		////////////////////////////////
 
 		// TabActv
 
@@ -903,6 +962,118 @@ public class CONS {
 		
 		public static String pkey_TabActv_ToBuyIds = "pkey_TabActv_ToBuyIds";
 		
+		////////////////////////////////
+
+		// MainActv.java
+
+		////////////////////////////////
+		
+		public static SharedPreferences prefs_MainActv;
+		
+		public static String pname_MainActv = "pname_MainActv";
+//		public static String pname_CurrentPath = "current_path";
+		
+		public static String pkey_CurrentPath = "pkey_CurrentPath";
+		
+		public static String pkey_CurrentPosition_MainActv = "pkey_CurrentPosition";
+
+		
+		////////////////////////////////
+
+		// LogActv
+
+		////////////////////////////////
+		public static String pkey_CurrentPosition_LogActv = 
+									"pkey_CurrentPosition_LogActv";
+
 	}
-	
+
+	public static class ShowLogActv {
+		
+		public static List<LogItem> list_ShowLog_Files = null;
+		
+//		public static ArrayAdapter<String> adp_LogFile_List = null;
+		
+		public static Adp_ShowLogFile_List adp_ShowLog_File_List;
+		
+		public static String fname_Target_LogFile = null;
+		
+		public static List<String> list_RawLines = null;
+		
+	}
+
+	public static class Intent {
+		
+		////////////////////////////////
+
+		// commons
+
+		////////////////////////////////
+		public static long dflt_LongExtra_value = -1;
+		
+		public static int dflt_IntExtra_value = -1;
+		
+		
+		////////////////////////////////
+
+		// MainActv
+
+		////////////////////////////////
+		public static String iKey_CurrentPath_MainActv = "current_path";
+
+		////////////////////////////////
+		
+		// MemoEditActv
+		
+		////////////////////////////////
+		public static String iKey_Memo_Id = "iKey_Memo_Id";
+		
+		
+		/***************************************
+		 * Request codes
+		 ***************************************/
+		public final static int REQUEST_CODE_SEE_BOOKMARKS = 0;
+		
+		public final static int REQUEST_CODE_HISTORY = 1;
+		
+		/***************************************
+		 * Result code
+		 ***************************************/
+		public final static int RESULT_CODE_SEE_BOOKMARKS_OK = 1;
+		
+		public final static int RESULT_CODE_SEE_BOOKMARKS_CANCEL = 0;
+		
+		////////////////////////////////
+
+		// PlayActv
+
+		////////////////////////////////
+		public final static String iKey_PlayActv_Memo_Id = "iKey_PlayActv_Memo_Id";
+		
+		// Used in Service_ShowProgress
+		public static String iKey_PlayActv_TaskPeriod
+											= "iKey_PlayActv_TaskPeriod";
+
+		
+		////////////////////////////////
+
+		// ShowLogActv
+
+		////////////////////////////////
+		public static final String iKey_LogActv_LogFileName =
+													"iKey_LogActv_LogFileName";
+		
+
+	}//public static class Intent
+
+	public static class LogActv {
+		
+		public static List<String> list_LogFiles = null;
+		
+//		public static ArrayAdapter<String> adp_LogFile_List = null;
+		
+		public static Adp_LogFileList adp_LogFile_List;
+		
+	}
+
 }//public class CONS

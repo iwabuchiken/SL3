@@ -1,5 +1,6 @@
 package sl3.utils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +22,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -27,11 +31,15 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +49,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import sl.main.ItemListActv;
 import sl3.adapters.ItemListAdapter2;
 import sl3.items.Genre;
+import sl3.items.LogItem;
+import sl3.items.PH;
 import sl3.items.PS;
 import sl3.items.SI;
 import sl3.items.Store;
@@ -50,14 +60,17 @@ import sl3.listeners.dialog.DL;
 import sl3.listeners.dialog.DOI_CL;
 import sl3.listeners.dialog.DialogButtonOnTouchListener;
 import sl3.main.R;
+import sl.main.LogActv;
 import sl.main.MainActv;
 import sl.main.RegisterItemActv;
+import sl.main.ShowLogActv;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -6149,5 +6162,667 @@ public class Methods {
 
 		return joBody;
 	}//get_JsonBody_Generic
+
+	/******************************
+		@return 
+			-20 UnsupportedEncodingException<br>
+			-21 ClientProtocolException in executing post<br>
+			-22 IOException in executing post<br>
+			-23 HttpResponse => null<br>
+			-24 EntityUtils.toString => ParseException<br>
+			-25 EntityUtils.toString => IOException<br>
+			-26 StrinEntity => UnsupportedEncodingException<br>
+	 ******************************/
+	public static int 
+	post_PurHist_to_Remote
+	(Activity actv, PH ph) {
+		////////////////////////////////
+	
+		// setup
+	
+		////////////////////////////////
+		String url = CONS.HTTPData.UrlPost_PH;
+		
+		HttpEntity param = _GetParam__PH(actv, ph);
+
+		/******************************
+			validate
+		 ******************************/
+		if (param == null) {
+			
+			// Log
+			String msg_Log = "Building param => UnsupportedEncodingException";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return -20;
+			
+		}
+		
+		////////////////////////////////
+	
+		// HttpPost
+	
+		////////////////////////////////
+		HttpPost httpPost = new HttpPost(url);
+		
+		//REF content-type http://d.hatena.ne.jp/hogem/20091023/1256304878
+		httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
+		
+		httpPost.setEntity(param);
+		
+		// Log
+		String msg_Log;
+		
+		try {
+			
+			msg_Log = "url => " + httpPost.getURI().toURL().toString();
+			
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} catch (MalformedURLException e1) {
+			
+			// Log
+			msg_Log = "exception!";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			e1.printStackTrace();
+			
+		}
+		
+		DefaultHttpClient dhc = new DefaultHttpClient();
+		
+		HttpResponse hr = null;
+		
+		try {
+
+			// Log
+			String log_msg = "posting pur history ... : " + ph.getItems();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+			
+			hr = dhc.execute(httpPost);
+			
+			// Log
+			log_msg = "posting image data => done: " + ph.getItems();
+			
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+			
+		} catch (ClientProtocolException e) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", e.toString());
+			
+			return -21;
+			
+		} catch (IOException e) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", e.toString());
+			
+			return -22;
+			
+		}
+	
+		////////////////////////////////
+	
+		// Validate: Return
+	
+		////////////////////////////////
+		if (hr == null) {
+			
+			// Log
+			Log.d("TaskHTTP.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "hr == null");
+			
+			return -23;
+			
+		} else {//if (hr == null)
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Http response => Obtained");
+	
+		}//if (hr == null)
+	
+		////////////////////////////////
+	
+		// Status code
+	
+		////////////////////////////////
+		int status = hr.getStatusLine().getStatusCode();
+		
+		if (status == CONS.HTTPResponse.status_Created
+				|| status == CONS.HTTPResponse.status_OK) {
+	
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+			
+			String log_msg = "status=" + status + "/" + ph.getItems();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+	
+		} else {//if (status == CONS.HTTP_Response.CREATED)
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+			
+			return CONS.HTTPResponse.status_NOT_CREATED;
+			
+		}//if (status == CONS.HTTP_Response.CREATED)
+		
+		return status;
+		
+	}//post_ImageData_to_Remote
+
+	private static HttpEntity 
+	_GetParam__PH
+	(Activity actv, PH ph) {
+		// TODO Auto-generated method stub
+
+		////////////////////////////////
+
+		// value pair
+
+		////////////////////////////////
+		//REF http://stackoverflow.com/questions/3288823/how-to-add-parameters-in-android-http-post answered Jul 20 '10 at 15:10
+		List<NameValuePair> params = new LinkedList<NameValuePair>();
+		
+		params.add(new BasicNameValuePair(
+				"data[PurHistory][local_id]", 
+				String.valueOf(ph.getDbId())));
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][local_created_at]", 
+						ph.getCreated_at()
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][local_updated_at]", 
+						ph.getModified_at()
+						)
+				);
+
+		////////////////////////////////
+
+		// store name
+
+		////////////////////////////////
+		Store st = DBUtils.find_Store_from_Name(actv, ph.getStore_name());
+		
+		int store_ID = 0;
+		
+		if (st != null) {
+			
+			store_ID = st.getDb_Id();
+			
+		}
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][store_id]", String.valueOf(store_ID)
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][pur_date]", ph.getPur_date()
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][items]", ph.getItems()
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][amount]", String.valueOf(ph.getAmount())
+						)
+				);
+		
+		////////////////////////////////
+
+		// entity
+
+		////////////////////////////////
+		HttpEntity entity = null;
+		
+		try {
+			
+			entity = new UrlEncodedFormEntity(params, HTTP.UTF_8);
+//			entity = new UrlEncodedFormEntity(params);
+			
+			// Log
+			String msg_Log = "entity => created";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} catch (UnsupportedEncodingException e) {
+			
+			
+			e.printStackTrace();
+			
+			return null;
+			
+		}
+		
+		return entity;
+
+	}//_GetParam__PH
+
+	public static void 
+	start_Activity_LogActv
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+		Intent i = new Intent();
+		
+		i.setClass(actv, LogActv.class);
+		
+		i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		
+		actv.startActivity(i);
+		
+		////////////////////////////////
+
+		// dismiss
+
+		////////////////////////////////
+		d1.dismiss();
+		
+	}//start_Activity_LogActv
+
+	/******************************
+		@return
+			null => 1. Log file => doesn't exist<br>
+			//REF http://stackoverflow.com/questions/2290757/how-can-you-escape-the-character-in-javadoc answered Dec 11 '11 at 11:11<br>
+			2. {@literal List<String>} list => null<br>
+			3. list_LogItem => null<br>
+	 ******************************/
+	public static List<LogItem> 
+	get_LogItem_List
+	(Activity actv) {
+		
+		
+		String msg_Log;
+		
+		////////////////////////////////
+	
+		// validate: files exists
+	
+		////////////////////////////////
+		File fpath_Log = new File(
+				CONS.DB.dPath_Log,
+				CONS.ShowLogActv.fname_Target_LogFile);
+		
+		if (!fpath_Log.exists()) {
+			
+			String msg = "Log file => doesn't exist";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.red);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+	
+		// read file
+	
+		List<String> list = 
+						Methods.get_LogLines(actv, fpath_Log.getAbsolutePath());
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list == null) {
+			
+			return null;
+			
+		} else {
+			
+			////////////////////////////////
+			
+			// list => reverse
+			
+			////////////////////////////////
+			Collections.reverse(list);
+			
+			////////////////////////////////
+	
+			// add all
+	
+			////////////////////////////////
+			CONS.ShowLogActv.list_RawLines.addAll(list);
+			
+		}
+	
+		////////////////////////////////
+	
+		// build: LogItem list
+	
+		////////////////////////////////
+		List<LogItem> list_LogItem = 
+				Methods.conv_LogLinesList_to_LogItemList(
+									actv, CONS.ShowLogActv.list_RawLines);
+	
+		/******************************
+			validate
+		 ******************************/
+		if (list_LogItem == null) {
+			
+			// Log
+			msg_Log = "list_LogItem => null";
+			Log.e("ShowLogActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return null;
+			
+		} else {
+	
+			// Log
+			msg_Log = "list_LogItem => not null"
+						+ "(" + list_LogItem.size() + ")";
+			Log.d("ShowLogActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+	//		CONS.ShowLogActv.list_ShowLog_Files.addAll(list_LogItem);
+			
+			return list_LogItem;
+			
+		}
+		
+	}//get_LogItem_List
+
+	public static List<String> 
+	get_LogLines
+	(Activity actv, String fpath_LogFile) {
+		
+		
+		int count_Lines = 0;
+		int count_Read = 0;
+		
+		List<String> list = new ArrayList<String>();
+		
+	//	File f = new File(fpath_LogFile);
+		
+		try {
+			
+	//		fis = new FileInputStream(fpath_Log);
+	
+			//REF BufferedReader http://stackoverflow.com/questions/7537833/filereader-for-text-file-in-android answered Sep 24 '11 at 8:29
+			BufferedReader br = new BufferedReader(
+						new InputStreamReader(new FileInputStream(fpath_LogFile)));
+	//		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+			
+			String line = null;
+			
+			line = br.readLine();
+					
+			while(line != null) {
+				
+				list.add(line);
+				
+				count_Lines += 1;
+				count_Read += 1;
+				
+				line = br.readLine();
+				
+			}
+			
+			////////////////////////////////
+	
+			// close
+	
+			////////////////////////////////
+			br.close();
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+			
+			String msg = "FileNotFoundException";
+			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.red);
+			
+			return null;
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			
+			count_Lines += 1;
+			
+		}
+	
+		// Log
+		String msg_Log = String.format(
+							Locale.JAPAN,
+							"count_Lines => %d / count_Read => %d", 
+							count_Lines, count_Read);
+		
+		Log.d("ShowLogActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+	
+		
+		return list;
+		
+	}//get_LogLines
+
+	public static List<LogItem> 
+	conv_LogLinesList_to_LogItemList
+	(Activity actv, List<String> list_RawLines) {
+		
+		String msg_Log;
+		
+		List<LogItem> list_LogItems = new ArrayList<LogItem>();
+		
+		String reg = "\\[(.+?)\\] \\[(.+?)\\] (.+)";
+//		String reg = "\\[(.+)\\] \\[(.+)\\] (.+)";
+		
+		Pattern p = Pattern.compile(reg);
+		
+		Matcher m = null;
+		
+		LogItem loi = null;
+		
+		for (String string : list_RawLines) {
+			
+			m = p.matcher(string);
+			
+			if (m.find()) {
+
+				loi = _build_LogItem_from_Matcher(actv, m);
+				
+				if (loi != null) {
+					
+					list_LogItems.add(loi);
+					
+				}
+				
+			}//if (m.find())
+			
+		}//for (String string : list_RawLines)
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list_LogItems.size() < 1) {
+			
+			// Log
+			msg_Log = "list_LogItems.size() => " + list_LogItems.size();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+		}
+		
+		return list_LogItems;
+		
+	}//conv_LogLinesList_to_LogItemList
+
+	/******************************
+		@return
+			null => Matcher.groupCount() != 3
+	 ******************************/
+	private static LogItem 
+	_build_LogItem_from_Matcher
+	(Activity actv, Matcher m) {
+		
+	
+		////////////////////////////////
+	
+		// validate
+	
+		////////////////////////////////
+		if (m.groupCount() != 3) {
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+	
+		// prep: data
+	
+		////////////////////////////////
+		String[] tokens_TimeLabel = m.group(1).split(" ");
+		
+		String[] tokens_FileInfo = m.group(2).split(" : ");
+		
+		String text = m.group(3);
+		
+		String date = tokens_TimeLabel[0];
+		
+		String time = tokens_TimeLabel[1].split("\\.")[0];
+		
+		String fileName = tokens_FileInfo[0];
+		
+		String line = tokens_FileInfo[1];
+		
+		////////////////////////////////
+	
+		// LogItem
+	
+		////////////////////////////////
+		LogItem loi = new LogItem.Builder()
+					
+					.setDate(date)
+					.setTime(time)
+					.setMethod(fileName)
+					.setLine(Integer.parseInt(line))
+					.setText(text)
+					.build();
+		
+		return loi;
+		
+	}//_build_LogItem_from_Matcher
+
+	public static void 
+	start_Activity_ShowLogActv
+	(Activity actv, String itemName) {
+		
+		
+		// Log
+		String msg_Log = "itemName => " + itemName;
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		Intent i = new Intent();
+		
+		i.setClass(actv, ShowLogActv.class);
+
+		i.putExtra(CONS.Intent.iKey_LogActv_LogFileName, itemName);
+		
+		i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+		
+		actv.startActivity(i);
+		
+		
+	}//start_Activity_LogActv
+
+	/******************************
+		@return true => pref set
+	 ******************************/
+	public static boolean 
+	set_Pref_Int
+	(Activity actv, 
+			String pref_name, String pref_key, int value) {
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(pref_name, Context.MODE_PRIVATE);
+	
+		/****************************
+		 * 2. Get editor
+			****************************/
+		SharedPreferences.Editor editor = prefs.edit();
+	
+		/****************************
+		 * 3. Set value
+			****************************/
+		editor.putInt(pref_key, value);
+		
+		try {
+			editor.commit();
+			
+			return true;
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Excption: " + e.toString());
+			
+			return false;
+		}
+	
+	}//set_Pref_Int
+
+	public static int 
+	get_Pref_Int
+	(Activity actv, String pref_name, String pref_key, int defValue) {
+		
+		SharedPreferences prefs = 
+				actv.getSharedPreferences(pref_name, Context.MODE_PRIVATE);
+
+		/****************************
+		 * Return
+			****************************/
+		return prefs.getInt(pref_key, defValue);
+
+	}//public static boolean set_pref(String pref_name, String value)
 
 }//public class Methods

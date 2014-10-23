@@ -125,65 +125,72 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 		// post each history
 
 		////////////////////////////////
-		JSONObject joBody = null;
+//		JSONObject joBody = null;
+		
+		int res;
 		
 		for (PH ph : list_PHs) {
-			
-			////////////////////////////////
-			
-			// get: json
-	
-			////////////////////////////////
-			joBody = _getJSONBody(ph);
-			
-			// Log
-			String msg_Log = "joBody => " + joBody.toString();
-			Log.d("Task_Post_History.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", msg_Log);
 
-			////////////////////////////////
 			
-			// get: http post
-	
-			////////////////////////////////
-			String url = CONS.HTTPData.UrlPostSI;
+			res = Methods.post_PurHist_to_Remote(actv, ph);
 			
-		    //url with the post data
-			HttpPost httpPost = _getHttpPost(url, joBody);
-			
-			if (httpPost == null) {
-				
-				String msg = String.format(
-							"httpPost => null: %s, %s", 
-							ph.getStore_name(),
-							ph.getPur_date());
-				// Log
-				Log.d("["
-						+ "Task_PostData.java : "
-						+ +Thread.currentThread().getStackTrace()[2]
-								.getLineNumber() + " : "
-						+ Thread.currentThread().getStackTrace()[2].getMethodName()
-						+ "]", msg);
-				
-				continue;
-//				return -2;
-				
-			}
+//			////////////////////////////////
+//			
+//			// get: json
+//	
+//			////////////////////////////////
+//			joBody = _getJSONBody(ph);
+//			
+//			// Log
+//			String msg_Log = "joBody => " + joBody.toString();
+//			Log.d("Task_Post_History.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//
+//			////////////////////////////////
+//			
+//			// get: http post
+//	
+//			////////////////////////////////
+//			String url = CONS.HTTPData.UrlPostSI;
+//			
+//		    //url with the post data
+//			HttpPost httpPost = _getHttpPost(url, joBody);
+//			
+//			if (httpPost == null) {
+//				
+//				String msg = String.format(
+//							"httpPost => null: %s, %s", 
+//							ph.getStore_name(),
+//							ph.getPur_date());
+//				// Log
+//				Log.d("["
+//						+ "Task_PostData.java : "
+//						+ +Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber() + " : "
+//						+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//						+ "]", msg);
+//				
+//				continue;
+////				return -2;
+//				
+//			}
 
-			////////////////////////////////
-			
-			// post
-	
-			////////////////////////////////
-			int res = _PostData(httpPost);
+//			////////////////////////////////
+//			
+//			// post
+//	
+//			////////////////////////////////
+//			res = _PostData(httpPost);
 			
 			////////////////////////////////
 
 			// count
 
 			////////////////////////////////
-			if (res == 1) {
+//			if (res == 1) {
+			if (res == CONS.HTTPResponse.status_Created
+					|| res == CONS.HTTPResponse.status_OK) {
 				
 				String msg = String.format(
 						"post => successful: %s, %s", 

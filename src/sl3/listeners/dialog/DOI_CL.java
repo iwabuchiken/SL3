@@ -602,8 +602,10 @@ public class DOI_CL implements OnItemClickListener {
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Main__SeeLog))) {
 			
-			String msg = "Sorry. Under construction";
-			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			Methods.start_Activity_LogActv(actv, d1);
+			
+//			String msg = "Sorry. Under construction";
+//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
 
 		} else if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Main__Register_Item))) {
