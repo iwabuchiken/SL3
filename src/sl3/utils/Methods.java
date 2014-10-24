@@ -6412,6 +6412,12 @@ public class Methods {
 						)
 				);
 		
+		params.add(
+				new BasicNameValuePair(
+						"data[PurHistory][memo]", String.valueOf(ph.getMemo())
+						)
+				);
+		
 		////////////////////////////////
 
 		// entity
