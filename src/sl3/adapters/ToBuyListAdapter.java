@@ -135,12 +135,12 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 			
 		} else {//if (CONS.tab_boughtItemIds.contains(new Integer(position)))
 			
-			// Log
-			Log.d("ToBuyListAdapter.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "Doen't contain");
+//			// Log
+//			Log.d("ToBuyListAdapter.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ ":"
+//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+//					+ "]", "Doen't contain");
 			
 		//		convertView.setBackgroundColor(Color.BLUE);
 			tvItemName.setBackgroundColor(Color.WHITE);
@@ -165,11 +165,11 @@ public class ToBuyListAdapter extends ArrayAdapter<SI> {
 	private void getView__1_setupTextView(View v, SI si) {
 		// TODO Auto-generated method stub
 
-		// Log
-		String msg_Log = "si.getNum() => " + si.getNum();
-		Log.d("ToBuyListAdapter.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", msg_Log);
+//		// Log
+//		String msg_Log = "si.getNum() => " + si.getNum();
+//		Log.d("ToBuyListAdapter.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
 		
         tvItemName = 
         				(TextView) v.findViewById(R.id.adapteritem_tv_item_name);

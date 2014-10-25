@@ -664,7 +664,19 @@ public class CONS {
 	}
 	
 	public static class TabActv {
+
+		////////////////////////////////
+
+		// commons
+
+		////////////////////////////////
+		public static boolean screen_On;
 		
+		////////////////////////////////
+
+		// views
+
+		////////////////////////////////
 		public static ListView lvTab1;
 		public static ListView lvTab2;
 		
@@ -675,7 +687,12 @@ public class CONS {
 		public static TabHost tabHost;
 		public static TabSpec firstTab;
 		public static TabSpec secondTab;
-		
+
+		////////////////////////////////
+
+		// list-related
+
+		////////////////////////////////
 		public static ArrayAdapter<String> adp_List_Store;
 		public static ArrayAdapter<String> adapterGenre;
 		

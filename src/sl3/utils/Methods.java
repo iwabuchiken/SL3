@@ -6325,6 +6325,13 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", log_msg);
 	
+			////////////////////////////////
+
+			// update: PH
+
+			////////////////////////////////
+			Methods._update_PH__PostedAt(actv, ph);
+			
 		} else {//if (status == CONS.HTTP_Response.CREATED)
 			
 			// Log
@@ -6341,6 +6348,25 @@ public class Methods {
 		return status;
 		
 	}//post_ImageData_to_Remote
+
+	private static void 
+	_update_PH__PostedAt
+	(Activity actv, PH ph) {
+		// TODO Auto-generated method stub
+		
+		String time = Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now());
+		
+		ph.setPosted_at(time);
+		
+		boolean res = DBUtils.update_Data_generic(
+							actv,
+							CONS.DB.tname_ph,
+							ph.getDbId(),
+							// "posted_at"							// 8
+							CONS.DB.col_Names_PH_full[8],
+							time);
+		
+	}//_update_PH__PostedAt
 
 	private static HttpEntity 
 	_GetParam__PH

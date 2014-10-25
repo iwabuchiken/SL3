@@ -4406,5 +4406,67 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//find_Store_from_Name
 
+	public static boolean 
+	update_Data_generic
+	(Activity actv, 
+		String tname, long dbId, String col_Name, String value) {
+		// TODO Auto-generated method stub
+		
+		/***************************************
+		 * Setup: DB
+		 ***************************************/
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase wdb = dbu.getWritableDatabase();
+		
+//		/***************************************
+//		 * Build SQL
+//		 ***************************************/
+//		String sql = "UPDATE " + tname + " SET "
+////				+ colName + "='" + colValue + "', "
+//				+ colName + "='" + colValue + "'"
+//				+ " WHERE " + android.provider.BaseColumns._ID + " = '" + dbId + "'";
+				
+		/***************************************
+		 * Exec: Query
+		 ***************************************/
+		String where = android.provider.BaseColumns._ID + " = ?";
+		
+		String[] args = new String[]{String.valueOf(dbId)};
+		
+		ContentValues cv = new ContentValues();
+		
+		cv.put(col_Name, value);
+		
+		try {
+			
+			wdb.update(tname, cv, where, args);
+			
+//			wdb.execSQL(sql);
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "update => Done: " + value);
+			
+			wdb.close();
+			
+			return true;
+			
+		} catch (SQLException e) {
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", 
+				"Exception => " + e.toString() + " / " + "value => " + value);
+			
+			wdb.close();
+			
+			return false;
+			
+		}
+		
+	}//update_Data_generic
+
 }//public class DBUtils extends SQLiteOpenHelper
 
