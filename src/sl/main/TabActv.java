@@ -1011,6 +1011,13 @@ public class TabActv extends TabActivity
 		////////////////////////////////
 		setContentView(R.layout.itemlist_tabs);
 		
+		////////////////////////////////
+
+		// screen status
+
+		////////////////////////////////
+		CONS.TabActv.screen_On = true;
+		
 //		////////////////////////////////
 //
 //		// get pref: ItemIds
@@ -1285,6 +1292,14 @@ public class TabActv extends TabActivity
 //				+ "]", msg_Log);
 
 		super.onStop();
+		
+		////////////////////////////////
+		
+		// screen status
+		
+		////////////////////////////////
+		CONS.TabActv.screen_On = false;
+
 		
 	}
 

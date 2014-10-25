@@ -69,7 +69,8 @@ public class CONS {
 		
 	}
 	
-	public static class DB {
+	public static class 
+	DB {
 
 		/*********************************
 		 * DB
@@ -432,8 +433,18 @@ public class CONS {
 													{"TEXT", "TEXT"};
 
 		
+		////////////////////////////////
+
+		// others
+
+		////////////////////////////////
+		public final static String fname_Log_Trunk = "log";
 		
-	}
+		public final static String fname_Log_ext = ".txt";
+		
+		public static final long logFile_MaxSize = 40000;
+		
+	}//DB
 	
 	public static class SQLs {
 		
@@ -664,7 +675,19 @@ public class CONS {
 	}
 	
 	public static class TabActv {
+
+		////////////////////////////////
+
+		// commons
+
+		////////////////////////////////
+		public static boolean screen_On;
 		
+		////////////////////////////////
+
+		// views
+
+		////////////////////////////////
 		public static ListView lvTab1;
 		public static ListView lvTab2;
 		
@@ -675,7 +698,12 @@ public class CONS {
 		public static TabHost tabHost;
 		public static TabSpec firstTab;
 		public static TabSpec secondTab;
-		
+
+		////////////////////////////////
+
+		// list-related
+
+		////////////////////////////////
 		public static ArrayAdapter<String> adp_List_Store;
 		public static ArrayAdapter<String> adapterGenre;
 		

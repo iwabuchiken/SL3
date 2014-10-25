@@ -19,6 +19,7 @@ import sl3.items.Store;
 import sl3.utils.CONS;
 import sl3.utils.DBUtils;
 import sl3.utils.Methods;
+import sl3.utils.Methods_dlg;
 import sl3.utils.Methods_sl;
 import android.app.Activity;
 import android.app.Dialog;
@@ -118,6 +119,7 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 		if (list_PHs == null) {
 			
 			return -8;
+			
 		}
 		
 		////////////////////////////////
@@ -1115,6 +1117,19 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 		Log.d("Task_Post_History.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ "]", msg_Log);
+		
+		////////////////////////////////
+
+		// messages
+
+		////////////////////////////////
+		if (res.intValue() == -8 && CONS.TabActv.screen_On == true) {
+			
+			String msg = "Can't get pur history";
+			Methods_dlg.dlg_ShowMessage(actv, msg);
+			
+		}
+		
 		
 //		if (res.intValue() == CONS.ReturnValues.FAILED) {
 //			

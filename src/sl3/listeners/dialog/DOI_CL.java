@@ -501,6 +501,12 @@ public class DOI_CL implements OnItemClickListener {
 		if (li.getText().equals(actv.getString(
 				R.string.opt_TabActv_Admin_Ops__RestoreDB))) {
 
+			// Log
+			String msg_Log = "opt_TabActv_Admin_Ops__RestoreDB";
+			Log.d("DOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
 			Methods_dlg.conf_Restore_DB(
 					actv, 
 					d1, d2,

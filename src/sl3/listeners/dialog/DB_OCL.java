@@ -146,6 +146,18 @@ DB_OCL implements OnClickListener {
 		//
 		switch (tag_name) {
 		
+		case ACTV_TAB_OPT_RESTORE_DB:
+			
+			// Log
+			String msg_Log = "case ACTV_TAB_OPT_RESTORE_DB";
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			Methods.ACTV_TAB_OPT_RESTORE_DB(actv, d1, d2, d3);
+			
+			break;
+
 		case DLG_POST_ITEMS_OK://------------------------------------------
 			
 			case_DLG_POST_ITEMS_OK();
@@ -999,6 +1011,12 @@ DB_OCL implements OnClickListener {
 			break;
 			
 		case ACTV_TAB_OPT_RESTORE_DB:
+			
+			// Log
+			String msg_Log = "case ACTV_TAB_OPT_RESTORE_DB";
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
 			
 			Methods.ACTV_TAB_OPT_RESTORE_DB(actv, d1, d2, d3);
 			

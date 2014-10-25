@@ -2,6 +2,8 @@ package sl3.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import sl3.adapters.Adp_ListItems;
 import sl3.adapters.PSListAdapter;
@@ -3703,7 +3705,7 @@ public class Methods_dlg {
 				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
 		
 		tv_Msg.setText(actv.getString(
-				R.string.opt_TabActv_Admin_Insert_Num)
+				R.string.opt_TabActv_Admin_Ops__RestoreDB)
 				+ "?");
 		
 		////////////////////////////////
@@ -3714,7 +3716,7 @@ public class Methods_dlg {
 		TextView tv_ItemName = 
 				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
 		
-		tv_ItemName.setText(CONS.DB.tname_si);
+		tv_ItemName.setText(CONS.DB.dbName);
 		
 		////////////////////////////////
 		
@@ -4282,5 +4284,42 @@ public class Methods_dlg {
 		dlg2.show();
 		
 	}//conf_Post_ToBuy_List
+
+	/******************************
+		@param duration => millseconds
+	 ******************************/
+	public static void
+	dlg_ShowMessage_Duration
+	(Activity actv, String message, int duration) {
+		
+		final Dialog dlg = Methods_dlg.dlg_Template_Cancel(
+				actv, R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_confirm, 
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+	//			R.id.dlg_db_admin_bt_cancel, 
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
+		
+		TextView tv_Message = 
+				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		////////////////////////////////
 	
+		// show
+	
+		////////////////////////////////
+		dlg.show();
+		
+		//REF http://xjaphx.wordpress.com/2011/07/13/auto-close-dialog-after-a-specific-time/
+		final Timer t = new Timer();
+	    t.schedule(new TimerTask() {
+	        public void run() {
+	            dlg.dismiss(); // when the task active then close the dialog
+	            t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
+	        }
+	    }, duration); // after 2 second (or 2000 miliseconds), the task will be active.
+		
+	}
+
 }//public class Methods_dlg

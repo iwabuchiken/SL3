@@ -4895,6 +4895,12 @@ public class Methods {
 		Dialog d1, Dialog d2, Dialog d3) {
 		// TODO Auto-generated method stub
 		
+		// Log
+		String msg_Log = "ACTV_TAB_OPT_RESTORE_DB";
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		int res = Methods.restore_DB(actv);
 		
 		////////////////////////////////
@@ -5826,17 +5832,17 @@ public class Methods {
 						+ Thread.currentThread().getStackTrace()[2]
 								.getLineNumber() + "]", msg_Log);
 				
-				// Log
-				for (Integer id : CONS.TabActv.tab_checkedItemIds) {
-					
-					// Log
-					msg_Log = "tab_checkedItemIds => " + id;
-					Log.d("Methods.java"
-							+ "["
-							+ Thread.currentThread().getStackTrace()[2]
-									.getLineNumber() + "]", msg_Log);
-					
-				}
+//				// Log
+//				for (Integer id : CONS.TabActv.tab_checkedItemIds) {
+//					
+//					// Log
+//					msg_Log = "tab_checkedItemIds => " + id;
+//					Log.d("Methods.java"
+//							+ "["
+//							+ Thread.currentThread().getStackTrace()[2]
+//									.getLineNumber() + "]", msg_Log);
+//					
+//				}
 			
 			} else {//if (CONS.TabActv.adpItems != null)
 				
@@ -5910,17 +5916,17 @@ public class Methods {
 						+ Thread.currentThread().getStackTrace()[2]
 								.getLineNumber() + "]", msg_Log);
 				
-				// Log
-				for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
-					
-					// Log
-					msg_Log = "tab_checkedItemIds => " + id;
-					Log.d("Methods.java"
-							+ "["
-							+ Thread.currentThread().getStackTrace()[2]
-									.getLineNumber() + "]", msg_Log);
-					
-				}
+//				// Log
+//				for (Integer id : CONS.TabActv.tab_toBuyItemIds) {
+//					
+//					// Log
+//					msg_Log = "tab_checkedItemIds => " + id;
+//					Log.d("Methods.java"
+//							+ "["
+//							+ Thread.currentThread().getStackTrace()[2]
+//									.getLineNumber() + "]", msg_Log);
+//					
+//				}
 				
 			} else {//if (CONS.TabActv.adpToBuys != null)
 				
@@ -6250,11 +6256,15 @@ public class Methods {
 			hr = dhc.execute(httpPost);
 			
 			// Log
-			log_msg = "posting image data => done: " + ph.getItems();
+			log_msg = "posting pur history => done: " + ph.getItems();
 			
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", log_msg);
+			
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
 			
 		} catch (ClientProtocolException e) {
 			
@@ -6262,6 +6272,13 @@ public class Methods {
 			Log.d("Methods.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", e.toString());
+			
+			String log_msg = "upload pur history => ClientProtocolException: "
+						+ ph.getItems();
+			
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
 			
 			return -21;
 			
@@ -6272,9 +6289,16 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", e.toString());
 			
+			String log_msg = "upload pur history => IOException: "
+					+ ph.getItems();
+		
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
+		
 			return -22;
 			
-		}
+		}//try
 	
 		////////////////////////////////
 	
@@ -6325,6 +6349,13 @@ public class Methods {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", log_msg);
 	
+			////////////////////////////////
+
+			// update: PH
+
+			////////////////////////////////
+			Methods._update_PH__PostedAt(actv, ph);
+			
 		} else {//if (status == CONS.HTTP_Response.CREATED)
 			
 			// Log
@@ -6341,6 +6372,25 @@ public class Methods {
 		return status;
 		
 	}//post_ImageData_to_Remote
+
+	private static void 
+	_update_PH__PostedAt
+	(Activity actv, PH ph) {
+		// TODO Auto-generated method stub
+		
+		String time = Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now());
+		
+		ph.setPosted_at(time);
+		
+		boolean res = DBUtils.update_Data_generic(
+							actv,
+							CONS.DB.tname_ph,
+							ph.getDbId(),
+							// "posted_at"							// 8
+							CONS.DB.col_Names_PH_full[8],
+							time);
+		
+	}//_update_PH__PostedAt
 
 	private static HttpEntity 
 	_GetParam__PH
@@ -6830,5 +6880,173 @@ public class Methods {
 		return prefs.getInt(pref_key, defValue);
 
 	}//public static boolean set_pref(String pref_name, String value)
+
+	public static void 
+	write_Log
+	(Activity actv, String message,
+			String fileName, int lineNumber) {
+		
+		////////////////////////////////
+
+		// validate: dir exists
+
+		////////////////////////////////
+		File dpath_Log = new File(CONS.DB.dPath_Log);
+		
+		if (!dpath_Log.exists()) {
+			
+			dpath_Log.mkdirs();
+			
+			// Log
+			String msg_Log = "log dir => created: " + dpath_Log.getAbsolutePath();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} else {
+			
+			// Log
+			String msg_Log = "log dir => exists: " + dpath_Log.getAbsolutePath();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		////////////////////////////////
+
+		// file
+
+		////////////////////////////////
+		File fpath_Log = new File(CONS.DB.dPath_Log, CONS.DB.fname_Log);
+		
+		////////////////////////////////
+
+		// file exists?
+
+		////////////////////////////////
+		if (!fpath_Log.exists()) {
+			
+			try {
+				
+				fpath_Log.createNewFile();
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+				String msg = "Can't create a log file";
+				Methods_dlg.dlg_ShowMessage_Duration(actv, msg, R.color.gold2);
+				
+				return;
+				
+			}
+			
+		} else {
+			
+			// Log
+			String msg_Log = "log file => exists";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		////////////////////////////////
+
+		// validate: size
+
+		////////////////////////////////
+		long len = fpath_Log.length();
+		
+		if (len > CONS.DB.logFile_MaxSize) {
+		
+			fpath_Log.renameTo(new File(
+						fpath_Log.getParent(), 
+						CONS.DB.fname_Log_Trunk
+						+ "_"
+//						+ Methods.get_TimeLabel(Methods.getMillSeconds_now())
+						+ Methods.get_TimeLabel(fpath_Log.lastModified())
+						+ CONS.DB.fname_Log_ext
+						));
+			
+			// new log.txt
+			try {
+				
+				fpath_Log = new File(fpath_Log.getParent(), CONS.DB.fname_Log);
+//				File f = new File(fpath_Log.getParent(), CONS.DB.fname_Log);
+				
+				fpath_Log.createNewFile();
+				
+				// Log
+				String msg_Log = "new log.txt => created";
+				Log.d("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				// Log
+				String msg_Log = "log.txt => can't create!";
+				Log.e("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				e.printStackTrace();
+				
+				return;
+				
+			}
+			
+		}//if (len > CONS.DB.logFile_MaxSize)
+
+		////////////////////////////////
+
+		// write
+
+		////////////////////////////////
+		try {
+			
+			//REF append http://stackoverflow.com/questions/8544771/how-to-write-data-with-fileoutputstream-without-losing-old-data answered Dec 17 '11 at 12:37
+			FileOutputStream fos = new FileOutputStream(fpath_Log, true);
+//			FileOutputStream fos = new FileOutputStream(fpath_Log);
+			
+			String text = String.format(Locale.JAPAN,
+							"[%s] [%s : %d] %s\n", 
+							Methods.conv_MillSec_to_TimeLabel(
+											Methods.getMillSeconds_now()),
+							fileName, lineNumber,
+							message
+						);
+			
+			//REF getBytes() http://www.adakoda.com/android/000240.html
+			fos.write(text.getBytes());
+//			fos.write(message.getBytes());
+			
+//			fos.write("\n".getBytes());
+			
+			fos.close();
+			
+			// Log
+			String msg_Log = "log => written";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+//			FileChannel oChannel = new FileOutputStream(fpath_Log).getChannel();
+//			
+//			oChannel.wri
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}//write_Log
 
 }//public class Methods
