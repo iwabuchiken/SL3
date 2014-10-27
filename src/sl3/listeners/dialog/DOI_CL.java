@@ -343,6 +343,11 @@ public class DOI_CL implements OnItemClickListener {
 			Methods_dlg.conf_Post_ToBuy_List(actv, d1);
 			
 		} else if (li.getText().equals(actv.getString(
+				R.string.menu_listitem_tabToBuy_admin_db_post_Stores))) {
+			
+			Methods_dlg.conf_Post_Stores(actv, d1);
+			
+		} else if (li.getText().equals(actv.getString(
 				R.string.menu_listitem_tabToBuy_admin_db_save_hist))) {
 
 			Methods_dlg.conf_Save_PurHistory(actv, d1);

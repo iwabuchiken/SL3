@@ -207,8 +207,12 @@
 		    		Load to-buy list</string>
 		<string name="menu_listitem_tabToBuy_admin_db_delete_tobuy_list">
 		    		Delete to-buy list</string>
+		    		
 		<string name="menu_listitem_tabToBuy_admin_db_post_tobuy_list">
 		    		Post to-buylist</string>
+		<string name="menu_listitem_tabToBuy_admin_db_post_Stores">
+		    		Post stores</string>
+		    		
 		<string name="menu_listitem_tabToBuy_admin_db_save_hist">
 		    		Save pur history</string>
 		

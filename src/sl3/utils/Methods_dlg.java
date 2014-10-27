@@ -3470,6 +3470,13 @@ public class Methods_dlg {
 		
 		list.add(new ListItem.Builder()
 					.setText(actv.getString(
+							R.string.menu_listitem_tabToBuy_admin_db_post_Stores))
+							.setIconID(R.drawable.menu_icon_admin_32x32_green)
+							.setTextColor_ID(R.color.green4)
+							.build());
+		
+		list.add(new ListItem.Builder()
+					.setText(actv.getString(
 							R.string.menu_listitem_tabToBuy_admin_db_save_hist))
 							.setIconID(R.drawable.menu_icon_admin_32x32_yellow)
 							.setTextColor_ID(R.color.yellow_dark)
@@ -4285,6 +4292,78 @@ public class Methods_dlg {
 		
 	}//conf_Post_ToBuy_List
 
+	public static void 
+	conf_Post_Stores
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+		
+		// validate: network status
+		
+		////////////////////////////////
+		boolean res = Methods.isOnline(actv);
+		
+		if (res == false) {
+			
+			String msg = "Sorry. Network is not ready";
+			Methods_dlg.dlg_ShowMessage_SecondDialog(actv, d1, msg, R.color.gold2);
+//			Methods_dlg.dlg_ShowMessage(actv, msg, R.color.gold2);
+			
+			return;
+			
+		} else {
+			
+			// Log
+			String msg_Log = "Network is ready";
+			Log.d("DB_OCL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		
+		/*********************************
+		 * Build: Dialog 2
+		 *********************************/
+		Dialog dlg2 = Methods_dlg.dlg_template_okCancel_2Dialogues(
+				actv,
+				R.layout.dlg_template_ok_cancel,
+				R.string.generic_confirm,
+				
+				R.id.dlg_template_ok_cancel_btn_ok,
+				R.id.dlg_template_ok_cancel_btn_cancel,
+				
+				Tags.DialogTags.DLG_POST_STORES_OK,
+				Tags.DialogTags.DLG_GENERIC_DISMISS_SECOND_DIALOG,
+				
+				d1);
+		
+		/*********************************
+		 * Get: Views
+		 *********************************/
+		TextView tv_Message = (TextView) dlg2.findViewById(
+				R.id.dlg_template_ok_cancel_tv_message);
+		
+		/*********************************
+		 * Modify: Views
+		 *********************************/
+		//REF http://stackoverflow.com/questions/4602902/how-to-set-text-color-of-textview-in-code answered Jan 5 '11 at 10:17
+		tv_Message.setTextColor(Color.WHITE);
+		
+		/*********************************
+		 * Add: Message
+		 *********************************/
+		tv_Message.setText(
+				actv.getString(
+						R.string.menu_listitem_tabToBuy_admin_db_post_Stores)
+				+ "?");
+		
+//		tv_Value.setText(String.valueOf(CONS.tab_toBuyItemIds.size()) + " items");
+		
+		dlg2.show();
+		
+	}//conf_Post_Stores
+	
 	/******************************
 		@param duration => millseconds
 	 ******************************/

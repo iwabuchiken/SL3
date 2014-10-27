@@ -836,6 +836,9 @@ public class CONS {
 			single_item,
 			
 			pur_history,
+			
+			post_stores,
+			
 		};
 		
 		/*********************************
