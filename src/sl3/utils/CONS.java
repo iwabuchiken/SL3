@@ -756,8 +756,22 @@ public class CONS {
 		
 		////////////////////////////////
 
-		// SI
+		// Store
 
+		////////////////////////////////
+		public static String UrlPost_Store
+		= "http://benfranklin.chips.jp/cake_apps/Cake_SL3"
+			+ "/stores"
+			+ "/add_from_remote";
+
+		public static final String passwdSL_Store
+						= "sl_Store";
+
+		
+		////////////////////////////////
+		
+		// SI
+		
 		////////////////////////////////
 		public static final String passwdSL_NewItem
 		= "sl_NewItem";

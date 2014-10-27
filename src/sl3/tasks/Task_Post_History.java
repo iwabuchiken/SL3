@@ -265,6 +265,8 @@ public class Task_Post_History extends AsyncTask<String, Integer, Integer> {
 				////////////////////////////////
 
 				// update: pur history: "posted_at"
+				
+				//	=> Executed in Methods
 
 				////////////////////////////////
 				

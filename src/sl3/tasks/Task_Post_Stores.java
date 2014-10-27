@@ -3,6 +3,7 @@ package sl3.tasks;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
@@ -13,7 +14,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import sl3.items.PH;
 import sl3.items.SI;
 import sl3.items.Store;
 import sl3.utils.CONS;
@@ -31,7 +31,8 @@ import android.widget.Toast;
 
 public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 
-	static Activity actv;
+	Activity actv;
+//	static Activity actv;
 	
 	Dialog dlg;
 	Dialog dlg1;
@@ -145,6 +146,7 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 					|| res == CONS.HTTPResponse.status_OK) {
 				
 				String msg = String.format(
+						Locale.JAPAN,
 						"post store => successful: %s (id = %d)", 
 						store.getStore_name(),
 						store.getDb_Id());
@@ -158,10 +160,11 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 				
 				////////////////////////////////
 
-				// update: pur history: "posted_at"
+				// update: store: "posted_at"
+				
+				// 	=> done in Methods
 
 				////////////////////////////////
-				
 				
 				////////////////////////////////
 
@@ -170,7 +173,17 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 				////////////////////////////////
 				counter += 1;
 				
-			}
+				////////////////////////////////
+
+				// log
+
+				////////////////////////////////
+				String log_msg = "Store => posted: " + store.getStore_name();
+				Methods.write_Log(actv, log_msg, Thread.currentThread()
+						.getStackTrace()[2].getFileName(), Thread
+						.currentThread().getStackTrace()[2].getLineNumber());
+				
+			}//if (res == CONS.HTTPResponse.status_Created
 			
 		}//for (PH ph : list_PHs)
 
@@ -181,150 +194,7 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 		////////////////////////////////
 		return counter;
 		
-//		//test
-//		return -1;
-		
-//		////////////////////////////////
-//
-//		// get: json
-//
-//		////////////////////////////////
-//		JSONObject joBody = _getJSONBody();
-//		
-//		/******************************
-//			validate
-//		 ******************************/
-//		if (joBody == null) {
-//			
-//			return -1;
-//<<<<<<< HEAD
-//			
-//		}//if (joBody == null)
-//
-//		////////////////////////////////
-//
-//		// get: http post
-//
-//		////////////////////////////////
-//		String url = CONS.HTTPData.UrlPostSI;
-//		
-//	    //url with the post data
-//		HttpPost httpPost = _getHttpPost(url, joBody);
-//		
-//		if (httpPost == null) {
-//			
-//			// Log
-//			Log.d("["
-//					+ "Task_PostData.java : "
-//					+ +Thread.currentThread().getStackTrace()[2]
-//							.getLineNumber() + " : "
-//					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-//					+ "]", "httpPost => null");
-//			
-//			return -2;
-//			
-//		}
-//
-//		////////////////////////////////
-//
-//		// post
-//
-//		////////////////////////////////
-//		return _PostData(httpPost);
-////		int iRes = _doInBackground__4_PostData(httpPost);
-//		
-////		int result = _doInBackground__PurHistory();
-////			
-////		return result;
-		
 	}//doInBackground(String... params)
-
-	/******************************
-		@return
-			null => JSONException
-	 ******************************/
-	private JSONObject 
-	_getJSONBody
-	(PH ph) {
-		// TODO Auto-generated method stub
-
-		////////////////////////////////
-
-		// keys, values
-
-		////////////////////////////////
-		Store st = DBUtils.find_Store_from_Name(actv, ph.getStore_name());
-		
-		int st_Id = 0;
-		
-		if (st != null) {
-			
-			st_Id = st.getDb_Id();
-			
-		}		
-		
-		Object[] values = new Object[]{
-				
-				ph.getDbId(),
-				ph.getCreated_at(),
-				ph.getModified_at(),
-				
-				st_Id,
-//				ph.getStoreName(),
-				ph.getPur_date(),
-				ph.getItems(),
-				
-				ph.getAmount(),
-				
-				ph.getMemo(),
-				
-				Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now())
-				
-		};
-		
-		String[] keys = CONS.HTTPData.Keys_PurHistory;
-
-		////////////////////////////////
-
-		// build
-
-		////////////////////////////////
-		//REF json object: http://stackoverflow.com/questions/8706046/create-json-in-android answered Jan 2 '12 at 22:42
-		JSONObject joBody = Methods.get_JsonBody_Generic(actv, keys, values);
-
-		////////////////////////////////
-
-		// add: password
-
-		////////////////////////////////
-		// Add password parameter
-		try {
-			
-			joBody.put(
-					CONS.HTTPData.passwdKey_SL,
-					CONS.HTTPData.passwdSL_PurHistory);
-
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			
-			// Log
-			Log.d("["
-					+ "Task_PostData.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]",
-					
-					"add password param => Failed"
-					+ "(" + e.getMessage() + ")");
-		
-			return null;
-		}
-
-		return joBody;
-		
-	}//_getJSONBody
-	
 
 	@SuppressWarnings("unused")
 	private int _doInBackground__PurHistory() {
@@ -533,140 +403,6 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 	}//_doInBackground__getJSONBody_PurHistory_BuildItemIds()
 	
 
-	/*********************************
-	 * 
-	 * @return CONS.ReturnValues.OK(1)<br>
-	 * 		
-	 * 
-	 *********************************/
-	private int _exec_post(SI si) {
-		
-		if (si == null) {
-			
-			// Log
-			Log.d("["
-					+ "Task_PostData.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "si => null");
-			
-			return CONS.ReturnValues.ParamVariableNull;
-			
-		}
-		
-		
-		// Log
-		Log.d("[" + "Task_PostData.java : "
-				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ " : "
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]", "Starting _exec_post");
-		// Log
-		Log.d("[" + "Task_PostData.java : "
-				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ " : "
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]",
-				"si.name=" + si.getName()
-				+ "/"
-				+ "si.created_at=" + si.getCreated_at());
-		
-		/*********************************
-		 * Update: posted_at
-		 *********************************/
-		si.setPosted_at(
-				Methods.getTimeLabel_V2(
-						Methods.getMillSeconds_now(), 2));
-		
-		// TODO Auto-generated method stub
-		JSONObject joBody =
-				_doInBackground__1_getJSONBody(si);
-	
-		if (joBody == null) {
-			
-			// Log
-			Log.d("["
-					+ "Task_PostData.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "joBody => null");
-			
-			return CONS.ReturnValues.BuildJOBodyFailed;
-			
-		}
-		
-		// Log
-		Log.d("[" + "Task_PostData.java : "
-				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ " : "
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]",
-				"joBody => " + "[" + joBody.toString() + "]");
-		
-	//	
-		//REF post json: http://stackoverflow.com/questions/6218143/android-post-json-using-http answered Jun 2 '11 at 18:16
-		
-		/*********************************
-		 * Build: HTTP object
-		 *********************************/
-		String url = CONS.HTTPData.UrlPostSI;
-		
-	    //url with the post data
-		HttpPost httpPost = _getHttpPost(url, joBody);
-		
-		if (httpPost == null) {
-			
-			// Log
-			Log.d("["
-					+ "Task_PostData.java : "
-					+ +Thread.currentThread().getStackTrace()[2]
-							.getLineNumber() + " : "
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "httpPost => null");
-			
-			return CONS.ReturnValues.BuildHttpPostFailed;
-			
-		}
-		
-		// Log
-		Log.d("[" + "Task_PostData.java : "
-				+ +Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ " : "
-				+ Thread.currentThread().getStackTrace()[2].getMethodName()
-				+ "]",
-				"httpPost => " + httpPost.toString()
-				+ "(" + httpPost.getURI().toString() + ")"
-				);
-		
-	    /***************************************
-		 * Post
-		 ***************************************/
-		int iRes = _PostData(httpPost);
-		
-		if (iRes != CONS.ReturnValues.OK) {
-			
-			return iRes;
-			
-		}
-		
-		/*********************************
-		 * Update: SI.posted_at
-		 *********************************/
-		boolean res = Methods_sl.update_SI(actv, si);
-		
-		if (res == false) {
-			
-			return CONS.ReturnValues.PostedButNotUpdated;
-			
-		}
-		
-		return CONS.ReturnValues.OK;
-//		return CONS.ReturnValues.NOP;
-
-	}//private int _exec_post()
-
 	/******************************
 		@return
 			-3	ClientProtocolException<br>
@@ -774,52 +510,6 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 //		return CONS.ReturnValues.OK;
 		
 	}//_doInBackground__4_PostData(HttpPost httpPost)
-
-	private int 
-	_doInBackground__3_CheckHTTPCodes(HttpResponse hr) {
-		// TODO Auto-generated method stub
-		int status = hr.getStatusLine().getStatusCode();
-		
-		if (status >= CONS.HTTPResponse.ServerError) {
-		
-			// Log
-			Log.d("Task_GetYomi.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "status=" + status);
-		
-			return CONS.ReturnValues.ServerError;
-		//	return CONS.HTTP_Response.CREATED;
-			
-		} else if (status < CONS.HTTPResponse.ServerError
-					&& status >= CONS.HTTPResponse.BadRequest){//if (status == CONS.HTTP_Response.CREATED)
-			
-			// Log
-			Log.d("Task_GetYomi.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "status=" + status);
-		
-			return CONS.ReturnValues.ClientError;
-			
-		} else {//if (status == CONS.HTTP_Response.CREATED)
-			
-			// Log
-			Log.d("Task_GetTexts.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ ":"
-					+ Thread.currentThread().getStackTrace()[2].getMethodName()
-					+ "]", "status=" + status);
-			
-//			return CONS.HTTP_Response.NOT_CREATED;
-			
-		}//if (status == CONS.HTTP_Response.CREATED)
-
-		return CONS.ReturnValues.OK;
-		
-	}//_doInBackground__3_CheckHTTPCodes(HttpResponse hr)
 
 	private HttpPost
 	_getHttpPost(String url, JSONObject joBody) {
@@ -1004,8 +694,6 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 
 		vib.vibrate(150);
 		
-		String message;
-		
 		// Log
 		String msg_Log = "res => " + res.intValue();
 		Log.d("Task_Post_History.java" + "["
@@ -1019,40 +707,10 @@ public class Task_Post_Stores extends AsyncTask<String, Integer, Integer> {
 		////////////////////////////////
 		if (res.intValue() == -8 && CONS.TabActv.screen_On == true) {
 			
-			String msg = "Can't get pur history";
+			String msg = "Can't get stores list";
 			Methods_dlg.dlg_ShowMessage(actv, msg);
 			
 		}
-		
-		
-//		if (res.intValue() == CONS.ReturnValues.FAILED) {
-//			
-//			message = "Posting => Failed";
-//			
-//		} else if (res.intValue() == 
-//						CONS.ReturnValues.PostedButNotUpdated) {//if (res.intValue() == CONS.ReturnValues.FAILED)
-//			
-//			message = "Posted but device data => not updated";
-//			
-//		} else {//if (res.intValue() == CONS.ReturnValues.FAILED)
-//			
-//			message = "Posting => Done(Unknown result => " 
-//					+ String.valueOf(res.intValue()) + ")";
-//			
-//		}//if (res.intValue() == CONS.ReturnValues.FAILED)
-		
-//		/*********************************
-//		 * Dismiss: Dialogues
-//		 *********************************/
-//		if (dlg1 != null) {
-//			
-//			dlg1.dismiss();
-//		}
-//		
-//		if (dlg2 != null) {
-//			
-//			dlg2.dismiss();
-//		}
 		
 	}//protected void onPostExecute(Integer res)
 
