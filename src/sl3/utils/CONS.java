@@ -767,6 +767,19 @@ public class CONS {
 		public static final String passwdSL_Store
 						= "sl_Store";
 
+		////////////////////////////////
+		
+		// Genre
+		
+		////////////////////////////////
+		public static String UrlPost_Genre
+		= "http://benfranklin.chips.jp/cake_apps/Cake_SL3"
+				+ "/genres"
+				+ "/add_from_remote";
+		
+		public static final String passwdSL_Genre
+		= "sl_Genre";
+		
 		
 		////////////////////////////////
 		
@@ -851,7 +864,10 @@ public class CONS {
 			
 			pur_history,
 			
-			post_stores,
+//			post_stores,
+			POST_STORES,
+			
+			POST_GENRES,
 			
 		};
 		

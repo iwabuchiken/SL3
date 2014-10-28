@@ -5,6 +5,7 @@ import java.util.Calendar;
 import sl3.items.PS;
 import sl3.items.SI;
 import sl3.main.R;
+import sl3.tasks.Task_Post_Genres;
 import sl3.tasks.Task_Post_History;
 import sl3.tasks.Task_Post_Stores;
 import sl3.utils.CONS;
@@ -514,7 +515,7 @@ DB_OCL implements OnClickListener {
 		////////////////////////////////
 		Task_Post_Stores task = new Task_Post_Stores(actv);
 		
-		task.execute(CONS.HTTPData.registerChoice.post_stores.toString());
+		task.execute(CONS.HTTPData.registerChoice.POST_STORES.toString());
 
 		////////////////////////////////
 
@@ -534,9 +535,9 @@ DB_OCL implements OnClickListener {
 		// start: task
 		
 		////////////////////////////////
-//		Task_Post_Stores task = new Task_Post_Stores(actv);
-//		
-//		task.execute(CONS.HTTPData.registerChoice.post_stores.toString());
+		Task_Post_Genres task = new Task_Post_Genres(actv);
+		
+		task.execute(CONS.HTTPData.registerChoice.POST_GENRES.toString());
 		
 		////////////////////////////////
 		
