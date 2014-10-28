@@ -147,6 +147,12 @@ DB_OCL implements OnClickListener {
 		//
 		switch (tag_name) {
 		
+		case DLG_POST_GENRES_OK://---------------------------------------
+			
+			case_DLG_POST_GENRES_OK();
+			
+			break;
+			
 		case DLG_POST_STORES_OK://---------------------------------------
 
 			case_DLG_POST_STORES_OK();
@@ -519,6 +525,28 @@ DB_OCL implements OnClickListener {
 		d1.dismiss();
 		
 	}//case_DLG_POST_STORES_OK
+	
+	private void 
+	case_DLG_POST_GENRES_OK() {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+		
+		// start: task
+		
+		////////////////////////////////
+//		Task_Post_Stores task = new Task_Post_Stores(actv);
+//		
+//		task.execute(CONS.HTTPData.registerChoice.post_stores.toString());
+		
+		////////////////////////////////
+		
+		// dismiss
+		
+		////////////////////////////////
+		d2.dismiss();
+		d1.dismiss();
+		
+	}//case_DLG_POST_GENRES_OK
 	
 
 	private void 

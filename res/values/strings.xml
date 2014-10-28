@@ -213,6 +213,9 @@
 		<string name="menu_listitem_tabToBuy_admin_db_post_Stores">
 		    		Post stores</string>
 		    		
+		<string name="menu_listitem_tabToBuy_admin_db_post_Genres">
+		    		Post genres</string>
+		    		
 		<string name="menu_listitem_tabToBuy_admin_db_save_hist">
 		    		Save pur history</string>
 		
