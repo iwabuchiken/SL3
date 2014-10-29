@@ -6783,6 +6783,211 @@ public class Methods {
 		
 	}//post_Genre_to_Remote
 	
+	/******************************
+	 * If poisting successful => update the column "posted_at"<br>
+		@return 
+			-20 UnsupportedEncodingException<br>
+			-21 ClientProtocolException in executing post<br>
+			-22 IOException in executing post<br>
+			-23 HttpResponse => null<br>
+			-24 EntityUtils.toString => ParseException<br>
+			-25 EntityUtils.toString => IOException<br>
+			-26 StrinEntity => UnsupportedEncodingException<br>
+	 ******************************/
+	public static int 
+	post_SI_to_Remote
+	(Activity actv, SI si) {
+		////////////////////////////////
+		
+		// setup
+		
+		////////////////////////////////
+		String url = CONS.HTTPData.UrlPostSI;
+		
+		HttpEntity param = _GetParam__SI(actv, si);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (param == null) {
+			
+			// Log
+			String msg_Log = "Building param => UnsupportedEncodingException";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return -20;
+			
+		}
+		
+		////////////////////////////////
+		
+		// HttpPost
+		
+		////////////////////////////////
+		HttpPost httpPost = new HttpPost(url);
+		
+		//REF content-type http://d.hatena.ne.jp/hogem/20091023/1256304878
+		httpPost.setHeader("Content-type", "application/x-www-form-urlencoded");
+		
+		httpPost.setEntity(param);
+		
+		// Log
+		String msg_Log;
+		
+		try {
+			
+			msg_Log = "url => " + httpPost.getURI().toURL().toString();
+			
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} catch (MalformedURLException e1) {
+			
+			// Log
+			msg_Log = "exception!";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			e1.printStackTrace();
+			
+		}
+		
+		DefaultHttpClient dhc = new DefaultHttpClient();
+		
+		HttpResponse hr = null;
+		
+		try {
+			
+			// Log
+			String log_msg = "posting si ... : " + si.getName();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+			
+			hr = dhc.execute(httpPost);
+			
+			// Log
+			log_msg = "posting si => done: " + si.getName();
+			
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+			
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
+			
+		} catch (ClientProtocolException e) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", e.toString());
+			
+			String log_msg = "upload si => ClientProtocolException: "
+					+ si.getName();
+			
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
+			
+			return -21;
+			
+		} catch (IOException e) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", e.toString());
+			
+			String log_msg = "upload si => IOException: "
+					+ si.getName();
+			
+			Methods.write_Log(actv, log_msg, Thread.currentThread()
+					.getStackTrace()[2].getFileName(), Thread.currentThread()
+					.getStackTrace()[2].getLineNumber());
+			
+			return -22;
+			
+		}//try
+		
+		////////////////////////////////
+		
+		// Validate: Return
+		
+		////////////////////////////////
+		if (hr == null) {
+			
+			// Log
+			Log.d("TaskHTTP.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "hr == null");
+			
+			return -23;
+			
+		} else {//if (hr == null)
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Http response => Obtained");
+			
+		}//if (hr == null)
+		
+		////////////////////////////////
+		
+		// Status code
+		
+		////////////////////////////////
+		int status = hr.getStatusLine().getStatusCode();
+		
+		if (status == CONS.HTTPResponse.status_Created
+				|| status == CONS.HTTPResponse.status_OK) {
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+			
+			String log_msg = "status=" + status + "/" + si.getName();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", log_msg);
+			
+			////////////////////////////////
+			
+			// update: PH
+			
+			////////////////////////////////
+			Methods._update_SI__PostedAt(actv, si);
+			
+		} else {//if (status == CONS.HTTP_Response.CREATED)
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "status=" + status);
+			
+			return CONS.HTTPResponse.status_NOT_CREATED;
+			
+		}//if (status == CONS.HTTP_Response.CREATED)
+		
+		return status;
+		
+	}//post_SI_to_Remote
+	
 	private static void 
 	_update_PH__PostedAt
 	(Activity actv, PH ph) {
@@ -6850,6 +7055,27 @@ public class Methods {
 				genre.getDb_Id(),
 				
 				CONS.DB.col_Names_Genre_full[4],
+				time);
+		
+	}//_update_Genre__PostedAt
+	
+	private static void 
+	_update_SI__PostedAt
+	(Activity actv, SI si) {
+		// TODO Auto-generated method stub
+		
+		String time = Methods.conv_MillSec_to_TimeLabel(Methods.getMillSeconds_now());
+		
+		si.setPosted_at(time);
+		
+//		"posted_at"							// 9
+		
+		boolean res = DBUtils.update_Data_generic(
+				actv,
+				CONS.DB.tname_si,
+				si.getId(),
+				
+				CONS.DB.col_Names_SI_full[9],
 				time);
 		
 	}//_update_Genre__PostedAt
@@ -7115,6 +7341,127 @@ public class Methods {
 		return entity;
 		
 	}//_GetParam__Genre
+	
+	private static HttpEntity 
+	_GetParam__SI
+	(Activity actv, SI si) {
+		// TODO Auto-generated method stub
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9
+		
+		////////////////////////////////
+		
+		// value pair
+		
+		////////////////////////////////
+		//REF http://stackoverflow.com/questions/3288823/how-to-add-parameters-in-android-http-post answered Jul 20 '10 at 15:10
+		List<NameValuePair> params = new LinkedList<NameValuePair>();
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[Si][local_id]", 
+						String.valueOf(si.getId())
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[Si][local_created_at]", 
+						si.getCreated_at()
+						)
+				);
+		
+		params.add(
+				new BasicNameValuePair(
+						"data[Si][local_updated_at]", 
+						si.getModified_at()
+						)
+				);
+		
+		////////////////////////////////
+		
+		// store, name
+		
+		////////////////////////////////
+		Store store = DBUtils.find_Store_from_Name(actv, si.getStore());
+		
+		int tmp_i;
+		
+		if (store != null) {
+			
+			tmp_i = store.getDb_Id();
+			
+		} else {
+
+			tmp_i = CONS.Admin.dflt_Exception_Id_Value;
+			
+		}
+		
+		params.add(new BasicNameValuePair("data[Si][store_id]",
+						String.valueOf(tmp_i)));
+		
+		params.add(new BasicNameValuePair("data[Si][name]",
+				si.getName()));
+		
+		////////////////////////////////
+		
+		// price
+		
+		////////////////////////////////
+		params.add(new BasicNameValuePair("data[Si][price]",
+				String.valueOf(si.getPrice())));
+		
+		
+		////////////////////////////////
+		
+		// "genre", "yomi", "num",				// 6,7,8
+		
+		////////////////////////////////
+		params.add(new BasicNameValuePair("data[Si][genre]",
+								si.getGenre()));
+		
+		params.add(new BasicNameValuePair("data[Si][yomi]",
+								si.getYomi()));
+		
+		params.add(new BasicNameValuePair("data[Si][num]",
+								String.valueOf(si.getNum())));
+		
+		////////////////////////////////
+		
+		// entity
+		
+		////////////////////////////////
+		HttpEntity entity = null;
+		
+		try {
+			
+			entity = new UrlEncodedFormEntity(params, HTTP.UTF_8);
+//			entity = new UrlEncodedFormEntity(params);
+			
+			// Log
+			String msg_Log = "entity => created";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} catch (UnsupportedEncodingException e) {
+			
+			
+			e.printStackTrace();
+			
+			return null;
+			
+		}
+		
+		return entity;
+		
+	}//_GetParam__Si
 	
 	public static void 
 	start_Activity_LogActv

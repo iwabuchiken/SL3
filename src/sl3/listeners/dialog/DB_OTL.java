@@ -135,6 +135,7 @@ public class DB_OTL implements OnTouchListener {
 				
 			case DLG_POST_STORES_OK:
 			case DLG_POST_GENRES_OK:
+			case DLG_POST_SIS_OK:
 				
 				//
 				v.setBackgroundColor(Color.GRAY);
@@ -212,6 +213,7 @@ public class DB_OTL implements OnTouchListener {
 				
 			case DLG_POST_STORES_OK:
 			case DLG_POST_GENRES_OK:
+			case DLG_POST_SIS_OK:
 				
 				v.setBackgroundColor(Color.WHITE);
 				

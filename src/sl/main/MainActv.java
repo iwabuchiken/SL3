@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -79,6 +80,8 @@ public class MainActv extends Activity {
   
 	private void do_debugs() {
 		
+		_debug_D_17_V_1_0__Reset_PostedAt_SIs();
+		
 //		_debug_D_44_V_3_0_11_EnterCreatedAtData();
 //		_debug_D_44_V_3_0_7_SQL_Generic(
 //				CONS.SQLs.a_20140110_105949_InsertInto_ShoppingItemNew);
@@ -99,6 +102,72 @@ public class MainActv extends Activity {
 //		_debug_D_44_V_3_0_3_AddColumns();
 		
 	}//private void do_debugs()
+
+
+	private void 
+	_debug_D_17_V_1_0__Reset_PostedAt_SIs() {
+		// TODO Auto-generated method stub
+		
+		List<SI> list_Sis = DBUtils.find_ALL_SIs__Unposted(this);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list_Sis == null) {
+			
+			// Log
+			String msg_Log = "list_Sis => null";
+			Log.e("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		////////////////////////////////
+
+		// update
+
+		////////////////////////////////
+		boolean res;
+		
+		int count = 0;
+		
+		for (SI si : list_Sis) {
+			
+			res = DBUtils.update_Data_generic(
+					this,
+					CONS.DB.tname_si,
+					si.getId(),
+					
+					CONS.DB.col_Names_SI_full[9],
+					"");
+		
+			if (res == true) {
+				
+				count += 1;
+				
+			}
+			
+		}//for (SI si : list_Sis)
+
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		// Log
+		String msg_Log = String.format(
+				Locale.JAPAN,
+				"list size = %d / update = %d", 
+				list_Sis.size(), count);
+		
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+	}//_debug_D_17_V_1_0__Reset_PostedAt_SIs
 
 
 	private void
@@ -1333,6 +1402,14 @@ public class MainActv extends Activity {
 	protected void onStart() {
 		// TODO �����������ꂽ���\�b�h�E�X�^�u
 		super.onStart();
+
+		////////////////////////////////
+
+		// debugs
+
+		////////////////////////////////
+		this.do_debugs();
+		
 	}
 
 	@Override

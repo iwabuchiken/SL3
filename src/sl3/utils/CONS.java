@@ -67,6 +67,8 @@ public class CONS {
 		
 		public static final int dflt_SI_Num = 1;
 		
+		public static final int dflt_Exception_Id_Value = -1;
+		
 	}
 	
 	public static class 
@@ -787,16 +789,20 @@ public class CONS {
 		
 		////////////////////////////////
 		public static final String passwdSL_NewItem
-		= "sl_NewItem";
+				= "sl_NewItem";
 
 		public static String UrlPostSI
-//				= "http://cosmos-jqm-1.herokuapp.com/items/new";
-		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new";
-//		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new_data_from_device";
-//		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new_data_from_device";
+					= "http://benfranklin.chips.jp/cake_apps"
+						+ "/Cake_SL3"
+						+ "/sis"
+						+ "/add_from_remote";
+////				= "http://cosmos-jqm-1.herokuapp.com/items/new";
 //		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new";
-//		= "http://cosmos-jqm-1.herokuapp.com/items/new";
-//		= "http://cosmos-jqm-1.herokuapp.com/items";
+////		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new_data_from_device";
+////		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new_data_from_device";
+////		= "http://cosmos-jqm-1.herokuapp.com/sl/items/new";
+////		= "http://cosmos-jqm-1.herokuapp.com/items/new";
+////		= "http://cosmos-jqm-1.herokuapp.com/items";
 		
 		// http://cosmos-jqm-1.herokuapp.com/items/new
 		
@@ -868,6 +874,8 @@ public class CONS {
 			POST_STORES,
 			
 			POST_GENRES,
+			
+			POST_SIS,
 			
 		};
 		

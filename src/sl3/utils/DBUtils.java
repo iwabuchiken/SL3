@@ -4483,6 +4483,431 @@ public class DBUtils extends SQLiteOpenHelper {
 			3. Query => Exception<br>
 			4. Query => no entry<br>
 	 ******************************/
+	public static List<SI> 
+	find_ALL_SIs__Unposted
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// validate: DB file exists?
+		
+		////////////////////////////////
+		String dbName = CONS.DB.dbName;
+		
+		File dpath_DBFile = actv.getDatabasePath(dbName);
+		
+		if (!dpath_DBFile.exists()) {
+			
+			String msg = "No DB file: " + dbName;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// DB
+		
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists?
+		
+		////////////////////////////////
+		String tname = CONS.DB.tname_si;
+		
+		boolean res = dbu.tableExists(rdb, tname);
+		
+		if (res == false) {
+			
+			String msg = "No such table: " + tname;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			rdb.close();
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9		
+		
+		//REF http://stackoverflow.com/questions/10465083/android-sqlite-select-records-where-field-is-null-or-empty answered May 5 '12 at 19:10
+		String where = CONS.DB.col_Names_SI_full[9] + " is null or "
+				+ CONS.DB.col_Names_SI_full[9] + " = ?";
+		
+		String[] args = new String[]{ "" };
+		
+		try {
+			
+			c = rdb.query(
+					
+					tname,			// 1
+					CONS.DB.col_Names_SI_full,	// 2
+//					null, null,		// 3,4
+//					where, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// build list
+		
+		////////////////////////////////
+		List<SI> list_SIs = new ArrayList<SI>();
+		
+		SI ps = null;
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9		
+		
+		while(c.moveToNext()) {
+			
+			ps = new SI.Builder()
+			
+			.setDb_id((int)c.getLong(0))
+			.setCreated_at(c.getString(1))
+			.setModified_at(c.getString(2))
+			
+			.setStore(c.getString(3))
+			.setName(c.getString(4))
+			.setPrice((int)c.getLong(5))
+			
+			.setGenre(c.getString(6))
+			.setYomi(c.getString(7))
+			.setNum((int)c.getLong(8))
+			
+			.build();
+			
+			list_SIs.add(ps);
+			
+		}//while(c.moveToNext())
+		
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		rdb.close();
+		
+		msg_Log = "list_SIs.size() => " + list_SIs.size();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return list_SIs;
+		
+	}//find_ALL_Stores__Unposted
+	
+	/******************************
+		@return
+		null<br>
+			1. No DB file<br>
+			2. No such table<br>
+			3. Query => Exception<br>
+			4. Query => no entry<br>
+	 ******************************/
+	public static List<SI> 
+	find_ALL_SIs__Posted
+	(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		////////////////////////////////
+		
+		// validate: DB file exists?
+		
+		////////////////////////////////
+		String dbName = CONS.DB.dbName;
+		
+		File dpath_DBFile = actv.getDatabasePath(dbName);
+		
+		if (!dpath_DBFile.exists()) {
+			
+			String msg = "No DB file: " + dbName;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// DB
+		
+		////////////////////////////////
+		DBUtils dbu = new DBUtils(actv, dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+		
+		////////////////////////////////
+		
+		// validate: table exists?
+		
+		////////////////////////////////
+		String tname = CONS.DB.tname_si;
+		
+		boolean res = dbu.tableExists(rdb, tname);
+		
+		if (res == false) {
+			
+			String msg = "No such table: " + tname;
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg);
+			
+			rdb.close();
+			
+			return null;
+			
+		}
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9		
+		
+		//REF http://stackoverflow.com/questions/10465083/android-sqlite-select-records-where-field-is-null-or-empty answered May 5 '12 at 19:10
+		String where = CONS.DB.col_Names_SI_full[9] + " IS NOT NULL AND "
+				//REF != http://stackoverflow.com/questions/9386304/what-is-the-syntax-for-not-equal-in-sqlite answered Feb 21 '12 at 22:32
+				+ CONS.DB.col_Names_SI_full[9] + " != ?";
+//		String where = CONS.DB.col_Names_SI_full[9] + " is null or "
+//				+ CONS.DB.col_Names_SI_full[9] + " = ?";
+		
+		String[] args = new String[]{ "" };
+		
+		try {
+			
+			c = rdb.query(
+					
+					tname,			// 1
+					CONS.DB.col_Names_SI_full,	// 2
+//					null, null,		// 3,4
+//					where, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		////////////////////////////////
+		
+		// build list
+		
+		////////////////////////////////
+		List<SI> list_SIs = new ArrayList<SI>();
+		
+		SI ps = null;
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"store", "name", "price",			// 3,4,5
+//		"genre", "yomi", "num",				// 6,7,8
+//		
+//		"posted_at"							// 9		
+		
+		while(c.moveToNext()) {
+			
+			ps = new SI.Builder()
+			
+			.setDb_id((int)c.getLong(0))
+			.setCreated_at(c.getString(1))
+			.setModified_at(c.getString(2))
+			
+			.setStore(c.getString(3))
+			.setName(c.getString(4))
+			.setPrice((int)c.getLong(5))
+			
+			.setGenre(c.getString(6))
+			.setYomi(c.getString(7))
+			.setNum((int)c.getLong(8))
+			
+			.build();
+			
+			list_SIs.add(ps);
+			
+		}//while(c.moveToNext())
+		
+		////////////////////////////////
+		
+		// close
+		
+		////////////////////////////////
+		rdb.close();
+		
+		msg_Log = "list_SIs.size() => " + list_SIs.size();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		return list_SIs;
+		
+	}//find_ALL_Stores__Unposted
+	
+	/******************************
+		@return
+		null<br>
+			1. No DB file<br>
+			2. No such table<br>
+			3. Query => Exception<br>
+			4. Query => no entry<br>
+	 ******************************/
 	public static List<Genre> 
 	find_ALL_Genres__Unposted
 	(Activity actv) {
@@ -4678,6 +5103,13 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//find_ALL_Genres__Unposted
 	
+	/******************************
+		@return
+		null<br>
+			1. query => Exception<br>
+			2. query => returned null<br>
+			3. query => no entry<br>
+	 ******************************/
 	public static Store 
 	find_Store_from_Name
 	(Activity actv, String store_name) {

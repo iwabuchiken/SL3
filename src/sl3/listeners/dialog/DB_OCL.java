@@ -7,6 +7,7 @@ import sl3.items.SI;
 import sl3.main.R;
 import sl3.tasks.Task_Post_Genres;
 import sl3.tasks.Task_Post_History;
+import sl3.tasks.Task_Post_Sis;
 import sl3.tasks.Task_Post_Stores;
 import sl3.utils.CONS;
 import sl3.utils.DBUtils;
@@ -144,10 +145,18 @@ DB_OCL implements OnClickListener {
 	onClick(View v) {
 		//
 		Tags.DialogTags tag_name = (Tags.DialogTags) v.getTag();
+		
+		vib.vibrate(CONS.Admin.vibLength_click);
 
 		//
 		switch (tag_name) {
 		
+		case DLG_POST_SIS_OK://---------------------------------------
+			
+			case_DLG_POST_SIS_OK();
+			
+			break;
+			
 		case DLG_POST_GENRES_OK://---------------------------------------
 			
 			case_DLG_POST_GENRES_OK();
@@ -538,6 +547,28 @@ DB_OCL implements OnClickListener {
 		Task_Post_Genres task = new Task_Post_Genres(actv);
 		
 		task.execute(CONS.HTTPData.registerChoice.POST_GENRES.toString());
+		
+		////////////////////////////////
+		
+		// dismiss
+		
+		////////////////////////////////
+		d2.dismiss();
+		d1.dismiss();
+		
+	}//case_DLG_POST_GENRES_OK
+	
+	private void 
+	case_DLG_POST_SIS_OK() {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+		
+		// start: task
+		
+		////////////////////////////////
+		Task_Post_Sis task = new Task_Post_Sis(actv);
+		
+		task.execute(CONS.HTTPData.registerChoice.POST_SIS.toString());
 		
 		////////////////////////////////
 		

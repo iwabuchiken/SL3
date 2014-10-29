@@ -160,7 +160,7 @@ public class TabActv extends TabActivity
 		CONS.bgm = prefs.getBoolean(this.getString(R.string.prefs_key_bgm), false);
 		
 		// Log
-		Log.d("MainActv.java" + "["
+		Log.d("TabActv.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 				+ ":"
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
@@ -1146,7 +1146,7 @@ public class TabActv extends TabActivity
 				+ "]", msg_Log);
 		
 		//debug
-//		do_test();
+		do_test();
 		
 //		test_B32_v_1_2();
 
@@ -1213,10 +1213,80 @@ public class TabActv extends TabActivity
 	do_test() {
 		// TODO Auto-generated method stub
 		
-		_do_test_D_4_SEG_1_V_3_0();
+
+//		this._debug_D_17_V_1_0__Reset_PostedAt_SIs();
+		
+//		_do_test_D_4_SEG_1_V_3_0();
 //		_do_test_D_4_V_1_0();
 		
 	}
+
+	private void 
+	_debug_D_17_V_1_0__Reset_PostedAt_SIs() {
+		// TODO Auto-generated method stub
+		
+		List<SI> list_Sis = DBUtils.find_ALL_SIs__Posted(this);
+//		List<SI> list_Sis = DBUtils.find_ALL_SIs(this);
+//		List<SI> list_Sis = DBUtils.find_ALL_SIs__Unposted(this);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list_Sis == null) {
+			
+			// Log
+			String msg_Log = "list_Sis => null";
+			Log.e("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		////////////////////////////////
+
+		// update
+
+		////////////////////////////////
+		boolean res;
+//		
+		int count = 0;
+		
+		for (SI si : list_Sis) {
+			
+			res = DBUtils.update_Data_generic(
+					this,
+					CONS.DB.tname_si,
+					si.getId(),
+					
+					CONS.DB.col_Names_SI_full[9],
+					"");
+		
+			if (res == true) {
+				
+				count += 1;
+				
+			}
+			
+		}//for (SI si : list_Sis)
+
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		// Log
+		String msg_Log = String.format(
+				Locale.JAPAN,
+				"list size = %d / update = %d", 
+				list_Sis.size(), count);
+		
+		Log.i("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+	}//_debug_D_17_V_1_0__Reset_PostedAt_SIs
 
 	private void 
 	_do_test_D_4_SEG_1_V_3_0() {
