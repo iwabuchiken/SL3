@@ -1214,12 +1214,141 @@ public class TabActv extends TabActivity
 		// TODO Auto-generated method stub
 		
 
+//		this._debug_D_17_V_1_0__Edit_CreatedAt_SIs();
 //		this._debug_D_17_V_1_0__Reset_PostedAt_SIs();
 		
 //		_do_test_D_4_SEG_1_V_3_0();
 //		_do_test_D_4_V_1_0();
 		
 	}
+
+	private void 
+	_debug_D_17_V_1_0__Edit_CreatedAt_SIs() {
+		// TODO Auto-generated method stub
+		List<SI> list_Sis = DBUtils.find_ALL_SIs(this);
+		
+		/******************************
+			validate
+		 ******************************/
+		if (list_Sis == null) {
+			
+			// Log
+			String msg_Log = "list_Sis => null";
+			Log.e("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		////////////////////////////////
+
+		// update
+
+		////////////////////////////////
+		boolean res;
+//		
+		int count = 0;
+		
+//		String created_Prev;
+		String created_New;
+		
+		String tmp_str;
+		
+		for (SI si : list_Sis) {
+			
+			tmp_str = si.getCreated_at();
+			
+			/******************************
+				validate
+			 ******************************/
+			if (tmp_str == null || tmp_str.equals("")) {
+				
+				// Log
+				String msg_Log = "can't get 'created_at' value: si => " + si.getId();
+				Log.d("TabActv.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				continue;
+				
+			}
+
+			////////////////////////////////
+
+			// convert
+
+			////////////////////////////////
+			created_New = tmp_str.replaceAll("-", "/");
+			
+			// Log
+			String msg_Log = "created_New => " + created_New;
+			Log.d("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+//			String[] tmp_str_1 = tmp_str.split(" ");
+//			
+//			/******************************
+//				validate
+//			 ******************************/
+//			if (tmp_str_1 == null || tmp_str_1.length < 2) {
+//				
+//				// Log
+//				String msg_Log = "irregular string => " + tmp_str;
+//				Log.e("TabActv.java"
+//						+ "["
+//						+ Thread.currentThread().getStackTrace()[2]
+//								.getLineNumber() + "]", msg_Log);
+//				
+//				continue;
+//				
+//			}
+//			
+//			
+			
+			////////////////////////////////
+
+			// exec: update
+
+			////////////////////////////////
+			res = DBUtils.update_Data_generic(
+					this,
+					CONS.DB.tname_si,
+					si.getId(),
+					
+//					"created_at", "modified_at",			// 1,2
+					
+					CONS.DB.col_Names_SI_full[1],
+					created_New);
+		
+			if (res == true) {
+				
+				count += 1;
+				
+			}
+			
+		}//for (SI si : list_Sis)
+
+		////////////////////////////////
+
+		// report
+
+		////////////////////////////////
+		// Log
+		String msg_Log = String.format(
+				Locale.JAPAN,
+				"list size = %d / update = %d", 
+				list_Sis.size(), count);
+		
+		Log.i("TabActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+	}//_debug_D_17_V_1_0__Edit_CreatedAt_SIs
+	
 
 	private void 
 	_debug_D_17_V_1_0__Reset_PostedAt_SIs() {
