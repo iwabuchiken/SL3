@@ -1215,7 +1215,7 @@ public class TabActv extends TabActivity
 		
 
 //		this._debug_D_17_V_1_0__Edit_CreatedAt_SIs();
-//		this._debug_D_17_V_1_0__Reset_PostedAt_SIs();
+		this._debug_D_17_V_1_0__Reset_PostedAt_SIs();
 		
 //		_do_test_D_4_SEG_1_V_3_0();
 //		_do_test_D_4_V_1_0();

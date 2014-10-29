@@ -7423,8 +7423,21 @@ public class Methods {
 		// "genre", "yomi", "num",				// 6,7,8
 		
 		////////////////////////////////
-		params.add(new BasicNameValuePair("data[Si][genre]",
-								si.getGenre()));
+		Genre genre = DBUtils.find_Genre_from_Name(actv, si.getGenre());
+		
+		if (genre != null) {
+			
+			tmp_i = genre.getDb_Id();
+			
+		} else {
+
+			tmp_i = CONS.Admin.dflt_Exception_Id_Value;
+			
+		}
+
+//		params.add(new BasicNameValuePair("data[Si][genre]",
+		params.add(new BasicNameValuePair("data[Si][genre_id]",
+								String.valueOf(tmp_i)));
 		
 		params.add(new BasicNameValuePair("data[Si][yomi]",
 								si.getYomi()));

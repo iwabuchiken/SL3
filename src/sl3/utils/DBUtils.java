@@ -5243,6 +5243,146 @@ public class DBUtils extends SQLiteOpenHelper {
 		
 	}//find_Store_from_Name
 
+	/******************************
+		@return
+		null<br>
+			1. query => Exception<br>
+			2. query => returned null<br>
+			3. query => no entry<br>
+	 ******************************/
+	public static Genre
+	find_Genre_from_Name
+	(Activity actv, String genre_name) {
+		// TODO Auto-generated method stub
+		
+		DBUtils dbu = new DBUtils(actv, CONS.DB.dbName);
+		
+		SQLiteDatabase rdb = dbu.getReadableDatabase();
+
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"genre_name",						// 3
+//		
+//		"posted_at"							// 4
+		
+		String where = CONS.DB.col_Names_Genre_full[3] + " = ?";
+		String[] args = new String[]{
+				
+				genre_name
+				
+		};
+		
+		////////////////////////////////
+		
+		// Query
+		
+		////////////////////////////////
+		Cursor c = null;
+		
+		try {
+			
+			c = rdb.query(
+					
+					CONS.DB.tname_genres,			// 1
+					CONS.DB.col_Names_Genre_full,	// 2
+//					null, null,		// 3,4
+					where, args,		// 3,4
+					null, null,		// 5,6
+					null,			// 7
+					null);
+			
+		} catch (Exception e) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", e.toString());
+			
+			e.printStackTrace();
+			
+			rdb.close();
+			
+			return null;
+			
+		}//try
+		
+		/***************************************
+		 * Validate
+		 * 	Cursor => Null?
+		 * 	Entry => 0?
+		 ***************************************/
+		if (c == null) {
+			
+			// Log
+			Log.e("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "Query failed");
+			
+			rdb.close();
+			
+			return null;
+			
+		} else if (c.getCount() < 1) {//if (c == null)
+			
+			// Log
+			Log.d("DBUtils.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ ":"
+					+ Thread.currentThread().getStackTrace()[2].getMethodName()
+					+ "]", "No entry in the table");
+			
+			rdb.close();
+			
+			return null;
+			
+		}//if (c == null)
+		
+		// Log
+		String msg_Log = "c.getCount() => " + c.getCount();
+		Log.d("DBUtils.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		/***************************************
+		 * Build item
+		 ***************************************/
+		c.moveToFirst();
+		
+//		android.provider.BaseColumns._ID,	// 0
+//		"created_at", "modified_at",			// 1,2
+//		
+//		"genre_name",						// 3
+//		
+//		"posted_at"							// 4		
+		
+		Genre genre = new Genre.Builder()
+		
+					.setDb_Id((int)c.getLong(0))
+					.setCreated_at(c.getString(1))
+					.setModified_at(c.getString(2))
+					
+					.setGenre_name(c.getString(3))
+					.setPosted_at(c.getString(4))
+		
+					.build();
+		
+		/***************************************
+		 * Close db
+		 ***************************************/
+		rdb.close();
+		
+		/***************************************
+		 * Return
+		 ***************************************/
+		return genre;
+		
+	}//find_Genre_from_Name
+	
 	public static boolean 
 	update_Data_generic
 	(Activity actv, 
