@@ -109,7 +109,8 @@ public class Task_Post_Sis extends AsyncTask<String, Integer, Integer> {
 		int res;
 		
 		//debug
-		int limit = 20;	//=> limit the number of uploads in one cycle
+		int limit = 50;	//=> limit the number of uploads in one cycle
+//		int limit = 20;	//=> limit the number of uploads in one cycle
 		
 		for (SI si : list_Sis) {
 

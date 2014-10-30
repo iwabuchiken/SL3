@@ -333,8 +333,19 @@ public class LOI_CL implements OnItemClickListener {
 		 * 1. First, clear the current list
 		 * 2. Then, add new item ids
 		 ***************************************/
+		////////////////////////////////
+
+		// clear: id lists
+
+		////////////////////////////////
 		CONS.TabActv.tab_toBuyItemIds.clear();
-		
+		CONS.TabActv.tab_checkedItemIds.clear();
+
+		////////////////////////////////
+
+		// add: ids
+
+		////////////////////////////////
 		for (int i = 0; i < loadedSIList.size(); i++) {
 			
 			SI si = loadedSIList.get(i);
