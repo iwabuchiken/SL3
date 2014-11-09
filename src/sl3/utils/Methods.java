@@ -6290,7 +6290,8 @@ public class Methods {
 					+ "]", e.toString());
 			
 			String log_msg = "upload pur history => IOException: "
-					+ ph.getItems();
+					+ ph.getItems()
+					+ "(" + e.toString() + ")";
 		
 			Methods.write_Log(actv, log_msg, Thread.currentThread()
 					.getStackTrace()[2].getFileName(), Thread.currentThread()
@@ -8025,5 +8026,41 @@ public class Methods {
 		}
 		
 	}//write_Log
+
+	public static void 
+	delete_FromList_Tab2
+	(Activity actv, Dialog d1, SI si) {
+		// TODO Auto-generated method stub
+	
+		/***************************************
+		 * 1. Remove the si from toBuyList
+		 * 2. Notify the adapter: CONS.TabActv.adpToBuys, CONS.TabActv.adpItems
+		 ***************************************/
+		CONS.TabActv.toBuyList.remove(si);
+		
+//		CONS.TabActv.tab_toBuyItemIds.remove(si.getId());
+		CONS.TabActv.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
+		
+		CONS.TabActv.adpToBuys.notifyDataSetChanged();
+		
+//		CONS.TabActv.adpItems.notifyDataSetChanged();
+		
+		////////////////////////////////
+
+		// delete: from Tab1, too
+
+		////////////////////////////////
+		CONS.TabActv.itemList.remove(si);
+		
+		CONS.TabActv.tab_checkedItemIds.remove(Integer.valueOf(si.getId()));
+		
+		CONS.TabActv.adpItems.notifyDataSetChanged();
+		
+		/***************************************
+		 * Close dlg
+		 ***************************************/
+		d1.dismiss();
+		
+	}//delete_FromList_Tab2
 
 }//public class Methods

@@ -946,23 +946,25 @@ public class DOI_CL implements OnItemClickListener {
 		
 		if (choice.equals(actv.getString(R.string.tabactv_tab2_lv_delete_from_list))) {
 		
-			/***************************************
-			 * 1. Remove the si from toBuyList
-			 * 2. Notify the adapter: CONS.TabActv.adpToBuys, CONS.TabActv.adpItems
-			 ***************************************/
-			CONS.TabActv.toBuyList.remove(si);
+			Methods.delete_FromList_Tab2(actv, d1, si);
 			
-//			CONS.TabActv.tab_toBuyItemIds.remove(si.getId());
-			CONS.TabActv.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
-			
-			CONS.TabActv.adpToBuys.notifyDataSetChanged();
-			
-			CONS.TabActv.adpItems.notifyDataSetChanged();
-			
-			/***************************************
-			 * Close dlg
-			 ***************************************/
-			d1.dismiss();
+//			/***************************************
+//			 * 1. Remove the si from toBuyList
+//			 * 2. Notify the adapter: CONS.TabActv.adpToBuys, CONS.TabActv.adpItems
+//			 ***************************************/
+//			CONS.TabActv.toBuyList.remove(si);
+//			
+////			CONS.TabActv.tab_toBuyItemIds.remove(si.getId());
+//			CONS.TabActv.tab_toBuyItemIds.remove(Integer.valueOf(si.getId()));
+//			
+//			CONS.TabActv.adpToBuys.notifyDataSetChanged();
+//			
+//			CONS.TabActv.adpItems.notifyDataSetChanged();
+//			
+//			/***************************************
+//			 * Close dlg
+//			 ***************************************/
+//			d1.dismiss();
 			
 		} else {//if (choice.equals(actv.getString(R.string.tabactv_tab2_lv_delete_from_list)))
 			
