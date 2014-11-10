@@ -258,4 +258,9 @@
 		<string name="cd_actv_tab_ib_top">scroll up to the top of the list</string>
 		<string name="cd_actv_tab_ib_bottom">scroll down to the bottom of the list</string>
 	
+	<!-- Tab 2: option menu -->
+		<string name="dlg_Tab2_Lists__Title">Lists</string>
+		<string name="dlg_Tab2_Lists__Sort">Sort</string>
+		<string name="dlg_Tab2_Lists__Clear">Clear</string>
+		
 </resources>

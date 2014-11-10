@@ -112,7 +112,7 @@ public class Tags {
 		DLG_POST_ITEMS_OK, 
 		DLG_POST_STORES_OK, 
 		DLG_POST_GENRES_OK, 
-		DLG_POST_SIS_OK,
+		DLG_POST_SIS_OK, ACTV_TAB2_DLG_LISTS, DLG_CLEAR_SELECTIONS_TAB2,
 		
 	}//public static enum DialogTags
 	

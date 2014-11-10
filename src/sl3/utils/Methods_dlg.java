@@ -3259,7 +3259,7 @@ public class Methods_dlg {
 		Dialog d1 = Methods_dlg.dlg_Template_Cancel(
 						actv,
 						R.layout.dlg_tmpl_cancel_lv,
-						R.string.menu_listitem_tabToBuy_admin,
+						R.string.dlg_Tab2_Lists__Title,
 						
 						R.id.dlg_tmpl_cancel_lv_bt_cancel,
 						Tags.DialogTags.DLG_GENERIC_DISMISS);
@@ -3273,22 +3273,16 @@ public class Methods_dlg {
 		
 		list.add(new ListItem.Builder()
 						.setText(actv.getString(
-									R.string.opt_TabActv_Admin_Main__BackupDB))
+									R.string.dlg_Tab2_Lists__Sort))
 						.setIconID(R.drawable.menu_icon_admin_32x32)
 						.setTextColor_ID(R.color.blue1)
 						.build());
 		list.add(new ListItem.Builder()
 						.setText(actv.getString(
-								R.string.opt_TabActv_Admin_Main__Operations))
+								R.string.dlg_Tab2_Lists__Clear))
 						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
 						.setTextColor_ID(R.color.black)
 						.build());
-		list.add(new ListItem.Builder()
-						.setText(actv.getString(
-								R.string.opt_TabActv_Admin_Main__SeeLog))
-								.setIconID(R.drawable.menu_icon_admin_32x32_purple)
-								.setTextColor_ID(R.color.purple4)
-								.build());
 		
 		/****************************
 		* 3. Adapter
@@ -3311,7 +3305,7 @@ public class Methods_dlg {
 		/****************************
 		* 5. Set listener to list
 		****************************/
-		lv.setTag(Tags.DialogTags.ACTV_TAB_OPT_ADMIN);
+		lv.setTag(Tags.DialogTags.ACTV_TAB2_DLG_LISTS);
 		
 		lv.setOnItemClickListener(new DOI_CL(actv, d1));
 		
@@ -4558,5 +4552,107 @@ public class Methods_dlg {
 	    }, duration); // after 2 second (or 2000 miliseconds), the task will be active.
 		
 	}
+
+	public static void 
+	dlg_Tab2_ClearSelections
+	(Activity actv, Dialog d1) {
+		// TODO Auto-generated method stub
+		
+//		Dialog dlg = Methods_dlg.dlg_template_cancel(
+		Dialog d2 = Methods_dlg.dlg_template_cancel_2Dialogues(
+				actv,
+				R.layout.dlg_tmpl_cancel_lv_with_btn,
+				R.string.menu_listitem_tabToBuy_clear_selections,
+				
+				R.id.dlg_tmpl_cancel_lv_with_btn_bt_cancel, 
+				Tags.DialogTags.GENERIC_DISMISS_SECOND_DIALOG,
+				d1
+				);
+		
+		////////////////////////////////
+		
+		// Prep => List
+		
+		////////////////////////////////
+		List<ListItem> list = new ArrayList<ListItem>();
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+									R.string.menu_listitem_tabToBuy_clear_basket))
+						.setIconID(R.drawable.menu_icon_admin_32x32)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+		
+		list.add(new ListItem.Builder()
+						.setText(actv.getString(
+								R.string.menu_listitem_tabToBuy_clear_checked_items))
+						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+						.setTextColor_ID(R.color.black)
+						.build());
+		
+		list.add(new ListItem.Builder()
+				.setText(actv.getString(
+						R.string.generic_label_all))
+						.setIconID(R.drawable.menu_icon_admin_32x32_brown)
+						.setTextColor_ID(R.color.black)
+						.build());
+		
+		/****************************
+		* 3. Adapter
+		****************************/
+		Adp_ListItems adapter = new Adp_ListItems(
+							actv,
+							//R.layout.dlg_db_admin,
+							R.layout.list_row_simple_iv_1,
+							//android.R.layout.simple_list_item_1,
+							list
+		);		
+//		/*----------------------------
+//		* 3. Adapter
+//		----------------------------*/
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+//								actv,
+//								//R.layout.dlg_db_admin,
+//								android.R.layout.simple_list_item_1,
+//								list
+//		);
+		
+		/*----------------------------
+		* 4. Set adapter
+		----------------------------*/
+		ListView lv = (ListView) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_lv);
+		
+		lv.setAdapter(adapter);
+		
+		/*----------------------------
+		* 5. Set listener to list
+		----------------------------*/
+		lv.setTag(Tags.DialogTags.DLG_CLEAR_SELECTIONS_TAB2);
+//		lv.setTag(Tags.DialogTags.dlg_clear_selections);
+		
+		lv.setOnItemClickListener(new DOI_CL(actv, d2));
+
+		////////////////////////////////
+
+		// button: all dismiss
+
+		////////////////////////////////
+		ImageButton ib_AllClear = 
+				(ImageButton) d2.findViewById(R.id.dlg_tmpl_cancel_lv_with_btn_ib);
+		
+		ib_AllClear.setTag(Tags.DialogTags.GENERIC_DISMISS_ALL_2ND_DIALOG);
+		
+		ib_AllClear.setOnTouchListener(new DB_OTL(actv, d1, d2));
+		
+		ib_AllClear.setOnClickListener(new DB_OCL(actv, d1, d2));
+
+		////////////////////////////////
+
+		// Show dialog
+
+		////////////////////////////////
+		d2.show();
+		
+	}//dlg_Tab2_ClearSelections
 
 }//public class Methods_dlg

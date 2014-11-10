@@ -158,7 +158,15 @@ public class DOI_CL implements OnItemClickListener {
 		
 		switch (tag) {
 		
-		case dlg_db_admin_lv:
+		case ACTV_TAB2_DLG_LISTS://------------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_dlg_ACTV_TAB2_DLG_LISTS(li);
+			
+			break;
+			
+		case dlg_db_admin_lv://------------------------------
 			
 			choice = (String) parent.getItemAtPosition(position);
 			
@@ -166,7 +174,7 @@ public class DOI_CL implements OnItemClickListener {
 			
 			break;
 
-		case dlg_tabactv_tab2_lv:
+		case dlg_tabactv_tab2_lv://------------------------------
 			
 			choice = (String) parent.getItemAtPosition(position);
 
@@ -259,6 +267,29 @@ public class DOI_CL implements OnItemClickListener {
 			
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 	
+	private void 
+	case_dlg_ACTV_TAB2_DLG_LISTS
+	(ListItem li) {
+		// TODO Auto-generated method stub
+
+		if (li.getText().equals(actv.getString(
+				R.string.dlg_Tab2_Lists__Sort))) {
+
+			
+			
+			
+		} else if (li.getText().equals(actv.getString(
+						R.string.dlg_Tab2_Lists__Clear))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+			Methods_dlg.dlg_Tab2_ClearSelections(actv, d1);
+			
+		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+		}//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+	}//dlg_ACTV_TAB2_DLG_LISTS
+	
+
 	private void 
 	case_TAB1_LONG_CLICK
 	(ListItem li) {

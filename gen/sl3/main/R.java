@@ -399,6 +399,11 @@ public final class R {
         public static final int commons_lbl_search=0x7f070014;
         public static final int db_manager_btn_create_table=0x7f070038;
         public static final int db_manager_btn_drop_table=0x7f070039;
+        public static final int dlg_Tab2_Lists__Clear=0x7f07009e;
+        public static final int dlg_Tab2_Lists__Sort=0x7f07009d;
+        /**  Tab 2: option menu 
+         */
+        public static final int dlg_Tab2_Lists__Title=0x7f07009c;
         public static final int dlg_confirm_drop_table_tv_message_drop=0x7f070043;
         public static final int dlg_create_table_label_column_name=0x7f07003f;
         public static final int dlg_create_table_label_data_type=0x7f070040;
