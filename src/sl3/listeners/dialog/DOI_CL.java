@@ -158,6 +158,14 @@ public class DOI_CL implements OnItemClickListener {
 		
 		switch (tag) {
 		
+		case DLG_CLEAR_SELECTIONS_TAB2://------------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_DLG_CLEAR_SELECTIONS_TAB2(li);
+			
+			break;
+			
 		case ACTV_TAB2_DLG_LISTS://------------------------------
 			
 			li= (ListItem) parent.getItemAtPosition(position);
@@ -267,6 +275,59 @@ public class DOI_CL implements OnItemClickListener {
 			
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 	
+	private void 
+	case_DLG_CLEAR_SELECTIONS_TAB2
+	(ListItem li) {
+		// TODO Auto-generated method stub
+
+		if (li.getText().equals(actv.getString(R.string
+					.generic_label_all))) {
+
+			CONS.TabActv.toBuyList.clear();
+			CONS.TabActv.tab_toBuyItemIds.clear();
+			CONS.TabActv.tab_checkedItemIds.clear();
+			
+			CONS.TabActv.adpItems.notifyDataSetChanged();
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
+			
+			d1.dismiss();
+
+			/***************************************
+			 * Clear sum
+			 ***************************************/
+			TextView tvSum = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_sum);
+			tvSum.setText(actv.getString(R.string.itemlist_tabs_tobuy_sum));
+
+			/***************************************
+			 * Clear due date (and store name if clearing after	
+			 * 	loading a list)
+			 ***************************************/
+			TextView tvDueDate = (TextView) actv.findViewById(R.id.itemlist_tab2_tv_due_date);
+			tvDueDate.setText(Methods.getTimeLabel_Japanese(Methods.getMillSeconds_now()));
+
+			////////////////////////////////
+
+			// dismiss
+
+			////////////////////////////////
+			d2.dismiss();
+			d1.dismiss();
+			
+		} else if (li.getText().equals(actv.getString(R.string
+					.menu_listitem_tabToBuy_clear_basket))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+			
+		} else if (li.getText().equals(actv.getString(R.string
+				.menu_listitem_tabToBuy_clear_checked_items))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+			
+		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+		}//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+	}//case_DLG_CLEAR_SELECTIONS_TAB2
+	
+
 	private void 
 	case_dlg_ACTV_TAB2_DLG_LISTS
 	(ListItem li) {

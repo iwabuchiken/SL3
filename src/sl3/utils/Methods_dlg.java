@@ -4630,7 +4630,7 @@ public class Methods_dlg {
 		lv.setTag(Tags.DialogTags.DLG_CLEAR_SELECTIONS_TAB2);
 //		lv.setTag(Tags.DialogTags.dlg_clear_selections);
 		
-		lv.setOnItemClickListener(new DOI_CL(actv, d2));
+		lv.setOnItemClickListener(new DOI_CL(actv, d1, d2));
 
 		////////////////////////////////
 
