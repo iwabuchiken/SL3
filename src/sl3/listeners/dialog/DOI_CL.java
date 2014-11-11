@@ -158,6 +158,14 @@ public class DOI_CL implements OnItemClickListener {
 		
 		switch (tag) {
 		
+		case DLG_TAB2_TAB2_SORT_LIST://------------------------------
+			
+			li= (ListItem) parent.getItemAtPosition(position);
+			
+			case_DLG_TAB2_TAB2_SORT_LIST(li);
+			
+			break;
+			
 		case DLG_CLEAR_SELECTIONS_TAB2://------------------------------
 			
 			li= (ListItem) parent.getItemAtPosition(position);
@@ -276,6 +284,71 @@ public class DOI_CL implements OnItemClickListener {
 	}//public void onItemClick(AdapterView<?> parent, View v, int position, long id)
 	
 	private void 
+	case_DLG_TAB2_TAB2_SORT_LIST
+	(ListItem li) {
+		// TODO Auto-generated method stub
+
+		if (li.getText().equals(actv.getString(R.string
+				.dlg_sort_list_item_name))) {
+
+			/*
+			 * sort by id => so that the items get reshaffled
+			 */
+//			Methods.sortItemList__Id(actv, CONS.TabActv.toBuyList);
+			
+			Methods.sortItemList__ItemName(actv, CONS.TabActv.toBuyList);
+			
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
+			
+			// Log
+			String msg_Log = "adapter => notified";
+			Log.i("DOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			////////////////////////////////
+
+			// dismiss
+
+			////////////////////////////////
+			d2.dismiss();
+			d1.dismiss();
+	
+		} else if (li.getText().equals(actv.getString(R.string
+					.dlg_sort_list_genre_item_name))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+//			Methods.sortItemList__Genre(actv, CONS.TabActv.toBuyList);
+//			Methods.sortItemList__ItemName(actv, CONS.TabActv.toBuyList);
+			
+			
+			Methods.sortItemList__Genre_ItemName(actv, CONS.TabActv.toBuyList);
+//			Methods.sortItemList__Genre_ItemName(actv, CONS.TabActv.itemList);
+			
+			CONS.TabActv.adpToBuys.notifyDataSetChanged();
+//			CONS.TabActv.adpItems.notifyDataSetChanged();
+			
+			// Log
+			String msg_Log = "adapter => notified";
+			Log.i("DOI_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			////////////////////////////////
+
+			// dismiss
+
+			////////////////////////////////
+			d2.dismiss();
+			d1.dismiss();
+			
+		} else {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+			
+		}//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))
+
+	}//case_DLG_TAB2_TAB2_SORT_LIST
+	
+
+	private void 
 	case_DLG_CLEAR_SELECTIONS_TAB2
 	(ListItem li) {
 		// TODO Auto-generated method stub
@@ -336,8 +409,7 @@ public class DOI_CL implements OnItemClickListener {
 		if (li.getText().equals(actv.getString(
 				R.string.dlg_Tab2_Lists__Sort))) {
 
-			
-			
+			Methods_dlg.dlg_Tab2_SortList(actv, d1);
 			
 		} else if (li.getText().equals(actv.getString(
 						R.string.dlg_Tab2_Lists__Clear))) {//if (choice.equals(actv.getString(R.string.dlg_item_list_long_click_edit)))

@@ -8063,4 +8063,251 @@ public class Methods {
 		
 	}//delete_FromList_Tab2
 
+	public static void
+	sortItemList__Genre_ItemName
+	(Activity actv, List<SI> itemList) {
+	
+//		////////////////////////////////
+//
+//		// debug
+//
+//		////////////////////////////////
+//		for (SI si : itemList) {
+//			
+//			// Log
+//			String msg_Log = "si.getName() => " + si.getName();
+//			Log.d("Methods.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//		}
+		
+		/***************************************
+		 * Sort: Genre
+		 ***************************************/
+		Collections.sort(itemList, new Comparator<SI>(){
+
+//			@Override
+			public int compare(SI i1, SI i2) {
+
+				
+				return (int) (i1.getGenre().compareTo(i2.getGenre()));
+				
+			}//public int compare(PS i1, PS i2)
+
+		});//Collections.sort()
+
+//		////////////////////////////////
+//
+//		// debug
+//
+//		////////////////////////////////
+//		// Log
+//		String msg_Log = "sort: genre => done";
+//		Log.i("Methods.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
+//		
+//		for (SI si : itemList) {
+//			
+//			// Log
+//			msg_Log = "si.getName() => " + si.getName();
+//			Log.d("Methods.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", msg_Log);
+//		}
+
+		/***************************************
+		 * Sort: Item name
+		 ***************************************/
+		Collections.sort(itemList, new Comparator<SI>(){
+
+//			@Override
+			public int compare(SI i1, SI i2) {
+				
+//				if (!i1.getName().equals(i2.getName())) {
+				if (i1.getGenre().equals(i2.getGenre())) {
+					
+					return (i1.getYomi().compareTo(i2.getYomi()));
+					
+				} else {//if (i1.getName().equals(i2.getName()) == condition)
+					
+					return 0;
+					
+				}//if (i1.getName().equals(i2.getName()) == condition)
+				
+				
+//				return (int) (i1.getName().compareTo(i2.getName()));
+				
+			}//public int compare(PS i1, PS i2)
+
+		});//Collections.sort()
+
+	}//sortItemList_GenreItemName(List<ShoppingItem> itemList)
+
+	public static void
+	sortItemList__ItemName
+	(Activity actv, List<SI> itemList) {
+		////////////////////////////////
+
+		// debug
+
+		////////////////////////////////
+		String msg_Log;
+		
+		// Log
+		msg_Log = "sorting => item name";
+		Log.i("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		for (SI si : itemList) {
+			
+			// Log
+			msg_Log = "si.getName() => " + si.getName();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+		}
+		
+		/***************************************
+		 * Sort: Item name
+		 ***************************************/
+		Collections.sort(itemList, new Comparator<SI>(){
+			
+//			@Override
+			public int compare(SI i1, SI i2) {
+				
+////				if (!i1.getName().equals(i2.getName())) {
+//				if (i1.getGenre().equals(i2.getGenre())) {
+					
+					return (i1.getYomi().compareTo(i2.getYomi()));
+					
+//				} else {//if (i1.getName().equals(i2.getName()) == condition)
+//					
+//					return 0;
+//					
+//				}//if (i1.getName().equals(i2.getName()) == condition)
+				
+			}//public int compare(PS i1, PS i2)
+			
+		});//Collections.sort()
+
+		////////////////////////////////
+
+		// debug
+
+		////////////////////////////////
+		// Log
+		msg_Log = "sort by item name => done";
+		Log.i("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		for (SI si : itemList) {
+			
+			// Log
+			msg_Log = "si.getName() => " + si.getName();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+		}
+
+	}//sortItemList__ItemName
+	
+	
+	public static void
+	sortItemList__Genre
+	(Activity actv, List<SI> itemList) {
+		
+		/***************************************
+		 * Sort: Genre
+		 ***************************************/
+		Collections.sort(itemList, new Comparator<SI>(){
+			
+//			@Override
+			public int compare(SI i1, SI i2) {
+				
+				
+				return (int) (i1.getGenre().compareTo(i2.getGenre()));
+				
+			}//public int compare(PS i1, PS i2)
+			
+		});//Collections.sort()
+		
+	}//sortItemList__Genre
+	
+	public static void
+	sortItemList__Id
+	(Activity actv, List<SI> itemList) {
+		
+		/***************************************
+		 * Sort: Genre
+		 ***************************************/
+		////////////////////////////////
+
+		// debug
+
+		////////////////////////////////
+		for (SI si : itemList) {
+			
+			// Log
+			String msg_Log = "si.getName() => " + si.getName();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+		}
+		
+		
+		////////////////////////////////
+
+		// sort
+
+		////////////////////////////////
+		Collections.sort(itemList, new Comparator<SI>(){
+			
+//			@Override
+			public int compare(SI i1, SI i2) {
+				
+				if (i1.getId() < i2.getId()) {
+					
+					return 1;
+					
+				} else if (i1.getId() == i2.getId()) {
+					
+					return 0;
+					
+				} else {
+
+					return -1;
+				}
+				
+//				return (int) (i1.getId() < i2.getId()) ? ;
+//				return (int) (i1.getGenre().compareTo(i2.getGenre()));
+				
+			}//public int compare(PS i1, PS i2)
+			
+		});//Collections.sort()
+
+		////////////////////////////////
+
+		// debug
+
+		////////////////////////////////
+		// Log
+		String msg_Log = "sort by id => done";
+		Log.i("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		for (SI si : itemList) {
+			
+			// Log
+			msg_Log = "si.getName() => " + si.getName();
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+		}
+
+	}//sortItemList__Genre
+	
 }//public class Methods
