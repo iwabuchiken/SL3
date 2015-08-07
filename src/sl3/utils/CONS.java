@@ -8,7 +8,6 @@ import sl3.adapters.ItemListAdapter2;
 import sl3.adapters.ToBuyListAdapter;
 import sl3.items.LogItem;
 import sl3.items.SI;
-
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.os.Vibrator;
@@ -98,15 +97,21 @@ public class CONS {
 		////////////////////////////////
 		public static String dirName_ExternalStorage = "/mnt/sdcard-ext";
 		
-		public final static String dPath_Data_Root = 
+		public static String dirPath_dbFile_Backup_SL_1 = 
+				dirName_ExternalStorage + "/ShoppingList_backup";
+		
+		public static String dPath_Data_Root = 
+//				public final static String dPath_Data_Root = 
 									dirName_ExternalStorage + "/sl3_data";
 //		public final static String dPath_Data_Root = "/mnt/sdcard-ext/ta2_data";
 		
 		public static String dPath_dbFile_Backup = dPath_Data_Root + "/backup";
 		
-		public final static String dPath_Data = dPath_Data_Root + "/data";
+		public static String dPath_Data = dPath_Data_Root + "/data";
+//		public final static String dPath_Data = dPath_Data_Root + "/data";
 		
-		public final static String dPath_Log = dPath_Data_Root + "/log";
+		public static String dPath_Log = dPath_Data_Root + "/log";
+//		public final static String dPath_Log = dPath_Data_Root + "/log";
 		
 		public final static String fname_Log = "log.txt";
 
@@ -117,9 +122,6 @@ public class CONS {
 
 		public static String fileName_db_backup_ext = ".bk";
 
-		public static String dirPath_dbFile_Backup_SL_1 = 
-						dirName_ExternalStorage + "/ShoppingList_backup";
-		
 		public static String fname_DB_Backup_Trunk = "sl3_backup";
 		
 		public static String fname_DB_Backup_ext = ".bk";
@@ -433,6 +435,7 @@ public class CONS {
 
 		public static String[] column_types_for_table_genres = 
 													{"TEXT", "TEXT"};
+		public static String modelname_IS13SH	= "IS13SH";
 
 		
 		////////////////////////////////

@@ -1018,43 +1018,13 @@ public class TabActv extends TabActivity
 		////////////////////////////////
 		CONS.TabActv.screen_On = true;
 		
-//		////////////////////////////////
-//
-//		// get pref: ItemIds
-//
-//		////////////////////////////////
-//		Methods.restore_ItemIds(this);
+		///////////////////////////////////
+		//
+		// re-install
+		//
+		///////////////////////////////////
+		reinstall_App();
 		
-//		String pref_CheckedIds = Methods.get_Pref_String(
-//							this, 
-//							CONS.Pref.pname_TabActv, 
-//							CONS.Pref.pkey_TabActv_CheckedIds, 
-//							null);
-//		
-//		if (pref_CheckedIds != null) {
-//			
-//			if (CONS.TabActv.tab_checkedItemIds == null) {
-//				
-//				CONS.TabActv.tab_checkedItemIds = 
-//						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds);
-//				
-//			} else {
-//				
-//				CONS.TabActv.tab_checkedItemIds.addAll(
-//						Methods.conv_ItemIdString_to_IdsList(this, pref_CheckedIds));
-//
-//			}
-//			
-//		} else {
-//			
-//			// Log
-//			msg_Log = "pref_CheckedIds => null";
-//			Log.d("TabActv.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", msg_Log);
-//			
-//		}
-
 		////////////////////////////////
 
 		// vars
@@ -1151,6 +1121,66 @@ public class TabActv extends TabActivity
 //		test_B32_v_1_2();
 
 	}//onStart
+
+	private void reinstall_App() {
+		// TODO Auto-generated method stub
+		
+        // Log
+		String msg_Log;
+		
+		//REF model name http://stackoverflow.com/questions/7071281/get-android-device-name answered Aug 15 '11 at 22:07
+		msg_Log = String.format(
+				Locale.JAPAN,
+				"model name => %s", android.os.Build.MODEL
+				);
+		
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		///////////////////////////////////
+		//
+		// edit: paths
+		//
+		///////////////////////////////////
+		///////////////////////////////////
+		//
+		// adjust: adjust paths by model names
+		//
+		///////////////////////////////////
+		// data root path
+		if (android.os.Build.MODEL.equals(CONS.DB.modelname_IS13SH)) {
+			
+			CONS.DB.dirName_ExternalStorage = "/mnt/sdcard";
+			
+			CONS.DB.dirPath_dbFile_Backup_SL_1 = 
+					CONS.DB.dirName_ExternalStorage + "/ShoppingList_backup";
+			
+			CONS.DB.dPath_Data_Root = 
+					CONS.DB.dirName_ExternalStorage + "/sl3_data";
+//		public final static String dPath_Data_Root = "/mnt/sdcard-ext/ta2_data";
+			
+			CONS.DB.dPath_dbFile_Backup = CONS.DB.dPath_Data_Root + "/backup";
+			
+			CONS.DB.dPath_Data = CONS.DB.dPath_Data_Root + "/data";
+			
+			CONS.DB.dPath_Log = CONS.DB.dPath_Data_Root + "/log";
+			
+			// Log
+//			String msg_Log;
+			
+			msg_Log = String.format(
+					Locale.JAPAN,
+					"paths => modified"
+					);
+			
+			Log.i("TabActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+	}//reinstall_App
 
 	private void 
 	_Setup_Listeners_Navigations() {
