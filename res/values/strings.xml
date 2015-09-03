@@ -111,6 +111,7 @@
     	<string name="opt_TabActv_Admin_Ops__Tables">Tables</string>
     	<string name="opt_TabActv_Admin_Ops__GetYomi">Get Yomi</string>
     	<string name="opt_TabActv_Admin_Ops__PostData">Post data</string>
+    	<string name="opt_TabActv_Admin_Ops__UploadDB">Upload DB</string>
     
     	<string name="opt_TabActv_Admin_Tables__Stores_Create">
     	    										stores => create</string>

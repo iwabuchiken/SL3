@@ -750,6 +750,19 @@ public class DOI_CL implements OnItemClickListener {
 					d1, d2,
 					Tags.DialogTags.ACTV_TAB_OPT_INSERT_NUM_SI);
 			
+			////////////////////////////////
+			
+			// upload db
+			
+			////////////////////////////////
+		} else if (li.getText().equals(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__UploadDB))) {
+			
+			Methods_dlg.conf_Upload_DB(
+					actv, 
+					d1, d2,
+					Tags.DialogTags.ACTV_TAB_OPT_UPLOAD_DB);
+			
 		////////////////////////////////
 
 		// else

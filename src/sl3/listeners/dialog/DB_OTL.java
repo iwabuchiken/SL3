@@ -137,6 +137,9 @@ public class DB_OTL implements OnTouchListener {
 			case DLG_POST_GENRES_OK:
 			case DLG_POST_SIS_OK:
 				
+			case ACTV_TAB_OPT_UPLOAD_DB:
+				
+				
 				//
 				v.setBackgroundColor(Color.GRAY);
 				
@@ -214,6 +217,8 @@ public class DB_OTL implements OnTouchListener {
 			case DLG_POST_STORES_OK:
 			case DLG_POST_GENRES_OK:
 			case DLG_POST_SIS_OK:
+				
+			case ACTV_TAB_OPT_UPLOAD_DB:
 				
 				v.setBackgroundColor(Color.WHITE);
 				

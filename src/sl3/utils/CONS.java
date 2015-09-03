@@ -67,7 +67,10 @@ public class CONS {
 		public static final int dflt_SI_Num = 1;
 		
 		public static final int dflt_Exception_Id_Value = -1;
-		
+
+		// millseconds; used in Methods_dlg.dlg_ShowMessage_Duration
+		public static final int dflt_MessageDialog_Length	= 3000;
+
 	}
 	
 	public static class 
@@ -1147,5 +1150,60 @@ public class CONS {
 		public static Adp_LogFileList adp_LogFile_List;
 		
 	}
+
+	public static class Remote {
+		
+		public static enum FtpType {
+			
+			IMAGE, DB_FILE,
+			
+		}
+		
+		public static enum HttpType {
+			
+			IMAGE,
+			
+		}
+		
+		////////////////////////////////
+
+		// ftp
+
+		////////////////////////////////
+		public static String server_Name = "ftp.benfranklin.chips.jp";
+		
+		public static String uname = "chips.jp-benfranklin";
+		
+		public static String passwd = "9x9jh4";
+		
+		public static String remote_Root_Image = "./cake_apps/images/ta2";
+
+		public static String remote_Root_DBFile = "./android_app_data/SL3/db";
+		
+		// initialize res:int in Task_FTP.doInBackground()
+		public static int initial_IntValue = -100;
+		
+		////////////////////////////////
+
+		// status code
+
+		////////////////////////////////
+		public static final int status_220		= 220;
+
+		public static final int status_Created	= 201;
+		
+		public static final int status_NOT_CREATED	= -201;
+		
+		public static final int status_OK		= 200;
+		
+		public static class Http {
+			
+			public static final String url_Post_ImageData =
+						"http://benfranklin.chips.jp/cake_apps/Cake_TA2/images/add";
+			
+		}
+		
+	}
+
 
 }//public class CONS

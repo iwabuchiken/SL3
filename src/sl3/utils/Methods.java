@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.net.SocketException;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -84,7 +87,6 @@ import android.view.Display;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.view.ViewGroup.LayoutParams;
-
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8309,5 +8311,331 @@ public class Methods {
 		}
 
 	}//sortItemList__Genre
-	
+
+	/*********************************
+	 * REF=> http://www.searchman.info/tips/2640.html
+	 * 
+	 * #sqlite db file: "database disk image is malformed"
+	 * REF=> http://stackoverflow.com/questions/9058169/sqlite-database-disk-image-is-malformed-on-windows-but-fine-on-android
+	 * @return
+	 * -1	=> SocketException<br>
+	 * -2	=> IOException<br>
+	 * -3	=> IOException in disconnecting<br>
+	 * -4	=> Login failed<br>
+	 * -5	=> IOException in logging-in<br>
+	 * 
+	 * -6	=> storeFile returned false<br>
+	 * -7	=> can't find the source file<br>
+	 * -8	=> can't find the source file; can't disconnect FTP client<br>
+	 * -9	=> storeFile ---> IOException<br>
+	 * -10	=> storeFile ---> IOException; can't disconnect FTP client<br>
+	 * 
+	 * -11	=> set file type ---> failed<br>
+	 * -12	=> IOException in logging-in; can't disconnect FTP client<br>
+	 * 
+	 * -2	=> Log in failed<br>
+	 * >0	=> Reply code<br>
+	 * 
+	 *********************************/
+	public static int 
+	ftp_Remote_DB
+	(Activity actv) {
+		/*********************************
+		 * memo
+		 *********************************/
+		// FTP client
+		FTPClient fp = new FTPClient();
+		
+		int reply_code;
+		
+		// backup db name
+		String dbName_backup = String.format(Locale.JAPAN,
+					"%s_%s%s", 
+					CONS.DB.fname_DB_Backup_Trunk,
+					Methods.get_TimeLabel(
+							Methods.getMillSeconds_now()),
+					CONS.DB.fname_DB_Backup_ext
+					);
+		
+		String fpath_Src = 
+					actv.getDatabasePath(CONS.DB.dbName).getAbsolutePath();
+		
+		String fpath_remote = StringUtils.join(
+				new String[]{
+						CONS.Remote.remote_Root_DBFile,
+						dbName_backup
+				}, File.separator);
+		
+		/*********************************
+		 * Connect
+		 *********************************/
+		try {
+			
+			// Log
+			String msg_Log = "connecting...";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			fp.connect(CONS.Remote.server_Name);
+//			fp.connect(server_name);
+			
+			reply_code = fp.getReplyCode();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "fp.getReplyCode()=" + fp.getReplyCode());
+			
+		} catch (SocketException e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Error: " + e.toString());
+			
+			return -1;
+			
+		} catch (IOException e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Error: " + e.toString());
+			
+			return -2;
+		}
+		
+		/*********************************
+		 * Log in
+		 *********************************/
+		boolean res;
+		
+		try {
+			
+//			res = fp.login(uname, passwd);
+			res = fp.login(
+					CONS.Remote.uname, 
+					CONS.Remote.passwd);
+			
+			if(res == false) {
+				
+				reply_code = fp.getReplyCode();
+				
+				// Log
+				Log.e("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", "Log in failed => " + reply_code);
+				
+				fp.disconnect();
+				
+				return -4;
+				
+			} else {
+				
+				// Log
+				Log.d("Methods.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", "Log in => Succeeded");
+				
+			}
+			
+		} catch (IOException e1) {
+			
+			// Log
+			String msg_Log = "IOException";
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			e1.printStackTrace();
+			
+			try {
+				
+				fp.disconnect();
+				
+				return -5;
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+				return -12;
+				
+			}
+			
+		}
+		
+		/*********************************
+		 * FTP files
+		 *********************************/
+		// �t�@�C�����M
+		FileInputStream is;
+		
+		try {
+			
+			// Log
+			String msg_Log = "fpath_Src => " + fpath_Src;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			is = new FileInputStream(fpath_Src);
+//			is = new FileInputStream(fpath_audio);
+			
+			// Log
+			msg_Log = "Input stream => created";
+//			String msg_Log = "Input stream => created";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			////////*////////////////////////
+			
+			// set: file type
+			
+			////////////////////////////////
+			// REF http://stackoverflow.com/questions/7740817/how-to-upload-an-image-to-ftp-using-ftpclient answered Oct 12 '11 at 13:52
+			res = fp.setFileType(FTP.BINARY_FILE_TYPE);
+			
+			/******************************
+				validate
+			 ******************************/
+			if (res == false) {
+				
+				// Log
+				msg_Log = "set file type => failed";
+				Log.e("Methods.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", msg_Log);
+				
+				is.close();
+				
+				fp.disconnect();
+				
+				return -11;
+				
+			}
+			
+			////////////////////////////////
+			
+			// store
+			
+			////////////////////////////////
+			// Log
+			msg_Log = "Stroing file to remote... => "
+					+ fpath_remote;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+//			fp.storeFile("./" + MainActv.fileName_db, is);// �T�[�o�[��
+			res = fp.storeFile(fpath_remote, is);// �T�[�o�[��
+			
+//			fp.makeDirectory("./ABC");
+			
+			if (res == true) {
+				
+				// Log
+				Log.d("Methods.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", "File => Stored");
+				
+			} else {//if (res == true)
+				
+				// Log
+				Log.d("Methods.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", "Store file => Failed");
+				
+				fp.disconnect();
+				
+				return -6;
+				
+			}//if (res == true)
+			
+			is.close();
+			
+		} catch (FileNotFoundException e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Exception: " + e.toString());
+			
+			try {
+				
+				fp.disconnect();
+				
+				return -7;
+				
+			} catch (IOException e1) {
+				
+				e1.printStackTrace();
+				
+				return -8;
+				
+			}
+			
+			
+		} catch (IOException e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Exception: " + e.toString());
+			
+			try {
+				fp.disconnect();
+				
+				return -9;
+				
+			} catch (IOException e1) {
+				
+				
+				e1.printStackTrace();
+				
+				return -10;
+				
+			}
+			
+		}
+		
+		
+		//debug
+		/*********************************
+		 * Disconnect
+		 *********************************/
+		try {
+			
+			// Log
+			String msg_Log = "disconnecting...";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			fp.disconnect();
+			
+			// Log
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "fp => Disconnected");
+			
+			return reply_code;
+			
+		} catch (IOException e) {
+			
+			// Log
+			Log.e("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Error: " + e.toString());
+			
+			return -3;
+			
+		}
+		
+	}//ftp_DB_to_Remote
+
 }//public class Methods

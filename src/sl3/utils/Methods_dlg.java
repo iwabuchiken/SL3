@@ -2383,6 +2383,13 @@ public class Methods_dlg {
 							.setTextColor_ID(R.color.black)
 							.build());
 		
+		list.add(new ListItem.Builder()
+				.setText(actv.getString(
+						R.string.opt_TabActv_Admin_Ops__UploadDB))
+						.setIconID(R.drawable.menu_icon_admin_32x32_blue)
+						.setTextColor_ID(R.color.blue1)
+						.build());
+
 		
 		
 		/****************************
@@ -4516,43 +4523,6 @@ public class Methods_dlg {
 		
 	}//conf_Post_Sis
 	
-	/******************************
-		@param duration => millseconds
-	 ******************************/
-	public static void
-	dlg_ShowMessage_Duration
-	(Activity actv, String message, int duration) {
-		
-		final Dialog dlg = Methods_dlg.dlg_Template_Cancel(
-				actv, R.layout.dlg_tmpl_toast_ok, 
-				R.string.generic_confirm, 
-				R.id.dlg_tmpl_toast_ok_bt_cancel, 
-	//			R.id.dlg_db_admin_bt_cancel, 
-				Tags.DialogTags.DLG_GENERIC_DISMISS);
-		
-		TextView tv_Message = 
-				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
-		
-		tv_Message.setText(message);
-		
-		////////////////////////////////
-	
-		// show
-	
-		////////////////////////////////
-		dlg.show();
-		
-		//REF http://xjaphx.wordpress.com/2011/07/13/auto-close-dialog-after-a-specific-time/
-		final Timer t = new Timer();
-	    t.schedule(new TimerTask() {
-	        public void run() {
-	            dlg.dismiss(); // when the task active then close the dialog
-	            t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
-	        }
-	    }, duration); // after 2 second (or 2000 miliseconds), the task will be active.
-		
-	}
-
 	public static void 
 	dlg_Tab2_ClearSelections
 	(Activity actv, Dialog d1) {
@@ -4738,5 +4708,211 @@ public class Methods_dlg {
 		d2.show();
 		
 	}//dlg_Tab2_SortList
+
+	public static void 
+	conf_Upload_DB
+	(Activity actv, Dialog d1, Dialog d2, Tags.DialogTags tag_ButtonOK) {
+		// TODO Auto-generated method stub
+		
+		Dialog d3 = 
+				Methods_dlg.dlg_Tmpl_OkCancel_3rd_Dialogue(
+						actv, d1, d2,
+						R.layout.dlg_tmpl_confirm_simple, 
+						R.string.generic_confirm, 
+						
+						R.id.dlg_tmpl_confirm_simple_btn_ok, 
+						R.id.dlg_tmpl_confirm_simple_btn_cancel, 
+						
+						tag_ButtonOK, 
+						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG
+//						Tags.DialogTags.GENERIC_DISMISS_THIRD_DIALOG 
+						
+						);
+		
+		////////////////////////////////
+		
+		// view: message
+		
+		////////////////////////////////
+		TextView tv_Msg = 
+				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_message);
+		
+		tv_Msg.setText(actv.getString(
+				R.string.opt_TabActv_Admin_Ops__UploadDB)
+				+ "?");
+		
+//		////////////////////////////////
+//		
+//		// view: item name
+//		
+//		////////////////////////////////
+//		TextView tv_ItemName = 
+//				(TextView) d3.findViewById(R.id.dlg_tmpl_confirm_simple_tv_item_name);
+//		
+//		tv_ItemName.setText(CONS.DB.tname_si);
+		
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		d3.show();
+		
+	}//conf_Upload_DB
+
+	public static void
+	dlg_ShowMessage_4thDialog
+	(Activity actv, Dialog d1, Dialog d2, Dialog d3,
+			String message, int colorID) {
+		
+		Dialog d4 = Methods_dlg.dlg_Template_Cancel_4thDialog(
+				actv, d1, d2, d3,
+				R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_confirm, 
+//				R.string.generic_tv_confirm, 
+				
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+				Tags.DialogTags.GENERIC_DISMISS_4TH_DIALOG);
+		
+		TextView tv_Message = 
+				(TextView) d4.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		d4.show();
+		
+	}
+
+	public static Dialog 
+	dlg_Template_Cancel_4thDialog
+	(Activity actv, 
+		Dialog d1, Dialog d2, Dialog d3,
+		int layoutId, int titleStringId,
+		int cancelButtonId, Tags.DialogTags cancelTag) {
+		/****************************
+		 * Steps
+		 * 1. Set up
+		 * 2. Add listeners => OnTouch
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		
+		// 
+		Dialog d4 = new Dialog(actv);
+		
+		//
+		d4.setContentView(layoutId);
+		
+		// Title
+		d4.setTitle(titleStringId);
+		
+		/****************************
+		 * 2. Add listeners => OnTouch
+		 ****************************/
+		//
+		Button btn_cancel = (Button) d4.findViewById(cancelButtonId);
+		
+		//
+		btn_cancel.setTag(cancelTag);
+		
+		//
+		btn_cancel.setOnTouchListener(new DB_OTL(actv, d1, d2, d3, d4));
+		
+		/****************************
+		 * 3. Add listeners => OnClick
+		 ****************************/
+		//
+		btn_cancel.setOnClickListener(new DB_OCL(actv, d1, d2, d3, d4));
+		
+		//
+		//dlg.show();
+		
+		return d4;
+		
+	}//public static Dialog dlg_template_okCancel()
+	
+	/******************************
+		@param duration => millseconds
+	 ******************************/
+	public static void
+	dlg_ShowMessage_Duration
+	(Activity actv, String message, int duration) {
+		
+		final Dialog dlg = Methods_dlg.dlg_Template_Cancel(
+				actv, R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_confirm, 
+				R.id.dlg_tmpl_toast_ok_bt_cancel, 
+	//			R.id.dlg_db_admin_bt_cancel, 
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
+//		Tags.DialogTags.GENERIC_DISMISS);
+		
+		TextView tv_Message = 
+				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_tv_message);
+		
+		tv_Message.setText(message);
+		
+		////////////////////////////////
+	
+		// show
+	
+		////////////////////////////////
+		dlg.show();
+		
+		//REF http://xjaphx.wordpress.com/2011/07/13/auto-close-dialog-after-a-specific-time/
+		final Timer t = new Timer();
+	    t.schedule(new TimerTask() {
+	        public void run() {
+	            dlg.dismiss(); // when the task active then close the dialog
+	            t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
+	        }
+	    }, duration); // after 2 second (or 2000 miliseconds), the task will be active.
+		
+	}
+
+	/******************************
+		@param duration => millseconds
+	 ******************************/
+	public static void
+	dlg_ShowMessage_Duration
+	(Activity actv, String message, int colorID, int duration) {
+		
+		final Dialog dlg = Methods_dlg.dlg_Template_Cancel(
+				actv, R.layout.dlg_tmpl_toast_ok_scrollview, 
+	//			actv, R.layout.dlg_tmpl_toast_ok, 
+				R.string.generic_confirm, 
+				R.id.dlg_tmpl_toast_ok_scrollview_bt_cancel, 
+	//			R.id.dlg_db_admin_bt_cancel, 
+				Tags.DialogTags.DLG_GENERIC_DISMISS);
+		
+		TextView tv_Message = 
+				(TextView) dlg.findViewById(R.id.dlg_tmpl_toast_ok_scrollview_tv_message);
+		
+		tv_Message.setText(message);
+		
+		////////////////////////////////
+	
+		// background
+	
+		////////////////////////////////
+	//	tv_Message.setBackgroundColor(colorID);
+		tv_Message.setBackgroundColor(actv.getResources().getColor(colorID));
+	
+		////////////////////////////////
+		
+		// show
+		
+		////////////////////////////////
+		dlg.show();
+		
+		//REF http://xjaphx.wordpress.com/2011/07/13/auto-close-dialog-after-a-specific-time/
+		final Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			public void run() {
+				dlg.dismiss(); // when the task active then close the dialog
+				t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
+			}
+		}, duration); // after 2 second (or 2000 miliseconds), the task will be active.
+		
+	}
+
 
 }//public class Methods_dlg
